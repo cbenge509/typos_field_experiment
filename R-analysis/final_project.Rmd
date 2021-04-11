@@ -1,0 +1,340 @@
+---
+title: "Final Project"
+date: "04/03/2021"
+author: "Cris Benge, Andrew Fogarty, Stone Jiang"
+output: pdf_document
+---
+
+```{r load data, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyr)
+library(dplyr)
+library(data.table)
+options(datatable.WhenJisSymbolThenCallingScope=TRUE)
+library(knitr)
+library(stringr)
+
+library(sandwich)
+library(lmtest)
+
+#read in the data
+d <- fread("results_04092021_2.csv")
+
+#get all of the useful descriptions
+description <- head(d, 1)
+
+#Eliminate all preview responses
+d <- d[Status == 'IP Address']
+
+#Remove entries where our social media post was not shown
+d <- d[social_media_credability_group %in% c('control', 'phonological', 'typographical')]
+
+#remove tests
+d <- d[Q2.1 != 'test']
+
+#generate a row ID to easily merge in new information in long format
+d$ROWID <- seq(dim(d)[1])
+
+#pull out other demographics questions
+d_demo <- d [, grepl("ROWID", x=colnames(d)) | grepl("Q2", x=colnames(d)) | grepl("StartDate", x=colnames(d)), with = FALSE]
+
+#Use regex to pull out columns associated with our data
+#Don't need click data, just page submit data
+d <- d [, grepl("ROWID", x = colnames(d)) | !grepl(pattern="Click", x = colnames(d)) & (grepl(pattern="Q3[1-4]", x=colnames(d)) | grepl(pattern="social_media_cre", x=colnames(d))),
+        with = FALSE]
+#bind together
+#d <- cbind(d_us, d_demo)
+```
+
+```{r gather all data from each category into one frame}
+#process the control group
+processed_data <- d[social_media_credability_group == 'control', as.vector(colSums(d[social_media_credability_group == 'control'] != '') > 0), with = FALSE]
+
+#process treatment groups, keeping names of the control group
+for (group in c('phonological', 'typographical')) {
+    processed_data <- rbind(processed_data, 
+                            setNames(d[social_media_credability_group == group, 
+                                       as.vector(colSums(d[social_media_credability_group == group] != '') > 0), 
+                                       with = FALSE], 
+                                     names(processed_data)))
+}
+```
+
+```{r Process Field Names}
+#list of prompts we have
+prompt_order <- c('Diet',
+                  'Sports',
+                  'Accident',
+                  'Music',
+                  'Science',
+                  'Mind')
+
+#question types and submission times for each prompt
+question_type <- c('PromptTime',
+                   'QuestionTime',
+                   'Knowledge',
+                   'Length',
+                   'Interest',
+                   'Effective',
+                   'Intelligence',
+                   'Writing',
+                   'Meet',
+                   'Errors')
+
+#gather colnames and append to cnames
+cnames <- outer(question_type, prompt_order, paste)
+cnames <- append(cnames, c('Treatment', 'ROWID'))
+colnames(processed_data) <- cnames
+```
+
+```{r pivot longer based on each question}
+merge_prompt <- function(pdata, prompt){
+  ndata <- processed_data[, grepl("ROWID", x = colnames(processed_data)) | grepl(prompt, colnames(processed_data)) | grepl('Treatment', colnames(processed_data)), with = FALSE]
+  colnames(ndata) <- append(question_type, c('Treatment', 'ROWID'))
+  ndata[, Prompt := prompt]
+  return (rbind(pdata,ndata))
+}
+
+pdata <- processed_data[, grepl("ROWID", x = colnames(processed_data)) | grepl('Diet', colnames(processed_data)) | grepl('Treatment', colnames(processed_data)), with = FALSE]
+colnames(pdata) <- append(question_type, c('Treatment', 'ROWID'))
+pdata[, Prompt := 'Diet']
+
+for (prompt in prompt_order[2:6]) {
+  pdata <- merge_prompt(pdata, prompt)
+}
+```
+
+```{r process field types}
+#Set the time to completion as numeric
+pdata[, PromptTime := as.numeric(PromptTime)]
+pdata[, QuestionTime := as.numeric(QuestionTime)]
+
+#convert matrix questions to factor levels to be numeric
+pdata[,Interest := as.numeric(ifelse(Interest == '7 (highest)', 7, ifelse(Interest == '1 (lowest)', 1, Interest)))]
+pdata[,Effective := as.numeric(ifelse(Effective == '7 (highest)', 7, ifelse(Effective == '1 (lowest)', 1, Effective)))]
+pdata[,Intelligence := as.numeric(ifelse(Intelligence == '7 (highest)', 7, ifelse(Intelligence == '1 (lowest)', 1, Intelligence)))]
+pdata[,Writing := as.numeric(ifelse(Writing == '7 (highest)', 7, ifelse(Writing == '1 (lowest)', 1, Writing)))]
+pdata[,Meet := as.numeric(ifelse(Meet == '7 (highest)', 7, ifelse(Meet == '1 (lowest)', 1, Meet)))]
+
+#code the knowledge field as correct or incorrect
+correct_regex <- "Keto|Gold|Driving|Chicago, IL|0|Podcast"
+pdata[, Knowledge := as.numeric(grepl(correct_regex, pdata$Knowledge))]
+
+#capitalize treatment groups
+pdata$Treatment <- str_to_title(pdata$Treatment)
+```
+
+
+```{r Generate features for each post and merge based on question type}
+post_features <- data.table(post = c('Diet', 'Sports', 'Accident', 'Music', 'Science', 'Mind'),
+                            length = c(96, 38, 52, 75, 48, 40),
+                            typo_mistakes = c(0, 2, 1, 5, 2, 1),
+                            phono_mistakes = c(0, 2, 1, 7, 1, 1))
+
+#merge the lengths
+pdata <- merge(pdata, post_features[, .(post, length)], by.x='Prompt', by.y='post')
+
+#merge in the number of mistakes each post had
+control <- pdata[Treatment == 'Control']
+control$mistakes <- 0
+
+typo <- pdata[Treatment == 'Typographical']
+typo <- merge(typo, post_features[,.(post, typo_mistakes)], by.x = 'Prompt', by.y = 'post')
+setnames(typo, 'typo_mistakes', 'mistakes')
+
+phono <- pdata[Treatment == 'Phonological']
+phono <- merge(phono, post_features[,.(post, phono_mistakes)], by.x = 'Prompt', by.y = 'post')
+setnames(phono, 'phono_mistakes', 'mistakes')
+
+pdata <- rbind(control, typo, phono)
+```
+
+```{r Process and merge in demographics features}
+#demographics data
+demo_names <- c('Q2.1', 'Q2.2', 'Q2.3', 'Q2.4', 'Q2.6', 'Q2.7', 'Q2.8', 'Q2.14', 'Q2.18_1', 'Q.2.18_2','ROWID', "Start Date")
+d_demo <- d_demo[,.(Q2.1,Q2.2,Q2.3,Q2.4,Q2.6,Q2.7,Q2.8,Q2.14,Q2.18_1,Q2.18_2,ROWID,StartDate)]
+new_names <- c("Year", "Gender", "English", "Race", "Country", "State", "Student", "Degree", "ReadSocialMedia", "WriteSocialMedia",'ROWID', "Start Date")
+
+colnames(d_demo) <- new_names
+
+#merge in demographics features into data for each question
+pdata <- merge(pdata, d_demo, on = ROWID)
+```
+
+
+```{r NA features}
+#rows with NA
+pdata[rowSums(is.na(pdata)) > 0,] 
+
+#go ahead and remove these rows. The individual did not finish
+pdata <- pdata[rowSums(is.na(pdata)) == 0,] 
+```
+
+```{r additional features}
+#words per minute read for each post
+pdata[, wpm := length/(PromptTime/60)]
+```
+
+```{r clean the data before splitting}
+#pdata$Year
+
+#encode as number, replace obvious 19996, then set as age or OOC
+year <- as.numeric(pdata$Year)
+year <- ifelse(year == 19996, 1996,
+               ifelse(year > 2021 | year < 1900, NA, year)
+              )
+age <- 2021 - year
+age <- ifelse(is.na(age), 0, age)
+
+#bin age by buckets
+#0-17 (includes unknown)
+#18-25
+#26-30
+#31-35
+#36-40
+#41+
+age_bins <- cut(age, breaks = c(-1,17,25,30,35,40,100), labels = c('unknown','18-25','26-30','31-35','36-40','41+'))
+pdata$age <- age
+pdata$age_bins <- age_bins
+
+
+#mech turk vs berkeley
+pdata$StartDate <- as.Date(pdata$`Start Date`)
+pdata$isMechTurk <- ifelse(pdata$StartDate < as.Date("2021-04-06"), 1, 0)
+
+#Country
+pdata$isUS <- ifelse(pdata$Country == "United States of America" , 1, 0)
+```
+
+```{r filter data to subset}
+##add final filtering stages
+#calculate variance of responses to each question and only take responses with var > 0
+#pdata$response_var <- apply(pdata[,.(Interest, Effective, Intelligence, Writing, Meet)], 1, var) 
+#pdata <- pdata[response_var > 0 ]
+
+#wmp
+#pdata <- pdata[wpm > 50  & wpm < 500]
+```
+
+```{r output to cleaned dataset}
+write.csv(pdata, '/Users/stonejiang/Desktop/Stone/Berkeley_MIDS/Causal_Inference/final_project/final_data_cleaned.csv')
+```
+
+#Analysis starts
+
+```{r split across treatment and control questions}
+control_q <- pdata[Prompt == 'Diet']
+treatment_q <- pdata[Prompt != 'Diet']
+```
+
+#Placebo tests
+
+```{r Mech Turk}
+model_mechturk_control <- control_q[isMechTurk == 1, lm(Intelligence ~ Treatment)]
+coeftest(model_mechturk_control, vcov. = vcovHC)
+```
+
+The randomization was not great for MechTurk. We will exclude this data from the analysis.
+
+```{r Placebo Berkeley Data}
+model_ucb_control <- control_q[isMechTurk == 0, lm(Intelligence ~ Treatment)]
+coeftest(model_ucb_control, vcov. = vcovHC)
+```
+Great there's no issues here.
+
+#Baseline model
+
+```{r Baseline model for Berkeley students}
+treatment_ucb <- treatment_q[isMechTurk == 0]
+
+model_ucb_treatment <- treatment_ucb[, lm(Intelligence ~ Treatment)]
+coeftest(model_ucb_treatment, vcov. = vcovHC)
+```
+
+Highly statistically significant.
+
+#Model with post properties
+
+Properties include the Prompt type, "length" of the post. Perfectly collinear with other things like order of post, etc.
+```{r model with post properties (including order)}
+model_ucb_treatment_post <- treatment_ucb[, lm(Intelligence ~ Treatment + length)]
+coeftest(model_ucb_treatment_post, vcov. = vcovHC)
+```
+
+SE decreases slightly, estimates don't change.
+
+#Model controlling for demographics
+
+```{r model demographics}
+model_ucb_treatment_demo <- treatment_ucb[, lm(Intelligence ~ Treatment + length + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia)]
+coeftest(model_ucb_treatment_demo, vcov. = vcovHC)
+```
+Even including all of these variables there's no change in significance, and estimate of treatment effect improves.
+
+#Model with pretreatment variables
+```{r Pretreatment variables}
+treatment_q <- merge(treatment_q, control_q, on='ROWID', suffixes = c("",".pretreat"))
+treatment_ucb <- treatment_q[isMechTurk == 0]
+
+model_ucb_treatment_pretreat <- treatment_ucb[, lm(Intelligence ~ Treatment + length + length + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat)]
+coeftest(model_ucb_treatment_pretreat, vcov. = vcovHC)
+```
+Works still
+
+#Model -- does other experiment on social media affect ours??
+
+**Need to figure out how to do this in Qualtrics**
+
+#Model gender matter?
+
+```{r hetero gender}
+treatment_ucb$Gender <- relevel(factor(treatment_ucb$Gender), 'Cisgender Woman')
+model_ucb_treatment_gender_h <- treatment_ucb[, lm(Intelligence ~ Treatment + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat + Gender:Treatment)]
+coeftest(model_ucb_treatment_gender_h, vcov. = vcovHC)
+```  
+No interactions are statistically significant. 
+
+#Model age bin matter?
+
+```{r hetero age}
+model_ucb_treatment_gender_h <- treatment_ucb[, lm(Intelligence ~ Treatment + length + length + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat + age_bins:Treatment)]
+coeftest(model_ucb_treatment_gender_h, vcov. = vcovHC)
+```
+
+#Model answer question correctly and notice mistakes?
+
+```{r}
+treatment_ucb[, table(Treatment, Knowledge)]
+```
+
+```{r }
+treatment_ucb$CorrectlyNoticedErrors <- ifelse(treatment_ucb$Errors == "None or did not notice any",
+                                               ifelse(treatment_ucb$mistakes == 0, 1, 0),
+                                               ifelse(treatment_ucb$mistakes == 1, 1, 0))
+
+treatment_ucb[, table(Treatment, CorrectlyNoticedErrors)]
+```
+
+In control, much higher proportion correctly noticed these errors.
+
+Warning: Could be bad control.
+
+```{r knowledge and mistakes recognize}
+model_ucb_treatment_mistakes <- treatment_ucb[, lm(Intelligence ~ Treatment + length + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat + Knowledge + CorrectlyNoticedErrors)]
+coeftest(model_ucb_treatment_mistakes, vcov. = vcovHC)
+```
+Even for controlling for this, there's no effect! So it doesn't even matter what they noticed. 
+
+Analysis section order in the paper so far:
+
+1. EDA...download latest and fully clean the data
+2. Placebo test: mech turk vs berkeley data -- restrict to the berkeley data
+3. base model with no covariates added
+4. add model with properties of the post 
+5. add all of the demographics
+6. add baseline variables for pre-treatment placebo responses -- visualize this
+7. add effect of seeing other social media post first
+8. Is treatment effect stronger in male or female? Strong in older individuals than younger?
+9. whether they actually noticed any errors?
+
+Two experiments together: Mech Turk vs Berkeley
