@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"title": {"fontSize": 30, "font": "Lato", "anchor": "middle", "align": "center", "color": "#003262", "subtitleFontSize": 20, "subtitleFont": "Lato", "subtitleAcchor": "middle", "subtitleAlign": "center", "subtitleColor": "#003262", "dy": -20}, "axisX": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "axisY": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "headerRow": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 15, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "legend": {"labelFont": "Lato", "labelFontSize": 15, "labelColor": "#584f29", "symbolType": "stroke", "symbolStrokeWidth": 3, "symbolOpacity": 1.0, "symbolSize": 500, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262"}, "view": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "stroke": null}, "facet": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "spacing": 10}, "row": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "axis": {"grid": false}, "padding": {"top": 20, "left": 20, "right": 20, "bottom": 20}}, "layer": [{"mark": {"type": "bar", "line": {"color": "#888888"}}, "encoding": {"color": {"type": "ordinal", "field": "treatment", "legend": null, "scale": {"range": ["#46535e", "#003262", "#3b7ea1"]}}, "x": {"type": "ordinal", "axis": {"labelAngle": 0, "labelFontSize": 20, "labelPadding": 10, "title": "Assignment Group", "titleFontSize": 25}, "field": "treatment", "sort": ["Control", "Typographical", "Phonological"]}, "y": {"type": "quantitative", "axis": {"labelFontSize": 20, "labelPadding": 10, "title": "Participants Assigned", "titleFontSize": 25}, "field": "total", "scale": {"domain": [0, 14]}}}}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "color": "#FFFFFF", "dy": 20, "size": 20}, "encoding": {"text": {"type": "quantitative", "field": "total"}, "x": {"type": "ordinal", "axis": null, "field": "treatment", "sort": ["Control", "Typographical", "Phonological"]}, "y": {"type": "quantitative", "field": "total"}}}], "data": {"name": "data-e735684a8411246ca78ed125b102802b"}, "height": 300, "title": {"text": "Pilot Participation"}, "width": 650, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-e735684a8411246ca78ed125b102802b": [{"treatment": "Control", "total": 12}, {"treatment": "Phonological", "total": 6}, {"treatment": "Typographical", "total": 13}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

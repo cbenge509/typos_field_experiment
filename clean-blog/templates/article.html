@@ -26,7 +26,18 @@
 	<meta property="og:description" content="{{ article.headline }}">
 	<meta property="og:image" content="{{ SITEURL }}/{{ article.header_cover }}">
 	<meta property="article:published_time" content="{{ article.date }}">
+
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+
 {% endblock %}
+
 
 {% block header %}
     <!-- Page Header -->

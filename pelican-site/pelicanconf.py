@@ -33,5 +33,9 @@ DEFAULT_PAGINATION = 5
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 THEME = 'clean-blog'
-STATIC_PATHS = ['static']
+STATIC_PATHS = ['static','img']
 CUSTOM_CSS = 'static/custom.css'
+
+GITHUB_URL = 'https://github.com/cbenge509/typos_field_experiment'
+TWITTER_URL = 'http://twitter.com/myprofile'
+FACEBOOK_URL = 'http://facebook.com/myprofile'

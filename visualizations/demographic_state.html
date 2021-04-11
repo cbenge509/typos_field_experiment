@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"title": {"fontSize": 30, "font": "Lato", "anchor": "middle", "align": "center", "color": "#003262", "subtitleFontSize": 20, "subtitleFont": "Lato", "subtitleAcchor": "middle", "subtitleAlign": "center", "subtitleColor": "#003262"}, "axisX": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "axisY": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "headerRow": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 15, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "legend": {"labelFont": "Lato", "labelFontSize": 15, "labelColor": "#584f29", "symbolType": "stroke", "symbolStrokeWidth": 3, "symbolOpacity": 1.0, "symbolSize": 500, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262"}, "view": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "stroke": null, "strokeWidth": 0}, "facet": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "row": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "axis": {"grid": false}, "padding": {"top": 20, "left": 20, "right": 20, "bottom": 20}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "#FFFFFF", "strokeWidth": 0.25}, "encoding": {"color": {"type": "nominal", "field": "count", "legend": null, "scale": {"range": ["#46535e", "#00b0da", "#009dcb", "#008aba", "#0077aa", "#006598", "#005386", "#004274", "#003262"]}}, "tooltip": [{"type": "nominal", "field": "state", "title": "U.S. State"}, {"type": "quantitative", "field": "count", "title": "Participants"}]}, "height": 400, "projection": {"type": "albersUsa"}, "title": {"text": "Distribution of U.S. State"}, "transform": [{"lookup": "id", "from": {"data": {"name": "data-6e6658ebd0b7cc97dd42a5b1cbffc9dd"}, "key": "id", "fields": ["count", "state"]}}], "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-6e6658ebd0b7cc97dd42a5b1cbffc9dd": [{"state": "<MISSING>", "count": 26, "id": -99}, {"state": "Arizona", "count": 5, "id": 4}, {"state": "Arkansas", "count": 1, "id": 5}, {"state": "California", "count": 190, "id": 6}, {"state": "Colorado", "count": 2, "id": 8}, {"state": "Delaware", "count": 1, "id": 10}, {"state": "District of Columbia", "count": 1, "id": 11}, {"state": "Florida", "count": 1, "id": 12}, {"state": "Georgia", "count": 1, "id": 13}, {"state": "Hawaii", "count": 1, "id": 15}, {"state": "Idaho", "count": 1, "id": 16}, {"state": "Illinois", "count": 4, "id": 17}, {"state": "Kansas", "count": 1, "id": 20}, {"state": "Maryland", "count": 1, "id": 24}, {"state": "Massachusetts", "count": 2, "id": 25}, {"state": "Minnesota", "count": 1, "id": 27}, {"state": "Missouri", "count": 1, "id": 29}, {"state": "Nevada", "count": 1, "id": 32}, {"state": "New Jersey", "count": 7, "id": 34}, {"state": "New York", "count": 1, "id": 36}, {"state": "Oregon", "count": 1, "id": 41}, {"state": "South Carolina", "count": 2, "id": 45}, {"state": "Texas", "count": 6, "id": 48}, {"state": "Virginia", "count": 2, "id": 51}, {"state": "Washington", "count": 4, "id": 53}, {"state": "Wisconsin", "count": 1, "id": 55}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
