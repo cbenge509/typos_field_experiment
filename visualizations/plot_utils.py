@@ -720,3 +720,40 @@ def get_descriptive_statistics(df, cols = None):
         .T.style.background_gradient(cmap=sns.light_palette("#0067B0", as_cmap=True))\
         .set_precision(2)
     return rend
+
+
+###################################################################################
+###################################################################################
+
+## LIKERT SCALE ANSWER VARIANCE PLOT
+
+###################################################################################
+###################################################################################
+
+def get_likert_variance(df):
+
+    df2 = df.copy()
+    df2['likert_var'] = np.var(df2[['Interest','Effective','Intelligence','Writing','Meet']], axis=1)
+    df2['group'] = 'XLab'
+    df2.loc[(df2['Start Date'] < "2021-04-05"), 'group'] = 'Amazon'
+
+    at = alt.Chart(df2).transform_density('likert_var', as_=['likert_var','Density'], groupby=['group'])\
+        .mark_area(opacity=0.5, stroke=berkeley_palette['black'], strokeWidth=2)\
+        .encode(
+            x = alt.X('likert_var:Q', 
+                axis=alt.Axis(values=list(np.arange(0.0, 9.5, 0.5)), tickCount=19), title="Variance"),
+            y = alt.Y('Density:Q'),
+            color = alt.Color('group:N', 
+                scale=alt.Scale(domain=df2.group.unique(),
+                    range=[berkeley_palette['berkeley_blue'], berkeley_palette['california_gold']]),
+                legend = alt.Legend(title="Participant Group", padding=10, 
+                    symbolType="square", symbolStrokeWidth=1, orient="right", offset=-170)))\
+        .properties(height=250, width=650, title={'text':'Distribution of Variance', 'subtitle':'for Likert Scale Answers'})\
+            .configure(padding={'top':20, 'left':20, 'right':20,'bottom':20})\
+            .configure_facet(spacing=10)\
+            .configure_view(stroke=None)\
+            .configure_title(anchor='middle')\
+            .configure_axis(grid=False)\
+            .configure_title(dy=-5)
+    
+    return at
