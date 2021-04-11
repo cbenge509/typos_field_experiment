@@ -269,6 +269,578 @@ vegaEmbed("#vis5", spec5, embedOpt5)
 &lt;hr style="height:5px;border:none;color:#505050;background-color:#505050;" /&gt;
 
 &lt;h1&gt;Exploratory Data Analysis&lt;/h1&gt;
+&lt;p&gt;Below is a summary analysis of relevant findings in the preliminary exploration of the live study data.  Pilot data has not been included here for brevity.  &lt;font color="#D9661F"&gt;NOTE: This section is not an exhaustive EDA; rather, it is focused on showing &lt;b&gt;errata and interesting findings only&lt;/b&gt;.&lt;/font&gt;&lt;/p&gt;
+&lt;h2&gt;Demographics&lt;/h2&gt;
+&lt;p&gt;Demographic data was collected at the beginning of the ominbus study for all experimentation teams; as such, the questions asked are a composite of the questions formulated by the individual teams during research design.  Unfortunately, some data elements were captured via free-form text entry rather than a radio-button, drop-down, or other fixed selection mechanism and resultantly some of the data has mistaken entries or missing values.  Below is a distribution of the demographic data present in the omnibus results files:&lt;/p&gt;
+&lt;h3&gt;Distribution of Missing Demographic Data&lt;/h3&gt;
+&lt;style type="text/css"&gt;
+    #T_a800b_row0_col0 {
+        width: 10em;
+        height: 80%;
+        background: linear-gradient(90deg, #22a7f0 7.1%, transparent 7.1%);
+    }
+
+    #T_a800b_row0_col3 {
+        background-color: #f0f1f3;
+        color: #000000;
+    }
+
+    #T_a800b_row1_col0,
+    #T_a800b_row2_col0,
+    #T_a800b_row3_col0,
+    #T_a800b_row7_col0 {
+        width: 10em;
+        height: 80%;
+    }
+
+    #T_a800b_row1_col3 {
+        background-color: #85b3d5;
+        color: #000000;
+    }
+
+    #T_a800b_row2_col3 {
+        background-color: #0067b0;
+        color: #f1f1f1;
+    }
+
+    #T_a800b_row3_col3 {
+        background-color: #a5c6de;
+        color: #000000;
+    }
+
+    #T_a800b_row4_col0 {
+        width: 10em;
+        height: 80%;
+        background: linear-gradient(90deg, #22a7f0 18.7%, transparent 18.7%);
+    }
+
+    #T_a800b_row4_col3 {
+        background-color: #ccdce9;
+        color: #000000;
+    }
+
+    #T_a800b_row5_col0 {
+        width: 10em;
+        height: 80%;
+        background: linear-gradient(90deg, #22a7f0 100.0%, transparent 100.0%);
+    }
+
+    #T_a800b_row5_col1 {
+        background-color: black;
+        color: white;
+    }
+
+    #T_a800b_row5_col3 {
+        background-color: #e9edf1;
+        color: #000000;
+    }
+
+    #T_a800b_row6_col0 {
+        width: 10em;
+        height: 80%;
+        background: linear-gradient(90deg, #22a7f0 3.9%, transparent 3.9%);
+    }
+
+    #T_a800b_row6_col3 {
+        background-color: #69a3cd;
+        color: #000000;
+    }
+
+    #T_a800b_row7_col3 {
+        background-color: #428dc2;
+        color: #000000;
+    }
+&lt;/style&gt;
+&lt;table id="T_a800b_" cellpadding="20" width=740&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th class="blank level0"&gt;&lt;/th&gt;
+            &lt;th class="col_heading level0 col0"&gt;% Missing Values&lt;/th&gt;
+            &lt;th class="col_heading level0 col1"&gt;Missing Values&lt;/th&gt;
+            &lt;th class="col_heading level0 col2"&gt;Non-Null Values&lt;/th&gt;
+            &lt;th class="col_heading level0 col3"&gt;Density&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th id="T_a800b_level0_row0" class="row_heading level0 row0"&gt;Year&lt;/th&gt;
+            &lt;td id="T_a800b_row0_col0" class="data row0 col0"&gt;0.69&lt;/td&gt;
+            &lt;td id="T_a800b_row0_col1" class="data row0 col1"&gt;11&lt;/td&gt;
+            &lt;td id="T_a800b_row0_col2" class="data row0 col2"&gt;1576&lt;/td&gt;
+            &lt;td id="T_a800b_row0_col3" class="data row0 col3"&gt;0.03&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th id="T_a800b_level0_row1" class="row_heading level0 row1"&gt;Gender&lt;/th&gt;
+            &lt;td id="T_a800b_row1_col0" class="data row1 col0"&gt;0.00&lt;/td&gt;
+            &lt;td id="T_a800b_row1_col1" class="data row1 col1"&gt;0&lt;/td&gt;
+            &lt;td id="T_a800b_row1_col2" class="data row1 col2"&gt;1587&lt;/td&gt;
+            &lt;td id="T_a800b_row1_col3" class="data row1 col3"&gt;0.17&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th id="T_a800b_level0_row2" class="row_heading level0 row2"&gt;English&lt;/th&gt;
+            &lt;td id="T_a800b_row2_col0" class="data row2 col0"&gt;0.00&lt;/td&gt;
+            &lt;td id="T_a800b_row2_col1" class="data row2 col1"&gt;0&lt;/td&gt;
+            &lt;td id="T_a800b_row2_col2" class="data row2 col2"&gt;1587&lt;/td&gt;
+            &lt;td id="T_a800b_row2_col3" class="data row2 col3"&gt;0.33&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th id="T_a800b_level0_row3" class="row_heading level0 row3"&gt;Race&lt;/th&gt;
+            &lt;td id="T_a800b_row3_col0" class="data row3 col0"&gt;0.00&lt;/td&gt;
+            &lt;td id="T_a800b_row3_col1" class="data row3 col1"&gt;0&lt;/td&gt;
+            &lt;td id="T_a800b_row3_col2" class="data row3 col2"&gt;1587&lt;/td&gt;
+            &lt;td id="T_a800b_row3_col3" class="data row3 col3"&gt;0.12&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th id="T_a800b_level0_row4" class="row_heading level0 row4"&gt;Country&lt;/th&gt;
+            &lt;td id="T_a800b_row4_col0" class="data row4 col0"&gt;1.83&lt;/td&gt;
+            &lt;td id="T_a800b_row4_col1" class="data row4 col1"&gt;29&lt;/td&gt;
+            &lt;td id="T_a800b_row4_col2" class="data row4 col2"&gt;1558&lt;/td&gt;
+            &lt;td id="T_a800b_row4_col3" class="data row4 col3"&gt;0.08&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th id="T_a800b_level0_row5" class="row_heading level0 row5"&gt;State&lt;/th&gt;
+            &lt;td id="T_a800b_row5_col0" class="data row5 col0"&gt;9.77&lt;/td&gt;
+            &lt;td id="T_a800b_row5_col1" class="data row5 col1"&gt;155&lt;/td&gt;
+            &lt;td id="T_a800b_row5_col2" class="data row5 col2"&gt;1432&lt;/td&gt;
+            &lt;td id="T_a800b_row5_col3" class="data row5 col3"&gt;0.04&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th id="T_a800b_level0_row6" class="row_heading level0 row6"&gt;Student&lt;/th&gt;
+            &lt;td id="T_a800b_row6_col0" class="data row6 col0"&gt;0.38&lt;/td&gt;
+            &lt;td id="T_a800b_row6_col1" class="data row6 col1"&gt;6&lt;/td&gt;
+            &lt;td id="T_a800b_row6_col2" class="data row6 col2"&gt;1581&lt;/td&gt;
+            &lt;td id="T_a800b_row6_col3" class="data row6 col3"&gt;0.20&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th id="T_a800b_level0_row7" class="row_heading level0 row7"&gt;Degree&lt;/th&gt;
+            &lt;td id="T_a800b_row7_col0" class="data row7 col0"&gt;0.00&lt;/td&gt;
+            &lt;td id="T_a800b_row7_col1" class="data row7 col1"&gt;0&lt;/td&gt;
+            &lt;td id="T_a800b_row7_col2" class="data row7 col2"&gt;1587&lt;/td&gt;
+            &lt;td id="T_a800b_row7_col3" class="data row7 col3"&gt;0.25&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" /&gt;
+
+&lt;h3&gt;Demographic: YEAR&lt;/h3&gt;
+&lt;p&gt;The &lt;strong&gt;YEAR&lt;/strong&gt; variable was intended to capture the celendar year of the study participants birth; of the 265 study particpants in the live study, only 255 had valid entries; their distribution is depicted below.&lt;/p&gt;
+&lt;div id="vis6"&gt;&lt;/div&gt;
+&lt;script&gt;
+(function(vegaEmbed) {
+var spec6 = {"config": {"title": {"fontSize": 30, "font": "Lato", "anchor": "middle", "align": "center", "color": "#003262", "subtitleFontSize": 20, "subtitleFont": "Lato", "subtitleAcchor": "middle", "subtitleAlign": "center", "subtitleColor": "#003262", "dy": -10}, "axisX": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "axisY": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "headerRow": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 15, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "legend": {"labelFont": "Lato", "labelFontSize": 15, "labelColor": "#584f29", "symbolType": "stroke", "symbolStrokeWidth": 3, "symbolOpacity": 1.0, "symbolSize": 500, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262"}, "view": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "stroke": null}, "facet": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "spacing": 10}, "row": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "axis": {"grid": false}, "padding": {"top": 20, "left": 20, "right": 20, "bottom": 20}}, "data": {"name": "data-6125ad11fc0ea32d1789b8e322efec70"}, "mark": {"type": "bar", "color": "#46535e", "line": {"color": "#888888"}, "size": 15}, "encoding": {"x": {"type": "quantitative", "axis": {"format": ".0f", "labelAngle": -45}, "bin": false, "field": "year", "scale": {"domain": [1970, 2003]}, "title": "Year of Birth"}, "y": {"type": "quantitative", "axis": {"title": "Frequency"}, "field": "count"}}, "height": 300, "title": {"text": "Distribution of Birth Year", "subtitle": "Valid Data Only"}, "width": 650, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-6125ad11fc0ea32d1789b8e322efec70": [{"year": 1970, "count": 1}, {"year": 1974, "count": 1}, {"year": 1975, "count": 1}, {"year": 1978, "count": 3}, {"year": 1979, "count": 1}, {"year": 1982, "count": 1}, {"year": 1984, "count": 3}, {"year": 1985, "count": 1}, {"year": 1988, "count": 1}, {"year": 1989, "count": 6}, {"year": 1990, "count": 6}, {"year": 1991, "count": 1}, {"year": 1992, "count": 2}, {"year": 1993, "count": 7}, {"year": 1994, "count": 6}, {"year": 1995, "count": 6}, {"year": 1996, "count": 8}, {"year": 1997, "count": 14}, {"year": 1998, "count": 24}, {"year": 1999, "count": 48}, {"year": 2000, "count": 53}, {"year": 2001, "count": 40}, {"year": 2002, "count": 20}, {"year": 2003, "count": 1}]}};
+var embedOpt6 = {"mode": "vega-lite"};
+
+function showError(el6, error){
+el6.innerHTML = ('&lt;div class="error" style="color:red;"&gt;'
++ '&lt;p&gt;JavaScript Error: ' + error.message + '&lt;/p&gt;'
++ "&lt;p&gt;This usually means there's a typo in your chart specification. "
++ "See the javascript console for the full traceback.&lt;/p&gt;"
++ '&lt;/div&gt;');
+throw error;
+}
+const el6 = document.getElementById('vis6');
+vegaEmbed("#vis6", spec6, embedOpt6)
+.catch(error =&gt; showError(el6, error));
+})(vegaEmbed);
+
+&lt;/script&gt;
+
+&lt;p&gt;&lt;font color="#D9661F#"&gt;&lt;b&gt;Ten of the entires&lt;/b&gt;&lt;/font&gt; in &lt;strong&gt;YEAR&lt;/strong&gt;, which was presented to the participant as a free-form text box, &lt;font color="#D9661F#"&gt;&lt;b&gt;are invalid as-is&lt;/b&gt;&lt;/font&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# df contains a pandas dataframe with the live study survey data&lt;/span&gt;
+&lt;span class="n"&gt;df2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;df2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Year&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fillna&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;lt;MISSING&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;df2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groupby&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ROWID&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;\
+    &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reset_index&lt;/span&gt;&lt;span class="p"&gt;()[[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ROWID&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value_counts&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dropna&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;\
+    &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reset_index&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rename&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;index&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort_values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;strange_values&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;19996&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;25&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;26&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;54&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;lt;MISSING&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Los Angeles&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Mumbai, India&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;US&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;2020&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;df2&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;df2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;strange_values&lt;/span&gt;&lt;span class="p"&gt;))]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;year&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;unique&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Results:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;array(['19996', '2020', '25', '26', '54', '&amp;lt;MISSING&amp;gt;', 'Los Angeles', 'Mumbai, India', 'US'], dtype=object)&lt;/code&gt;&lt;/p&gt;
+&lt;hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" /&gt;
+
+&lt;h3&gt;Demographic: GENDER&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;GENDER&lt;/strong&gt; data was provided by the study participant through selection of a single-select radio button choice menu. In our data, Cisgender Women drastically outweight the rest of the combined genders; this may be the result of Cisgender Woman being the first option in the menu (and thus was selected by 'default' whereby the participant did not change the option).  The option &lt;em&gt;Transgender Woman&lt;/em&gt; was presented to the study participants, &lt;font color="#D9661F#"&gt;&lt;b&gt;but was not selected&lt;/b&gt;&lt;/font&gt;.&lt;/p&gt;
+&lt;div id="vis7"&gt;&lt;/div&gt;
+&lt;script&gt;
+(function(vegaEmbed) {
+var spec7 = {"config": {"title": {"fontSize": 30, "font": "Lato", "anchor": "middle", "align": "center", "color": "#003262", "subtitleFontSize": 20, "subtitleFont": "Lato", "subtitleAcchor": "middle", "subtitleAlign": "center", "subtitleColor": "#003262", "dy": -20}, "axisX": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "axisY": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "headerRow": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 15, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "legend": {"labelFont": "Lato", "labelFontSize": 15, "labelColor": "#584f29", "symbolType": "stroke", "symbolStrokeWidth": 3, "symbolOpacity": 1.0, "symbolSize": 500, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262"}, "view": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "stroke": null}, "facet": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "spacing": 10}, "row": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "axis": {"grid": false}, "padding": {"top": 20, "left": 20, "right": 20, "bottom": 20}}, "layer": [{"mark": {"type": "bar", "color": "#ee1f60", "opacity": 0.85, "stroke": "#003262", "strokeWidth": 1}, "encoding": {"x": {"type": "nominal", "axis": {"labelAngle": -45, "labelFontSize": 20, "title": "Participant Gender", "titleFontSize": 25}, "field": "gender"}, "y": {"type": "quantitative", "axis": {"title": "Frequency", "titleFontSize": 25}, "field": "count"}}}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "color": "#46535e", "dy": -20, "size": 20}, "encoding": {"text": {"type": "quantitative", "field": "count"}, "x": {"type": "nominal", "axis": null, "field": "gender"}, "y": {"type": "quantitative", "axis": null, "field": "count"}}}], "data": {"name": "data-3a075517e54573694a56d5abc67f1547"}, "height": 300, "title": {"text": "Distribution of Gender"}, "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-3a075517e54573694a56d5abc67f1547": [{"gender": "Cisgender Man", "count": 84}, {"gender": "Cisgender Woman", "count": 159}, {"gender": "Non-binary", "count": 11}, {"gender": "Other", "count": 4}, {"gender": "Prefer not to disclose", "count": 5}, {"gender": "Transgender Man", "count": 2}]}};
+var embedOpt7 = {"mode": "vega-lite"};
+
+function showError(el7, error){
+el7.innerHTML = ('&lt;div class="error" style="color:red;"&gt;'
++ '&lt;p&gt;JavaScript Error: ' + error.message + '&lt;/p&gt;'
++ "&lt;p&gt;This usually means there's a typo in your chart specification. "
++ "See the javascript console for the full traceback.&lt;/p&gt;"
++ '&lt;/div&gt;');
+throw error;
+}
+const el7 = document.getElementById('vis7');
+vegaEmbed("#vis7", spec7, embedOpt7)
+.catch(error =&gt; showError(el7, error));
+})(vegaEmbed);
+
+&lt;/script&gt;
+
+&lt;hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" /&gt;
+
+&lt;h3&gt;Demographic: COUNTRY&lt;/h3&gt;
+&lt;p&gt;The &lt;strong&gt;COUNTRY&lt;/strong&gt; variable represents the birth country of the study participant.  The vast majority of participants in our study were from the &lt;em&gt;United States of America&lt;/em&gt;; however, we did have &lt;font color="#D9661F"&gt;&lt;b&gt;five missing values&lt;/b&gt;&lt;/font&gt; in the field, indicating the study participant either did not want to provide one or elected not enter it for another reason.&lt;/p&gt;
+&lt;div id="vis8"&gt;&lt;/div&gt;
+&lt;script&gt;
+(function(vegaEmbed) {
+var spec8 = {"config": {"title": {"fontSize": 30, "font": "Lato", "anchor": "middle", "align": "center", "color": "#003262", "subtitleFontSize": 20, "subtitleFont": "Lato", "subtitleAcchor": "middle", "subtitleAlign": "center", "subtitleColor": "#003262"}, "axisX": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "axisY": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "headerRow": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 15, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "legend": {"labelFont": "Lato", "labelFontSize": 15, "labelColor": "#584f29", "symbolType": "stroke", "symbolStrokeWidth": 3, "symbolOpacity": 1.0, "symbolSize": 500, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262"}, "view": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "stroke": null, "strokeWidth": 0}, "facet": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "row": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "axis": {"grid": false}, "padding": {"top": 20, "left": 20, "right": 20, "bottom": 20}}, "layer": [{"mark": {"type": "geoshape", "fill": "white"}}, {"mark": {"type": "geoshape", "stroke": "#ddd5c7", "strokeWidth": 0.25}, "encoding": {"color": {"type": "nominal", "field": "count", "legend": null, "scale": {"range": ["#46535e", "#00b0da", "#00a598", "#3b7ea1", "#3b7ea1", "#003262"]}}, "tooltip": [{"type": "nominal", "field": "country", "title": "Country"}, {"type": "quantitative", "field": "count", "title": "Participants"}]}, "transform": [{"lookup": "id", "from": {"data": {"name": "data-294e3d7ace893320dd9b382e8eb8dac1"}, "key": "id", "fields": ["count", "country"]}}]}], "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/world-110m.json", "format": {"feature": "countries", "type": "topojson"}}, "height": 400, "projection": {"type": "naturalEarth1"}, "title": {"text": "Distribution of Country"}, "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-294e3d7ace893320dd9b382e8eb8dac1": [{"country": "&lt;MISSING&gt;", "count": 5, "id": 0}, {"country": "Afghanistan", "count": 1, "id": 4}, {"country": "Canada", "count": 3, "id": 124}, {"country": "China", "count": 1, "id": 156}, {"country": "France", "count": 1, "id": 250}, {"country": "Hong Kong (S.A.R.)", "count": 1, "id": 344}, {"country": "India", "count": 3, "id": 356}, {"country": "Italy", "count": 2, "id": 380}, {"country": "Mexico", "count": 1, "id": 484}, {"country": "New Zealand", "count": 1, "id": 554}, {"country": "Portugal", "count": 1, "id": 620}, {"country": "Singapore", "count": 1, "id": 702}, {"country": "United Kingdom of Great Britain and Northern Ireland", "count": 5, "id": 826}, {"country": "United States of America", "count": 239, "id": 840}]}};
+var embedOpt8 = {"mode": "vega-lite"};
+
+function showError(el8, error){
+el8.innerHTML = ('&lt;div class="error" style="color:red;"&gt;'
++ '&lt;p&gt;JavaScript Error: ' + error.message + '&lt;/p&gt;'
++ "&lt;p&gt;This usually means there's a typo in your chart specification. "
++ "See the javascript console for the full traceback.&lt;/p&gt;"
++ '&lt;/div&gt;');
+throw error;
+}
+const el8 = document.getElementById('vis8');
+vegaEmbed("#vis8", spec8, embedOpt8)
+.catch(error =&gt; showError(el8, error));
+})(vegaEmbed);
+
+&lt;/script&gt;
+
+&lt;hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" /&gt;
+
+&lt;h3&gt;Demographic: STATE&lt;/h3&gt;
+&lt;p&gt;A total of 25 unique U.S. States were represented in the demographic data identifying the birth state of those participants born in the United States.  The vast majority of those who participated in the survey were from California; &lt;font color="#D9661F#"&gt;&lt;b&gt;26 participants did not specify a state&lt;/b&gt;&lt;/font&gt; during the demographic section of the survey.  Fortunately, &lt;font color="#3b7ea1"&gt;&lt;b&gt;all 26 missing states are for participants with a missing or non-US country&lt;/b&gt;&lt;/font&gt; listed as their birth country.&lt;/p&gt;
+&lt;div id="vis9"&gt;&lt;/div&gt;
+&lt;script&gt;
+(function(vegaEmbed) {
+var spec9 = {"config": {"title": {"fontSize": 30, "font": "Lato", "anchor": "middle", "align": "center", "color": "#003262", "subtitleFontSize": 20, "subtitleFont": "Lato", "subtitleAcchor": "middle", "subtitleAlign": "center", "subtitleColor": "#003262"}, "axisX": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "axisY": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "headerRow": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 15, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "legend": {"labelFont": "Lato", "labelFontSize": 15, "labelColor": "#584f29", "symbolType": "stroke", "symbolStrokeWidth": 3, "symbolOpacity": 1.0, "symbolSize": 500, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262"}, "view": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "stroke": null, "strokeWidth": 0}, "facet": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "row": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "axis": {"grid": false}, "padding": {"top": 20, "left": 20, "right": 20, "bottom": 20}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json", "format": {"feature": "states", "type": "topojson"}}, "mark": {"type": "geoshape", "stroke": "#FFFFFF", "strokeWidth": 0.25}, "encoding": {"color": {"type": "nominal", "field": "count", "legend": null, "scale": {"range": ["#46535e", "#00b0da", "#009dcb", "#008aba", "#0077aa", "#006598", "#005386", "#004274", "#003262"]}}, "tooltip": [{"type": "nominal", "field": "state", "title": "U.S. State"}, {"type": "quantitative", "field": "count", "title": "Participants"}]}, "height": 400, "projection": {"type": "albersUsa"}, "title": {"text": "Distribution of U.S. State"}, "transform": [{"lookup": "id", "from": {"data": {"name": "data-6e6658ebd0b7cc97dd42a5b1cbffc9dd"}, "key": "id", "fields": ["count", "state"]}}], "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-6e6658ebd0b7cc97dd42a5b1cbffc9dd": [{"state": "&lt;MISSING&gt;", "count": 26, "id": -99}, {"state": "Arizona", "count": 5, "id": 4}, {"state": "Arkansas", "count": 1, "id": 5}, {"state": "California", "count": 190, "id": 6}, {"state": "Colorado", "count": 2, "id": 8}, {"state": "Delaware", "count": 1, "id": 10}, {"state": "District of Columbia", "count": 1, "id": 11}, {"state": "Florida", "count": 1, "id": 12}, {"state": "Georgia", "count": 1, "id": 13}, {"state": "Hawaii", "count": 1, "id": 15}, {"state": "Idaho", "count": 1, "id": 16}, {"state": "Illinois", "count": 4, "id": 17}, {"state": "Kansas", "count": 1, "id": 20}, {"state": "Maryland", "count": 1, "id": 24}, {"state": "Massachusetts", "count": 2, "id": 25}, {"state": "Minnesota", "count": 1, "id": 27}, {"state": "Missouri", "count": 1, "id": 29}, {"state": "Nevada", "count": 1, "id": 32}, {"state": "New Jersey", "count": 7, "id": 34}, {"state": "New York", "count": 1, "id": 36}, {"state": "Oregon", "count": 1, "id": 41}, {"state": "South Carolina", "count": 2, "id": 45}, {"state": "Texas", "count": 6, "id": 48}, {"state": "Virginia", "count": 2, "id": 51}, {"state": "Washington", "count": 4, "id": 53}, {"state": "Wisconsin", "count": 1, "id": 55}]}};
+var embedOpt9 = {"mode": "vega-lite"};
+
+function showError(el9, error){
+el9.innerHTML = ('&lt;div class="error" style="color:red;"&gt;'
++ '&lt;p&gt;JavaScript Error: ' + error.message + '&lt;/p&gt;'
++ "&lt;p&gt;This usually means there's a typo in your chart specification. "
++ "See the javascript console for the full traceback.&lt;/p&gt;"
++ '&lt;/div&gt;');
+throw error;
+}
+const el9 = document.getElementById('vis9');
+vegaEmbed("#vis9", spec9, embedOpt9)
+.catch(error =&gt; showError(el9, error));
+})(vegaEmbed);
+
+&lt;/script&gt;
+
+&lt;hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" /&gt;
+
+&lt;h3&gt;Demographic: STUDENT&lt;/h3&gt;
+&lt;p&gt;The majority of respondants (approximately ~72%) were undergraduate students, with a small mix of &lt;em&gt;Other&lt;/em&gt;, &lt;em&gt;Graduate Student&lt;/em&gt;, &lt;em&gt;Staff&lt;/em&gt;, and &lt;em&gt;Faculty&lt;/em&gt; represented.  Only &lt;font color="#D9661F#"&gt;&lt;b&gt;one missing value&lt;/b&gt;&lt;/font&gt; for student status was found in the demographic portion of the survey data.&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;a href="img/demographic_student.png"&gt;&lt;img src="img/demographic_student.png" width=750 /&gt;&lt;/a&gt;&lt;/center&gt;&lt;/p&gt;
+&lt;hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" /&gt;
+
+&lt;h2&gt;Survey Response Data&lt;/h2&gt;
+&lt;p&gt;Findings from response data from the live survey is outlined in this section. Analysis will generally be performed by displaying response data for that collected through Amazon Mechanical Turk and data collected from UC Berkeley XLab separately.&lt;/p&gt;
+&lt;h3&gt;Descriptive Statistics&lt;/h3&gt;
+&lt;p&gt;Below are descriptive statistics for the primary response data of interest.&lt;/p&gt;
+&lt;h4&gt;Descriptive Statistics : Amazon Mechanical Turk&lt;/h4&gt;
+&lt;style  type="text/css" &gt;
+#T_b17eb_row0_col0,#T_b17eb_row0_col3,#T_b17eb_row1_col0,#T_b17eb_row2_col0,#T_b17eb_row3_col0,#T_b17eb_row3_col1,#T_b17eb_row3_col2,#T_b17eb_row3_col5,#T_b17eb_row3_col6,#T_b17eb_row3_col7,#T_b17eb_row4_col0,#T_b17eb_row4_col1,#T_b17eb_row4_col2,#T_b17eb_row4_col6,#T_b17eb_row4_col7,#T_b17eb_row5_col0,#T_b17eb_row5_col1,#T_b17eb_row5_col2,#T_b17eb_row5_col6,#T_b17eb_row5_col7,#T_b17eb_row6_col0,#T_b17eb_row6_col1,#T_b17eb_row6_col2,#T_b17eb_row6_col5,#T_b17eb_row6_col6,#T_b17eb_row6_col7,#T_b17eb_row7_col0,#T_b17eb_row7_col1,#T_b17eb_row7_col2,#T_b17eb_row7_col4,#T_b17eb_row7_col5,#T_b17eb_row7_col6,#T_b17eb_row7_col7{
+background-color:  #f0f1f3;
+color:  #000000;
+}#T_b17eb_row0_col1{
+background-color:  #e0e7ee;
+color:  #000000;
+}#T_b17eb_row0_col2{
+background-color:  #d1dfea;
+color:  #000000;
+}#T_b17eb_row0_col4,#T_b17eb_row0_col5,#T_b17eb_row0_col6{
+background-color:  #e2e9ef;
+color:  #000000;
+}#T_b17eb_row0_col7{
+background-color:  #b5cfe3;
+color:  #000000;
+}#T_b17eb_row1_col1{
+background-color:  #d7e3ec;
+color:  #000000;
+}#T_b17eb_row1_col2{
+background-color:  #d2dfea;
+color:  #000000;
+}#T_b17eb_row1_col3,#T_b17eb_row2_col1,#T_b17eb_row2_col2,#T_b17eb_row2_col4,#T_b17eb_row2_col5,#T_b17eb_row2_col6,#T_b17eb_row2_col7{
+background-color:  #0067b0;
+color:  #f1f1f1;
+}#T_b17eb_row1_col4{
+background-color:  #cedde9;
+color:  #000000;
+}#T_b17eb_row1_col5,#T_b17eb_row1_col6{
+background-color:  #d3e0eb;
+color:  #000000;
+}#T_b17eb_row1_col7{
+background-color:  #accae0;
+color:  #000000;
+}#T_b17eb_row2_col3{
+background-color:  #7baed2;
+color:  #000000;
+}#T_b17eb_row3_col3,#T_b17eb_row4_col3,#T_b17eb_row5_col3,#T_b17eb_row6_col3,#T_b17eb_row7_col3{
+background-color:  #e3eaef;
+color:  #000000;
+}#T_b17eb_row3_col4,#T_b17eb_row6_col4{
+background-color:  #eef0f2;
+color:  #000000;
+}#T_b17eb_row4_col4,#T_b17eb_row5_col4{
+background-color:  #eceef2;
+color:  #000000;
+}#T_b17eb_row4_col5,#T_b17eb_row5_col5{
+background-color:  #eff0f2;
+color:  #000000;
+}&lt;/style&gt;
+&lt;table id="T_b17eb_" cellpadding="20" width=740&gt;&lt;thead&gt;    &lt;tr&gt;        &lt;th class="blank level0" &gt;&lt;/th&gt;        &lt;th class="col_heading level0 col0" &gt;count&lt;/th&gt;        &lt;th class="col_heading level0 col1" &gt;mean&lt;/th&gt;        &lt;th class="col_heading level0 col2" &gt;std&lt;/th&gt;        &lt;th class="col_heading level0 col3" &gt;min&lt;/th&gt;        &lt;th class="col_heading level0 col4" &gt;25%&lt;/th&gt;        &lt;th class="col_heading level0 col5" &gt;50%&lt;/th&gt;        &lt;th class="col_heading level0 col6" &gt;75%&lt;/th&gt;        &lt;th class="col_heading level0 col7" &gt;max&lt;/th&gt;    &lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th id="T_b17eb_level0_row0" class="row_heading level0 row0" &gt;PromptTime&lt;/th&gt;
+&lt;td id="T_b17eb_row0_col0" class="data row0 col0" &gt;334.00&lt;/td&gt;
+&lt;td id="T_b17eb_row0_col1" class="data row0 col1" &gt;30.16&lt;/td&gt;
+&lt;td id="T_b17eb_row0_col2" class="data row0 col2" &gt;75.98&lt;/td&gt;
+&lt;td id="T_b17eb_row0_col3" class="data row0 col3" &gt;0.74&lt;/td&gt;
+&lt;td id="T_b17eb_row0_col4" class="data row0 col4" &gt;9.38&lt;/td&gt;
+&lt;td id="T_b17eb_row0_col5" class="data row0 col5" &gt;15.29&lt;/td&gt;
+&lt;td id="T_b17eb_row0_col6" class="data row0 col6" &gt;25.93&lt;/td&gt;
+&lt;td id="T_b17eb_row0_col7" class="data row0 col7" &gt;967.12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_b17eb_level0_row1" class="row_heading level0 row1" &gt;QuestionTime&lt;/th&gt;
+&lt;td id="T_b17eb_row1_col0" class="data row1 col0" &gt;334.00&lt;/td&gt;
+&lt;td id="T_b17eb_row1_col1" class="data row1 col1" &gt;43.90&lt;/td&gt;
+&lt;td id="T_b17eb_row1_col2" class="data row1 col2" &gt;74.77&lt;/td&gt;
+&lt;td id="T_b17eb_row1_col3" class="data row1 col3" &gt;5.86&lt;/td&gt;
+&lt;td id="T_b17eb_row1_col4" class="data row1 col4" &gt;19.31&lt;/td&gt;
+&lt;td id="T_b17eb_row1_col5" class="data row1 col5" &gt;28.61&lt;/td&gt;
+&lt;td id="T_b17eb_row1_col6" class="data row1 col6" &gt;46.65&lt;/td&gt;
+&lt;td id="T_b17eb_row1_col7" class="data row1 col7" &gt;1114.19&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_b17eb_level0_row2" class="row_heading level0 row2" &gt;wpm&lt;/th&gt;
+&lt;td id="T_b17eb_row2_col0" class="data row2 col0" &gt;334.00&lt;/td&gt;
+&lt;td id="T_b17eb_row2_col1" class="data row2 col1" &gt;395.53&lt;/td&gt;
+&lt;td id="T_b17eb_row2_col2" class="data row2 col2" &gt;574.86&lt;/td&gt;
+&lt;td id="T_b17eb_row2_col3" class="data row2 col3" &gt;3.23&lt;/td&gt;
+&lt;td id="T_b17eb_row2_col4" class="data row2 col4" &gt;122.29&lt;/td&gt;
+&lt;td id="T_b17eb_row2_col5" class="data row2 col5" &gt;209.68&lt;/td&gt;
+&lt;td id="T_b17eb_row2_col6" class="data row2 col6" &gt;346.46&lt;/td&gt;
+&lt;td id="T_b17eb_row2_col7" class="data row2 col7" &gt;3913.04&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_b17eb_level0_row3" class="row_heading level0 row3" &gt;Interest&lt;/th&gt;
+&lt;td id="T_b17eb_row3_col0" class="data row3 col0" &gt;334.00&lt;/td&gt;
+&lt;td id="T_b17eb_row3_col1" class="data row3 col1" &gt;3.97&lt;/td&gt;
+&lt;td id="T_b17eb_row3_col2" class="data row3 col2" &gt;1.64&lt;/td&gt;
+&lt;td id="T_b17eb_row3_col3" class="data row3 col3" &gt;1.00&lt;/td&gt;
+&lt;td id="T_b17eb_row3_col4" class="data row3 col4" &gt;3.00&lt;/td&gt;
+&lt;td id="T_b17eb_row3_col5" class="data row3 col5" &gt;4.00&lt;/td&gt;
+&lt;td id="T_b17eb_row3_col6" class="data row3 col6" &gt;5.00&lt;/td&gt;
+&lt;td id="T_b17eb_row3_col7" class="data row3 col7" &gt;7.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_b17eb_level0_row4" class="row_heading level0 row4" &gt;Effective&lt;/th&gt;
+&lt;td id="T_b17eb_row4_col0" class="data row4 col0" &gt;334.00&lt;/td&gt;
+&lt;td id="T_b17eb_row4_col1" class="data row4 col1" &gt;4.60&lt;/td&gt;
+&lt;td id="T_b17eb_row4_col2" class="data row4 col2" &gt;1.41&lt;/td&gt;
+&lt;td id="T_b17eb_row4_col3" class="data row4 col3" &gt;1.00&lt;/td&gt;
+&lt;td id="T_b17eb_row4_col4" class="data row4 col4" &gt;4.00&lt;/td&gt;
+&lt;td id="T_b17eb_row4_col5" class="data row4 col5" &gt;5.00&lt;/td&gt;
+&lt;td id="T_b17eb_row4_col6" class="data row4 col6" &gt;6.00&lt;/td&gt;
+&lt;td id="T_b17eb_row4_col7" class="data row4 col7" &gt;7.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_b17eb_level0_row5" class="row_heading level0 row5" &gt;Intelligence&lt;/th&gt;
+&lt;td id="T_b17eb_row5_col0" class="data row5 col0" &gt;334.00&lt;/td&gt;
+&lt;td id="T_b17eb_row5_col1" class="data row5 col1" &gt;4.55&lt;/td&gt;
+&lt;td id="T_b17eb_row5_col2" class="data row5 col2" &gt;1.40&lt;/td&gt;
+&lt;td id="T_b17eb_row5_col3" class="data row5 col3" &gt;1.00&lt;/td&gt;
+&lt;td id="T_b17eb_row5_col4" class="data row5 col4" &gt;4.00&lt;/td&gt;
+&lt;td id="T_b17eb_row5_col5" class="data row5 col5" &gt;5.00&lt;/td&gt;
+&lt;td id="T_b17eb_row5_col6" class="data row5 col6" &gt;6.00&lt;/td&gt;
+&lt;td id="T_b17eb_row5_col7" class="data row5 col7" &gt;7.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_b17eb_level0_row6" class="row_heading level0 row6" &gt;Writing&lt;/th&gt;
+&lt;td id="T_b17eb_row6_col0" class="data row6 col0" &gt;334.00&lt;/td&gt;
+&lt;td id="T_b17eb_row6_col1" class="data row6 col1" &gt;4.33&lt;/td&gt;
+&lt;td id="T_b17eb_row6_col2" class="data row6 col2" &gt;1.50&lt;/td&gt;
+&lt;td id="T_b17eb_row6_col3" class="data row6 col3" &gt;1.00&lt;/td&gt;
+&lt;td id="T_b17eb_row6_col4" class="data row6 col4" &gt;3.25&lt;/td&gt;
+&lt;td id="T_b17eb_row6_col5" class="data row6 col5" &gt;4.00&lt;/td&gt;
+&lt;td id="T_b17eb_row6_col6" class="data row6 col6" &gt;5.00&lt;/td&gt;
+&lt;td id="T_b17eb_row6_col7" class="data row6 col7" &gt;7.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_b17eb_level0_row7" class="row_heading level0 row7" &gt;Meet&lt;/th&gt;
+&lt;td id="T_b17eb_row7_col0" class="data row7 col0" &gt;334.00&lt;/td&gt;
+&lt;td id="T_b17eb_row7_col1" class="data row7 col1" &gt;3.68&lt;/td&gt;
+&lt;td id="T_b17eb_row7_col2" class="data row7 col2" &gt;1.79&lt;/td&gt;
+&lt;td id="T_b17eb_row7_col3" class="data row7 col3" &gt;1.00&lt;/td&gt;
+&lt;td id="T_b17eb_row7_col4" class="data row7 col4" &gt;2.00&lt;/td&gt;
+&lt;td id="T_b17eb_row7_col5" class="data row7 col5" &gt;4.00&lt;/td&gt;
+&lt;td id="T_b17eb_row7_col6" class="data row7 col6" &gt;5.00&lt;/td&gt;
+&lt;td id="T_b17eb_row7_col7" class="data row7 col7" &gt;7.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;hr&gt;
+&lt;h4&gt;Descriptive Statistics : Berkeley XLab&lt;/h4&gt;
+&lt;style  type="text/css" &gt;
+#T_bd724_row0_col0,#T_bd724_row0_col3,#T_bd724_row1_col0,#T_bd724_row2_col0,#T_bd724_row3_col0,#T_bd724_row3_col1,#T_bd724_row3_col2,#T_bd724_row3_col4,#T_bd724_row3_col6,#T_bd724_row3_col7,#T_bd724_row4_col0,#T_bd724_row4_col2,#T_bd724_row4_col7,#T_bd724_row5_col0,#T_bd724_row5_col1,#T_bd724_row5_col2,#T_bd724_row5_col6,#T_bd724_row5_col7,#T_bd724_row6_col0,#T_bd724_row6_col1,#T_bd724_row6_col2,#T_bd724_row6_col6,#T_bd724_row6_col7,#T_bd724_row7_col0,#T_bd724_row7_col1,#T_bd724_row7_col2,#T_bd724_row7_col4,#T_bd724_row7_col5,#T_bd724_row7_col6,#T_bd724_row7_col7{
+background-color:  #f0f1f3;
+color:  #000000;
+}#T_bd724_row0_col1,#T_bd724_row0_col6{
+background-color:  #e5ebf0;
+color:  #000000;
+}#T_bd724_row0_col2{
+background-color:  #d6e2ec;
+color:  #000000;
+}#T_bd724_row0_col4,#T_bd724_row0_col5{
+background-color:  #e4eaf0;
+color:  #000000;
+}#T_bd724_row0_col7{
+background-color:  #abc9e0;
+color:  #000000;
+}#T_bd724_row1_col1{
+background-color:  #dde6ee;
+color:  #000000;
+}#T_bd724_row1_col2{
+background-color:  #d3e0eb;
+color:  #000000;
+}#T_bd724_row1_col3,#T_bd724_row2_col1,#T_bd724_row2_col2,#T_bd724_row2_col4,#T_bd724_row2_col5,#T_bd724_row2_col6,#T_bd724_row2_col7{
+background-color:  #0067b0;
+color:  #f1f1f1;
+}#T_bd724_row1_col4{
+background-color:  #d7e3ec;
+color:  #000000;
+}#T_bd724_row1_col5{
+background-color:  #dae4ed;
+color:  #000000;
+}#T_bd724_row1_col6{
+background-color:  #dee6ee;
+color:  #000000;
+}#T_bd724_row1_col7{
+background-color:  #b1cce1;
+color:  #000000;
+}#T_bd724_row2_col3{
+background-color:  #c5d8e7;
+color:  #000000;
+}#T_bd724_row3_col3,#T_bd724_row4_col3,#T_bd724_row5_col3,#T_bd724_row6_col3,#T_bd724_row7_col3{
+background-color:  #e1e8ef;
+color:  #000000;
+}#T_bd724_row3_col5,#T_bd724_row4_col1,#T_bd724_row4_col6{
+background-color:  #eff0f2;
+color:  #000000;
+}#T_bd724_row4_col4{
+background-color:  #eceef2;
+color:  #000000;
+}#T_bd724_row4_col5,#T_bd724_row5_col4,#T_bd724_row6_col4{
+background-color:  #edeff2;
+color:  #000000;
+}#T_bd724_row5_col5,#T_bd724_row6_col5{
+background-color:  #eef0f2;
+color:  #000000;
+}&lt;/style&gt;
+&lt;table id="T_bd724_" cellpadding="20" width=740&gt;&lt;thead&gt;    &lt;tr&gt;        &lt;th class="blank level0" &gt;&lt;/th&gt;        &lt;th class="col_heading level0 col0" &gt;count&lt;/th&gt;        &lt;th class="col_heading level0 col1" &gt;mean&lt;/th&gt;        &lt;th class="col_heading level0 col2" &gt;std&lt;/th&gt;        &lt;th class="col_heading level0 col3" &gt;min&lt;/th&gt;        &lt;th class="col_heading level0 col4" &gt;25%&lt;/th&gt;        &lt;th class="col_heading level0 col5" &gt;50%&lt;/th&gt;        &lt;th class="col_heading level0 col6" &gt;75%&lt;/th&gt;        &lt;th class="col_heading level0 col7" &gt;max&lt;/th&gt;    &lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th id="T_bd724_level0_row0" class="row_heading level0 row0" &gt;PromptTime&lt;/th&gt;
+&lt;td id="T_bd724_row0_col0" class="data row0 col0" &gt;1253.00&lt;/td&gt;
+&lt;td id="T_bd724_row0_col1" class="data row0 col1" &gt;18.17&lt;/td&gt;
+&lt;td id="T_bd724_row0_col2" class="data row0 col2" &gt;47.53&lt;/td&gt;
+&lt;td id="T_bd724_row0_col3" class="data row0 col3" &gt;0.54&lt;/td&gt;
+&lt;td id="T_bd724_row0_col4" class="data row0 col4" &gt;9.22&lt;/td&gt;
+&lt;td id="T_bd724_row0_col5" class="data row0 col5" &gt;13.29&lt;/td&gt;
+&lt;td id="T_bd724_row0_col6" class="data row0 col6" &gt;19.28&lt;/td&gt;
+&lt;td id="T_bd724_row0_col7" class="data row0 col7" &gt;1570.79&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_bd724_level0_row1" class="row_heading level0 row1" &gt;QuestionTime&lt;/th&gt;
+&lt;td id="T_bd724_row1_col0" class="data row1 col0" &gt;1253.00&lt;/td&gt;
+&lt;td id="T_bd724_row1_col1" class="data row1 col1" &gt;30.20&lt;/td&gt;
+&lt;td id="T_bd724_row1_col2" class="data row1 col2" &gt;51.57&lt;/td&gt;
+&lt;td id="T_bd724_row1_col3" class="data row1 col3" &gt;7.81&lt;/td&gt;
+&lt;td id="T_bd724_row1_col4" class="data row1 col4" &gt;18.05&lt;/td&gt;
+&lt;td id="T_bd724_row1_col5" class="data row1 col5" &gt;23.56&lt;/td&gt;
+&lt;td id="T_bd724_row1_col6" class="data row1 col6" &gt;31.38&lt;/td&gt;
+&lt;td id="T_bd724_row1_col7" class="data row1 col7" &gt;1432.50&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_bd724_level0_row2" class="row_heading level0 row2" &gt;wpm&lt;/th&gt;
+&lt;td id="T_bd724_row2_col0" class="data row2 col0" &gt;1253.00&lt;/td&gt;
+&lt;td id="T_bd724_row2_col1" class="data row2 col1" &gt;347.49&lt;/td&gt;
+&lt;td id="T_bd724_row2_col2" class="data row2 col2" &gt;428.14&lt;/td&gt;
+&lt;td id="T_bd724_row2_col3" class="data row2 col3" &gt;1.83&lt;/td&gt;
+&lt;td id="T_bd724_row2_col4" class="data row2 col4" &gt;165.30&lt;/td&gt;
+&lt;td id="T_bd724_row2_col5" class="data row2 col5" &gt;241.83&lt;/td&gt;
+&lt;td id="T_bd724_row2_col6" class="data row2 col6" &gt;356.52&lt;/td&gt;
+&lt;td id="T_bd724_row2_col7" class="data row2 col7" &gt;5423.73&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_bd724_level0_row3" class="row_heading level0 row3" &gt;Interest&lt;/th&gt;
+&lt;td id="T_bd724_row3_col0" class="data row3 col0" &gt;1253.00&lt;/td&gt;
+&lt;td id="T_bd724_row3_col1" class="data row3 col1" &gt;2.90&lt;/td&gt;
+&lt;td id="T_bd724_row3_col2" class="data row3 col2" &gt;1.68&lt;/td&gt;
+&lt;td id="T_bd724_row3_col3" class="data row3 col3" &gt;1.00&lt;/td&gt;
+&lt;td id="T_bd724_row3_col4" class="data row3 col4" &gt;1.00&lt;/td&gt;
+&lt;td id="T_bd724_row3_col5" class="data row3 col5" &gt;3.00&lt;/td&gt;
+&lt;td id="T_bd724_row3_col6" class="data row3 col6" &gt;4.00&lt;/td&gt;
+&lt;td id="T_bd724_row3_col7" class="data row3 col7" &gt;7.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_bd724_level0_row4" class="row_heading level0 row4" &gt;Effective&lt;/th&gt;
+&lt;td id="T_bd724_row4_col0" class="data row4 col0" &gt;1253.00&lt;/td&gt;
+&lt;td id="T_bd724_row4_col1" class="data row4 col1" &gt;4.65&lt;/td&gt;
+&lt;td id="T_bd724_row4_col2" class="data row4 col2" &gt;1.65&lt;/td&gt;
+&lt;td id="T_bd724_row4_col3" class="data row4 col3" &gt;1.00&lt;/td&gt;
+&lt;td id="T_bd724_row4_col4" class="data row4 col4" &gt;4.00&lt;/td&gt;
+&lt;td id="T_bd724_row4_col5" class="data row4 col5" &gt;5.00&lt;/td&gt;
+&lt;td id="T_bd724_row4_col6" class="data row4 col6" &gt;6.00&lt;/td&gt;
+&lt;td id="T_bd724_row4_col7" class="data row4 col7" &gt;7.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_bd724_level0_row5" class="row_heading level0 row5" &gt;Intelligence&lt;/th&gt;
+&lt;td id="T_bd724_row5_col0" class="data row5 col0" &gt;1253.00&lt;/td&gt;
+&lt;td id="T_bd724_row5_col1" class="data row5 col1" &gt;3.96&lt;/td&gt;
+&lt;td id="T_bd724_row5_col2" class="data row5 col2" &gt;1.47&lt;/td&gt;
+&lt;td id="T_bd724_row5_col3" class="data row5 col3" &gt;1.00&lt;/td&gt;
+&lt;td id="T_bd724_row5_col4" class="data row5 col4" &gt;3.00&lt;/td&gt;
+&lt;td id="T_bd724_row5_col5" class="data row5 col5" &gt;4.00&lt;/td&gt;
+&lt;td id="T_bd724_row5_col6" class="data row5 col6" &gt;5.00&lt;/td&gt;
+&lt;td id="T_bd724_row5_col7" class="data row5 col7" &gt;7.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_bd724_level0_row6" class="row_heading level0 row6" &gt;Writing&lt;/th&gt;
+&lt;td id="T_bd724_row6_col0" class="data row6 col0" &gt;1253.00&lt;/td&gt;
+&lt;td id="T_bd724_row6_col1" class="data row6 col1" &gt;3.62&lt;/td&gt;
+&lt;td id="T_bd724_row6_col2" class="data row6 col2" &gt;1.50&lt;/td&gt;
+&lt;td id="T_bd724_row6_col3" class="data row6 col3" &gt;1.00&lt;/td&gt;
+&lt;td id="T_bd724_row6_col4" class="data row6 col4" &gt;3.00&lt;/td&gt;
+&lt;td id="T_bd724_row6_col5" class="data row6 col5" &gt;4.00&lt;/td&gt;
+&lt;td id="T_bd724_row6_col6" class="data row6 col6" &gt;5.00&lt;/td&gt;
+&lt;td id="T_bd724_row6_col7" class="data row6 col7" &gt;7.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="T_bd724_level0_row7" class="row_heading level0 row7" &gt;Meet&lt;/th&gt;
+&lt;td id="T_bd724_row7_col0" class="data row7 col0" &gt;1253.00&lt;/td&gt;
+&lt;td id="T_bd724_row7_col1" class="data row7 col1" &gt;2.64&lt;/td&gt;
+&lt;td id="T_bd724_row7_col2" class="data row7 col2" &gt;1.57&lt;/td&gt;
+&lt;td id="T_bd724_row7_col3" class="data row7 col3" &gt;1.00&lt;/td&gt;
+&lt;td id="T_bd724_row7_col4" class="data row7 col4" &gt;1.00&lt;/td&gt;
+&lt;td id="T_bd724_row7_col5" class="data row7 col5" &gt;2.00&lt;/td&gt;
+&lt;td id="T_bd724_row7_col6" class="data row7 col6" &gt;4.00&lt;/td&gt;
+&lt;td id="T_bd724_row7_col7" class="data row7 col7" &gt;7.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" /&gt;
+
+&lt;h3&gt;Questionable Responses&lt;/h3&gt;
+&lt;p&gt;There were a number of dubious appearing responses in the data; from uniform likert-scale choices to implausible response times.  In this section, we'll highlight a few of the data issues.&lt;/p&gt;
 &lt;hr style="height:5px;border:none;color:#505050;background-color:#505050;" /&gt;
 
 &lt;h1&gt;Intelligence Measurements (XLab Only)&lt;/h1&gt;
