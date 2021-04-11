@@ -1,0 +1,156 @@
+"","ID","Type","Start","End","Age","Gender","English","Degree","Read","Make","Effective","Intelligence","Interest","Length","Like","Mistakes","q","Writing","q_num"
+"1",1,"C","3/11/21 0:18:46","3/11/21 0:28:15","18 - 25 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",6,4,4,"Appropriate",2,"None or did not notice any",1,4,1
+"2",1,"C","3/11/21 0:18:46","3/11/21 0:28:15","18 - 25 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,3,2,"Appropriate",2,"1 or 2",1,3,2
+"3",1,"C","3/11/21 0:18:46","3/11/21 0:28:15","18 - 25 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",6,4,4,"Appropriate",1,"1 or 2",0,4,3
+"5",1,"C","3/11/21 0:18:46","3/11/21 0:28:15","18 - 25 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,5,4,"Appropriate",2,"None or did not notice any",1,4,5
+"6",1,"C","3/11/21 0:18:46","3/11/21 0:28:15","18 - 25 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,4,4,"Appropriate",3,"None or did not notice any",1,4,6
+"7",2,"C","3/11/21 1:04:49","3/11/21 1:12:28","41+ years old","Male","Yes","Master's Degree","Weekly","Less Often",5,4,1,"Appropriate",2,"None or did not notice any",1,5,1
+"8",2,"C","3/11/21 1:04:49","3/11/21 1:12:28","41+ years old","Male","Yes","Master's Degree","Weekly","Less Often",5,5,2,"Appropriate",2,"1 or 2",1,4,2
+"9",2,"C","3/11/21 1:04:49","3/11/21 1:12:28","41+ years old","Male","Yes","Master's Degree","Weekly","Less Often",1,3,1,"Too long",1,"Between 6 and 9",0,2,3
+"11",2,"C","3/11/21 1:04:49","3/11/21 1:12:28","41+ years old","Male","Yes","Master's Degree","Weekly","Less Often",4,5,2,"Appropriate",4,"1 or 2",1,3,5
+"12",2,"C","3/11/21 1:04:49","3/11/21 1:12:28","41+ years old","Male","Yes","Master's Degree","Weekly","Less Often",2,2,1,"Appropriate",1,"1 or 2",1,1,6
+"13",3,"C","3/11/21 10:20:03","3/11/21 10:28:47","36 - 40 years old","Male","Yes","Master's Degree","Weekly","Less Often",6,6,3,"Appropriate",4,"None or did not notice any",1,5,1
+"14",3,"C","3/11/21 10:20:03","3/11/21 10:28:47","36 - 40 years old","Male","Yes","Master's Degree","Weekly","Less Often",7,6,2,"Appropriate",2,"1 or 2",1,6,2
+"15",3,"C","3/11/21 10:20:03","3/11/21 10:28:47","36 - 40 years old","Male","Yes","Master's Degree","Weekly","Less Often",5,6,2,"Too long",2,"1 or 2",0,4,3
+"17",3,"C","3/11/21 10:20:03","3/11/21 10:28:47","36 - 40 years old","Male","Yes","Master's Degree","Weekly","Less Often",6,6,2,"Appropriate",2,"None or did not notice any",1,6,5
+"18",3,"C","3/11/21 10:20:03","3/11/21 10:28:47","36 - 40 years old","Male","Yes","Master's Degree","Weekly","Less Often",6,6,2,"Appropriate",3,"None or did not notice any",0,5,6
+"19",4,"C","3/11/21 15:10:43","3/11/21 15:36:20","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,6,2,"Appropriate",6,"1 or 2",1,5,1
+"20",4,"C","3/11/21 15:10:43","3/11/21 15:36:20","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",4,4,2,"Appropriate",4,"Between 2 and 5",1,3,2
+"21",4,"C","3/11/21 15:10:43","3/11/21 15:36:20","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",4,4,2,"Appropriate",5,"Between 2 and 5",0,3,3
+"23",4,"C","3/11/21 15:10:43","3/11/21 15:36:20","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",4,4,2,"Appropriate",4,"1 or 2",0,3,5
+"24",4,"C","3/11/21 15:10:43","3/11/21 15:36:20","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,5,2,"Appropriate",4,"None or did not notice any",1,4,6
+"25",5,"C","3/11/21 16:04:00","3/11/21 16:14:05","18 - 25 years old","Male","Yes","High School","Daily","Less Often",6,5,4,"Appropriate",3,"None or did not notice any",0,4,1
+"26",5,"C","3/11/21 16:04:00","3/11/21 16:14:05","18 - 25 years old","Male","Yes","High School","Daily","Less Often",4,3,3,"Too long",2,"1 or 2",1,4,2
+"27",5,"C","3/11/21 16:04:00","3/11/21 16:14:05","18 - 25 years old","Male","Yes","High School","Daily","Less Often",6,5,5,"Appropriate",5,"None or did not notice any",0,5,3
+"29",5,"C","3/11/21 16:04:00","3/11/21 16:14:05","18 - 25 years old","Male","Yes","High School","Daily","Less Often",5,5,4,"Appropriate",4,"None or did not notice any",1,5,5
+"30",5,"C","3/11/21 16:04:00","3/11/21 16:14:05","18 - 25 years old","Male","Yes","High School","Daily","Less Often",6,5,4,"Appropriate",5,"None or did not notice any",1,6,6
+"31",6,"C","3/11/21 19:55:10","3/11/21 19:59:07","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,5,3,"Appropriate",2,"None or did not notice any",1,5,1
+"32",6,"C","3/11/21 19:55:10","3/11/21 19:59:07","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,4,2,"Appropriate",3,"1 or 2",1,3,2
+"33",6,"C","3/11/21 19:55:10","3/11/21 19:59:07","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,5,2,"Appropriate",2,"1 or 2",0,4,3
+"35",6,"C","3/11/21 19:55:10","3/11/21 19:59:07","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",2,2,2,"Appropriate",2,"None or did not notice any",1,2,5
+"36",6,"C","3/11/21 19:55:10","3/11/21 19:59:07","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",2,3,2,"Appropriate",2,"None or did not notice any",0,2,6
+"37",7,"C","3/11/21 19:55:20","3/11/21 20:00:35","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,5,3,"Appropriate",2,"None or did not notice any",1,5,1
+"38",7,"C","3/11/21 19:55:20","3/11/21 20:00:35","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,4,2,"Appropriate",3,"1 or 2",1,3,2
+"39",7,"C","3/11/21 19:55:20","3/11/21 20:00:35","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,5,2,"Appropriate",2,"1 or 2",0,4,3
+"41",7,"C","3/11/21 19:55:20","3/11/21 20:00:35","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",2,2,2,"Appropriate",2,"None or did not notice any",1,2,5
+"42",7,"C","3/11/21 19:55:20","3/11/21 20:00:35","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",2,3,2,"Appropriate",2,"None or did not notice any",0,2,6
+"43",8,"C","3/11/21 19:56:38","3/11/21 20:00:35","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,5,3,"Appropriate",2,"None or did not notice any",1,5,1
+"44",8,"C","3/11/21 19:56:38","3/11/21 20:00:35","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,4,2,"Appropriate",3,"1 or 2",1,3,2
+"45",8,"C","3/11/21 19:56:38","3/11/21 20:00:35","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,5,2,"Appropriate",2,"1 or 2",0,4,3
+"47",8,"C","3/11/21 19:56:38","3/11/21 20:00:35","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",2,2,2,"Appropriate",2,"None or did not notice any",1,2,5
+"48",8,"C","3/11/21 19:56:38","3/11/21 20:00:35","31 - 35 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",2,3,2,"Appropriate",2,"None or did not notice any",0,2,6
+"49",9,"C","3/11/21 22:05:12","3/11/21 22:12:55","41+ years old","Female","Yes","Prefer not to say","Daily","Daily",6,5,4,"Appropriate",4,"1 or 2",1,5,1
+"50",9,"C","3/11/21 22:05:12","3/11/21 22:12:55","41+ years old","Female","Yes","Prefer not to say","Daily","Daily",6,5,3,"Appropriate",5,"None or did not notice any",1,5,2
+"51",9,"C","3/11/21 22:05:12","3/11/21 22:12:55","41+ years old","Female","Yes","Prefer not to say","Daily","Daily",5,5,3,"Too long",4,"1 or 2",0,5,3
+"53",9,"C","3/11/21 22:05:12","3/11/21 22:12:55","41+ years old","Female","Yes","Prefer not to say","Daily","Daily",4,4,3,"Appropriate",4,"None or did not notice any",0,4,5
+"54",9,"C","3/11/21 22:05:12","3/11/21 22:12:55","41+ years old","Female","Yes","Prefer not to say","Daily","Daily",4,4,4,"Appropriate",4,"None or did not notice any",1,4,6
+"55",10,"C","3/12/21 5:09:05","3/12/21 5:15:05","41+ years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,5,4,"Appropriate",5,"None or did not notice any",1,6,1
+"56",10,"C","3/12/21 5:09:05","3/12/21 5:15:05","41+ years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,6,4,"Appropriate",5,"1 or 2",1,5,2
+"57",10,"C","3/12/21 5:09:05","3/12/21 5:15:05","41+ years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,4,3,"Too long",3,"None or did not notice any",0,4,3
+"59",10,"C","3/12/21 5:09:05","3/12/21 5:15:05","41+ years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,4,3,"Appropriate",3,"None or did not notice any",1,4,5
+"60",10,"C","3/12/21 5:09:05","3/12/21 5:15:05","41+ years old","Female","Yes","Bachelor's Degree","Daily","Less Often",5,4,3,"Appropriate",5,"None or did not notice any",1,4,6
+"61",11,"C","3/12/21 10:12:18","3/12/21 10:17:57","18 - 25 years old","Female","No","Bachelor's Degree","Daily","Less Often",7,5,5,"Appropriate",7,"None or did not notice any",1,7,1
+"62",11,"C","3/12/21 10:12:18","3/12/21 10:17:57","18 - 25 years old","Female","No","Bachelor's Degree","Daily","Less Often",7,5,5,"Appropriate",5,"1 or 2",1,6,2
+"63",11,"C","3/12/21 10:12:18","3/12/21 10:17:57","18 - 25 years old","Female","No","Bachelor's Degree","Daily","Less Often",6,5,3,"Appropriate",5,"1 or 2",0,5,3
+"65",11,"C","3/12/21 10:12:18","3/12/21 10:17:57","18 - 25 years old","Female","No","Bachelor's Degree","Daily","Less Often",4,5,3,"Appropriate",4,"None or did not notice any",1,5,5
+"66",11,"C","3/12/21 10:12:18","3/12/21 10:17:57","18 - 25 years old","Female","No","Bachelor's Degree","Daily","Less Often",5,4,4,"Appropriate",5,"None or did not notice any",1,5,6
+"67",12,"C","3/12/21 11:39:16","3/12/21 11:48:02","41+ years old","Male","Yes","Bachelor's Degree","Daily","Less Often",7,5,1,"Appropriate",7,"None or did not notice any",1,5,1
+"68",12,"C","3/12/21 11:39:16","3/12/21 11:48:02","41+ years old","Male","Yes","Bachelor's Degree","Daily","Less Often",7,5,1,"Appropriate",6,"1 or 2",1,5,2
+"69",12,"C","3/12/21 11:39:16","3/12/21 11:48:02","41+ years old","Male","Yes","Bachelor's Degree","Daily","Less Often",4,4,1,"Too long",4,"Between 6 and 9",0,3,3
+"71",12,"C","3/12/21 11:39:16","3/12/21 11:48:02","41+ years old","Male","Yes","Bachelor's Degree","Daily","Less Often",2,5,1,"Appropriate",2,"None or did not notice any",0,5,5
+"72",12,"C","3/12/21 11:39:16","3/12/21 11:48:02","41+ years old","Male","Yes","Bachelor's Degree","Daily","Less Often",7,5,1,"Appropriate",5,"None or did not notice any",1,5,6
+"73",13,"P","3/11/21 1:41:42","3/11/21 1:55:57","41+ years old","Female","Yes","Master's Degree","Daily","Less Often",6,4,4,"Appropriate",6,"1 or 2",1,2,1
+"74",13,"P","3/11/21 1:41:42","3/11/21 1:55:57","41+ years old","Female","Yes","Master's Degree","Daily","Less Often",5,4,3,"Appropriate",3,"1 or 2",1,3,2
+"75",13,"P","3/11/21 1:41:42","3/11/21 1:55:57","41+ years old","Female","Yes","Master's Degree","Daily","Less Often",4,2,3,"Too long",4,"Between 6 and 9",0,2,3
+"77",13,"P","3/11/21 1:41:42","3/11/21 1:55:57","41+ years old","Female","Yes","Master's Degree","Daily","Less Often",4,3,3,"Appropriate",3,"1 or 2",1,4,5
+"78",13,"P","3/11/21 1:41:42","3/11/21 1:55:57","41+ years old","Female","Yes","Master's Degree","Daily","Less Often",5,5,4,"Appropriate",5,"1 or 2",1,4,6
+"79",14,"P","3/11/21 2:22:10","3/11/21 2:25:08","18 - 25 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",4,1,1,"Too long",1,"Between 2 and 5",1,1,1
+"80",14,"P","3/11/21 2:22:10","3/11/21 2:25:08","18 - 25 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",2,2,1,"Appropriate",1,"Between 2 and 5",1,2,2
+"81",14,"P","3/11/21 2:22:10","3/11/21 2:25:08","18 - 25 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",1,1,1,"Far too long",1,"10+",0,1,3
+"83",14,"P","3/11/21 2:22:10","3/11/21 2:25:08","18 - 25 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",1,2,1,"Appropriate",1,"Between 6 and 9",0,1,5
+"84",14,"P","3/11/21 2:22:10","3/11/21 2:25:08","18 - 25 years old","Female","Yes","Bachelor's Degree","Daily","Less Often",1,1,1,"Too long",1,"10+",1,1,6
+"85",15,"P","3/11/21 12:09:17","3/11/21 12:15:59","41+ years old","Male","Yes","Bachelor's Degree","Less Often","Less Often",4,4,1,"Appropriate",1,"None or did not notice any",1,4,1
+"86",15,"P","3/11/21 12:09:17","3/11/21 12:15:59","41+ years old","Male","Yes","Bachelor's Degree","Less Often","Less Often",4,4,1,"Appropriate",1,"1 or 2",1,2,2
+"87",15,"P","3/11/21 12:09:17","3/11/21 12:15:59","41+ years old","Male","Yes","Bachelor's Degree","Less Often","Less Often",3,3,1,"Appropriate",1,"1 or 2",0,3,3
+"89",15,"P","3/11/21 12:09:17","3/11/21 12:15:59","41+ years old","Male","Yes","Bachelor's Degree","Less Often","Less Often",1,2,1,"Appropriate",1,"Between 2 and 5",0,1,5
+"90",15,"P","3/11/21 12:09:17","3/11/21 12:15:59","41+ years old","Male","Yes","Bachelor's Degree","Less Often","Less Often",4,4,1,"Appropriate",1,"1 or 2",1,3,6
+"91",16,"P","3/11/21 12:53:48","3/11/21 13:00:30","41+ years old","Male","Yes","Bachelor's Degree","Daily","Less Often",6,3,2,"Appropriate",6,"1 or 2",1,2,1
+"92",16,"P","3/11/21 12:53:48","3/11/21 13:00:30","41+ years old","Male","Yes","Bachelor's Degree","Daily","Less Often",3,1,1,"Appropriate",2,"1 or 2",1,1,2
+"93",16,"P","3/11/21 12:53:48","3/11/21 13:00:30","41+ years old","Male","Yes","Bachelor's Degree","Daily","Less Often",4,1,2,"Appropriate",5,"Between 6 and 9",0,1,3
+"95",16,"P","3/11/21 12:53:48","3/11/21 13:00:30","41+ years old","Male","Yes","Bachelor's Degree","Daily","Less Often",2,2,1,"Appropriate",3,"None or did not notice any",0,2,5
+"96",16,"P","3/11/21 12:53:48","3/11/21 13:00:30","41+ years old","Male","Yes","Bachelor's Degree","Daily","Less Often",2,3,1,"Appropriate",2,"1 or 2",1,2,6
+"97",17,"P","3/11/21 12:53:06","3/11/21 13:04:49","36 - 40 years old","Male","Yes","Bachelor's Degree","Daily","Less Often",6,5,3,"Appropriate",2,"None or did not notice any",1,3,1
+"98",17,"P","3/11/21 12:53:06","3/11/21 13:04:49","36 - 40 years old","Male","Yes","Bachelor's Degree","Daily","Less Often",5,2,2,"Too long",2,"Between 2 and 5",1,2,2
+"99",17,"P","3/11/21 12:53:06","3/11/21 13:04:49","36 - 40 years old","Male","Yes","Bachelor's Degree","Daily","Less Often",5,1,4,"Too long",4,"10+",0,1,3
+"101",17,"P","3/11/21 12:53:06","3/11/21 13:04:49","36 - 40 years old","Male","Yes","Bachelor's Degree","Daily","Less Often",5,5,4,"Appropriate",4,"1 or 2",0,3,5
+"102",17,"P","3/11/21 12:53:06","3/11/21 13:04:49","36 - 40 years old","Male","Yes","Bachelor's Degree","Daily","Less Often",6,4,3,"Appropriate",4,"1 or 2",1,3,6
+"103",18,"P","3/11/21 16:40:25","3/11/21 17:00:03","36 - 40 years old","Female","Yes","Trade School","Daily","Daily",5,5,6,"Appropriate",6,"1 or 2",1,6,1
+"104",18,"P","3/11/21 16:40:25","3/11/21 17:00:03","36 - 40 years old","Female","Yes","Trade School","Daily","Daily",3,3,4,"Too long",4,"1 or 2",1,2,2
+"105",18,"P","3/11/21 16:40:25","3/11/21 17:00:03","36 - 40 years old","Female","Yes","Trade School","Daily","Daily",2,2,3,"Too long",2,"Between 6 and 9",0,2,3
+"107",18,"P","3/11/21 16:40:25","3/11/21 17:00:03","36 - 40 years old","Female","Yes","Trade School","Daily","Daily",4,4,4,"Appropriate",4,"1 or 2",1,4,5
+"108",18,"P","3/11/21 16:40:25","3/11/21 17:00:03","36 - 40 years old","Female","Yes","Trade School","Daily","Daily",2,3,3,"Too short",2,"None or did not notice any",1,3,6
+"109",19,"T","3/11/21 0:10:39","3/11/21 0:15:51","18 - 25 years old","Male","Yes","Bachelor's Degree","Daily","Less Often",3,3,3,"Appropriate",3,"Between 2 and 5",1,3,1
+"110",19,"T","3/11/21 0:10:39","3/11/21 0:15:51","18 - 25 years old","Male","Yes","Bachelor's Degree","Daily","Less Often",4,4,4,"Appropriate",4,"1 or 2",1,4,2
+"111",19,"T","3/11/21 0:10:39","3/11/21 0:15:51","18 - 25 years old","Male","Yes","Bachelor's Degree","Daily","Less Often",4,4,4,"Too long",4,"1 or 2",0,4,3
+"113",19,"T","3/11/21 0:10:39","3/11/21 0:15:51","18 - 25 years old","Male","Yes","Bachelor's Degree","Daily","Less Often",5,5,5,"Appropriate",5,"1 or 2",0,5,5
+"114",19,"T","3/11/21 0:10:39","3/11/21 0:15:51","18 - 25 years old","Male","Yes","Bachelor's Degree","Daily","Less Often",5,5,5,"Appropriate",5,"1 or 2",0,5,6
+"115",20,"T","3/11/21 0:14:02","3/11/21 0:20:39","26 - 30 years old","Male","No","Master's Degree","Daily","Less Often",4,2,1,"Too long",2,"Between 2 and 5",0,1,1
+"116",20,"T","3/11/21 0:14:02","3/11/21 0:20:39","26 - 30 years old","Male","No","Master's Degree","Daily","Less Often",2,2,1,"Too long",1,"Between 2 and 5",1,2,2
+"117",20,"T","3/11/21 0:14:02","3/11/21 0:20:39","26 - 30 years old","Male","No","Master's Degree","Daily","Less Often",1,3,1,"Far too long",1,"Between 2 and 5",0,3,3
+"119",20,"T","3/11/21 0:14:02","3/11/21 0:20:39","26 - 30 years old","Male","No","Master's Degree","Daily","Less Often",4,6,6,"Appropriate",7,"None or did not notice any",0,5,5
+"120",20,"T","3/11/21 0:14:02","3/11/21 0:20:39","26 - 30 years old","Male","No","Master's Degree","Daily","Less Often",3,4,5,"Appropriate",5,"Between 2 and 5",1,4,6
+"121",21,"T","3/11/21 9:18:03","3/11/21 9:24:44","31 - 35 years old","Male","Yes","Master's Degree","Prefer not to say","Less Often",5,4,1,"Appropriate",1,"Between 2 and 5",1,4,1
+"122",21,"T","3/11/21 9:18:03","3/11/21 9:24:44","31 - 35 years old","Male","Yes","Master's Degree","Prefer not to say","Less Often",4,4,1,"Appropriate",1,"Between 2 and 5",1,4,2
+"123",21,"T","3/11/21 9:18:03","3/11/21 9:24:44","31 - 35 years old","Male","Yes","Master's Degree","Prefer not to say","Less Often",5,4,1,"Appropriate",1,"Between 2 and 5",0,4,3
+"125",21,"T","3/11/21 9:18:03","3/11/21 9:24:44","31 - 35 years old","Male","Yes","Master's Degree","Prefer not to say","Less Often",4,4,1,"Appropriate",1,"None or did not notice any",1,5,5
+"126",21,"T","3/11/21 9:18:03","3/11/21 9:24:44","31 - 35 years old","Male","Yes","Master's Degree","Prefer not to say","Less Often",5,4,1,"Appropriate",1,"1 or 2",1,4,6
+"127",22,"T","3/11/21 14:58:44","3/11/21 15:10:43","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Weekly",6,6,3,"Appropriate",6,"None or did not notice any",1,6,1
+"128",22,"T","3/11/21 14:58:44","3/11/21 15:10:43","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Weekly",4,4,3,"Appropriate",5,"Between 2 and 5",1,4,2
+"129",22,"T","3/11/21 14:58:44","3/11/21 15:10:43","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Weekly",3,3,2,"Appropriate",4,"Between 6 and 9",0,3,3
+"131",22,"T","3/11/21 14:58:44","3/11/21 15:10:43","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Weekly",5,6,3,"Appropriate",5,"1 or 2",1,5,5
+"132",22,"T","3/11/21 14:58:44","3/11/21 15:10:43","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Weekly",5,5,3,"Appropriate",5,"1 or 2",1,5,6
+"133",23,"T","3/11/21 14:41:54","3/11/21 15:15:00","41+ years old","Male","Yes","Bachelor's Degree","Daily","Weekly",7,7,2,"Appropriate",7,"None or did not notice any",1,4,1
+"134",23,"T","3/11/21 14:41:54","3/11/21 15:15:00","41+ years old","Male","Yes","Bachelor's Degree","Daily","Weekly",5,2,1,"Appropriate",2,"1 or 2",1,1,2
+"135",23,"T","3/11/21 14:41:54","3/11/21 15:15:00","41+ years old","Male","Yes","Bachelor's Degree","Daily","Weekly",4,2,1,"Too long",3,"Between 2 and 5",0,2,3
+"137",23,"T","3/11/21 14:41:54","3/11/21 15:15:00","41+ years old","Male","Yes","Bachelor's Degree","Daily","Weekly",4,2,1,"Too long",2,"Between 6 and 9",1,1,5
+"138",23,"T","3/11/21 14:41:54","3/11/21 15:15:00","41+ years old","Male","Yes","Bachelor's Degree","Daily","Weekly",5,3,1,"Appropriate",5,"Between 2 and 5",1,2,6
+"139",24,"T","3/11/21 15:58:37","3/11/21 16:11:40","41+ years old","Male","Yes","High School","Daily","Daily",5,3,2,"Appropriate",2,"None or did not notice any",0,5,1
+"140",24,"T","3/11/21 15:58:37","3/11/21 16:11:40","41+ years old","Male","Yes","High School","Daily","Daily",4,3,2,"Appropriate",2,"1 or 2",1,3,2
+"141",24,"T","3/11/21 15:58:37","3/11/21 16:11:40","41+ years old","Male","Yes","High School","Daily","Daily",3,2,2,"Appropriate",2,"Between 2 and 5",0,2,3
+"143",24,"T","3/11/21 15:58:37","3/11/21 16:11:40","41+ years old","Male","Yes","High School","Daily","Daily",4,5,3,"Appropriate",3,"None or did not notice any",0,4,5
+"144",24,"T","3/11/21 15:58:37","3/11/21 16:11:40","41+ years old","Male","Yes","High School","Daily","Daily",4,4,3,"Appropriate",4,"1 or 2",1,5,6
+"145",25,"T","3/11/21 17:05:53","3/11/21 17:10:04","31 - 35 years old","Male","Yes","Master's Degree","Daily","Less Often",4,5,1,"Appropriate",4,"1 or 2",1,4,1
+"146",25,"T","3/11/21 17:05:53","3/11/21 17:10:04","31 - 35 years old","Male","Yes","Master's Degree","Daily","Less Often",4,2,1,"Too long",3,"1 or 2",1,1,2
+"147",25,"T","3/11/21 17:05:53","3/11/21 17:10:04","31 - 35 years old","Male","Yes","Master's Degree","Daily","Less Often",4,3,1,"Far too long",3,"1 or 2",0,1,3
+"149",25,"T","3/11/21 17:05:53","3/11/21 17:10:04","31 - 35 years old","Male","Yes","Master's Degree","Daily","Less Often",3,2,1,"Appropriate",2,"Between 2 and 5",1,1,5
+"150",25,"T","3/11/21 17:05:53","3/11/21 17:10:04","31 - 35 years old","Male","Yes","Master's Degree","Daily","Less Often",4,4,2,"Appropriate",3,"1 or 2",1,1,6
+"151",26,"T","3/11/21 18:33:51","3/11/21 18:54:53","41+ years old","Male","Yes","Bachelor's Degree","Daily","Daily",4,3,3,"Appropriate",5,"Between 2 and 5",0,3,1
+"152",26,"T","3/11/21 18:33:51","3/11/21 18:54:53","41+ years old","Male","Yes","Bachelor's Degree","Daily","Daily",5,4,3,"Appropriate",4,"Between 2 and 5",1,3,2
+"153",26,"T","3/11/21 18:33:51","3/11/21 18:54:53","41+ years old","Male","Yes","Bachelor's Degree","Daily","Daily",2,2,1,"Appropriate",1,"Between 6 and 9",0,2,3
+"155",26,"T","3/11/21 18:33:51","3/11/21 18:54:53","41+ years old","Male","Yes","Bachelor's Degree","Daily","Daily",6,5,4,"Appropriate",5,"None or did not notice any",0,6,5
+"156",26,"T","3/11/21 18:33:51","3/11/21 18:54:53","41+ years old","Male","Yes","Bachelor's Degree","Daily","Daily",4,4,2,"Appropriate",4,"1 or 2",1,5,6
+"157",27,"T","3/11/21 19:59:45","3/11/21 20:17:56","41+ years old","Male","Yes","High School","Daily","Daily",6,4,2,"Appropriate",4,"None or did not notice any",1,4,1
+"158",27,"T","3/11/21 19:59:45","3/11/21 20:17:56","41+ years old","Male","Yes","High School","Daily","Daily",3,4,2,"Appropriate",4,"None or did not notice any",1,4,2
+"159",27,"T","3/11/21 19:59:45","3/11/21 20:17:56","41+ years old","Male","Yes","High School","Daily","Daily",3,5,3,"Too long",2,"Between 2 and 5",0,3,3
+"161",27,"T","3/11/21 19:59:45","3/11/21 20:17:56","41+ years old","Male","Yes","High School","Daily","Daily",4,5,3,"Appropriate",1,"None or did not notice any",0,5,5
+"162",27,"T","3/11/21 19:59:45","3/11/21 20:17:56","41+ years old","Male","Yes","High School","Daily","Daily",2,4,2,"Appropriate",2,"1 or 2",1,3,6
+"163",28,"T","3/11/21 21:00:45","3/11/21 21:07:55","41+ years old","Male","Yes","Master's Degree","Daily","Less Often",5,2,3,"Appropriate",6,"Between 2 and 5",1,1,1
+"164",28,"T","3/11/21 21:00:45","3/11/21 21:07:55","41+ years old","Male","Yes","Master's Degree","Daily","Less Often",2,2,2,"Appropriate",3,"Between 2 and 5",0,2,2
+"165",28,"T","3/11/21 21:00:45","3/11/21 21:07:55","41+ years old","Male","Yes","Master's Degree","Daily","Less Often",3,1,3,"Too long",5,"Between 6 and 9",0,1,3
+"167",28,"T","3/11/21 21:00:45","3/11/21 21:07:55","41+ years old","Male","Yes","Master's Degree","Daily","Less Often",1,3,3,"Appropriate",2,"Between 2 and 5",0,3,5
+"168",28,"T","3/11/21 21:00:45","3/11/21 21:07:55","41+ years old","Male","Yes","Master's Degree","Daily","Less Often",3,5,4,"Appropriate",2,"Between 2 and 5",1,4,6
+"169",29,"T","3/11/21 22:24:01","3/11/21 22:29:28","41+ years old","Female","Yes","Bachelor's Degree","Daily","Daily",6,6,6,"Appropriate",6,"None or did not notice any",1,6,1
+"170",29,"T","3/11/21 22:24:01","3/11/21 22:29:28","41+ years old","Female","Yes","Bachelor's Degree","Daily","Daily",6,6,6,"Appropriate",6,"None or did not notice any",0,6,2
+"171",29,"T","3/11/21 22:24:01","3/11/21 22:29:28","41+ years old","Female","Yes","Bachelor's Degree","Daily","Daily",4,3,2,"Appropriate",4,"Between 2 and 5",0,2,3
+"173",29,"T","3/11/21 22:24:01","3/11/21 22:29:28","41+ years old","Female","Yes","Bachelor's Degree","Daily","Daily",2,1,1,"Appropriate",2,"Between 2 and 5",1,1,5
+"174",29,"T","3/11/21 22:24:01","3/11/21 22:29:28","41+ years old","Female","Yes","Bachelor's Degree","Daily","Daily",2,2,2,"Appropriate",3,"Between 2 and 5",1,2,6
+"175",30,"T","3/11/21 22:28:07","3/11/21 22:35:09","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Daily",3,2,3,"Appropriate",5,"Between 2 and 5",1,2,1
+"176",30,"T","3/11/21 22:28:07","3/11/21 22:35:09","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Daily",3,2,2,"Appropriate",3,"Between 6 and 9",1,1,2
+"177",30,"T","3/11/21 22:28:07","3/11/21 22:35:09","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Daily",2,1,2,"Far too long",2,"10+",0,1,3
+"179",30,"T","3/11/21 22:28:07","3/11/21 22:35:09","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Daily",3,3,2,"Appropriate",2,"1 or 2",1,2,5
+"180",30,"T","3/11/21 22:28:07","3/11/21 22:35:09","36 - 40 years old","Female","Yes","Bachelor's Degree","Daily","Daily",3,5,4,"Appropriate",3,"1 or 2",1,4,6
+"181",31,"T","3/12/21 11:57:17","3/12/21 12:05:25","41+ years old","Male","Yes","Ph.D. or higher","Daily","Less Often",6,6,5,"Appropriate",6,"None or did not notice any",1,5,1
+"182",31,"T","3/12/21 11:57:17","3/12/21 12:05:25","41+ years old","Male","Yes","Ph.D. or higher","Daily","Less Often",5,5,3,"Appropriate",5,"Between 2 and 5",0,4,2
+"183",31,"T","3/12/21 11:57:17","3/12/21 12:05:25","41+ years old","Male","Yes","Ph.D. or higher","Daily","Less Often",4,4,2,"Too long",4,"Between 2 and 5",0,3,3
+"185",31,"T","3/12/21 11:57:17","3/12/21 12:05:25","41+ years old","Male","Yes","Ph.D. or higher","Daily","Less Often",5,5,5,"Appropriate",5,"1 or 2",1,4,5
+"186",31,"T","3/12/21 11:57:17","3/12/21 12:05:25","41+ years old","Male","Yes","Ph.D. or higher","Daily","Less Often",6,6,6,"Appropriate",6,"1 or 2",1,5,6

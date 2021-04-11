@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"title": {"fontSize": 30, "font": "Lato", "anchor": "middle", "align": "center", "color": "#003262", "subtitleFontSize": 20, "subtitleFont": "Lato", "subtitleAcchor": "middle", "subtitleAlign": "center", "subtitleColor": "#003262", "dy": -20}, "axisX": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "axisY": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "headerRow": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 15, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "legend": {"labelFont": "Lato", "labelFontSize": 15, "labelColor": "#584f29", "symbolType": "stroke", "symbolStrokeWidth": 3, "symbolOpacity": 1.0, "symbolSize": 500, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262"}, "view": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "stroke": null}, "facet": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "spacing": 10}, "row": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "axis": {"grid": false}, "padding": {"top": 20, "left": 20, "right": 20, "bottom": 20}}, "data": {"name": "data-b9009f3c06e1a18ea346f8821f0ed263"}, "facet": {"row": {"type": "nominal", "field": "source", "header": {"labelColor": "#46535e", "labelFont": "Lato", "labelFontSize": 25, "title": ""}, "sort": ["Qualtrics", "Amazon"]}}, "spec": {"layer": [{"mark": "bar", "encoding": {"color": {"type": "ordinal", "field": "treatment", "legend": null, "scale": {"range": ["#46535e", "#003262", "#3b7ea1"]}}, "x": {"type": "quantitative", "axis": {"labelFontSize": 20, "labelPadding": 10, "title": "Participants Assigned", "titleFontSize": 25}, "field": "total"}, "y": {"type": "ordinal", "axis": {"labelAngle": 0, "labelFontSize": 20, "labelPadding": 10, "title": "", "titleFontSize": 25}, "field": "treatment", "sort": ["Control", "Typographical", "Phonological"]}}, "height": 150, "width": 650}, {"mark": {"type": "text", "dx": -15, "size": 15}, "encoding": {"color": {"value": "white"}, "text": {"type": "quantitative", "field": "total"}, "x": {"type": "quantitative", "axis": {"labelFontSize": 20, "labelPadding": 10, "title": "Participants Assigned", "titleFontSize": 25}, "field": "total"}, "y": {"type": "ordinal", "axis": {"labelAngle": 0, "labelFontSize": 20, "labelPadding": 10, "title": "", "titleFontSize": 25}, "field": "treatment", "sort": ["Control", "Typographical", "Phonological"]}}, "height": 150, "width": 650}], "height": 150, "title": {"text": ""}, "width": 600}, "title": "Live Study Participation", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-b9009f3c06e1a18ea346f8821f0ed263": [{"treatment": "Control", "source": "Amazon", "total": 20}, {"treatment": "Control", "source": "Qualtrics", "total": 73}, {"treatment": "Phonological", "source": "Amazon", "total": 18}, {"treatment": "Phonological", "source": "Qualtrics", "total": 65}, {"treatment": "Typographical", "source": "Amazon", "total": 18}, {"treatment": "Typographical", "source": "Qualtrics", "total": 71}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
