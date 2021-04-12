@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"title": {"fontSize": 30, "font": "Lato", "anchor": "middle", "align": "center", "color": "#003262", "subtitleFontSize": 20, "subtitleFont": "Lato", "subtitleAcchor": "middle", "subtitleAlign": "center", "subtitleColor": "#003262", "dy": -20}, "axisX": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "axisY": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "titlePadding": 20}, "headerRow": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 15, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "legend": {"labelFont": "Lato", "labelFontSize": 15, "labelColor": "#584f29", "symbolType": "stroke", "symbolStrokeWidth": 3, "symbolOpacity": 1.0, "symbolSize": 500, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262"}, "view": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "stroke": null}, "facet": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end", "spacing": 10}, "row": {"labelFont": "Lato", "labelColor": "#46535e", "labelFontSize": 15, "titleFont": "Lato", "titleFontSize": 20, "titleColor": "#003262", "titleAlign": "right", "titleAnchor": "end"}, "axis": {"grid": false}, "padding": {"top": 20, "left": 20, "right": 20, "bottom": 20}}, "data": {"name": "data-4eeb75b1e2bb34c57149664fe5b081b5"}, "facet": {"row": {"type": "nominal", "field": "group", "header": {"labelColor": "#46535e", "labelFont": "Lato", "labelFontSize": 25, "title": ""}, "sort": ["XLab", "Amazon"]}}, "spec": {"layer": [{"mark": {"type": "bar", "stroke": "#46535e", "strokeWidth": 0.5}, "encoding": {"color": {"type": "ordinal", "field": "uniform_responses", "legend": null, "scale": {"range": ["#ddd5c7", "#00b0da", "#004274", "#ed4e33", "#ee1f60"]}}, "x": {"type": "quantitative", "axis": {"labelFontSize": 20, "labelPadding": 10, "title": "Frequency", "titleFontSize": 25}, "field": "count"}, "y": {"type": "ordinal", "axis": {"labelAngle": 0, "labelFontSize": 20, "labelPadding": 10, "tickCount": 6, "title": "", "titleFontSize": 25, "values": [1, 2, 3, 4, 5, 6]}, "field": "uniform_responses", "sort": [1, 2, 3, 4, 5, 6]}}, "height": 150, "width": 650}, {"mark": {"type": "text", "dx": -15, "size": 15}, "encoding": {"color": {"value": "white"}, "text": {"type": "quantitative", "field": "count"}, "x": {"type": "quantitative", "axis": {"labelFontSize": 20, "labelPadding": 10, "title": "Frequency", "titleFontSize": 25}, "field": "count"}, "y": {"type": "ordinal", "axis": {"labelAngle": 0, "labelFontSize": 20, "labelPadding": 10, "tickCount": 6, "title": "", "titleFontSize": 25, "values": [1, 2, 3, 4, 5, 6]}, "field": "uniform_responses", "sort": [1, 2, 3, 4, 5, 6]}}, "height": 150, "width": 650}], "height": 150, "title": {"text": ""}, "width": 600}, "title": "Uniform Likert Respones", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-4eeb75b1e2bb34c57149664fe5b081b5": [{"group": "Amazon", "uniform_responses": 1, "count": 4}, {"group": "Amazon", "uniform_responses": 2, "count": 1}, {"group": "Amazon", "uniform_responses": 6, "count": 3}, {"group": "XLab", "uniform_responses": 1, "count": 26}, {"group": "XLab", "uniform_responses": 2, "count": 11}, {"group": "XLab", "uniform_responses": 3, "count": 8}, {"group": "XLab", "uniform_responses": 5, "count": 3}, {"group": "XLab", "uniform_responses": 6, "count": 3}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
