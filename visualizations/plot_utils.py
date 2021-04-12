@@ -326,6 +326,15 @@ def participant_count_plot(data):
 
 def participant_count_plot_live(data):
 
+    df2 = data[['Start Date','Treatment','ROWID']].copy()
+    df2['Start Date'] = df2['Start Date'].dt.normalize()
+    df2 = df2.drop_duplicates().groupby(by=['Start Date','Treatment']).agg({'ROWID':'count'}).reset_index()
+    df2.columns = ['date','branch','total']
+    df2['display_date'] = df2.date.dt.strftime('%b %d')
+    df2['source'] = 'Amazon'
+    df2.loc[(df2.date > '2021-04-05'), 'source'] = 'XLab'
+    df2 = df2.groupby(by=['branch','source']).agg({'total':'sum'}).reset_index().rename(columns={'branch':'treatment'})
+
     base = alt.Chart().mark_bar().encode(
         x=alt.X('total:Q', axis=alt.Axis(title = 'Participants Assigned', labelPadding=10, labelFontSize=20, titleFontSize=25)),
         y = alt.X('treatment:O', axis=alt.Axis(title = '', labelAngle=0, labelPadding=10, labelFontSize=20, titleFontSize=25), sort=['Control', 'Typographical','Phonological']),
@@ -341,10 +350,10 @@ def participant_count_plot_live(data):
     p = alt.layer(base, txt).properties(width=600, height=150, title={'text':''})\
         .facet(
             row=alt.Row('source:N', 
-                sort=alt.SortArray(['Qualtrics','Amazon']),
+                sort=alt.SortArray(['XLab','Amazon']),
                 header=alt.Header(labelColor=berkeley_palette['pacific'], labelFontSize=25,labelFont='Lato',title='')
                 ), 
-            data=data,
+            data=df2,
             title='Live Study Participation'
         ).configure(padding={'top':20, 'left':20, 'right':20,'bottom':20})\
             .configure_facet(spacing=10)\
@@ -721,7 +730,6 @@ def get_descriptive_statistics(df, cols = None):
         .set_precision(2)
     return rend
 
-
 ###################################################################################
 ###################################################################################
 
@@ -757,3 +765,88 @@ def get_likert_variance(df):
             .configure_title(dy=-5)
     
     return at
+
+###################################################################################
+###################################################################################
+
+## LIKERT SCALE ANSWER VARIANCE PLOT
+
+###################################################################################
+###################################################################################
+
+def get_likert_counts_by_group(df):
+
+    df2 = df.copy()
+    df2['likert_var'] = np.var(df2[['Interest','Effective','Intelligence','Writing','Meet']], axis=1)
+    df2['group'] = 'XLab'
+    df2.loc[(df2['Start Date'] < "2021-04-05"), 'group'] = 'Amazon'
+
+    tot = df2.groupby(by=['group','ROWID']).size().reset_index().rename(columns={'ROWID':'participant_id',0:'total_responses'})
+    lik = df2[(df2.likert_var == 0.0)].groupby(by=['group','ROWID']).size().reset_index().rename(columns={'ROWID':'participant_id',0:'uniform_responses'})
+
+    tot = tot.merge(lik, how='inner', on=['group','participant_id'])
+    tot['pct_uniform'] = tot.uniform_responses / tot.total_responses
+
+    tot.groupby(by=['group','uniform_responses']).size().reset_index().rename(columns={0:'count'})
+
+    base = alt.Chart().mark_bar(stroke=berkeley_palette['pacific'], strokeWidth=0.5).encode(
+        x=alt.X('count:Q', axis=alt.Axis(title = 'Frequency', labelPadding=10, labelFontSize=20, titleFontSize=25)),
+        y = alt.Y('uniform_responses:O', axis=alt.Axis(title = '', labelAngle=0, labelPadding=10, labelFontSize=20, 
+            titleFontSize=25, values=[1,2,3,4,5,6], tickCount=6), sort=[1,2,3,4,5,6]),
+        color = alt.Color('uniform_responses:O', legend = None,
+            scale=alt.Scale(range = [berkeley_palette['bay_fog'], "#00b0da", "#004274", berkeley_palette['golden_gate'], berkeley_palette['rose_garden']]))
+    ).properties(width=650, height=150)
+
+    txt = base.mark_text(dx=-15, size=15).encode(
+        text='count:Q',
+        color=alt.value('white')
+    )
+
+    p = alt.layer(base, txt).properties(width=600, height=150, title={'text':''})\
+        .facet(
+            row=alt.Row('group:N', 
+                sort=alt.SortArray(['XLab','Amazon']),
+                header=alt.Header(labelColor=berkeley_palette['pacific'], labelFontSize=25,labelFont='Lato', title='')
+                ), 
+            data=tot.groupby(by=['group','uniform_responses']).size().reset_index().rename(columns={0:'count'}),
+            title='Uniform Likert Respones'
+        ).configure(padding={'top':20, 'left':20, 'right':20,'bottom':20})\
+            .configure_facet(spacing=10)\
+            .configure_view(stroke=None)\
+            .configure_title(anchor='middle')\
+            .configure_axis(grid=False)\
+            .configure_title(dy=-20)
+    
+    return p
+
+###################################################################################
+###################################################################################
+
+## LIKERT SCALE ANSWER VARIANCE PLOT
+
+###################################################################################
+###################################################################################
+
+def get_wpm_plot(df):
+
+    df2 = df.copy()
+    df2['likert_var'] = np.var(df2[['Interest','Effective','Intelligence','Writing','Meet']], axis=1)
+    df2['group'] = 'XLab'
+    df2.loc[(df2['Start Date'] < "2021-04-05"), 'group'] = 'Amazon'
+
+    p = alt.Chart(df2).mark_bar(opacity=0.8, stroke=berkeley_palette['black'], strokeWidth=0.5).encode(
+        x = alt.X('wpm:Q', bin=alt.Bin(maxbins=100), title="Words per Minute (bin=100)"),
+        y = alt.Y('count()', title='Frequency'),
+        color=alt.Color('group:N', 
+            scale=alt.Scale(range = [berkeley_palette['berkeley_blue'], berkeley_palette['california_gold']]),
+            legend = alt.Legend(title="Participant Group", padding=10, 
+                symbolType="square", symbolStrokeWidth=1, orient="right", offset=-170))
+        ).properties(height=300,width=650, title={'text':'Distribution of Response Time', 'subtitle':'Evaluated in Words per Minute'})\
+                .configure(padding={'top':20, 'left':20, 'right':20,'bottom':20})\
+                .configure_facet(spacing=10)\
+                .configure_view(stroke=None)\
+                .configure_title(anchor='middle')\
+                .configure_axis(grid=False)\
+                .configure_title(dy=-5)
+    
+    return p
