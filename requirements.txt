@@ -1,4 +1,5 @@
 altair==4.1.0
+appdirs==1.4.4
 attrs==20.3.0
 backcall==0.2.0
 bleach==3.3.0
@@ -14,11 +15,13 @@ cycler==0.10.0
 dacite==1.6.0
 datapane==0.10.5
 decorator==5.0.6
+distlib==0.3.1
 docutils==0.17
 dominate==2.6.0
 entrypoints==0.3
 face==20.1.1
 feedgenerator==1.9.1
+filelock==3.0.12
 furl==2.1.1
 glom==20.11.0
 idna==2.10
@@ -50,6 +53,7 @@ parso==0.8.2
 pelican==4.6.0
 pickleshare==0.7.5
 Pillow==8.2.0
+pipenv==2020.11.15
 prompt-toolkit==3.0.18
 pyarrow==3.0.0
 Pygments==2.8.1
@@ -79,6 +83,8 @@ Unidecode==1.2.0
 urllib3==1.26.4
 validators==0.18.2
 vega-datasets==0.9.0
+virtualenv==20.4.3
+virtualenv-clone==0.5.4
 wcwidth==0.2.5
 webencodings==0.5.1
 wincertstore==0.2
