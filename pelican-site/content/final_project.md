@@ -890,6 +890,49 @@ vegaEmbed("#vis12", spec12, embedOpt12)
 
 </script>
 
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+
+### Placebo Tests
+
+In order to assess the quality of the source data provided by both Amazon Mechanical Turk and UC Berkeley XLab, we performed placebo tests by measuring the impact of treatment on our pre-treatment control question (i.e., Post 0 referenced above).  The results indicate that there is a very statistically significant treatment effect for the Mechincal Turk data, giving rise to the suspicion that the quality of this data may warrant abandoning it completely.  To generate the placebo tests and comparisons, we performed the following steps:
+
+```r
+# Placebo tests : Intelligence (of pre-treatment question) ~ Treatment for both Amazon and XLab
+model_mechturk_control <- control_q[isMechTurk == 1, lm(Intelligence ~ Treatment)]
+model_ucb_control <- control_q[isMechTurk == 0, lm(Intelligence ~ Treatment)]
+# Generate robust standard errors
+robust_MT <- sqrt(diag(vcovHC(model_mechturk_control, type = "HC1")))
+robust_UCB <- sqrt(diag(vcovHC(model_ucb_control, type = "HC1")))
+# produce placebo model comparison between Amazon and XLab
+stargazer(model_mechturk_control, model_ucb_control, 
+          se = list(robust_MT, robust_UCB), type="html", column.labels = c("Amazon", "XLab"))
+```
+
+A comparison of the models are below:
+
+<table style="text-align:center" width=720><tr><td colspan="3" style="border-bottom: 3px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2"><b>Intelligence</b></td></tr>
+<tr><td style="text-align:left"></td><td><i><b><font color="#3B7EA1">Amazon</font></b></i></td><td><i><b><font color="#3B7EA1">XLab</font></b></i></td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><font color="#46535E"><b>TreatmentPhonological</b></font></td><td><font color="#EE1F60"><b>0.911<sup>**</sup></b></font></td><td>-0.032</td></tr>
+<tr><td style="text-align:left"></td><td>(0.393)</td><td>(0.204)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>TreatmentTypographical</b></font></td><td>0.244</td><td>-0.190</td></tr>
+<tr><td style="text-align:left"></td><td>(0.450)</td><td>(0.226)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>4.200<sup>***</sup></td><td>3.740<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.278)</td><td>(0.159)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>56</td><td>209</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.083</td><td>0.004</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.049</td><td>-0.005</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.313 (df = 53)</td><td>1.268 (df = 206)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>2.404 (df = 2; 53)</td><td>0.459 (df = 2; 206)</td></tr>
+<tr><td colspan="3" style="border-bottom: 3px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+<br>
+          
 
 <hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
