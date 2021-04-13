@@ -1289,7 +1289,7 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 
 <hr>
 <h3>Model with demographic and post covariates</h3>
-<p>Next, building upon the model with demographics information, we</p>
+<p>Next, building upon the model with demographics information, we use pre-treatment variables measured on the control post shown to all groups. Previously from the placebo test, we showed that Treatment effect was not statistically significant. However, the estimate for the phonological group was more than 6x lower than the typographical group, which lower than control. This could introduce bias in our estimates if the baseline level of perceived intelligence for individuals in the different groups are on average different. As a result, we add in pre-treatment variables as a covariate. We also include covariates for pretreatment for writing, effectiveness, etc. Despite our treatment being a poor predictor of pre-treatment Intelligence level, pre-treatment Intelligence level is a strong predictor of Intelligence level. The estimates for the two models are not very different, but standard errors are slightly tighter.</p>
 <table style="text-align:center"><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
 <tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
 <tr><td style="text-align:left"></td><td colspan="2">Intelligence</td></tr>
