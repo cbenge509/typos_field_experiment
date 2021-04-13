@@ -29,11 +29,11 @@ Our study recruited volunteer survey participants through a combination of socia
 
 Our pilot was conducted on Mar 10, 2021 - Mar 11, 2021; open solicitations were posted on public walls and message boards accessible to the study organizers, including Facebook and UC Berkeley's Slack.  Randomization into one of three branches {Control, Treatment A (typographical errors), Treatment B (phonological errors)} occurred at the point of accessing the static web app that redirects to the desired survey forms.  Survey's were written in Microsoft Office Forms product and data for each branch was collected on March 11, 2021 at the close of the pilot.
 
-#### Our Pilot Study Architecture 
+#### Our Pilot Study Architecture
 
 <center>[<img src="img/pilot_study_design.png" width=720 />](img/pilot_study_design.png)</center>
 
-#### Pilot randomization 
+#### Pilot randomization
 To establish randomization as close to the point of survey as possible, all participants were redirected at the moment just prior to survey initiation via a static web app call using javascript as follows:
 
 ```html
@@ -76,7 +76,7 @@ vegaEmbed("#vis4", spec4, embedOpt4)
 
 Our live study was conducted betweem Mar 31, 2021 - Apr 9, 2021, divided into two main sections:  Amazon Mechanical Turk participants had access from Mar 31, 2021 through Apr 1, 2021 and UC Berkeley XLab participants had access to the omnibus survey from Apr 6, 2021 through Apr 9, 2021.  Randomization and survey execution was carried through Qualtrics as depicted below.
 
-#### Our Live Study Architecture 
+#### Our Live Study Architecture
 
 <center>[<img src="img/final_study_design.png" width=720 />](img/final_study_design.png)</center>
 
@@ -227,12 +227,12 @@ Demographic data was collected at the beginning of the ominbus study for all exp
         height: 80%;
         background: linear-gradient(90deg, #22a7f0 7.1%, transparent 7.1%);
     }
-    
+
     #T_a800b_row0_col3 {
         background-color: #f0f1f3;
         color: #000000;
     }
-    
+
     #T_a800b_row1_col0,
     #T_a800b_row2_col0,
     #T_a800b_row3_col0,
@@ -240,60 +240,60 @@ Demographic data was collected at the beginning of the ominbus study for all exp
         width: 10em;
         height: 80%;
     }
-    
+
     #T_a800b_row1_col3 {
         background-color: #85b3d5;
         color: #000000;
     }
-    
+
     #T_a800b_row2_col3 {
         background-color: #0067b0;
         color: #f1f1f1;
     }
-    
+
     #T_a800b_row3_col3 {
         background-color: #a5c6de;
         color: #000000;
     }
-    
+
     #T_a800b_row4_col0 {
         width: 10em;
         height: 80%;
         background: linear-gradient(90deg, #22a7f0 18.7%, transparent 18.7%);
     }
-    
+
     #T_a800b_row4_col3 {
         background-color: #ccdce9;
         color: #000000;
     }
-    
+
     #T_a800b_row5_col0 {
         width: 10em;
         height: 80%;
         background: linear-gradient(90deg, #22a7f0 100.0%, transparent 100.0%);
     }
-    
+
     #T_a800b_row5_col1 {
         background-color: black;
         color: white;
     }
-    
+
     #T_a800b_row5_col3 {
         background-color: #e9edf1;
         color: #000000;
     }
-    
+
     #T_a800b_row6_col0 {
         width: 10em;
         height: 80%;
         background: linear-gradient(90deg, #22a7f0 3.9%, transparent 3.9%);
     }
-    
+
     #T_a800b_row6_col3 {
         background-color: #69a3cd;
         color: #000000;
     }
-    
+
     #T_a800b_row7_col3 {
         background-color: #428dc2;
         color: #000000;
@@ -904,7 +904,7 @@ model_ucb_control <- control_q[isMechTurk == 0, lm(Intelligence ~ Treatment)]
 robust_MT <- sqrt(diag(vcovHC(model_mechturk_control, type = "HC1")))
 robust_UCB <- sqrt(diag(vcovHC(model_ucb_control, type = "HC1")))
 # produce placebo model comparison between Amazon and XLab
-stargazer(model_mechturk_control, model_ucb_control, 
+stargazer(model_mechturk_control, model_ucb_control,
           se = list(robust_MT, robust_UCB), type="html", column.labels = c("Amazon", "XLab"))
 ```
 
@@ -932,7 +932,7 @@ A comparison of the models are below:
 <tr><td colspan="3" style="border-bottom: 3px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 <br>
-          
+
 
 <hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
@@ -1019,5 +1019,191 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 
 <hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
+# Regression Analysis
+
+---
+
+### Baseline model
+
+We begin with a baseline model looking at only the effect of treatment against perceived level of intelligence. Throughout this report, we will use robust standard errors in order to generate our p-values. Our treatment variable has 3 levels, control, typographical treatment, and phonological treatment. Both treatment levels are negative compared to "control", indicating that individuals perceive the authors to be less intelligent when typos are present in the writing. The estimate for "phonological" is more negative than "typographical" at more than double the magnitude, indicating that misspellings based on the sound of a word ("Kansus" vs "Kansas") has a stronger effect than accidentical typos ("how" vs "hwo"). Both are highly statistically significant with near 0 p-values, indicating that with 95% confidence, we believe the true mean is not 0.
+
+<table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>Intelligence</td></tr>
+<tr><td style="text-align:left"></td><td>Baseline</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TreatmentPhonological</td><td>-1.142<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.108)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">TreatmentTypographical</td><td>-0.558<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.104)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>4.563<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.067)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,044</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.095</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.093</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.433 (df = 1041)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>54.481<sup>***</sup> (df = 2; 1041)</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
+---
+
+### Model with demographic and post covariates
+
+Next, we control for demographic variables as well as properties of the post. Each post was shown in the same order to all participants, so there's no variation on that front. We used the length of the post as a covariate. We had 8 demographic variables, including gender, whether English is his primary language, Race, and highest level of degree obtained. We also have an indicator of whether the individual is located in the United States, along with 5 age bins. We also included the author's self-perceived level of social media interaction, including how often individuals read and write social media posts. These were collected pre-treatment. By including the covariates, we see that the estimates for treatment effect for both typographical and phonological increases, while the standard errors stay about the same. "Length" of the post is a statistically significant variable that is negative, indicating that the longer the post, the overall lower level of perceived intelligence, so including this could make the model a better causal model.
+
+<table style="text-align:center"><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2">Intelligence</td></tr>
+<tr><td style="text-align:left"></td><td>Baseline</td><td>Demographics</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TreatmentPhonological</td><td>-1.142<sup>***</sup></td><td>-1.260<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.108)</td><td>(0.108)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">TreatmentTypographical</td><td>-0.558<sup>***</sup></td><td>-0.637<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.104)</td><td>(0.109)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">length</td><td></td><td>-0.028<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.003)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">GenderCisgender Man</td><td></td><td>-0.160</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.103)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">GenderNon-binary</td><td></td><td>-0.262</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.184)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">GenderOther</td><td></td><td>1.833<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.270)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">GenderPrefer not to disclose</td><td></td><td>-1.274<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.471)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">GenderTransgender Man</td><td></td><td>0.921<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.295)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">EnglishPrefer not to say</td><td></td><td>0.424</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.331)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">EnglishYes</td><td></td><td>-0.030</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.110)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RaceBlack or African American</td><td></td><td>0.311</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.281)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RaceHispanic or Latino</td><td></td><td>0.118</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.157)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RaceNative Hawaiian or Pacific Islander</td><td></td><td>0.083</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.714)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RaceNon-Hispanic White</td><td></td><td>-0.065</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.122)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RaceOther:</td><td></td><td>-0.277</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.187)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RacePrefer not to answer</td><td></td><td>0.076</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.294)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">isUS</td><td></td><td>-0.161</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.183)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">DegreeBachelor's degree</td><td></td><td>-0.121</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.383)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">DegreeNo college</td><td></td><td>-0.328</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.379)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">DegreeSome college</td><td></td><td>-0.176</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.374)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">age_bins18-25</td><td></td><td>0.095</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.635)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">age_bins26-30</td><td></td><td>-0.009</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.681)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">age_bins31-35</td><td></td><td>0.042</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.993)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">age_bins41+</td><td></td><td>-0.512</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.732)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">ReadSocialMediaLess than Weekly</td><td></td><td>0.719<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.238)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">ReadSocialMediaMore than once a day</td><td></td><td>0.067</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.122)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">ReadSocialMediaPrefer not to say</td><td></td><td>-0.891</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.854)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">ReadSocialMediaWeekly</td><td></td><td>0.598<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.220)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">WriteSocialMediaLess than Weekly</td><td></td><td>-0.340<sup>**</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.162)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">WriteSocialMediaMore than once a day</td><td></td><td>0.266</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.264)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">WriteSocialMediaPrefer not to say</td><td></td><td>0.543</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.382)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">WriteSocialMediaWeekly</td><td></td><td>-0.250</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.203)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>4.563<sup>***</sup></td><td>6.555<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.067)</td><td>(0.763)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,044</td><td>1,044</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.095</td><td>0.213</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.093</td><td>0.189</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.433 (df = 1041)</td><td>1.356 (df = 1011)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>54.481<sup>***</sup> (df = 2; 1041)</td><td>8.575<sup>***</sup> (df = 32; 1011)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
+---
+
+### Model with demographic and post covariates
+
+Next, building upon the model with demographics information, we
+
+<table style="text-align:center"><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2">Intelligence</td></tr>
+<tr><td style="text-align:left"></td><td>Baseline</td><td>Pretreatment</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TreatmentPhonological</td><td>-1.142<sup>***</sup></td><td>-1.170<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.108)</td><td>(0.102)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">TreatmentTypographical</td><td>-0.558<sup>***</sup></td><td>-0.515<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.104)</td><td>(0.102)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Intelligence.pretreat</td><td></td><td>0.212<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.055)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Writing.pretreat</td><td></td><td>0.178<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.059)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Interest.pretreat</td><td></td><td>0.086<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.033)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Effective.pretreat</td><td></td><td>0.093<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.031)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>4.563<sup>***</sup></td><td>2.723<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.067)</td><td>(0.741)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,044</td><td>1,044</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.095</td><td>0.330</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.093</td><td>0.306</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.433 (df = 1041)</td><td>1.254 (df = 1007)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>54.481<sup>***</sup> (df = 2; 1041)</td><td>13.791<sup>***</sup> (df = 36; 1007)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
 
 more to come...
