@@ -1206,4 +1206,13 @@ Next, building upon the model with demographics information, we use pre-treatmen
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
+---
+
+### Heterogenous in treatment
+
+In order to understand whether individuals with different attributes had differences in their treatment effects,
+
+![image](../images/het_reading_phono.png)
+
+
 more to come...
