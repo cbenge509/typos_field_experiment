@@ -1208,11 +1208,15 @@ Next, building upon the model with demographics information, we use pre-treatmen
 
 ---
 
-### Heterogenous in treatment
+### Heterogenous treatment effects
 
-In order to understand whether individuals with different attributes had differences in their treatment effects,
+In order to understand whether individuals with different attributes have differences in their treatment effects, we decided to look at the estimated treatment effects and the confidence intervals associated with the estimates for individuals who read different levels of social media. Interestingly, those who read social media posts less often tend to be more critical of phonological errors than those who read social media posts only weekly. In fact, those that read social media "More than once a day", "Daily", or "Less than Weekly", all have statistically signficant treatment effects with 95% CIs overlapping the average phonological treatment effect, but those that only read social media "Weekly" overlaps with 0.
 
-![image](../images/het_reading_phono.png)
+<center>[<img src="img/het_reading_phono.png" width=720 />](img/het_reading_phono.png)</center>
+
+However, the same observation is not true for typographical treatment. While those that read social media posts "More than once a day" tend to have the strongest treatment effect, those that read social media posts "Less than Weekly" appears to have the weakest treatment effect, although these estimates have large error bars.
+
+<center>[<img src="img/het_reading_typo.png" width=720 />](img/het_reading_typo.png)</center>
 
 
 more to come...
