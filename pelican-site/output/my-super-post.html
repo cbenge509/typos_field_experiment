@@ -1379,7 +1379,8 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 <p><center><a href="img/het_reading_phono.png"><img src="img/het_reading_phono.png" width=720 /></a></center></p>
 <p>However, the same observation is not true for typographical treatment. While those that read social media posts "More than once a day" tend to have the strongest treatment effect, those that read social media posts "Less than Weekly" appears to have the weakest treatment effect, although these estimates have large error bars.</p>
 <p><center><a href="img/het_reading_typo.png"><img src="img/het_reading_typo.png" width=720 /></a></center></p>
-<hr>
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+
 <h3>Secondary outcomes -- Writing and effectiveness</h3>
 <p>As secondary outcomes, we wanted to see whether the perceived writing abilities of the authors and effectiveness of the posts were altered based on the treatment type. Interestingly, Writing abilities follows the exact same trend as Intelligence, where phonological treatment had nearly double the effect as typographical with both being statistically significant. However, effectiveness of the post was only different for the phonological group. This makes sense in a way: since intended words for typographical errors are usually easy to decipher, these typo do not obscure meaning. The effectiveness of posts with blatant phonological errors was severely impacted, although to a lesser extent than the impact for writing and intelligence. We leave these preliminary outcomes for potential future study.</p>
 <table style="text-align:center" width=720><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
@@ -1400,7 +1401,7 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
-<hr>
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 <h3>Appendix: Bayesian Analysis</h3>
 <p>In addition to the frequentist analysis, we also conducted a brief exploration into Bayesian methods to better understand our data, modeling choices, and impact. In this section, we present two models: (1) a Bayesian estimation of our fully specified linear model, and (2) an alternative specification: an ordered logistic regression. Our analysis is powered by <code>pymc3</code> and its requirements to replicate our results can be found in the repository's <code>requirements.txt</code> file. We leave this section mostly as future research and practice as the methods interest us while more work is still to be done.</p>
 <hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
@@ -1591,75 +1592,7 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 
 <p><center><a href="img/bayes/waic.png"><img src="img/bayes/waic.png" width=720 /></a></center></p>
 <p>Lastly, we include a histogram of implied outcomes that we generate through simulating data from the posterior. Each plot shows how our outcome distribution varies by the primary independent variables. The black lines capture <code>Phonological</code> while the blue lines capture <code>Typographical</code>. The histogram shows the saliency of ordered categories. We can see that our control group is balanced while responses are weighted heavily on the middle response meaning meaning that a linear model most likely fail to adequately capture these differences.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># regenerate posterior preds with fast sampling off</span>
-<span class="k">with</span> <span class="n">cumlink</span><span class="p">:</span>
-    <span class="n">pp_resp</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample_posterior_predictive</span><span class="p">(</span>
-        <span class="n">cumlink_idata</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span>
-    <span class="p">)[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
-
-<span class="c1"># generate counterfactuals</span>
-<span class="n">cases_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]),</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Phonological&quot;</span><span class="p">,</span> <span class="s2">&quot;Typographical&quot;</span><span class="p">],</span>
-<span class="p">)</span>
-
-<span class="c1"># transform data to df</span>
-<span class="n">response_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pp_resp</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="n">response_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;case&quot;</span>
-<span class="n">response_df</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cases_df</span><span class="p">,</span> <span class="n">response_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;Phonological&quot;</span><span class="p">,</span> <span class="s2">&quot;Typographical&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-<span class="p">)</span>
-
-<span class="c1"># show implied histogram of simulated outcomes</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">bins</span><span class="p">,</span> <span class="n">xticks</span><span class="p">,</span> <span class="n">xlabels</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
-    <span class="p">[</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
-<span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()],</span>
-    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
-    <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phonological=0, Typographical=0&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;frequency&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="o">=</span>
-    <span class="p">[</span><span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()],</span>
-    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
-    <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phonological=1, Typographical=0&quot;</span><span class="p">)</span>
-
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()],</span>
-    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
-    <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phonological=0, Typographical=1&quot;</span><span class="p">)</span>
-
-
-<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xlabels</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;response&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</code></pre></div>
-
-<p><center><a href="img/bayes/sim_hist.png"><img src="img/bayes/sim_hist.png" width=540 /></a></center></p>
+<p><center><a href="img/bayes/sim_hist.png"><img src="img/bayes/sim_hist.png" width=710 /></a></center></p>
 <p>Finally, in order to see whether an Ordinal Response model makes a difference in practice, we used the "polr" function from the MASS library to generate this model using a basic outcome against treatment model with no controls, and a model with the full set of controls. Here, we show the treatment and pre-treatment variables. Our conclusions do not change, and we get very similar coefficients with this model.</p>
 <table style="text-align:center" width=720><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
 <tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
@@ -1685,12 +1618,16 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
-<hr>
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
+
 <div class="footnote">
 <hr>
 <ol>
 <li id="fn:1">
 <p>Typographical errors, often known as typos, are spelling mistakes that occur due to slip of the hand when typing, and includes artifacts such as swapping letters, typing a letter close to the intended letter on the keyboard, or leaving out a letter. Usually the mispelled word is still easy to recognize. Examples include "somethimg", "hwo", and "thrd". Phonological errors on the other hand arise out of ignorance, or spellings based on sounds of the word. These usually demonstrate that the author truly does not know the proper spelling of the word. For example, "sumthing", "Kansus", and "razing".&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Please visit our public GitHub repository for the full data and analysis: <a href="https://github.com/cbenge509/typos_field_experiment">Effect of Typographical and Phonological Errors in Social Media Posts on the Perception of the Authors' Intelligence</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
