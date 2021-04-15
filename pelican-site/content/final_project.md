@@ -1499,6 +1499,83 @@ az.plot_compare(df_comparative_waic, insample_dev=False, figsize=(10, 4));
 
 <center>[<img src="img/bayes/waic.png" width=540 />](img/bayes/waic.png)</center>
 
+
+Lastly, we include a histogram of implied outcomes that we generate through simulating data from the posterior. Each plot shows how our outcome distribution varies by the primary independent variables. The black lines capture `Phonological` while the blue lines capture `Typographical`. The histogram although not filled with much variation, shows the saliency of ordered categories. We can see that our control group is balanced while responses are weighted heavily on the middle response meaning it is much more salient and we should not treat our outcome as an ordinary continuous variable.
+
+```python
+# regenerate posterior preds with fast sampling off
+with cumlink:
+    pp_resp = pm.sample_posterior_predictive(
+        cumlink_idata, var_names=["y"], random_seed=1
+    )["y"]
+
+# generate counterfactuals
+cases_df = pd.DataFrame(
+    np.array([[0, 0], [0, 1], [1, 0], [1, 1]]),
+    columns=["Phonological", "Typographical"],
+)
+
+# transform data to df
+response_df = pd.DataFrame(pp_resp).T
+response_df.index.name = "case"
+response_df = (
+    pd.concat([cases_df, response_df], axis=1)
+    .set_index(["Phonological", "Typographical"])
+    .sort_index()
+)
+
+# show implied histogram of simulated outcomes
+_, axes = plt.subplots(1, 3, figsize=(12, 5), sharey=True)
+bins, xticks, xlabels, colors = (
+    np.arange(8) - 0.5,
+    np.arange(7),
+    np.arange(1, 8),
+    ["k", "b"],
+)
+
+axes[0].hist(
+    [response_df.loc[0, 0].values.flatten(), response_df.loc[0, 0].values.flatten()],
+    bins=bins,
+    rwidth=0.5,
+    color=colors,
+    alpha=0.7,
+)
+axes[0].set_title("Phonological=0, Typographical=0")
+axes[0].set_ylabel("frequency")
+axes[0].legend(fontsize=10)
+
+axes[1].hist(x=
+    [response_df.loc[1, 0].values.flatten(), response_df.loc[0, 1].values.flatten()],
+    bins=bins,
+    rwidth=0.5,
+    color=colors,
+    alpha=0.7,
+)
+axes[1].set_title("Phonological=1, Typographical=0")
+
+
+axes[2].hist(
+    [response_df.loc[1, 0].values.flatten(), response_df.loc[0, 0].values.flatten()],
+    bins=bins,
+    rwidth=0.5,
+    color=colors,
+    alpha=0.7,
+)
+axes[2].set_title("Phonological=0, Typographical=1")
+
+
+for ax in axes:
+    ax.set_xticks(xticks)
+    ax.set_xticklabels(xlabels)
+    ax.set_xlabel("response")
+plt.tight_layout();
+```
+
+<center>[<img src="img/bayes/sim_hist.png" width=540 />](img/bayes/sim_hist.png)</center>
+
+
+
+
 ---
 
 Visit our GitHub page for all of the data and analysis code associated with this study!
