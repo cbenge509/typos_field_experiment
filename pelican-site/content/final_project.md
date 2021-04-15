@@ -1104,7 +1104,7 @@ We begin with a baseline model looking at only the effect of treatment against p
 
 <hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
-### Model with demographic and post covariates
+### Model with demographic covariates
 
 Next, we control for demographic variables as well as properties of the post. Each post was shown in the same order to all participants, so there's no variation on that front. We used the length of the post as a covariate. We had 8 demographic variables, including gender, whether English is his primary language, Race, and highest level of degree obtained. We also have an indicator of whether the individual is located in the United States, along with 5 age bins. We also included the author's self-perceived level of social media interaction, including how often individuals read and write social media posts. These were collected pre-treatment. By including the covariates, we see that the estimates for treatment effect for both typographical and phonological increases, while the standard errors stay about the same. "Length" of the post is a statistically significant variable that is negative, indicating that the longer the post, the overall lower level of perceived intelligence, so including this could make the model a better causal model.
 
@@ -1222,7 +1222,7 @@ Next, we control for demographic variables as well as properties of the post. Ea
 
 <hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
-### Model with demographic and post covariates
+### Model with demographic and pre-treatment covariates
 
 Next, building upon the model with demographics information, we use pre-treatment variables measured on the control post shown to all groups. Previously from the placebo test, we showed that Treatment effect was not statistically significant. However, the estimate for the phonological group was more than 6x lower than the typographical group, which lower than control. This could introduce bias in our estimates if the baseline level of perceived intelligence for individuals in the different groups are on average different. As a result, we add in pre-treatment variables as a covariate. We also include covariates for pretreatment for writing, effectiveness, etc. Despite our treatment being a poor predictor of pre-treatment Intelligence level, pre-treatment Intelligence level is a strong predictor of Intelligence level. The estimates for the two models are not very different, but standard errors are slightly tighter.
 
@@ -1272,8 +1272,32 @@ However, the same observation is not true for typographical treatment. While tho
 
 <center>[<img src="img/het_reading_typo.png" width=720 />](img/het_reading_typo.png)</center>
 
-<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+
+### Secondary outcomes -- Writing and effectiveness
+
+As secondary outcomes, we wanted to see whether the perceived writing abilities of the authors and effectiveness of the posts were altered based on the treatment type. Interestingly, Writing abilities follows the exact same trend as Intelligence, where phonological treatment had nearly double the effect as typographical with both being statistically significant. However, effectiveness of the post was only different for the phonological group. This makes sense in a way: since intended words for typographical errors are usually easy to decipher, these typo do not obscure meaning. The effectiveness of posts with blatant phonological errors was severely impacted, although to a lesser extent than the impact for writing and intelligence. We leave these preliminary outcomes for potential future study.
+
+<table style="text-align:center" width=720><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>Writing</td><td>Effective</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><font color="#46535E"><b>TreatmentPhonological</b></font></td><td><font color="#EE1F60"><b>-1.334</font></b><sup>***</sup></td><td><font color="#EE1F60"><b>-0.655</font></b><sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.106)</td><td>(0.104)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>TreatmentTypographical</b></font></td><td><font color="#EE1F60"><b>-0.687</font></b><sup>***</sup></td><td>-0.062</td></tr>
+<tr><td style="text-align:left"></td><td>(0.115)</td><td>(0.115)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,044</td><td>1,044</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.343</td><td>0.310</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.319</td><td>0.285</td></tr>
+<tr><td style="text-align:left">Residual Std. Error (df = 1007)</td><td>1.277</td><td>1.399</td></tr>
+<tr><td style="text-align:left">F Statistic (df = 36; 1007)</td><td>14.580<sup>***</sup></td><td>12.560<sup>***</sup></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 ### Appendix: Bayesian Analysis
 
 In addition to the frequentist analysis, we also conducted a brief exploration into Bayesian methods to better understand our data, modeling choices, and impact. In this section, we present two models: (1) a Bayesian estimation of our fully specified linear model, and (2) an alternative specification: an ordered logistic regression. Our analysis is powered by `pymc3` and its requirements to replicate our results can be found in the repository's `requirements.txt` file. We leave this section mostly as future research and practice as the methods interest us while more work is still to be done.
@@ -1512,6 +1536,32 @@ Lastly, we include a histogram of implied outcomes that we generate through simu
 
 <center>[<img src="img/bayes/sim_hist.png" width=710 />](img/bayes/sim_hist.png)</center>
 
+Finally, in order to see whether an Ordinal Response model makes a difference in practice, we used the "polr" function from the MASS library to generate this model using a basic outcome against treatment model with no controls, and a model with the full set of controls. Here, we show the treatment and pre-treatment variables. Our conclusions do not change, and we get very similar coefficients with this model.
+
+<table style="text-align:center" width=720><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2"><b>Intelligence (Ordered Factor)</b></td></tr>
+<tr><td style="text-align:left"></td><td><font color="#3B7EA1"><b>No controls</b></font></td><td><font color="#3B7EA1"><b>With controls</b></font></td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><font color="#46535E"><b>TreatmentPhonological</b></font></td><td><font color="#EE1F60"><b>-1.383<sup>***</sup></font></b></font></b></td><td><font color="#EE1F60"><b>-1.804<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.141)</td><td>(0.154)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>TreatmentTypographical</b></font></td><td><font color="#EE1F60"><b>-0.675<sup>***</sup></font></b></td><td><font color="#EE1F60"><b>-0.822<sup>***</sup></font></b></td></tr>
+<tr><td style="text-align:left"></td><td>(0.134)</td><td>(0.147)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>Intelligence.pretreat</b></font></td><td></td><td><font color="#EE1F60"><b>0.462<sup>***</sup></font></b></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.060)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>Interest.pretreat</b></font></td><td></td><td><font color="#EE1F60"><b>0.137<sup>***</sup></font></b></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.050)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>Effective.pretreat</b></font></td><td></td><td><font color="#EE1F60"><b>0.186<sup>***</sup></font></b></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.040)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,044</td><td>1,044</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
 <hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
-Please visit our public GitHub repository for the full data and analysis: [Effect of Typographical and Phonological Errors in Social Media Posts on the Perception of the Authors' Intelligence](https://github.com/cbenge509/typos_field_experiment)
+[^2]:Please visit our public GitHub repository for the full data and analysis: [Effect of Typographical and Phonological Errors in Social Media Posts on the Perception of the Authors' Intelligence](https://github.com/cbenge509/typos_field_experiment)
