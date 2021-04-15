@@ -1,11 +1,19 @@
 Title: Do Grammatical Errors in Social Media Posts Affect the Perception of the Authors' Intelligence?
 Date: April 10, 2021
 Category: Statistics
-Tags: experiments, w241, statistics, MIDS
+Tags: experiments, w241, statistics, MIDS, grammar
 Authors: Cris Benge, Stone Jiang, Andrew Fogarty
 Slug: my-super-post
 Summary: A study that evaluates the impact grammatical errors may have on our perceptions about the author.
 Include: vega
+
+<center>
+<a href="https://cbenge](https://github.com/cbenge509/typos_field_experiment">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a></center>
 
 # Study Overview
 
@@ -78,7 +86,9 @@ vegaEmbed("#vis4", spec4, embedOpt4)
 
 </script>
 
-Despite our small dataset, we had a very positive on our regression analysis, which is a simple model of treatment against intelligence outcome, using an indicator for each question to allow each question to have a separate mean. The results showed high statistical sigificance between our treatment groups and control, with phonological having more than double the effect of typographical.
+Despite having only a small pilot dataset to work with, we had a very noteable result in our regression analysis.  We employed a simple linear model of treatment against the `intelligence` outcome of interest, and controlled for each question to allow for separate means.  The results showed high statistical sigificance between our treatment groups and control, with <font color="#3b7ea1"><b>phonological having more than double the effect of typographical</b></font>.
+
+> **NOTE**: We removed Q4 (i.e., '`Nature`') from the live study because the length of post was universally regarded as too long by the experiment organizers and pilot study participants.  Accuracy of measuring an effect requires that we encourage participants to read the entire post, and Q4 was discouraging that behavior. Therefore, results here do not include Q4, BUT if we did include Q4, the results remains the same (highly statistically significant) with even slightly more negative coefficient estimates.
 
 <table style="text-align:center" width=720><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
 <tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
@@ -153,6 +163,7 @@ vegaEmbed("#vis5", spec5, embedOpt5)
 # Methodology
 
 Participants were invited to join a short, anonymous survey with the communicated intent of assessing their opinion on the appropriateness in length of social media posts. Deception was employed to avoid anticipated response bias in individuals who may occasionally commit typographical or phonological errors themselves and thus may, when asked to consciously consider the intelligence of those who commit errors, provide a more charitable rating. After collection of basic and shared demographic data, participants are presented with a series of seven example social media posts individual followed by eight questions [for each example post].  The questions are delivered in the following order and category:
+
 * **Attention Question**
     * *Recall question about the content of the social media post*
 * **Decoy Questions**
@@ -1062,7 +1073,7 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 
 </script>
 
-<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
 # Regression Analysis
 
@@ -1093,7 +1104,7 @@ We begin with a baseline model looking at only the effect of treatment against p
 <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
----
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
 ### Model with demographic and post covariates
 
@@ -1211,7 +1222,7 @@ Next, we control for demographic variables as well as properties of the post. Ea
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
----
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
 ### Model with demographic and post covariates
 
@@ -1251,7 +1262,7 @@ Next, building upon the model with demographics information, we use pre-treatmen
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
----
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
 ### Heterogenous treatment effects
 
@@ -1263,10 +1274,13 @@ However, the same observation is not true for typographical treatment. While tho
 
 <center>[<img src="img/het_reading_typo.png" width=720 />](img/het_reading_typo.png)</center>
 
----
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
+
 ### Appendix: Bayesian Analysis
 
 In addition to the frequentist analysis, we also conducted a brief exploration into Bayesian methods to better understand our data, modeling choices, and impact. In this section, we present two models: (1) a Bayesian estimation of our fully specified linear model, and (2) an alternative specification: an ordered logistic regression. Our analysis is powered by `pymc3` and its requirements to replicate our results can be found in the repository's `requirements.txt` file. We leave this section mostly as future research and practice as the methods interest us while more work is still to be done.
+
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
 #### Bayesian Linear Modeling
 
@@ -1354,7 +1368,7 @@ ax = plot_prior(prior=prior_pc, model=main_lm_model, group='prior', num_pp_sampl
 Ideally, we would want our observed outcome (the black line) to map nicely with our light blue traces representing the prior predictive y. We can see that this plot is likely telling us that a linear model is not the right model.
 
 
-<center>[<img src="img/bayes/lm_priors1.png" width=720 />](img/bayes/lm_priors1.png)</center>
+<center>[<img src="img/bayes/lm_priors1.png" width=540 />](img/bayes/lm_priors1.png)</center>
 
 `pymc3` also offers a nice convience function to display our precise modeling choices graphically, which we present below:
 
@@ -1376,7 +1390,7 @@ with main_lm_model:
 
 We are now ready to present our first quantity of interest for our treatment variables of interest `Phonological` and `Typographical`. The plot below is known as a High Density Interval which tells us that for density on the left (`Phonological`), 94% of the posterior probability lies between -1.39 and -1. This means that parameter values less than -1.39 or greater than -1 are highly incompatible with the data and model.
 
-<center>[<img src="img/bayes/lm_qi1.png" width=720 />](img/bayes/lm_qi1.png)</center>
+<center>[<img src="img/bayes/lm_qi1.png" width=750 />](img/bayes/lm_qi1.png)</center>
 
 Next, we conduct one of the most powerful features of Bayesian data analysis: posterior predictive checks. In the code below, we generate 2000 **data sets**, each containing 1044 observations (the size of our data set); each drawn from the parameters estimated from our posterior distribution. The goal of this plot is to examine whether or not, after estimating our model's parameters, how well we can retrodict `y`.
 
@@ -1394,8 +1408,9 @@ with main_lm_model:
 Similar to our prior predictive plot, we find that we cannot generate data that looks like our outcome variable very well as the posterior predictions for `y` do match the patterns of our observed `y`.
 
 
-<center>[<img src="img/bayes/main_lm_posterior.png" width=720 />](img/bayes/main_lm_posterior.png)</center>
+<center>[<img src="img/bayes/main_lm_posterior.png" width=540 />](img/bayes/main_lm_posterior.png)</center>
 
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
 #### Bayesian Ordered Logistic Modeling
 
@@ -1463,9 +1478,6 @@ Our MCMC search finds that, as compared to the linear model, our primary variabl
 
 <center>[<img src="img/bayes/hdi_polr.png" width=540 />](img/bayes/hdi_polr.png)</center>
 
-
-
-
 As you guessed, our next step is to determine how well our estimated parameters can recreate our observed data `y`. As a reminder, we are generating thousands of **data sets** and then visualizing it to see how well we can retrodict `y`.
 
 
@@ -1496,86 +1508,12 @@ df_comparative_waic = az.compare(dataset_dict={"ordered logit": cumlink_idata, "
 az.plot_compare(df_comparative_waic, insample_dev=False, figsize=(10, 4));
 ```
 
-<center>[<img src="img/bayes/waic.png" width=540 />](img/bayes/waic.png)</center>
-
+<center>[<img src="img/bayes/waic.png" width=720 />](img/bayes/waic.png)</center>
 
 Lastly, we include a histogram of implied outcomes that we generate through simulating data from the posterior. Each plot shows how our outcome distribution varies by the primary independent variables. The black lines capture `Phonological` while the blue lines capture `Typographical`. The histogram shows the saliency of ordered categories. We can see that our control group is balanced while responses are weighted heavily on the middle response meaning meaning that a linear model most likely fail to adequately capture these differences.
 
-```python
-# regenerate posterior preds with fast sampling off
-with cumlink:
-    pp_resp = pm.sample_posterior_predictive(
-        cumlink_idata, var_names=["y"], random_seed=1
-    )["y"]
+<center>[<img src="img/bayes/sim_hist.png" width=710 />](img/bayes/sim_hist.png)</center>
 
-# generate counterfactuals
-cases_df = pd.DataFrame(
-    np.array([[0, 0], [0, 1], [1, 0], [1, 1]]),
-    columns=["Phonological", "Typographical"],
-)
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
-# transform data to df
-response_df = pd.DataFrame(pp_resp).T
-response_df.index.name = "case"
-response_df = (
-    pd.concat([cases_df, response_df], axis=1)
-    .set_index(["Phonological", "Typographical"])
-    .sort_index()
-)
-
-# show implied histogram of simulated outcomes
-_, axes = plt.subplots(1, 3, figsize=(12, 5), sharey=True)
-bins, xticks, xlabels, colors = (
-    np.arange(8) - 0.5,
-    np.arange(7),
-    np.arange(1, 8),
-    ["k", "b"],
-)
-
-axes[0].hist(
-    [response_df.loc[0, 0].values.flatten(), response_df.loc[0, 0].values.flatten()],
-    bins=bins,
-    rwidth=0.5,
-    color=colors,
-    alpha=0.7,
-)
-axes[0].set_title("Phonological=0, Typographical=0")
-axes[0].set_ylabel("frequency")
-axes[0].legend(fontsize=10)
-
-axes[1].hist(x=
-    [response_df.loc[1, 0].values.flatten(), response_df.loc[0, 1].values.flatten()],
-    bins=bins,
-    rwidth=0.5,
-    color=colors,
-    alpha=0.7,
-)
-axes[1].set_title("Phonological=1, Typographical=0")
-
-
-axes[2].hist(
-    [response_df.loc[1, 0].values.flatten(), response_df.loc[0, 0].values.flatten()],
-    bins=bins,
-    rwidth=0.5,
-    color=colors,
-    alpha=0.7,
-)
-axes[2].set_title("Phonological=0, Typographical=1")
-
-
-for ax in axes:
-    ax.set_xticks(xticks)
-    ax.set_xticklabels(xlabels)
-    ax.set_xlabel("response")
-plt.tight_layout();
-```
-
-<center>[<img src="img/bayes/sim_hist.png" width=540 />](img/bayes/sim_hist.png)</center>
-
-
-
-
----
-
-Visit our GitHub page for all of the data and analysis code associated with this study!
-https://github.com/cbenge509/typos_field_experiment
+Please visit our public GitHub repository for the full data and analysis: [Effect of Typographical and Phonological Errors in Social Media Posts on the Perception of the Authors' Intelligence](https://github.com/cbenge509/typos_field_experiment)
