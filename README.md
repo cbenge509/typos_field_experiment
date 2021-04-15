@@ -24,13 +24,15 @@ Spring 2021, W241 - Experiments and Causal Inference - [D. Alex Hughes, PhD](htt
 
 ## Enviornment Setup
 
-To setup your local enviornment for development:
+To setup your local enviornment for running the Python portion of this project, you will need to install a distribution of [Anaconda](https://www.anaconda.com/products/individual) (preferably version `4.10` or later) and run the following:
 
 ```bash
-conda create -n your_env_name python=3.8.5
+conda create -n your_env_name python=3.8.8
 conda activate your_env_name
 pip install -r requirements.txt
 ```
+
+All modeling and analysis was performed in R version `4.0.4`; see [CRAN](https://cran.r-project.org/) for download and installation instructions.
 
 # Study Overview
 
