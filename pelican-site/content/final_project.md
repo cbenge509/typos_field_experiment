@@ -13,17 +13,25 @@ Command of language is one of the most significant cognitive abilities we posses
 
 General intelligence, sometimes referred to as cognitive ability, includes our capacity to ”reason, plan, solve problems, think abstractly, comprehend complex ideas, learn quickly, and learn from experience” ([Plomin, 1999](https://www.nature.com/articles/35011520)). Assessment of our cognitive abilities often informs critical judgments in others that affect our educational, occupational, and relationship opportunities ([B. M. Newman & P. R. Newman, 2020](https://www.sciencedirect.com/book/9780128154502/theories-of-adolescent-development?via=ihub=)). Though social media channels are often used to identify potentially qualified job candidates, their use in screening candidates for suitability and background investigation is also on the rise ([Driver, 2020](https://www.businessnewsdaily.com/2377-social-media-hiring.html)). In the CareerBuilder survey that noted an increase in social media screening, 57% of employers reported rejecting candidates based on negative findings in applicant social media posts. Of those rejected, 27% of employers specified ”poor communication skills” as the primary factor for the rejection.
 
-There is evidence that we ought to take this question seriously. In ([Borkenau & Liebler, 1993](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-6494.1993.tb00779.x)), college students rated their perceived intelligence of strangers after watching them read aloud a pre-written weather report. The study found a significant correlation between perceived and measured IQ scores of the strangers, suggesting that some information about individual intelligence is provided through verbal communication. ([Kreiner et al., 2002](https://www.tandfonline.com/doi/abs/10.1080/00221300209602029)) showed that, while experiments with only a small percentage of typographical errors didn’t result in significant perceived intelligence ratings, the presence of a larger number of typographical errors or phonological errors did significantly influence the perception of cognitive writing abilities. The participants in these studies were comprised entirely of college students, but it may be the case that other populations would arrive at a different outcome. In ([Silverman, 1990](https://www.sciencedirect.com/science/article/abs/pii/0094730X9090046U)) college professors gave equally high perceived intelligence ratings to hypothetical students with and without verbal language difficulties, such as stuttering. More work is necessary to fully understand these questions, particularly in the context of contemporary social media communication channels where abbreviation, punctuation-skipping, and slang are frequently employed to accommodate restrictive post-length limitations on popular platforms.
+There is evidence that we ought to take this question seriously. In ([Borkenau & Liebler, 1993](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-6494.1993.tb00779.x)), college students rated their perceived intelligence of strangers after watching them read aloud a pre-written weather report. The study found a significant correlation between perceived and measured IQ scores of the strangers, suggesting that some information about individual intelligence is provided through verbal communication. ([Kreiner et al., 2002](https://www.tandfonline.com/doi/abs/10.1080/00221300209602029)) showed that, while experiments with only a small percentage of typographical errors[^1] didn’t result in significant perceived intelligence ratings, the presence of a larger number of typographical errors or phonological errors did significantly influence the perception of cognitive writing abilities. The participants in these studies were comprised entirely of college students, but it may be the case that other populations would arrive at a different outcome. In ([Silverman, 1990](https://www.sciencedirect.com/science/article/abs/pii/0094730X9090046U)) college professors gave equally high perceived intelligence ratings to hypothetical students with and without verbal language difficulties, such as stuttering. More work is necessary to fully understand these questions, particularly in the context of contemporary social media communication channels where abbreviation, punctuation-skipping, and slang are frequently employed to accommodate restrictive post-length limitations on popular platforms.
+
+Based on these previous studies, our experiment seeks to better understand the effect of the two types of spelling errors on perceived intelligence of the writers of social media posts. Our hypothesis is that both typographical and phonological spelling errors, compared to no spelling errors at all, will lead a decreased level of perceived intelligence, irrespective of the nature, content, and platform of the social media post. In addition, we believe that the effect of phonological errors could be greater than typographical errors, both from ([Kreiner et al., 2002](https://www.tandfonline.com/doi/abs/10.1080/00221300209602029)), and the fact that typographical errors are common in mainstream social media, and do not necessarily reflect the writer's inability to spell the word.
+
+[^1]: Typographical errors, often known as typos, are spelling mistakes that occur due to slip of the hand when typing, and includes artifacts such as swapping letters, typing a letter close to the intended letter on the keyboard, or leaving out a letter. Usually the mispelled word is still easy to recognize. Examples include "somethimg", "hwo", and "thrd". Phonological errors on the other hand arise out of ignorance, or spellings based on sounds of the word. These usually demonstrate that the author truly does not know the proper spelling of the word. For example, "sumthing", "Kansus", and "razing".
 
 <hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
 # Experiment Design
 
-The purpose of this study is to assess the impact, *if any*, on the perceived intelligence of authors’ who make grammatical errors in social media posts. If the perception of author intelligence is significantly perturbed by grammatical error, it will be useful to know if particular categories of error are more or less deleterious. We will leave outside the scope of this experiment the concern of whether a correlation between grammatical error and measured intelligence exists as we are interested only in the potential causal relationship between written error and perception of intelligence.
+The purpose of this study is to assess the impact, *if any*, on the perceived intelligence of authors’ who make spelling errors in social media posts. If the perception of author intelligence is significantly perturbed by such error, it will be useful to know if particular categories of error are more or less deleterious. We will leave outside the scope of this experiment the concern of whether a correlation between spelling error and measured intelligence exists as we are interested only in the potential causal relationship between written error and perception of intelligence.
+
+Our potential outcomes is stated as follows: We compare the average perceived level of intelligence of writers of social media posts when either typographical or phonological spelling errors are made in the post, to what would have happened had the post contained no errors. Since we can only measure one potential outcome (no error, typographical, or phonological), we adopt a pre-test/post-test control group study design (ROXO). In this design, we first randomize participants at the start of the study by allowing each participant an equal chance of being assigned to Control, Typographical, or Phonological. Next, all participants are measured on one post (details of measurement below) in order to establish a pre-treatment baseline across all individuals. Each group is then subjected to their particular treatment for 5 more posts (Control receives posts with no error, Typographical receives posts with only what's deemed typographical error, and Phonological receives only what's deemed phonological error). We then measure the participants responses after each post.
+
+In order to establish that our randomization processed worked correctly, we perform a covariate balance check using the R package "cobalt". We check all covariantes not related to the pretreatment (this will be done later with a placebo test), including demographic information, and how often individuals in each group reads and writes social media posts. This check measures raw differences in proportion for categorical variables across the control and treatment groups. For example, for how often an individual reads social media, we have 5 potential levels ("Weekly", "Less than Weekly", "Daily", "More than once a day", and "Prefer not to say"). The difference in proportion of individuals belonging to these levels is calculated across all three groups. There's indication that this raw difference is a [strong predictor](https://cran.r-project.org/web/packages/cobalt/vignettes/cobalt.html#fn6) of potential bias, and that a threshold of 0.1 to 0.25 have been proposed to be satisfactory. Our check (see our [analysis notebook](https://github.com/cbenge509/typos_field_experiment/blob/main/R-analysis/final_project.Rmd) for more details) indicates that 36 / 39 levels of our covariates pass the balance check at a threshold level of 0.1, while the remaining 3 pass the level of 0.15. Two of these three are levels of how often one reads social media ("Daily" at 0.1575, "More than once a day" at 0.1022), and one is how often one writes social media ("Less than Weekly" at 0.1476). All other levels of these variables pass the 0.1 threshold. Due to such small differences in only a few levels of two variables, and the fact that all are below or signficantly below the acceptable threshold of 0.25, we believe the covariate balance check passes in our case since. Bias in our estimates should not be an issues in terms of including these covariates in our analysis.
 
 ## Participants
 
-Our study recruited volunteer survey participants through a combination of social media posts on Facebook and Slack for conducting a *Pilot* study. Following the pilot, the formal experiment will recruit through a combination of [Amazon Mechanical Turk](https://www.mturk.com/) (Mar 31, 2021 - Apr 1, 2021) and the [University of California, Berkeley XLab](https://xlab.berkeley.edu/) (Apr 5, 2021 - Apr 9, 2021).  The survey ran as omnibus alongside other experiments on a variety of topics being researched during the Spring 2021 semester at the UC Berkeley MIDS program; all demographic data was shared as common resource for each sub-survey.
+Our study recruited volunteer survey participants through a combination of social media posts on Facebook and Slack for conducting a *Pilot* study. Following the pilot, the formal experiment will recruit through a combination of [Amazon Mechanical Turk](https://www.mturk.com/) (Mar 31, 2021 - Apr 1, 2021) and the [University of California, Berkeley XLab](https://xlab.berkeley.edu/) (Apr 5, 2021 - Apr 9, 2021).  Data collected after this date (about 40 additional response) were intentially not reported, as we had already started our analysis and did not want our knowledge of the majority of the dataset to influence decisions we make on this remaining data. However, as a disclaimer, including this additional data did not change **any** of our reported conclusions. The survey ran as omnibus alongside other experiments on a variety of topics being researched during the Spring 2021 semester at the UC Berkeley MIDS program; all demographic data was shared as common resource for each sub-survey.
 
 ### Pilot Study
 
@@ -69,6 +77,42 @@ vegaEmbed("#vis4", spec4, embedOpt4)
 })(vegaEmbed);
 
 </script>
+
+Despite our small dataset, we had a very positive on our regression analysis, which is a simple model of treatment against intelligence outcome, using an indicator for each question to allow each question to have a separate mean. The results showed high statistical sigificance between our treatment groups and control, with phonological having more than double the effect of typographical.
+
+
+<table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>Intelligence</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TypeP</td><td>-1.567<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.283)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">TypeT</td><td>-0.726<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.226)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">factor(q_num)2</td><td>-0.677<sup>**</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.321)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">factor(q_num)3</td><td>-1.065<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.321)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">factor(q_num)5</td><td>-0.516</td></tr>
+<tr><td style="text-align:left"></td><td>(0.321)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">factor(q_num)6</td><td>-0.387</td></tr>
+<tr><td style="text-align:left"></td><td>(0.321)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>4.962<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.261)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>155</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.227</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.196</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.265 (df = 148)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>7.243<sup>***</sup> (df = 6; 148)</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
 
 ---
 
@@ -125,7 +169,7 @@ Participants were invited to join a short, anonymous survey with the communicate
 * **Attention Question**
     * *Question asking for how many spelling or grammar mistakes the participant noticed*
 
-## Social Media Posts
+## Treatment Experience
 
 For our study, we constructed seven fictive social media posts: one a control question that everyone receives, regardless of branch assignment, and six posts that are identical in content save for deliberate typographical errors (treatment group 1), or deliberate phonological errors (treatment group 2). The control question contains no grammatical or spelling errors, and is presented as the first question for all participants as a mechanism to prime the parcipants for attention and to elicit more careful reading of the following six posts. While control group postings are meant to avoid grammar and spelling mistakes, some loose language is used to establish credibility as 'genuine' to a normal social media interaction. All posts cover topics that are intended to be banal so as to avoid evocation of excited emotional states [we assume there to be] due to topics such as religion or politics.
 
@@ -1219,4 +1263,5 @@ However, the same observation is not true for typographical treatment. While tho
 <center>[<img src="img/het_reading_typo.png" width=720 />](img/het_reading_typo.png)</center>
 
 
-more to come...
+Visit our GitHub page for all of the data and analysis code associated with this study!
+https://github.com/cbenge509/typos_field_experiment
