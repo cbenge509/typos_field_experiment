@@ -80,20 +80,19 @@ vegaEmbed("#vis4", spec4, embedOpt4)
 
 Despite our small dataset, we had a very positive on our regression analysis, which is a simple model of treatment against intelligence outcome, using an indicator for each question to allow each question to have a separate mean. The results showed high statistical sigificance between our treatment groups and control, with phonological having more than double the effect of typographical.
 
-
-<table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+<table style="text-align:center" width=720><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
 <tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
-<tr><td style="text-align:left"></td><td>Intelligence</td></tr>
-<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TypeP</td><td>-1.567<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td><i><b><font color="#3B7EA1">Intelligence</font></b></i></td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><font color="#46535E"><b>TypeP</b></font></td><td><font color="#EE1F60"><b>-1.567<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td>(0.283)</td></tr>
 <tr><td style="text-align:left"></td><td></td></tr>
-<tr><td style="text-align:left">TypeT</td><td>-0.726<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>TypeT</font></b></td><td><font color="#EE1F60"><b>-0.726<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td>(0.226)</td></tr>
 <tr><td style="text-align:left"></td><td></td></tr>
-<tr><td style="text-align:left">factor(q_num)2</td><td>-0.677<sup>**</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>factor(q_num)2</b></font></td><td><font color="#EE1F60"><b>-0.677<sup>**</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td>(0.321)</td></tr>
 <tr><td style="text-align:left"></td><td></td></tr>
-<tr><td style="text-align:left">factor(q_num)3</td><td>-1.065<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>factor(q_num)3</b></font></td><td><font color="#EE1F60"><b>-1.065<sup>***</sup></font></b></td></tr>
 <tr><td style="text-align:left"></td><td>(0.321)</td></tr>
 <tr><td style="text-align:left"></td><td></td></tr>
 <tr><td style="text-align:left">factor(q_num)5</td><td>-0.516</td></tr>
@@ -1073,14 +1072,14 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 
 We begin with a baseline model looking at only the effect of treatment against perceived level of intelligence. Throughout this report, we will use robust standard errors in order to generate our p-values. Our treatment variable has 3 levels, control, typographical treatment, and phonological treatment. Both treatment levels are negative compared to "control", indicating that individuals perceive the authors to be less intelligent when typos are present in the writing. The estimate for "phonological" is more negative than "typographical" at more than double the magnitude, indicating that misspellings based on the sound of a word ("Kansus" vs "Kansas") has a stronger effect than accidentical typos ("how" vs "hwo"). Both are highly statistically significant with near 0 p-values, indicating that with 95% confidence, we believe the true mean is not 0.
 
-<table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+<table style="text-align:center" width=720><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
 <tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
-<tr><td style="text-align:left"></td><td>Intelligence</td></tr>
+<tr><td style="text-align:left"></td><td><i><b><font color="#3B7EA1">Intelligence</font></b></i></td></tr>
 <tr><td style="text-align:left"></td><td>Baseline</td></tr>
-<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TreatmentPhonological</td><td>-1.142<sup>***</sup></td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><font color="#46535E"><b>TreatmentPhonological</b></face></td><td><font color="#EE1F60"><b>-1.142<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td>(0.108)</td></tr>
 <tr><td style="text-align:left"></td><td></td></tr>
-<tr><td style="text-align:left">TreatmentTypographical</td><td>-0.558<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>TreatmentTypographical</b></font></td><td><font color="#EE1F60"><b>-0.558<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td>(0.104)</td></tr>
 <tr><td style="text-align:left"></td><td></td></tr>
 <tr><td style="text-align:left">Constant</td><td>4.563<sup>***</sup></td></tr>
@@ -1102,16 +1101,16 @@ Next, we control for demographic variables as well as properties of the post. Ea
 
 <table style="text-align:center"><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
 <tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
-<tr><td style="text-align:left"></td><td colspan="2">Intelligence</td></tr>
-<tr><td style="text-align:left"></td><td>Baseline</td><td>Demographics</td></tr>
+<tr><td style="text-align:left"></td><td colspan="2"><b>Intelligence</b></td></tr>
+<tr><td style="text-align:left"></td><td><i><b><font color="#3B7EA1">Baseline</i></b></font></td><td><i><b><font color="#3B7EA1">Demographics</i></b></font></td></tr>
 <tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
-<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TreatmentPhonological</td><td>-1.142<sup>***</sup></td><td>-1.260<sup>***</sup></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><font color="#46535E"><b>TreatmentPhonological</b></font></td><td><font color="#EE1F60"><b>-1.142<sup>***</sup></font></b></td><td><font color="#EE1F60"><b>-1.260<sup>***</b></font></sup></td></tr>
 <tr><td style="text-align:left"></td><td>(0.108)</td><td>(0.108)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">TreatmentTypographical</td><td>-0.558<sup>***</sup></td><td>-0.637<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>TreatmentTypographical</b></font></td><td><font color="#EE1F60"><b>-0.558<sup>***</sup></font></b></td><td><font color="#EE1F60"><b>-0.637<sup>***</sup></font></b></td></tr>
 <tr><td style="text-align:left"></td><td>(0.104)</td><td>(0.109)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">length</td><td></td><td>-0.028<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>length</b></font></td><td></td><td><font color="#EE1F60"><b>-0.028<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.003)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
 <tr><td style="text-align:left">GenderCisgender Man</td><td></td><td>-0.160</td></tr>
@@ -1120,13 +1119,13 @@ Next, we control for demographic variables as well as properties of the post. Ea
 <tr><td style="text-align:left">GenderNon-binary</td><td></td><td>-0.262</td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.184)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">GenderOther</td><td></td><td>1.833<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>GenderOther</font></b></td><td></td><td><font color="#EE1F60"><b>1.833<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.270)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">GenderPrefer not to disclose</td><td></td><td>-1.274<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>GenderPrefer not to disclose</b></font></td><td></td><td><font color="#EE1F60"><b>-1.274<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.471)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">GenderTransgender Man</td><td></td><td>0.921<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>GenderTransgender Man</b></font></td><td></td><td><font color="#EE1F60"><b>0.921<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.295)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
 <tr><td style="text-align:left">EnglishPrefer not to say</td><td></td><td>0.424</td></tr>
@@ -1177,7 +1176,7 @@ Next, we control for demographic variables as well as properties of the post. Ea
 <tr><td style="text-align:left">age_bins41+</td><td></td><td>-0.512</td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.732)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">ReadSocialMediaLess than Weekly</td><td></td><td>0.719<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>ReadSocialMediaLess than Weekly</b></font></td><td></td><td><font color="#EE1F60"><b>0.719<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.238)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
 <tr><td style="text-align:left">ReadSocialMediaMore than once a day</td><td></td><td>0.067</td></tr>
@@ -1186,10 +1185,10 @@ Next, we control for demographic variables as well as properties of the post. Ea
 <tr><td style="text-align:left">ReadSocialMediaPrefer not to say</td><td></td><td>-0.891</td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.854)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">ReadSocialMediaWeekly</td><td></td><td>0.598<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>ReadSocialMediaWeekly</b></font></td><td></td><td><font color="#EE1F60"><b>0.598<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.220)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">WriteSocialMediaLess than Weekly</td><td></td><td>-0.340<sup>**</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>WriteSocialMediaLess than Weekly</b></font></td><td></td><td><font color="#EE1F60"><b>-0.340<sup>**</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.162)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
 <tr><td style="text-align:left">WriteSocialMediaMore than once a day</td><td></td><td>0.266</td></tr>
@@ -1218,27 +1217,27 @@ Next, we control for demographic variables as well as properties of the post. Ea
 
 Next, building upon the model with demographics information, we use pre-treatment variables measured on the control post shown to all groups. Previously from the placebo test, we showed that Treatment effect was not statistically significant. However, the estimate for the phonological group was more than 6x lower than the typographical group, which lower than control. This could introduce bias in our estimates if the baseline level of perceived intelligence for individuals in the different groups are on average different. As a result, we add in pre-treatment variables as a covariate. We also include covariates for pretreatment for writing, effectiveness, etc. Despite our treatment being a poor predictor of pre-treatment Intelligence level, pre-treatment Intelligence level is a strong predictor of Intelligence level. The estimates for the two models are not very different, but standard errors are slightly tighter.
 
-<table style="text-align:center"><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<table style="text-align:center" width=720><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
 <tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
-<tr><td style="text-align:left"></td><td colspan="2">Intelligence</td></tr>
-<tr><td style="text-align:left"></td><td>Baseline</td><td>Pretreatment</td></tr>
+<tr><td style="text-align:left"></td><td colspan="2"><b>Intelligence</b></td></tr>
+<tr><td style="text-align:left"></td><td><b><font color="#3B7EA1">Baseline</b></font></td><td><b><font color="#3B7EA1">Pretreatment</b></font></td></tr>
 <tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
-<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TreatmentPhonological</td><td>-1.142<sup>***</sup></td><td>-1.170<sup>***</sup></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><font color="#46535E"><b>TreatmentPhonological</b></font></td><td><font color="#EE1F60"><b>-1.142<sup>***</sup></font></b></td><td><font color="#EE1F60"><b>-1.170<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td>(0.108)</td><td>(0.102)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">TreatmentTypographical</td><td>-0.558<sup>***</sup></td><td>-0.515<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>TreatmentTypographical</b></font></td><td><font color="#EE1F60"><b>-0.558<sup>***</sup></b></font></td><td><font color="#EE1F60"><b>-0.515<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td>(0.104)</td><td>(0.102)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">Intelligence.pretreat</td><td></td><td>0.212<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>Intelligence.pretreat</b></font></td><td></td><td><font color="#EE1F60"><b>0.212<sup>***</sup></font></b></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.055)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">Writing.pretreat</td><td></td><td>0.178<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>Writing.pretreat</b></font></td><td></td><td><font color="#EE1F60"><b>0.178<sup>***</sup></font></b></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.059)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">Interest.pretreat</td><td></td><td>0.086<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>Interest.pretreat</b></font></td><td></td><td><font color="#EE1F60"><b>0.086<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.033)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
-<tr><td style="text-align:left">Effective.pretreat</td><td></td><td>0.093<sup>***</sup></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>Effective.pretreat</b></font></td><td></td><td><font color="#EE1F60"><b>0.093<sup>***</sup></b></font></td></tr>
 <tr><td style="text-align:left"></td><td></td><td>(0.031)</td></tr>
 <tr><td style="text-align:left"></td><td></td><td></td></tr>
 <tr><td style="text-align:left">Constant</td><td>4.563<sup>***</sup></td><td>2.723<sup>***</sup></td></tr>
