@@ -1542,7 +1542,7 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 </code></pre></div>
 
 <p><center><a href="img/bayes/waic.png"><img src="img/bayes/waic.png" width=540 /></a></center></p>
-<p>Lastly, we include a histogram of implied outcomes that we generate through simulating data from the posterior. Each plot shows how our outcome distribution varies by the primary independent variables. The black lines capture <code>Phonological</code> while the blue lines capture <code>Typographical</code>. The histogram although not filled with much variation, shows the saliency of ordered categories. We can see that our control group is balanced while responses are weighted heavily on the middle response meaning it is much more salient and we should not treat our outcome as an ordinary continuous variable.</p>
+<p>Lastly, we include a histogram of implied outcomes that we generate through simulating data from the posterior. Each plot shows how our outcome distribution varies by the primary independent variables. The black lines capture <code>Phonological</code> while the blue lines capture <code>Typographical</code>. The histogram shows the saliency of ordered categories. We can see that our control group is balanced while responses are weighted heavily on the middle response meaning meaning that a linear model most likely fail to adequately capture these differences.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># regenerate posterior preds with fast sampling off</span>
 <span class="k">with</span> <span class="n">cumlink</span><span class="p">:</span>
     <span class="n">pp_resp</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample_posterior_predictive</span><span class="p">(</span>

@@ -1500,7 +1500,7 @@ az.plot_compare(df_comparative_waic, insample_dev=False, figsize=(10, 4));
 <center>[<img src="img/bayes/waic.png" width=540 />](img/bayes/waic.png)</center>
 
 
-Lastly, we include a histogram of implied outcomes that we generate through simulating data from the posterior. Each plot shows how our outcome distribution varies by the primary independent variables. The black lines capture `Phonological` while the blue lines capture `Typographical`. The histogram although not filled with much variation, shows the saliency of ordered categories. We can see that our control group is balanced while responses are weighted heavily on the middle response meaning it is much more salient and we should not treat our outcome as an ordinary continuous variable.
+Lastly, we include a histogram of implied outcomes that we generate through simulating data from the posterior. Each plot shows how our outcome distribution varies by the primary independent variables. The black lines capture `Phonological` while the blue lines capture `Typographical`. The histogram shows the saliency of ordered categories. We can see that our control group is balanced while responses are weighted heavily on the middle response meaning meaning that a linear model most likely fail to adequately capture these differences.
 
 ```python
 # regenerate posterior preds with fast sampling off
