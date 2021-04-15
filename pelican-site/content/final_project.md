@@ -7,13 +7,11 @@ Slug: my-super-post
 Summary: A study that evaluates the impact grammatical errors may have on our perceptions about the author.
 Include: vega
 
-<center>
-<a href="https://cbenge](https://github.com/cbenge509/typos_field_experiment">
-<span class="fa-stack fa-lg">
-<i class="fa fa-circle fa-stack-2x"></i>
-<i class="fa fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a></center>
+# View us on GitHub
+
+[<img src="img/github_banner.png" width=750 style="border:2px solid #eee; box-shadow: 10px 10px 4px #ccc;" />](https://github.com/cbenge509/typos_field_experiment)
+
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
 # Study Overview
 
