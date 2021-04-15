@@ -1564,4 +1564,6 @@ Finally, in order to see whether an Ordinal Response model makes a difference in
 
 <hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
+# Footnotes
+
 [^2]:Please visit our public GitHub repository for the full data and analysis: [Effect of Typographical and Phonological Errors in Social Media Posts on the Perception of the Authors' Intelligence](https://github.com/cbenge509/typos_field_experiment)
