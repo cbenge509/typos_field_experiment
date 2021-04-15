@@ -1273,7 +1273,8 @@ However, the same observation is not true for typographical treatment. While tho
 <center>[<img src="img/het_reading_typo.png" width=720 />](img/het_reading_typo.png)</center>
 
 
----
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+
 ### Secondary outcomes -- Writing and effectiveness
 
 As secondary outcomes, we wanted to see whether the perceived writing abilities of the authors and effectiveness of the posts were altered based on the treatment type. Interestingly, Writing abilities follows the exact same trend as Intelligence, where phonological treatment had nearly double the effect as typographical with both being statistically significant. However, effectiveness of the post was only different for the phonological group. This makes sense in a way: since intended words for typographical errors are usually easy to decipher, these typo do not obscure meaning. The effectiveness of posts with blatant phonological errors was severely impacted, although to a lesser extent than the impact for writing and intelligence. We leave these preliminary outcomes for potential future study.
@@ -1296,7 +1297,7 @@ As secondary outcomes, we wanted to see whether the perceived writing abilities 
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
----
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 ### Appendix: Bayesian Analysis
 
 In addition to the frequentist analysis, we also conducted a brief exploration into Bayesian methods to better understand our data, modeling choices, and impact. In this section, we present two models: (1) a Bayesian estimation of our fully specified linear model, and (2) an alternative specification: an ordered logistic regression. Our analysis is powered by `pymc3` and its requirements to replicate our results can be found in the repository's `requirements.txt` file. We leave this section mostly as future research and practice as the methods interest us while more work is still to be done.
@@ -1533,76 +1534,7 @@ az.plot_compare(df_comparative_waic, insample_dev=False, figsize=(10, 4));
 
 Lastly, we include a histogram of implied outcomes that we generate through simulating data from the posterior. Each plot shows how our outcome distribution varies by the primary independent variables. The black lines capture `Phonological` while the blue lines capture `Typographical`. The histogram shows the saliency of ordered categories. We can see that our control group is balanced while responses are weighted heavily on the middle response meaning meaning that a linear model most likely fail to adequately capture these differences.
 
-```python
-# regenerate posterior preds with fast sampling off
-with cumlink:
-    pp_resp = pm.sample_posterior_predictive(
-        cumlink_idata, var_names=["y"], random_seed=1
-    )["y"]
-
-# generate counterfactuals
-cases_df = pd.DataFrame(
-    np.array([[0, 0], [0, 1], [1, 0], [1, 1]]),
-    columns=["Phonological", "Typographical"],
-)
-
-# transform data to df
-response_df = pd.DataFrame(pp_resp).T
-response_df.index.name = "case"
-response_df = (
-    pd.concat([cases_df, response_df], axis=1)
-    .set_index(["Phonological", "Typographical"])
-    .sort_index()
-)
-
-# show implied histogram of simulated outcomes
-_, axes = plt.subplots(1, 3, figsize=(12, 5), sharey=True)
-bins, xticks, xlabels, colors = (
-    np.arange(8) - 0.5,
-    np.arange(7),
-    np.arange(1, 8),
-    ["k", "b"],
-)
-
-axes[0].hist(
-    [response_df.loc[0, 0].values.flatten(), response_df.loc[0, 0].values.flatten()],
-    bins=bins,
-    rwidth=0.5,
-    color=colors,
-    alpha=0.7,
-)
-axes[0].set_title("Phonological=0, Typographical=0")
-axes[0].set_ylabel("frequency")
-axes[0].legend(fontsize=10)
-
-axes[1].hist(x=
-    [response_df.loc[1, 0].values.flatten(), response_df.loc[0, 1].values.flatten()],
-    bins=bins,
-    rwidth=0.5,
-    color=colors,
-    alpha=0.7,
-)
-axes[1].set_title("Phonological=1, Typographical=0")
-
-
-axes[2].hist(
-    [response_df.loc[1, 0].values.flatten(), response_df.loc[0, 0].values.flatten()],
-    bins=bins,
-    rwidth=0.5,
-    color=colors,
-    alpha=0.7,
-)
-axes[2].set_title("Phonological=0, Typographical=1")
-
-
-for ax in axes:
-    ax.set_xticks(xticks)
-    ax.set_xticklabels(xlabels)
-    ax.set_xlabel("response")
-plt.tight_layout();
-```
-
-<center>[<img src="img/bayes/sim_hist.png" width=540 />](img/bayes/sim_hist.png)</center>
+<center>[<img src="img/bayes/sim_hist.png" width=710 />](img/bayes/sim_hist.png)</center>
 
 Finally, in order to see whether an Ordinal Response model makes a difference in practice, we used the "polr" function from the MASS library to generate this model using a basic outcome against treatment model with no controls, and a model with the full set of controls. Here, we show the treatment and pre-treatment variables. Our conclusions do not change, and we get very similar coefficients with this model.
 
@@ -1630,4 +1562,6 @@ Finally, in order to see whether an Ordinal Response model makes a difference in
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
----
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
+
+[^2]:Please visit our public GitHub repository for the full data and analysis: [Effect of Typographical and Phonological Errors in Social Media Posts on the Perception of the Authors' Intelligence](https://github.com/cbenge509/typos_field_experiment)
