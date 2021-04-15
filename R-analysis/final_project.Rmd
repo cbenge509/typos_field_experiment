@@ -13,9 +13,12 @@ library(data.table)
 options(datatable.WhenJisSymbolThenCallingScope=TRUE)
 library(knitr)
 library(stringr)
+library(ggplot2)
 
 library(sandwich)
 library(lmtest)
+
+library(cobalt)
 
 #read in the data
 d <- fread("results_04092021_2.csv")
@@ -249,6 +252,10 @@ treatment_ucb <- treatment_q[isMechTurk == 0]
 
 model_ucb_treatment <- treatment_ucb[, lm(Intelligence ~ Treatment)]
 coeftest(model_ucb_treatment, vcov. = vcovHC)
+
+library(stargazer)
+stargazer(model_ucb_treatment,
+          se = list(sqrt(diag(vcovHC(model_ucb_treatment, type = "HC1")))), type="html", column.labels = c("Baseline"))
 ```
 
 Highly statistically significant.
@@ -268,6 +275,10 @@ SE decreases slightly, estimates don't change.
 ```{r model demographics}
 model_ucb_treatment_demo <- treatment_ucb[, lm(Intelligence ~ Treatment + length + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia)]
 coeftest(model_ucb_treatment_demo, vcov. = vcovHC)
+
+stargazer(model_ucb_treatment, model_ucb_treatment_demo,
+          se = list(sqrt(diag(vcovHC(model_ucb_treatment, type = "HC1"))),
+                    sqrt(diag(vcovHC(model_ucb_treatment_demo, type = "HC1")))), type="html", column.labels = c("Baseline","Demographics"))
 ```
 Even including all of these variables there's no change in significance, and estimate of treatment effect improves.
 
@@ -276,8 +287,15 @@ Even including all of these variables there's no change in significance, and est
 treatment_q <- merge(treatment_q, control_q, on='ROWID', suffixes = c("",".pretreat"))
 treatment_ucb <- treatment_q[isMechTurk == 0]
 
-model_ucb_treatment_pretreat <- treatment_ucb[, lm(Intelligence ~ Treatment + length + length + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat)]
+model_ucb_treatment_pretreat <- treatment_ucb[, lm(Intelligence ~ Treatment + length + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat)]
 coeftest(model_ucb_treatment_pretreat, vcov. = vcovHC)
+
+stargazer(model_ucb_treatment, model_ucb_treatment_pretreat,
+          se = list(sqrt(diag(vcovHC(model_ucb_treatment, type = "HC1"))),
+                    sqrt(diag(vcovHC(model_ucb_treatment_pretreat, type = "HC1")))), 
+          type="html", 
+          column.labels = c("Baseline","Pretreatment"),
+          omit = c("length", "Gender", "English", "Race", "isUS", "Degree", "age_bins", "ReadSocialMedia",  "WriteSocialMedia"))
 ```
 Works still
 
@@ -291,13 +309,148 @@ Works still
 treatment_ucb$Gender <- relevel(factor(treatment_ucb$Gender), 'Cisgender Woman')
 model_ucb_treatment_gender_h <- treatment_ucb[, lm(Intelligence ~ Treatment + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat + Gender:Treatment)]
 coeftest(model_ucb_treatment_gender_h, vcov. = vcovHC)
+
+
 ```  
 No interactions are statistically significant. 
+
+```{r hetero read social media}
+model_ucb_treatment_read_pre <- treatment_ucb[, lm(Intelligence ~ Treatment + length + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat)]
+#stargazer(model_ucb_treatment_read,
+#          se = list(sqrt(diag(vcovHC(model_ucb_treatment_read, type = "HC1")))),
+#          type="text", 
+#          column.labels = c("Baseline"),
+#          omit = c("length", "Gender", "English", "Race", "isUS", "Degree", "age_bins", "Writing.pretreat",  "WriteSocialMedia", "Interest.pretreat", "Effective.pretreat", "Intelligence.pretreat"))
+
+levels <- c("More than once a day", "Daily", "Less than Weekly", "Weekly")
+
+p_estimates <- c()
+p_se <- c()
+
+t_estimates <- c()
+t_se <- c()
+
+for (level in levels) {
+  treatment_ucb$ReadSocialMedia <- relevel(factor(treatment_ucb$ReadSocialMedia), level)
+  model_ucb_treatment_read <- treatment_ucb[, lm(Intelligence ~ Treatment + Gender + length + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat + ReadSocialMedia:Treatment)]
+  
+  ctest <- coeftest(model_ucb_treatment_read, vcov. = vcovHC)
+  p_estimates <- append(p_estimates, ctest[2,1])
+  p_se <- append(p_se, ctest[2,2])
+  t_estimates <- append(t_estimates, ctest[3,1])
+  t_se <- append(t_se, ctest[3,2])
+  
+}
+
+p_upper <- p_estimates + 1.96*p_se
+p_lower <- p_estimates - 1.96*p_se
+
+t_upper <- t_estimates + 1.96*t_se
+t_lower <- t_estimates - 1.96*t_se
+
+p_avg <- coef(model_ucb_treatment_read_pre)[2]
+t_avg <- coef(model_ucb_treatment_read_pre)[3]
+
+p_data <- data.frame(levels = levels, p_estimate = p_estimates, p_lower = p_lower, p_upper = p_upper, errors = 1.96*p_se)
+
+t_data <- data.frame(levels = levels, t_estimate = t_estimates, t_lower = t_lower, t_upper = t_upper, errors = 1.96*t_se)
+  
+ggplot(p_data, aes(x=levels, y=p_estimate)) + 
+    geom_errorbar(aes(ymin=p_estimate - errors, ymax=p_estimate + errors), colour="black", width=.1) +
+    geom_line() +
+    geom_point(size=3)+
+    ggtitle("Treatment effect based on how often someone reads social media") +
+    geom_hline(yintercept = p_avg, linetype="dashed", color = "red")+
+    ylab("Phonological Estimate") +
+    geom_hline(yintercept = 0, linetype="dashed", color = "green")+
+    scale_x_discrete(labels= levels) +
+    theme_classic()
+```  
+
+```{r}
+ggplot(t_data, aes(x=levels, y=t_estimate)) + 
+    geom_errorbar(aes(ymin=t_estimate - errors, ymax=t_estimate + errors), colour="black", width=.1) +
+    geom_line() +
+    geom_point(size=3)+
+    ggtitle("Treatment effect based on how often someone reads social media") +
+    ylab("Typographical Estimate") +
+    geom_hline(yintercept = t_avg, linetype="dashed", color = "red")+
+    geom_hline(yintercept = 0, linetype="dashed", color = "green")+
+    scale_x_discrete(labels= levels)+
+    theme_classic()
+```
+
+```{r hetero write social media}
+model_ucb_treatment_read_pre <- treatment_ucb[, lm(Intelligence ~ Treatment + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat)]
+
+#stargazer(model_ucb_treatment_read,
+#          se = list(sqrt(diag(vcovHC(model_ucb_treatment_read, type = "HC1")))),
+#          type="text", 
+#          column.labels = c("Baseline"),
+#          omit = c("length", "Gender", "English", "Race", "isUS", "Degree", "age_bins", "Writing.pretreat",  "WriteSocialMedia", "Interest.pretreat", "Effective.pretreat", "Intelligence.pretreat"))
+
+levels <- c("More than once a day", "Daily", "Less than Weekly", "Weekly")
+
+p_estimates <- c()
+p_se <- c()
+
+t_estimates <- c()
+t_se <- c()
+
+for (level in levels) {
+  treatment_ucb$WriteSocialMedia <- relevel(factor(treatment_ucb$WriteSocialMedia), level)
+  model_ucb_treatment_read <- treatment_ucb[, lm(Intelligence ~ Treatment + Gender + length + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat + WriteSocialMedia:Treatment)]
+  
+  ctest <- coeftest(model_ucb_treatment_read, vcov. = vcovHC)
+  p_estimates <- append(p_estimates, ctest[2,1])
+  p_se <- append(p_se, ctest[2,2])
+  t_estimates <- append(t_estimates, ctest[3,1])
+  t_se <- append(t_se, ctest[3,2])
+  
+}
+
+p_upper <- p_estimates + 1.96*p_se
+p_lower <- p_estimates - 1.96*p_se
+
+t_upper <- t_estimates + 1.96*t_se
+t_lower <- t_estimates - 1.96*t_se
+
+p_avg <- coef(model_ucb_treatment_read_pre)[2]
+t_avg <- coef(model_ucb_treatment_read_pre)[3]
+
+p_data <- data.frame(levels = levels, p_estimate = p_estimates, p_lower = p_lower, p_upper = p_upper, errors = 1.96*p_se)
+
+t_data <- data.frame(levels = levels, t_estimate = t_estimates, t_lower = t_lower, t_upper = t_upper, errors = 1.96*t_se)
+  
+ggplot(p_data, aes(x=levels, y=p_estimate)) + 
+    geom_errorbar(aes(ymin=p_estimate - errors, ymax=p_estimate + errors), colour="black", width=.1) +
+    geom_line() +
+    geom_point(size=3)+
+    ggtitle("Treatment effect based on how often someone writes social media") +
+    geom_hline(yintercept = p_avg, linetype="dashed", color = "red")+
+    ylab("Phonological Estimate") +
+    geom_hline(yintercept = 0, linetype="dashed", color = "green")+
+    scale_x_discrete(labels= levels) +
+    theme_classic()
+```
+
+```{r}
+ggplot(t_data, aes(x=levels, y=t_estimate)) + 
+    geom_errorbar(aes(ymin=t_estimate - errors, ymax=t_estimate + errors), colour="black", width=.1) +
+    geom_line() +
+    geom_point(size=3)+
+    ggtitle("Treatment effect based on how often someone writes social media") +
+    ylab("Typographical Estimate") +
+    geom_hline(yintercept = t_avg, linetype="dashed", color = "red")+
+    geom_hline(yintercept = 0, linetype="dashed", color = "green")+
+    scale_x_discrete(labels= levels)+
+    theme_classic()
+```
 
 #Model age bin matter?
 
 ```{r hetero age}
-model_ucb_treatment_gender_h <- treatment_ucb[, lm(Intelligence ~ Treatment + length + length + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat + age_bins:Treatment)]
+model_ucb_treatment_gender_h <- treatment_ucb[, lm(Intelligence ~ Treatment  + length + Gender + English + Race + isUS + Degree + age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat + age_bins:Treatment)]
 coeftest(model_ucb_treatment_gender_h, vcov. = vcovHC)
 ```
 
@@ -320,21 +473,32 @@ In control, much higher proportion correctly noticed these errors.
 Warning: Could be bad control.
 
 ```{r knowledge and mistakes recognize}
-model_ucb_treatment_mistakes <- treatment_ucb[, lm(Intelligence ~ Treatment + length + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat + Knowledge + CorrectlyNoticedErrors)]
+model_ucb_treatment_mistakes <- treatment_ucb[, lm(Intelligence ~ Treatment  + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat + Knowledge + CorrectlyNoticedErrors)]
 coeftest(model_ucb_treatment_mistakes, vcov. = vcovHC)
 ```
-Even for controlling for this, there's no effect! So it doesn't even matter what they noticed. 
 
-Analysis section order in the paper so far:
 
-1. EDA...download latest and fully clean the data
-2. Placebo test: mech turk vs berkeley data -- restrict to the berkeley data
-3. base model with no covariates added
-4. add model with properties of the post 
-5. add all of the demographics
-6. add baseline variables for pre-treatment placebo responses -- visualize this
-7. add effect of seeing other social media post first
-8. Is treatment effect stronger in male or female? Strong in older individuals than younger?
-9. whether they actually noticed any errors?
+#Covariate balance check to make sure randomization worked properly
 
-Two experiments together: Mech Turk vs Berkeley
+```{r}
+#using cobalt
+
+cobalt_pdata <- pdata[, .(Gender,length,English, Race, isUS, Degree, age_bins, ReadSocialMedia, WriteSocialMedia)]
+
+bal.tab(cobalt_pdata, treat = pdata$Treatment, s.d.denom = 'pooled', thresholds = c(m = .1, v = 2), imbalanced.only = TRUE)
+```
+
+#Writing and Effectiveness as secondary outcomes
+
+```{r writing}
+model_ucb_treatment_writing <- treatment_ucb[, lm(Writing ~ Treatment  + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat)]
+coeftest(model_ucb_treatment_writing, vcov. = vcovHC)
+```
+Writing has the same pattern as intelligence.
+
+```{r effective}
+model_ucb_treatment_effective <- treatment_ucb[, lm(Effective ~ Treatment  + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Writing.pretreat + Interest.pretreat + Effective.pretreat)]
+coeftest(model_ucb_treatment_effective, vcov. = vcovHC)
+```
+
+Phonological seems to affect the effectiveness, but typos not necessarily. Interesting as typos don't confuscate meaning as the intended word is often easily recognized.
