@@ -39,6 +39,7 @@
         <meta name="tags" contents="w241" />
         <meta name="tags" contents="statistics" />
         <meta name="tags" contents="MIDS" />
+        <meta name="tags" contents="grammar" />
 
 
 			<meta property="og:locale" content="en">
@@ -116,7 +117,14 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <!-- Post Content -->
     <article>
-        <h1>Study Overview</h1>
+        <p><center>
+<a href="https://cbenge](https://github.com/cbenge509/typos_field_experiment">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a></center></p>
+<h1>Study Overview</h1>
 <p>Command of language is one of the most significant cognitive abilities we possess and is often the most pervasive signal we encounter in a social media setting. When we notice overt and unintentional grammatical errors in social media posts, do we make unconscious assumptions about the authors’ general intelligence? Do we attribute difficulty with written language with other indicators such as lower-performing verbal acuity or overall intelligence? Further, are some categories of grammatical errors more injurious than others – or do we take in stride all these trespasses?</p>
 <p>General intelligence, sometimes referred to as cognitive ability, includes our capacity to ”reason, plan, solve problems, think abstractly, comprehend complex ideas, learn quickly, and learn from experience” (<a href="https://www.nature.com/articles/35011520">Plomin, 1999</a>). Assessment of our cognitive abilities often informs critical judgments in others that affect our educational, occupational, and relationship opportunities (<a href="https://www.sciencedirect.com/book/9780128154502/theories-of-adolescent-development?via=ihub=">B. M. Newman &amp; P. R. Newman, 2020</a>). Though social media channels are often used to identify potentially qualified job candidates, their use in screening candidates for suitability and background investigation is also on the rise (<a href="https://www.businessnewsdaily.com/2377-social-media-hiring.html">Driver, 2020</a>). In the CareerBuilder survey that noted an increase in social media screening, 57% of employers reported rejecting candidates based on negative findings in applicant social media posts. Of those rejected, 27% of employers specified ”poor communication skills” as the primary factor for the rejection.</p>
 <p>There is evidence that we ought to take this question seriously. In (<a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-6494.1993.tb00779.x">Borkenau &amp; Liebler, 1993</a>), college students rated their perceived intelligence of strangers after watching them read aloud a pre-written weather report. The study found a significant correlation between perceived and measured IQ scores of the strangers, suggesting that some information about individual intelligence is provided through verbal communication. (<a href="https://www.tandfonline.com/doi/abs/10.1080/00221300209602029">Kreiner et al., 2002</a>) showed that, while experiments with only a small percentage of typographical errors<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> didn’t result in significant perceived intelligence ratings, the presence of a larger number of typographical errors or phonological errors did significantly influence the perception of cognitive writing abilities. The participants in these studies were comprised entirely of college students, but it may be the case that other populations would arrive at a different outcome. In (<a href="https://www.sciencedirect.com/science/article/abs/pii/0094730X9090046U">Silverman, 1990</a>) college professors gave equally high perceived intelligence ratings to hypothetical students with and without verbal language difficulties, such as stuttering. More work is necessary to fully understand these questions, particularly in the context of contemporary social media communication channels where abbreviation, punctuation-skipping, and slang are frequently employed to accommodate restrictive post-length limitations on popular platforms.</p>
@@ -166,7 +174,10 @@ vegaEmbed("#vis4", spec4, embedOpt4)
 
 </script>
 
-<p>Despite our small dataset, we had a very positive on our regression analysis, which is a simple model of treatment against intelligence outcome, using an indicator for each question to allow each question to have a separate mean. The results showed high statistical sigificance between our treatment groups and control, with phonological having more than double the effect of typographical.</p>
+<p>Despite having only a small pilot dataset to work with, we had a very noteable result in our regression analysis.  We employed a simple linear model of treatment against the <code>intelligence</code> outcome of interest, and controlled for each question to allow for separate means.  The results showed high statistical sigificance between our treatment groups and control, with <font color="#3b7ea1"><b>phonological having more than double the effect of typographical</b></font>.</p>
+<blockquote>
+<p><strong>NOTE</strong>: We removed Q4 (i.e., '<code>Nature</code>') from the live study because the length of post was universally regarded as too long by the experiment organizers and pilot study participants.  Accuracy of measuring an effect requires that we encourage participants to read the entire post, and Q4 was discouraging that behavior. Therefore, results here do not include Q4, BUT if we did include Q4, the results remains the same (highly statistically significant) with even slightly more negative coefficient estimates.</p>
+</blockquote>
 <table style="text-align:center" width=720><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
 <tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
 <tr><td style="text-align:left"></td><td><i><b><font color="#3B7EA1">Intelligence</font></b></i></td></tr>
@@ -230,20 +241,32 @@ vegaEmbed("#vis5", spec5, embedOpt5)
 <hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
 <h1>Methodology</h1>
-<p>Participants were invited to join a short, anonymous survey with the communicated intent of assessing their opinion on the appropriateness in length of social media posts. Deception was employed to avoid anticipated response bias in individuals who may occasionally commit typographical or phonological errors themselves and thus may, when asked to consciously consider the intelligence of those who commit errors, provide a more charitable rating. After collection of basic and shared demographic data, participants are presented with a series of seven example social media posts individual followed by eight questions [for each example post].  The questions are delivered in the following order and category:
-* <strong>Attention Question</strong>
-    * <em>Recall question about the content of the social media post</em>
-* <strong>Decoy Questions</strong>
-    * <em>5-point Likert question about the appropriateness in length of the social media post</em>
-    * <em>7-point Likert question about attitude toward content of post</em>
-* <strong>Outcome of Interest Questions</strong>
-    * <em>7-point Likert question asking if author was 'effective' in communicating their message</em>
-    * <em>7-point Likert question asking the participants opinion on the 'intelligence' of the author</em>
-    * <em>7-point Likert question asking the participants opinion of the author's 'writing skills'</em>
-* <strong>Decoy Question</strong>
-    * <em>7-point Likert question asking what the level of interest is in meeting the author</em>
-* <strong>Attention Question</strong>
-    * <em>Question asking for how many spelling or grammar mistakes the participant noticed</em></p>
+<p>Participants were invited to join a short, anonymous survey with the communicated intent of assessing their opinion on the appropriateness in length of social media posts. Deception was employed to avoid anticipated response bias in individuals who may occasionally commit typographical or phonological errors themselves and thus may, when asked to consciously consider the intelligence of those who commit errors, provide a more charitable rating. After collection of basic and shared demographic data, participants are presented with a series of seven example social media posts individual followed by eight questions [for each example post].  The questions are delivered in the following order and category:</p>
+<ul>
+<li><strong>Attention Question</strong><ul>
+<li><em>Recall question about the content of the social media post</em></li>
+</ul>
+</li>
+<li><strong>Decoy Questions</strong><ul>
+<li><em>5-point Likert question about the appropriateness in length of the social media post</em></li>
+<li><em>7-point Likert question about attitude toward content of post</em></li>
+</ul>
+</li>
+<li><strong>Outcome of Interest Questions</strong><ul>
+<li><em>7-point Likert question asking if author was 'effective' in communicating their message</em></li>
+<li><em>7-point Likert question asking the participants opinion on the 'intelligence' of the author</em></li>
+<li><em>7-point Likert question asking the participants opinion of the author's 'writing skills'</em></li>
+</ul>
+</li>
+<li><strong>Decoy Question</strong><ul>
+<li><em>7-point Likert question asking what the level of interest is in meeting the author</em></li>
+</ul>
+</li>
+<li><strong>Attention Question</strong><ul>
+<li><em>Question asking for how many spelling or grammar mistakes the participant noticed</em></li>
+</ul>
+</li>
+</ul>
 <h2>Treatment Experience</h2>
 <p>For our study, we constructed seven fictive social media posts: one a control question that everyone receives, regardless of branch assignment, and six posts that are identical in content save for deliberate typographical errors (treatment group 1), or deliberate phonological errors (treatment group 2). The control question contains no grammatical or spelling errors, and is presented as the first question for all participants as a mechanism to prime the participants for attention and to elicit more careful reading of the following six posts. While control group postings are meant to avoid grammar and spelling mistakes, some loose language is used to establish credibility as 'genuine' to a normal social media interaction. All posts cover topics that are intended to be banal so as to avoid evocation of excited emotional states [we assume there to be] due to topics such as religion or politics.</p>
 <h3>Attention Social Media Post (Post 0) - All Participants</h3>
@@ -1171,7 +1194,7 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 
 </script>
 
-<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
 <h1>Regression Analysis</h1>
 <hr>
@@ -1198,7 +1221,8 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 <tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
-<hr>
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+
 <h3>Model with demographic and post covariates</h3>
 <p>Next, we control for demographic variables as well as properties of the post. Each post was shown in the same order to all participants, so there's no variation on that front. We used the length of the post as a covariate. We had 8 demographic variables, including gender, whether English is his primary language, Race, and highest level of degree obtained. We also have an indicator of whether the individual is located in the United States, along with 5 age bins. We also included the author's self-perceived level of social media interaction, including how often individuals read and write social media posts. These were collected pre-treatment. By including the covariates, we see that the estimates for treatment effect for both typographical and phonological increases, while the standard errors stay about the same. "Length" of the post is a statistically significant variable that is negative, indicating that the longer the post, the overall lower level of perceived intelligence, so including this could make the model a better causal model.</p>
 <table style="text-align:center"><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
@@ -1313,7 +1337,8 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
-<hr>
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+
 <h3>Model with demographic and post covariates</h3>
 <p>Next, building upon the model with demographics information, we use pre-treatment variables measured on the control post shown to all groups. Previously from the placebo test, we showed that Treatment effect was not statistically significant. However, the estimate for the phonological group was more than 6x lower than the typographical group, which lower than control. This could introduce bias in our estimates if the baseline level of perceived intelligence for individuals in the different groups are on average different. As a result, we add in pre-treatment variables as a covariate. We also include covariates for pretreatment for writing, effectiveness, etc. Despite our treatment being a poor predictor of pre-treatment Intelligence level, pre-treatment Intelligence level is a strong predictor of Intelligence level. The estimates for the two models are not very different, but standard errors are slightly tighter.</p>
 <table style="text-align:center" width=720><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
@@ -1350,15 +1375,19 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
 
-<hr>
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+
 <h3>Heterogenous treatment effects</h3>
 <p>In order to understand whether individuals with different attributes have differences in their treatment effects, we decided to look at the estimated treatment effects and the confidence intervals associated with the estimates for individuals who read different levels of social media. Interestingly, those who read social media posts less often tend to be more critical of phonological errors than those who read social media posts only weekly. In fact, those that read social media "More than once a day", "Daily", or "Less than Weekly", all have statistically signficant treatment effects with 95% CIs overlapping the average phonological treatment effect, but those that only read social media "Weekly" overlaps with 0.</p>
 <p><center><a href="img/het_reading_phono.png"><img src="img/het_reading_phono.png" width=720 /></a></center></p>
 <p>However, the same observation is not true for typographical treatment. While those that read social media posts "More than once a day" tend to have the strongest treatment effect, those that read social media posts "Less than Weekly" appears to have the weakest treatment effect, although these estimates have large error bars.</p>
 <p><center><a href="img/het_reading_typo.png"><img src="img/het_reading_typo.png" width=720 /></a></center></p>
-<hr>
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
+
 <h3>Appendix: Bayesian Analysis</h3>
 <p>In addition to the frequentist analysis, we also conducted a brief exploration into Bayesian methods to better understand our data, modeling choices, and impact. In this section, we present two models: (1) a Bayesian estimation of our fully specified linear model, and (2) an alternative specification: an ordered logistic regression. Our analysis is powered by <code>pymc3</code> and its requirements to replicate our results can be found in the repository's <code>requirements.txt</code> file. We leave this section mostly as future research and practice as the methods interest us while more work is still to be done.</p>
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+
 <h4>Bayesian Linear Modeling</h4>
 <p>Estimating a Bayesian linear model shares some similarities with its frequentist counterpart, but differs in a few areas and comes with many advantages largely drawn from its estimation of a posterior distribution. The posterior distribution summarizes the relative plausibility of each possible value of the parameter and these values describe the relative compatibility of different states of the world with the data, according to the model. Further, it is useful to inspect the posterior distribution and to use it to generate samples of data so that we may better understand aspect of the data that are not well described by the model. As all models are wrong, we can use the posterior distribution to assess just how well the model describes the data.</p>
 <p>In the code below, we: (1) load our data, (2) extract our observed outcome (y), (3) create two matrices for our treatment and covariates, and (4) we convert them to one-hot encoded vectors as they are categorical data.</p>
@@ -1435,7 +1464,7 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 </code></pre></div>
 
 <p>Ideally, we would want our observed outcome (the black line) to map nicely with our light blue traces representing the prior predictive y. We can see that this plot is likely telling us that a linear model is not the right model.</p>
-<p><center><a href="img/bayes/lm_priors1.png"><img src="img/bayes/lm_priors1.png" width=720 /></a></center></p>
+<p><center><a href="img/bayes/lm_priors1.png"><img src="img/bayes/lm_priors1.png" width=540 /></a></center></p>
 <p><code>pymc3</code> also offers a nice convience function to display our precise modeling choices graphically, which we present below:</p>
 <p><center><a href="img/bayes/main_lm_ov.png"><img src="img/bayes/main_lm_ov.png" width=720 /></a></center></p>
 <p>It is now time to (famously) hit our inference button and unleash the power of MCMC. In the code below, we: (1) draw 16000 samples (4000 samples per CPU core) to estimate the posterior distribution of our function, (2) initially draw 4000 samples (1000 samples per CPU core) in our search for parameters and delete them as part of the burn-in process.</p>
@@ -1451,7 +1480,7 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 </code></pre></div>
 
 <p>We are now ready to present our first quantity of interest for our treatment variables of interest <code>Phonological</code> and <code>Typographical</code>. The plot below is known as a High Density Interval which tells us that for density on the left (<code>Phonological</code>), 94% of the posterior probability lies between -1.39 and -1. This means that parameter values less than -1.39 or greater than -1 are highly incompatible with the data and model.</p>
-<p><center><a href="img/bayes/lm_qi1.png"><img src="img/bayes/lm_qi1.png" width=720 /></a></center></p>
+<p><center><a href="img/bayes/lm_qi1.png"><img src="img/bayes/lm_qi1.png" width=750 /></a></center></p>
 <p>Next, we conduct one of the most powerful features of Bayesian data analysis: posterior predictive checks. In the code below, we generate 2000 <strong>data sets</strong>, each containing 1044 observations (the size of our data set); each drawn from the parameters estimated from our posterior distribution. The goal of this plot is to examine whether or not, after estimating our model's parameters, how well we can retrodict <code>y</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># posterior predictive</span>
 <span class="k">with</span> <span class="n">main_lm_model</span><span class="p">:</span>
@@ -1464,7 +1493,9 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 </code></pre></div>
 
 <p>Similar to our prior predictive plot, we find that we cannot generate data that looks like our outcome variable very well as the posterior predictions for <code>y</code> do match the patterns of our observed <code>y</code>.</p>
-<p><center><a href="img/bayes/main_lm_posterior.png"><img src="img/bayes/main_lm_posterior.png" width=720 /></a></center></p>
+<p><center><a href="img/bayes/main_lm_posterior.png"><img src="img/bayes/main_lm_posterior.png" width=540 /></a></center></p>
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+
 <h4>Bayesian Ordered Logistic Modeling</h4>
 <p>In modeling outcome values, we have to keep in mind that values are ordered, because 7 is greater than 6, which is the data that we have. Treating ordered categories as continuous measures is not a good idea as it might be much harder to move someone's preference from 1 to 2 than it is to move it from 5 to 6. The solution to this problem is to incorporate a cumulative link function that maps the cumulative probability of a value to that value <em>or</em> any value smaller. Put differently, the cumulative probability of 4 is the sum of the probabilities of 3, 2, and 1. In the steps below, we follow in a similar, albeit more complicated fashion as above.</p>
 <p>The main difference here is that we are incorporating cutpoints which in effect act as our intercepts. Again we decide on prior values for their mu and sigma as they are drawn from the Normal distribution. By experimenting with different priors that fit the data, we can better help our sampler efficiently search in its effort to build a posterior distribution.</p>
@@ -1541,80 +1572,12 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 <span class="n">az</span><span class="o">.</span><span class="n">plot_compare</span><span class="p">(</span><span class="n">df_comparative_waic</span><span class="p">,</span> <span class="n">insample_dev</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span>
 </code></pre></div>
 
-<p><center><a href="img/bayes/waic.png"><img src="img/bayes/waic.png" width=540 /></a></center></p>
+<p><center><a href="img/bayes/waic.png"><img src="img/bayes/waic.png" width=720 /></a></center></p>
 <p>Lastly, we include a histogram of implied outcomes that we generate through simulating data from the posterior. Each plot shows how our outcome distribution varies by the primary independent variables. The black lines capture <code>Phonological</code> while the blue lines capture <code>Typographical</code>. The histogram shows the saliency of ordered categories. We can see that our control group is balanced while responses are weighted heavily on the middle response meaning meaning that a linear model most likely fail to adequately capture these differences.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># regenerate posterior preds with fast sampling off</span>
-<span class="k">with</span> <span class="n">cumlink</span><span class="p">:</span>
-    <span class="n">pp_resp</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample_posterior_predictive</span><span class="p">(</span>
-        <span class="n">cumlink_idata</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span>
-    <span class="p">)[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+<p><center><a href="img/bayes/sim_hist.png"><img src="img/bayes/sim_hist.png" width=710 /></a></center></p>
+<hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
-<span class="c1"># generate counterfactuals</span>
-<span class="n">cases_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]),</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Phonological&quot;</span><span class="p">,</span> <span class="s2">&quot;Typographical&quot;</span><span class="p">],</span>
-<span class="p">)</span>
-
-<span class="c1"># transform data to df</span>
-<span class="n">response_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pp_resp</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="n">response_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;case&quot;</span>
-<span class="n">response_df</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cases_df</span><span class="p">,</span> <span class="n">response_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;Phonological&quot;</span><span class="p">,</span> <span class="s2">&quot;Typographical&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-<span class="p">)</span>
-
-<span class="c1"># show implied histogram of simulated outcomes</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">bins</span><span class="p">,</span> <span class="n">xticks</span><span class="p">,</span> <span class="n">xlabels</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
-    <span class="p">[</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
-<span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()],</span>
-    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
-    <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phonological=0, Typographical=0&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;frequency&quot;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="o">=</span>
-    <span class="p">[</span><span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()],</span>
-    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
-    <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phonological=1, Typographical=0&quot;</span><span class="p">)</span>
-
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()],</span>
-    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
-    <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phonological=0, Typographical=1&quot;</span><span class="p">)</span>
-
-
-<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xlabels</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;response&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
-</code></pre></div>
-
-<p><center><a href="img/bayes/sim_hist.png"><img src="img/bayes/sim_hist.png" width=540 /></a></center></p>
-<hr>
-<p>Visit our GitHub page for all of the data and analysis code associated with this study!
-https://github.com/cbenge509/typos_field_experiment</p>
+<p>Please visit our public GitHub repository for the full data and analysis: <a href="https://github.com/cbenge509/typos_field_experiment">Effect of Typographical and Phonological Errors in Social Media Posts on the Perception of the Authors' Intelligence</a></p>
 <div class="footnote">
 <hr>
 <ol>
@@ -1639,8 +1602,7 @@ https://github.com/cbenge509/typos_field_experiment</p>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
-                        <!--
-                        <li>
+                        <!-- <li>
                             <a href="http://twitter.com/myprofile">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
