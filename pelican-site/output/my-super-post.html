@@ -1542,6 +1542,76 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 </code></pre></div>
 
 <p><center><a href="img/bayes/waic.png"><img src="img/bayes/waic.png" width=540 /></a></center></p>
+<p>Lastly, we include a histogram of implied outcomes that we generate through simulating data from the posterior. Each plot shows how our outcome distribution varies by the primary independent variables. The black lines capture <code>Phonological</code> while the blue lines capture <code>Typographical</code>. The histogram although not filled with much variation, shows the saliency of ordered categories. We can see that our control group is balanced while responses are weighted heavily on the middle response meaning it is much more salient and we should not treat our outcome as an ordinary continuous variable.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># regenerate posterior preds with fast sampling off</span>
+<span class="k">with</span> <span class="n">cumlink</span><span class="p">:</span>
+    <span class="n">pp_resp</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample_posterior_predictive</span><span class="p">(</span>
+        <span class="n">cumlink_idata</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+
+<span class="c1"># generate counterfactuals</span>
+<span class="n">cases_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Phonological&quot;</span><span class="p">,</span> <span class="s2">&quot;Typographical&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># transform data to df</span>
+<span class="n">response_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">pp_resp</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">response_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;case&quot;</span>
+<span class="n">response_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">cases_df</span><span class="p">,</span> <span class="n">response_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;Phonological&quot;</span><span class="p">,</span> <span class="s2">&quot;Typographical&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># show implied histogram of simulated outcomes</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bins</span><span class="p">,</span> <span class="n">xticks</span><span class="p">,</span> <span class="n">xlabels</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="p">[</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()],</span>
+    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+    <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phonological=0, Typographical=0&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;frequency&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="o">=</span>
+    <span class="p">[</span><span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()],</span>
+    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+    <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phonological=1, Typographical=0&quot;</span><span class="p">)</span>
+
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">response_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()],</span>
+    <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+    <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phonological=0, Typographical=1&quot;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xlabels</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;response&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</code></pre></div>
+
+<p><center><a href="img/bayes/sim_hist.png"><img src="img/bayes/sim_hist.png" width=540 /></a></center></p>
 <hr>
 <p>Visit our GitHub page for all of the data and analysis code associated with this study!
 https://github.com/cbenge509/typos_field_experiment</p>
