@@ -1263,6 +1263,30 @@ However, the same observation is not true for typographical treatment. While tho
 
 <center>[<img src="img/het_reading_typo.png" width=720 />](img/het_reading_typo.png)</center>
 
+
+---
+### Secondary outcomes -- Writing and effectiveness
+
+As secondary outcomes, we wanted to see whether the perceived writing abilities of the authors and effectiveness of the posts were altered based on the treatment type. Interestingly, Writing abilities follows the exact same trend as Intelligence, where phonological treatment had nearly double the effect as typographical with both being statistically significant. However, effectiveness of the post was only different for the phonological group. This makes sense in a way: since intended words for typographical errors are usually easy to decipher, these typo do not obscure meaning. The effectiveness of posts with blatant phonological errors was severely impacted, although to a lesser extent than the impact for writing and intelligence. We leave these preliminary outcomes for potential future study.
+
+<table style="text-align:center" width=720><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>Writing</td><td>Effective</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><font color="#46535E"><b>TreatmentPhonological</b></font></td><td><font color="#EE1F60"><b>-1.334</font></b><sup>***</sup></td><td><font color="#EE1F60"><b>-0.655</font></b><sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.106)</td><td>(0.104)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>TreatmentTypographical</b></font></td><td><font color="#EE1F60"><b>-0.687</font></b><sup>***</sup></td><td>-0.062</td></tr>
+<tr><td style="text-align:left"></td><td>(0.115)</td><td>(0.115)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,044</td><td>1,044</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.343</td><td>0.310</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.319</td><td>0.285</td></tr>
+<tr><td style="text-align:left">Residual Std. Error (df = 1007)</td><td>1.277</td><td>1.399</td></tr>
+<tr><td style="text-align:left">F Statistic (df = 36; 1007)</td><td>14.580<sup>***</sup></td><td>12.560<sup>***</sup></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
 ---
 ### Appendix: Bayesian Analysis
 
