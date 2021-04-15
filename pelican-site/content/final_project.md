@@ -13,17 +13,25 @@ Command of language is one of the most significant cognitive abilities we posses
 
 General intelligence, sometimes referred to as cognitive ability, includes our capacity to ”reason, plan, solve problems, think abstractly, comprehend complex ideas, learn quickly, and learn from experience” ([Plomin, 1999](https://www.nature.com/articles/35011520)). Assessment of our cognitive abilities often informs critical judgments in others that affect our educational, occupational, and relationship opportunities ([B. M. Newman & P. R. Newman, 2020](https://www.sciencedirect.com/book/9780128154502/theories-of-adolescent-development?via=ihub=)). Though social media channels are often used to identify potentially qualified job candidates, their use in screening candidates for suitability and background investigation is also on the rise ([Driver, 2020](https://www.businessnewsdaily.com/2377-social-media-hiring.html)). In the CareerBuilder survey that noted an increase in social media screening, 57% of employers reported rejecting candidates based on negative findings in applicant social media posts. Of those rejected, 27% of employers specified ”poor communication skills” as the primary factor for the rejection.
 
-There is evidence that we ought to take this question seriously. In ([Borkenau & Liebler, 1993](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-6494.1993.tb00779.x)), college students rated their perceived intelligence of strangers after watching them read aloud a pre-written weather report. The study found a significant correlation between perceived and measured IQ scores of the strangers, suggesting that some information about individual intelligence is provided through verbal communication. ([Kreiner et al., 2002](https://www.tandfonline.com/doi/abs/10.1080/00221300209602029)) showed that, while experiments with only a small percentage of typographical errors didn’t result in significant perceived intelligence ratings, the presence of a larger number of typographical errors or phonological errors did significantly influence the perception of cognitive writing abilities. The participants in these studies were comprised entirely of college students, but it may be the case that other populations would arrive at a different outcome. In ([Silverman, 1990](https://www.sciencedirect.com/science/article/abs/pii/0094730X9090046U)) college professors gave equally high perceived intelligence ratings to hypothetical students with and without verbal language difficulties, such as stuttering. More work is necessary to fully understand these questions, particularly in the context of contemporary social media communication channels where abbreviation, punctuation-skipping, and slang are frequently employed to accommodate restrictive post-length limitations on popular platforms.
+There is evidence that we ought to take this question seriously. In ([Borkenau & Liebler, 1993](https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-6494.1993.tb00779.x)), college students rated their perceived intelligence of strangers after watching them read aloud a pre-written weather report. The study found a significant correlation between perceived and measured IQ scores of the strangers, suggesting that some information about individual intelligence is provided through verbal communication. ([Kreiner et al., 2002](https://www.tandfonline.com/doi/abs/10.1080/00221300209602029)) showed that, while experiments with only a small percentage of typographical errors[^1] didn’t result in significant perceived intelligence ratings, the presence of a larger number of typographical errors or phonological errors did significantly influence the perception of cognitive writing abilities. The participants in these studies were comprised entirely of college students, but it may be the case that other populations would arrive at a different outcome. In ([Silverman, 1990](https://www.sciencedirect.com/science/article/abs/pii/0094730X9090046U)) college professors gave equally high perceived intelligence ratings to hypothetical students with and without verbal language difficulties, such as stuttering. More work is necessary to fully understand these questions, particularly in the context of contemporary social media communication channels where abbreviation, punctuation-skipping, and slang are frequently employed to accommodate restrictive post-length limitations on popular platforms.
+
+Based on these previous studies, our experiment seeks to better understand the effect of the two types of spelling errors on perceived intelligence of the writers of social media posts. Our hypothesis is that both typographical and phonological spelling errors, compared to no spelling errors at all, will lead a decreased level of perceived intelligence, irrespective of the nature, content, and platform of the social media post. In addition, we believe that the effect of phonological errors could be greater than typographical errors, both from ([Kreiner et al., 2002](https://www.tandfonline.com/doi/abs/10.1080/00221300209602029)), and the fact that typographical errors are common in mainstream social media, and do not necessarily reflect the writer's inability to spell the word.
+
+[^1]: Typographical errors, often known as typos, are spelling mistakes that occur due to slip of the hand when typing, and includes artifacts such as swapping letters, typing a letter close to the intended letter on the keyboard, or leaving out a letter. Usually the mispelled word is still easy to recognize. Examples include "somethimg", "hwo", and "thrd". Phonological errors on the other hand arise out of ignorance, or spellings based on sounds of the word. These usually demonstrate that the author truly does not know the proper spelling of the word. For example, "sumthing", "Kansus", and "razing".
 
 <hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
 # Experiment Design
 
-The purpose of this study is to assess the impact, *if any*, on the perceived intelligence of authors’ who make grammatical errors in social media posts. If the perception of author intelligence is significantly perturbed by grammatical error, it will be useful to know if particular categories of error are more or less deleterious. We will leave outside the scope of this experiment the concern of whether a correlation between grammatical error and measured intelligence exists as we are interested only in the potential causal relationship between written error and perception of intelligence.
+The purpose of this study is to assess the impact, *if any*, on the perceived intelligence of authors’ who make spelling errors in social media posts. If the perception of author intelligence is significantly perturbed by such error, it will be useful to know if particular categories of error are more or less deleterious. We will leave outside the scope of this experiment the concern of whether a correlation between spelling error and measured intelligence exists as we are interested only in the potential causal relationship between written error and perception of intelligence.
+
+Our potential outcomes is stated as follows: We compare the average perceived level of intelligence of writers of social media posts when either typographical or phonological spelling errors are made in the post, to what would have happened had the post contained no errors. Since we can only measure one potential outcome (no error, typographical, or phonological), we adopt a pre-test/post-test control group study design (ROXO). In this design, we first randomize participants at the start of the study by allowing each participant an equal chance of being assigned to Control, Typographical, or Phonological. Next, all participants are measured on one post (details of measurement below) in order to establish a pre-treatment baseline across all individuals. Each group is then subjected to their particular treatment for 5 more posts (Control receives posts with no error, Typographical receives posts with only what's deemed typographical error, and Phonological receives only what's deemed phonological error). We then measure the participants responses after each post.
+
+In order to establish that our randomization processed worked correctly, we perform a covariate balance check using the R package "cobalt". We check all covariantes not related to the pretreatment (this will be done later with a placebo test), including demographic information, and how often individuals in each group reads and writes social media posts. This check measures raw differences in proportion for categorical variables across the control and treatment groups. For example, for how often an individual reads social media, we have 5 potential levels ("Weekly", "Less than Weekly", "Daily", "More than once a day", and "Prefer not to say"). The difference in proportion of individuals belonging to these levels is calculated across all three groups. There's indication that this raw difference is a [strong predictor](https://cran.r-project.org/web/packages/cobalt/vignettes/cobalt.html#fn6) of potential bias, and that a threshold of 0.1 to 0.25 have been proposed to be satisfactory. Our check (see our [analysis notebook](https://github.com/cbenge509/typos_field_experiment/blob/main/R-analysis/final_project.Rmd) for more details) indicates that 36 / 39 levels of our covariates pass the balance check at a threshold level of 0.1, while the remaining 3 pass the level of 0.15. Two of these three are levels of how often one reads social media ("Daily" at 0.1575, "More than once a day" at 0.1022), and one is how often one writes social media ("Less than Weekly" at 0.1476). All other levels of these variables pass the 0.1 threshold. Due to such small differences in only a few levels of two variables, and the fact that all are below or signficantly below the acceptable threshold of 0.25, we believe the covariate balance check passes in our case since. Bias in our estimates should not be an issues in terms of including these covariates in our analysis.
 
 ## Participants
 
-Our study recruited volunteer survey participants through a combination of social media posts on Facebook and Slack for conducting a *Pilot* study. Following the pilot, the formal experiment will recruit through a combination of [Amazon Mechanical Turk](https://www.mturk.com/) (Mar 31, 2021 - Apr 1, 2021) and the [University of California, Berkeley XLab](https://xlab.berkeley.edu/) (Apr 5, 2021 - Apr 9, 2021).  The survey ran as omnibus alongside other experiments on a variety of topics being researched during the Spring 2021 semester at the UC Berkeley MIDS program; all demographic data was shared as common resource for each sub-survey.
+Our study recruited volunteer survey participants through a combination of social media posts on Facebook and Slack for conducting a *Pilot* study. Following the pilot, the formal experiment will recruit through a combination of [Amazon Mechanical Turk](https://www.mturk.com/) (Mar 31, 2021 - Apr 1, 2021) and the [University of California, Berkeley XLab](https://xlab.berkeley.edu/) (Apr 5, 2021 - Apr 9, 2021).  Data collected after this date (about 40 additional response) were intentially not reported, as we had already started our analysis and did not want our knowledge of the majority of the dataset to influence decisions we make on this remaining data. However, as a disclaimer, including this additional data did not change **any** of our reported conclusions. The survey ran as omnibus alongside other experiments on a variety of topics being researched during the Spring 2021 semester at the UC Berkeley MIDS program; all demographic data was shared as common resource for each sub-survey.
 
 ### Pilot Study
 
@@ -69,6 +77,42 @@ vegaEmbed("#vis4", spec4, embedOpt4)
 })(vegaEmbed);
 
 </script>
+
+Despite our small dataset, we had a very positive on our regression analysis, which is a simple model of treatment against intelligence outcome, using an indicator for each question to allow each question to have a separate mean. The results showed high statistical sigificance between our treatment groups and control, with phonological having more than double the effect of typographical.
+
+
+<table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>Intelligence</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TypeP</td><td>-1.567<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.283)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">TypeT</td><td>-0.726<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.226)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">factor(q_num)2</td><td>-0.677<sup>**</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.321)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">factor(q_num)3</td><td>-1.065<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.321)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">factor(q_num)5</td><td>-0.516</td></tr>
+<tr><td style="text-align:left"></td><td>(0.321)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">factor(q_num)6</td><td>-0.387</td></tr>
+<tr><td style="text-align:left"></td><td>(0.321)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>4.962<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.261)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>155</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.227</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.196</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.265 (df = 148)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>7.243<sup>***</sup> (df = 6; 148)</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
 
 ---
 
@@ -124,7 +168,7 @@ Participants were invited to join a short, anonymous survey with the communicate
 * **Attention Question**
     * *Question asking for how many spelling or grammar mistakes the participant noticed*
 
-## Social Media Posts
+## Treatment Experience
 
 For our study, we constructed seven fictive social media posts: one a control question that everyone receives, regardless of branch assignment, and six posts that are identical in content save for deliberate typographical errors (treatment group 1), or deliberate phonological errors (treatment group 2). The control question contains no grammatical or spelling errors, and is presented as the first question for all participants as a mechanism to prime the participants for attention and to elicit more careful reading of the following six posts. While control group postings are meant to avoid grammar and spelling mistakes, some loose language is used to establish credibility as 'genuine' to a normal social media interaction. All posts cover topics that are intended to be banal so as to avoid evocation of excited emotional states [we assume there to be] due to topics such as religion or politics.
 ### Attention Social Media Post (Post 0) - All Participants
@@ -890,6 +934,10 @@ vegaEmbed("#vis12", spec12, embedOpt12)
 
 <hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
+### Data Cleaning and Covariates
+
+Details of our data cleaning process is outlined in our [analysis notebook](https://github.com/cbenge509/typos_field_experiment/blob/main/R-analysis/final_project.Rmd), but we describe the specifics related to our outcome variable and covariates here. Our outcome (Intelligence) is coded from a 1-7 Likert scale variable. For the experimental analysis presented here, we treat this variable as numerical, but show later on with Bayesian analysis that the type of model (in particular an ordinal response model) does not influence our conclusions. Most of our covariates as used is from the experiment, but a few have been redesigned. Namely, for geographic location, the vast are in the U.S., with a few scattered across the world. We use an indicator isUS to indicate whether the participant is in the U.S. For age bins, we binned based on 18-25, 26-30, 31-35, 36-40, and 40+.
+
 ### Placebo Tests
 
 In order to assess the quality of the source data provided by both Amazon Mechanical Turk and UC Berkeley XLab, we performed placebo tests by measuring the impact of treatment on our pre-treatment control question (i.e., Post 0 referenced above).  The results indicate that there is a very statistically significant treatment effect for the Mechincal Turk data, giving rise to the suspicion that the quality of this data may warrant abandoning it completely.  To generate the placebo tests and comparisons, we performed the following steps:
@@ -1017,7 +1065,446 @@ vegaEmbed("#vis3", spec3, embedOpt3)
 
 <hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
+# Regression Analysis
 
+---
+
+### Baseline model
+
+We begin with a baseline model looking at only the effect of treatment against perceived level of intelligence. Throughout this report, we will use robust standard errors in order to generate our p-values. Our treatment variable has 3 levels, control, typographical treatment, and phonological treatment. Both treatment levels are negative compared to "control", indicating that individuals perceive the authors to be less intelligent when typos are present in the writing. The estimate for "phonological" is more negative than "typographical" at more than double the magnitude, indicating that misspellings based on the sound of a word ("Kansus" vs "Kansas") has a stronger effect than accidentical typos ("how" vs "hwo"). Both are highly statistically significant with near 0 p-values, indicating that with 95% confidence, we believe the true mean is not 0.
+
+<table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>Intelligence</td></tr>
+<tr><td style="text-align:left"></td><td>Baseline</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TreatmentPhonological</td><td>-1.142<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.108)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">TreatmentTypographical</td><td>-0.558<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.104)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>4.563<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.067)</td></tr>
+<tr><td style="text-align:left"></td><td></td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,044</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.095</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.093</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.433 (df = 1041)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>54.481<sup>***</sup> (df = 2; 1041)</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
+---
+
+### Model with demographic and post covariates
+
+Next, we control for demographic variables as well as properties of the post. Each post was shown in the same order to all participants, so there's no variation on that front. We used the length of the post as a covariate. We had 8 demographic variables, including gender, whether English is his primary language, Race, and highest level of degree obtained. We also have an indicator of whether the individual is located in the United States, along with 5 age bins. We also included the author's self-perceived level of social media interaction, including how often individuals read and write social media posts. These were collected pre-treatment. By including the covariates, we see that the estimates for treatment effect for both typographical and phonological increases, while the standard errors stay about the same. "Length" of the post is a statistically significant variable that is negative, indicating that the longer the post, the overall lower level of perceived intelligence, so including this could make the model a better causal model.
+
+<table style="text-align:center"><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2">Intelligence</td></tr>
+<tr><td style="text-align:left"></td><td>Baseline</td><td>Demographics</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TreatmentPhonological</td><td>-1.142<sup>***</sup></td><td>-1.260<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.108)</td><td>(0.108)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">TreatmentTypographical</td><td>-0.558<sup>***</sup></td><td>-0.637<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.104)</td><td>(0.109)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">length</td><td></td><td>-0.028<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.003)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">GenderCisgender Man</td><td></td><td>-0.160</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.103)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">GenderNon-binary</td><td></td><td>-0.262</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.184)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">GenderOther</td><td></td><td>1.833<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.270)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">GenderPrefer not to disclose</td><td></td><td>-1.274<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.471)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">GenderTransgender Man</td><td></td><td>0.921<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.295)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">EnglishPrefer not to say</td><td></td><td>0.424</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.331)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">EnglishYes</td><td></td><td>-0.030</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.110)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RaceBlack or African American</td><td></td><td>0.311</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.281)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RaceHispanic or Latino</td><td></td><td>0.118</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.157)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RaceNative Hawaiian or Pacific Islander</td><td></td><td>0.083</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.714)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RaceNon-Hispanic White</td><td></td><td>-0.065</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.122)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RaceOther:</td><td></td><td>-0.277</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.187)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">RacePrefer not to answer</td><td></td><td>0.076</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.294)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">isUS</td><td></td><td>-0.161</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.183)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">DegreeBachelor's degree</td><td></td><td>-0.121</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.383)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">DegreeNo college</td><td></td><td>-0.328</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.379)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">DegreeSome college</td><td></td><td>-0.176</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.374)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">age_bins18-25</td><td></td><td>0.095</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.635)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">age_bins26-30</td><td></td><td>-0.009</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.681)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">age_bins31-35</td><td></td><td>0.042</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.993)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">age_bins41+</td><td></td><td>-0.512</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.732)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">ReadSocialMediaLess than Weekly</td><td></td><td>0.719<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.238)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">ReadSocialMediaMore than once a day</td><td></td><td>0.067</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.122)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">ReadSocialMediaPrefer not to say</td><td></td><td>-0.891</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.854)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">ReadSocialMediaWeekly</td><td></td><td>0.598<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.220)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">WriteSocialMediaLess than Weekly</td><td></td><td>-0.340<sup>**</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.162)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">WriteSocialMediaMore than once a day</td><td></td><td>0.266</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.264)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">WriteSocialMediaPrefer not to say</td><td></td><td>0.543</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.382)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">WriteSocialMediaWeekly</td><td></td><td>-0.250</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.203)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>4.563<sup>***</sup></td><td>6.555<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.067)</td><td>(0.763)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,044</td><td>1,044</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.095</td><td>0.213</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.093</td><td>0.189</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.433 (df = 1041)</td><td>1.356 (df = 1011)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>54.481<sup>***</sup> (df = 2; 1041)</td><td>8.575<sup>***</sup> (df = 32; 1011)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
+---
+
+### Model with demographic and post covariates
+
+Next, building upon the model with demographics information, we use pre-treatment variables measured on the control post shown to all groups. Previously from the placebo test, we showed that Treatment effect was not statistically significant. However, the estimate for the phonological group was more than 6x lower than the typographical group, which lower than control. This could introduce bias in our estimates if the baseline level of perceived intelligence for individuals in the different groups are on average different. As a result, we add in pre-treatment variables as a covariate. We also include covariates for pretreatment for writing, effectiveness, etc. Despite our treatment being a poor predictor of pre-treatment Intelligence level, pre-treatment Intelligence level is a strong predictor of Intelligence level. The estimates for the two models are not very different, but standard errors are slightly tighter.
+
+<table style="text-align:center"><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2">Intelligence</td></tr>
+<tr><td style="text-align:left"></td><td>Baseline</td><td>Pretreatment</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">TreatmentPhonological</td><td>-1.142<sup>***</sup></td><td>-1.170<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.108)</td><td>(0.102)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">TreatmentTypographical</td><td>-0.558<sup>***</sup></td><td>-0.515<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.104)</td><td>(0.102)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Intelligence.pretreat</td><td></td><td>0.212<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.055)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Writing.pretreat</td><td></td><td>0.178<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.059)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Interest.pretreat</td><td></td><td>0.086<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.033)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Effective.pretreat</td><td></td><td>0.093<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(0.031)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>4.563<sup>***</sup></td><td>2.723<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.067)</td><td>(0.741)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,044</td><td>1,044</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.095</td><td>0.330</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.093</td><td>0.306</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.433 (df = 1041)</td><td>1.254 (df = 1007)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>54.481<sup>***</sup> (df = 2; 1041)</td><td>13.791<sup>***</sup> (df = 36; 1007)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+
+---
+
+### Heterogenous treatment effects
+
+In order to understand whether individuals with different attributes have differences in their treatment effects, we decided to look at the estimated treatment effects and the confidence intervals associated with the estimates for individuals who read different levels of social media. Interestingly, those who read social media posts less often tend to be more critical of phonological errors than those who read social media posts only weekly. In fact, those that read social media "More than once a day", "Daily", or "Less than Weekly", all have statistically signficant treatment effects with 95% CIs overlapping the average phonological treatment effect, but those that only read social media "Weekly" overlaps with 0.
+
+<center>[<img src="img/het_reading_phono.png" width=720 />](img/het_reading_phono.png)</center>
+
+However, the same observation is not true for typographical treatment. While those that read social media posts "More than once a day" tend to have the strongest treatment effect, those that read social media posts "Less than Weekly" appears to have the weakest treatment effect, although these estimates have large error bars.
+
+<center>[<img src="img/het_reading_typo.png" width=720 />](img/het_reading_typo.png)</center>
+
+---
+### Appendix: Bayesian Analysis
+
+In addition to the frequentist analysis, we also conducted a brief exploration into Bayesian methods to better understand our data, modeling choices, and impact. In this section, we present two models: (1) a Bayesian estimation of our fully specified linear model, and (2) an alternative specification: an ordered logistic regression. Our analysis is powered by `pymc3` and its requirements to replicate our results can be found in the repository's `requirements.txt` file. We leave this section mostly as future research and practice as the methods interest us while more work is still to be done.
+
+#### Bayesian Linear Modeling
+
+Estimating a Bayesian linear model shares some similarities with its frequentist counterpart, but differs in a few areas and comes with many advantages largely drawn from its estimation of a posterior distribution. The posterior distribution summarizes the relative plausibility of each possible value of the parameter and these values describe the relative compatibility of different states of the world with the data, according to the model. Further, it is useful to inspect the posterior distribution and to use it to generate samples of data so that we may better understand aspect of the data that are not well described by the model. As all models are wrong, we can use the posterior distribution to assess just how well the model describes the data.
+
+In the code below, we: (1) load our data, (2) extract our observed outcome (y), (3) create two matrices for our treatment and covariates, and (4) we convert them to one-hot encoded vectors as they are categorical data.
+
+```python
+# fully specified model
+treatment_ucb = pd.read_csv('C:\\Users\\Andrew\\Desktop\\treatment_ucb.csv')
+
+# extract y
+obs_y = treatment_ucb['Intelligence']
+
+# select useful vars
+treatment = treatment_ucb['Treatment']
+covariates = treatment_ucb[['Length', 'Gender', 'English', 'Race', 'isUS',
+                            'Degree', 'age_bins', 'ReadSocialMedia',
+                            'WriteSocialMedia', 'Intelligence.pretreat',
+                            'Writing.pretreat', 'Interest.pretreat',
+                            'Effective.pretreat']]
+
+# onehot
+treatment = pd.get_dummies(data=treatment, drop_first=True)
+covariates = pd.get_dummies(data=covariates,
+                               columns=[col for col in covariates.columns],
+                               drop_first=True)
+```
+
+Next, we establish our model which contains several differences from frequentist statistics. First, we establish parameters by specifying their likelihood function, their expected value, the mu and sigma in the case of the Gaussian process, and their `shape` which is a way to conveniently create many variables at once. Setting *good* priors improves our black-box Markov Chain Monte Carlo sampler search process while also letting us envision how our prior estimates of the way the world works on our model, given the data.
+
+```python
+# specify model
+with pm.Model(coords=coords) as main_lm_model:
+    '''
+    linear model replication
+    '''
+    # priors
+    alpha = pm.Normal('alpha', mu=0, sigma=1)
+    treatment_betas = pm.Normal("treatment_betas", mu=0, sigma=1, shape=treatment.shape[1])
+    covariates_betas = pm.Normal("covariates_betas", mu=0, sigma=1, shape=covariates.shape[1])
+
+    # model error
+    sigma = pm.HalfNormal("sigma", sigma=1)
+
+    # matrix-dot products
+    m1 = pm.math.matrix_dot(treatment, treatment_betas)
+    m2 = pm.math.matrix_dot(covariates, covariates_betas)
+
+    # expected value of y
+    mu = alpha + m1 + m2
+
+    # Likelihood: Normal
+    y = pm.Normal("y", mu=mu, sigma=sigma, observed=obs_y, dims='obs_id')
+
+    # set step and sampler
+    step = pm.NUTS([alpha, treatment_betas, covariates_betas, sigma], target_accept=0.9)
+```
+
+Given our priors, we can draw samples and estimate its power to express our observed `y`.
+
+```python
+# prior analysis
+with main_lm_model:
+    prior_pc = pm.sample_prior_predictive(500)
+
+# predictive prior plot function
+def plot_prior(prior, model, group='prior', num_pp_samples=55):
+    ax = az.plot_ppc(
+                     az.from_pymc3(prior=prior,
+                                   model=model
+                                   ),
+                     group=group, num_pp_samples=num_pp_samples,
+                    figsize=(8, 8)
+                     )
+    ax.set_xlim(1, 7)
+    ax.set_xlabel("Responses")
+    ax.set_ylabel("Probability")
+    return ax
+
+# doesnt fit well
+ax = plot_prior(prior=prior_pc, model=main_lm_model, group='prior', num_pp_samples=100)
+```
+
+Ideally, we would want our observed outcome (the black line) to map nicely with our light blue traces representing the prior predictive y. We can see that this plot is likely telling us that a linear model is not the right model.
+
+
+<center>[<img src="img/bayes/lm_priors1.png" width=720 />](img/bayes/lm_priors1.png)</center>
+
+`pymc3` also offers a nice convience function to display our precise modeling choices graphically, which we present below:
+
+<center>[<img src="img/bayes/main_lm_ov.png" width=720 />](img/bayes/main_lm_ov.png)</center>
+
+It is now time to (famously) hit our inference button and unleash the power of MCMC. In the code below, we: (1) draw 16000 samples (4000 samples per CPU core) to estimate the posterior distribution of our function, (2) initially draw 4000 samples (1000 samples per CPU core) in our search for parameters and delete them as part of the burn-in process.
+
+```python
+# Inference button (TM)!
+with main_lm_model:
+    main_lm_model_idata = pm.sample(draws=4000,
+                           step=step,
+                           init='jitter+adapt_diag',
+                           cores=4,
+                           tune=1000,  # burn in
+                           return_inferencedata=True)
+# Sampling 4 chains for 1_000 tune and 4_000 draw iterations (4_000 + 16_000 draws total) took 161 seconds.
+```
+
+We are now ready to present our first quantity of interest for our treatment variables of interest `Phonological` and `Typographical`. The plot below is known as a High Density Interval which tells us that for density on the left (`Phonological`), 94% of the posterior probability lies between -1.39 and -1. This means that parameter values less than -1.39 or greater than -1 are highly incompatible with the data and model.
+
+<center>[<img src="img/bayes/lm_qi1.png" width=720 />](img/bayes/lm_qi1.png)</center>
+
+Next, we conduct one of the most powerful features of Bayesian data analysis: posterior predictive checks. In the code below, we generate 2000 **data sets**, each containing 1044 observations (the size of our data set); each drawn from the parameters estimated from our posterior distribution. The goal of this plot is to examine whether or not, after estimating our model's parameters, how well we can retrodict `y`.
+
+```python
+# posterior predictive
+with main_lm_model:
+    ppc = pm.fast_sample_posterior_predictive(trace=main_lm_model_idata,
+                                              samples=2000,
+                                              random_seed=1,
+                                              var_names=['treatment_betas',
+                                                         'covariates_betas',
+                                                         'y'])
+```
+
+Similar to our prior predictive plot, we find that we cannot generate data that looks like our outcome variable very well as the posterior predictions for `y` do match the patterns of our observed `y`.
+
+
+<center>[<img src="img/bayes/main_lm_posterior.png" width=720 />](img/bayes/main_lm_posterior.png)</center>
+
+
+#### Bayesian Ordered Logistic Modeling
+
+In modeling outcome values, we have to keep in mind that values are ordered, because 7 is greater than 6, which is the data that we have. Treating ordered categories as continuous measures is not a good idea as it might be much harder to move someone's preference from 1 to 2 than it is to move it from 5 to 6. The solution to this problem is to incorporate a cumulative link function that maps the cumulative probability of a value to that value *or* any value smaller. Put differently, the cumulative probability of 4 is the sum of the probabilities of 3, 2, and 1. In the steps below, we follow in a similar, albeit more complicated fashion as above.
+
+The main difference here is that we are incorporating cutpoints which in effect act as our intercepts. Again we decide on prior values for their mu and sigma as they are drawn from the Normal distribution. By experimenting with different priors that fit the data, we can better help our sampler efficiently search in its effort to build a posterior distribution.
+
+```python
+# specify model
+with pm.Model() as cumlink:
+    # priors
+    cutpoints = pm.Normal("cutpoints", mu=[-5, -3, -2, -1, 1, 2], sigma=1, transform=pm.distributions.transforms.ordered, shape=6)
+    treatment_betas = pm.Normal("treatment_betas", mu=0, sigma=1, shape=treatment.shape[1])
+    covariates_betas = pm.Normal("covariates_betas", mu=0, sigma=1, shape=covariates.shape[1])
+
+    # matrix-dot products
+    m1 = pm.math.matrix_dot(treatment, treatment_betas)
+    m2 = pm.math.matrix_dot(covariates, covariates_betas)
+
+    # if we know m1 and m2, then we know phi
+    phi = pm.Deterministic("phi", m1 + m2)
+
+    # theano.tensor.sort(cutpoints) needed for prior predictive checks
+    # Likelihood: OrderedLogistic
+    y = pm.OrderedLogistic("y", eta=phi,
+                           cutpoints=theano.tensor.sort(cutpoints),
+                           observed=obs_y.values-1)
+
+    # set step
+    step = pm.NUTS([treatment_betas, covariates_betas, cutpoints], target_accept=0.9)
+```
+
+Our prior analysis reveals shows an improved fit and suggests that an ordered logistic regression is more likely to fit our observed data `y` as compared to a linear model.
+
+```python
+# prior analysis
+with cumlink:
+    prior_pc = pm.sample_prior_predictive(500)
+
+# priors look decent
+ax = plot_prior(prior=prior_pc, model=cumlink, group='prior', num_pp_samples=100)
+```
+
+<center>[<img src="img/bayes/polr_prior.png" width=540 />](img/bayes/polr_prior.png)</center>
+
+Similar to the linear model demonstration, we graphically summarize our modeling choices here:
+
+<center>[<img src="img/bayes/polr_summary.png" width=540 />](img/bayes/polr_summary.png)</center>
+
+
+Next we proceed to use our inference button:
+
+```python
+# Inference button (TM)!
+with cumlink:
+    cumlink_idata = pm.sample(draws=4000,
+                           step=step,
+                           init='jitter+adapt_diag',
+                           cores=4,
+                           tune=1000,  # burn in
+                           return_inferencedata=True)
+```
+
+Our MCMC search finds that, as compared to the linear model, our primary variables of interest have a more pronounced impact. The image below shows that our coefficients move further *away* from zero while their mass contains slightly more plausible values. The HDI plot below tells us that, for the density on the right, (`Typographical`), 94% of the posterior probability lies between -1.22 and -0.675. This means that parameter values less than -1.22 or greater than -0.675 are highly incompatible with the data and model.
+
+<center>[<img src="img/bayes/hdi_polr.png" width=540 />](img/bayes/hdi_polr.png)</center>
+
+
+
+
+As you guessed, our next step is to determine how well our estimated parameters can recreate our observed data `y`. As a reminder, we are generating thousands of **data sets** and then visualizing it to see how well we can retrodict `y`.
+
+
+```python
+# posterior predictive
+with cumlink:
+    ppc = pm.fast_sample_posterior_predictive(trace=cumlink_idata,
+                                              samples=2000,
+                                              random_seed=1,
+                                              var_names=['treatment_betas',
+                                                         'covariates_betas',
+                                                         'y'])
+
+# visualize model fit
+az.plot_ppc(az.from_pymc3(posterior_predictive=ppc, model=cumlink),
+            figsize=(8, 8));
+```
+
+<center>[<img src="img/bayes/main_polr.png" width=540 />](img/bayes/main_polr.png)</center>
+
+Lastly, we compare our two models according to Widely Applicable Information Criterion (WAIC) criterion. WAIC approximates the out-of-sample error that converges to the cross-validation approximation in a large sample. The value of the highest WAIC, (best estimated model), is also indicated with a vertical dashed grey line. For all models except the top-ranked model, the triangle indicates the value of the difference of WAIC between that model and the top model and a grey error bar indicating the standard error of the differences between that model and the top-ranked model.
+
+```python
+# model comparsion
+df_comparative_waic = az.compare(dataset_dict={"ordered logit": cumlink_idata, "linear model": main_lm_model_idata}, ic='waic')
+
+# visual comparison
+az.plot_compare(df_comparative_waic, insample_dev=False, figsize=(10, 4));
+```
+
+<center>[<img src="img/bayes/waic.png" width=540 />](img/bayes/waic.png)</center>
+
+---
+
+<<<<<<< HEAD
+Visit our GitHub page for all of the data and analysis code associated with this study!
+https://github.com/cbenge509/typos_field_experiment
+=======
 ### Appendix: Bayesian Analysis
 
 In addition to the frequentist analysis, we also conducted a brief exploration into Bayesian methods to better understand our data, modeling choices, and impact. In this section, we present two models: (1) a Bayesian estimation of our fully specified linear model, and (2) an alternative specification: an ordered logistic regression. Our analysis is powered by `pymc3` and its requirements to replicate our results can be found in the repository's `requirements.txt` file. We leave this section mostly as future research and practice as the methods interest us while more work is still to be done.
@@ -1254,3 +1741,4 @@ az.plot_compare(df_comparative_waic, insample_dev=False, figsize=(10, 4));
 
 
 #
+>>>>>>> a8589465431d0bf6834d70bfb824d3f84feb0669
