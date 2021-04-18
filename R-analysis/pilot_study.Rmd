@@ -1,0 +1,219 @@
+---
+title: "Pilot Study -- Spelling and Intelligence on Social Media"
+author: Cris Benge, Andrew Fogarty, Stone Jiang
+output: pdf_document
+---
+
+```{r load_data, message = FALSE, warning = FALSE}
+library(dplyr)
+library(tidyr)
+library(data.table)
+library(sandwich)
+library(lmtest)
+library(ggplot2)
+
+d <- read.csv('results_pilot.csv',
+                sep = ',')
+d <- d %>% select(-Email)
+d$ID <- seq(1:length(d$ID))
+```
+
+**Preprocessing of the data**
+
+```{r preprocess_data, include=TRUE}
+correct_answers <- function(d){
+  d$q1 <- ifelse(d$What.color.medal.did.the.author.take.home. == 'Gold', 1, 0)
+  d$q2 <- ifelse(d$What.was.the.author.doing.when.they.got.into.an.accident. == 'Driving', 1, 0)
+  d$q3 <- ifelse(d$What.city.did.the.author.move.to.25.years.ago.== 'Chicago', 1, 0)
+  d$q4 <- ifelse(d$What.wild.animal.did.the.author.belief.visited.them.recently. == 'Deer', 1, 0)
+  d$q5 <- ifelse(d$How.many.heads.did.the.mutated.dog.have. == '1', 1, 0)
+  d$q6 <- ifelse(d$Where.did.the.author.acquire.his.knowledge.on.grammatical.competence. == 'Podcast', 1, 0)
+  
+  d <- d %>% select(-'What.color.medal.did.the.author.take.home.',
+                    -'What.was.the.author.doing.when.they.got.into.an.accident.',
+                    -'What.city.did.the.author.move.to.25.years.ago.',
+                    -'What.wild.animal.did.the.author.belief.visited.them.recently.',
+                    -'How.many.heads.did.the.mutated.dog.have.',
+                    -'Where.did.the.author.acquire.his.knowledge.on.grammatical.competence.'
+                    )
+  return (d)
+  
+}
+
+likert_numeric <- function(d, field){
+  results <- c()
+  
+  for (f in d[,field]){
+    if (nchar(f) > 1) {
+      results <- append(results, as.integer(substr(f, 1, 1)))
+    }
+    else {
+      results <- append(results, as.integer(f))
+    }
+  }
+  d[field] <- results
+  return(d)
+}
+
+correct_likert <- function(d){
+  fields <- c("Would.this.be.content.you.would.like.to.see.on.your.social.media.feed.",                       
+              "Did.the.author.effectively.communicate.their.message.in.this.post.",                                 
+              "Based.on.this.post..what.is.your.judgment.of.the.author.s.level.of.intelligence.",                   
+              "Do.you.think.the.author.has.strong.writing.skills.",                                                 
+              "What.is.your.interest.level.in.meeting.the.author.of.this.post.one.on.one.if.given.the.opportunity.")
+  
+  new_names <- c("Like",
+                 "Effective",
+                 "Intelligence",
+                 "Writing",
+                 "Interest")
+  
+  for (i in seq(1, length(fields))){
+    d <- likert_numeric(d, fields[i])
+    d <- rename(d, !!paste(new_names[i],"1",sep="") := fields[i])
+    
+    for (j in seq(2,6)) {
+      d <- likert_numeric(d, paste(fields[i], as.character(j), sep = ""))
+      d <- rename(d, !!paste(new_names[i],as.character(j),sep="") := paste(fields[i], as.character(j), sep = ""))
+    }
+  }
+  return(d)
+}
+
+rename_fields <- function(d){
+  setnames(d, 
+           old = c('Start.time',
+                   'Completion.time',
+                   "What.is.your.age.",
+                   "What.is.your.gender.",
+                   "Is.English.your.first.language.",
+                   "What.is.the.highest.degree.or.level.of.education.you.have.completed.",
+                   "Read.posts.made.by.others",
+                   "Make.original.posts"), 
+           new = c('Start',
+                   'End',
+                   'Age',
+                   'Gender',
+                   'English',
+                   'Degree',
+                   'Read',
+                   'Make'))
+  
+  repeated_names <- c("Appropriate.length.", "Were.there.any.spelling.or.grammar.mistakes.in.the.post.")
+  new_names <- c("Length", "Mistakes")
+  
+  for (i in seq(1:length(repeated_names))){
+    old <- c(repeated_names[i])
+    new <- c(paste(new_names[i], as.character(1), sep = ""))
+    
+    for (j in seq(2,6)) {
+      old <- append(old, paste(repeated_names[i], as.character(j), sep = ""))
+      new <- append(new, paste(new_names[i], as.character(j), sep = ""))
+    }
+    setnames(d, old = old, new = new)
+  }
+}
+
+d <- correct_answers(d)
+d <- correct_likert(d)
+rename_fields(d)
+```
+
+
+```{r spread_data, include=TRUE, warning = FALSE, message = FALSE}
+spread_data_by_question <- function(d) {
+  pivot_indices <- colnames(d)[!grepl('[0-6]$', colnames(d))]
+  
+  df <- d %>% select(pivot_indices, sort(colnames(d)[grepl('1$', colnames(d))]))
+  new_names <- c()
+  for (name in colnames(df)) {
+    if (endsWith(name, "1")){
+      new_names <- append(new_names, gsub('.{1}$', '', name))
+    }
+    else {
+      new_names <- append(new_names, name)
+    }
+  }
+  
+  colnames(df) <- new_names
+  df$q_num <- 1
+  
+  for (i in seq(2,6)){
+    new_df <- d %>% select(pivot_indices, sort(colnames(d)[grepl(paste(as.character(i),'$',sep=""), colnames(d))]))
+    colnames(new_df) <- new_names
+    new_df$q_num <- i
+    df <- rbind(df, new_df)
+  }
+  
+  return(df %>% arrange(ID))
+}
+df <- spread_data_by_question(d)
+df <- df[df$q_num != 4,]
+```
+
+\pagebreak
+**Histogram of the outcome variable**
+
+Since our variable is on a Likert scale, rather than plotting a histogram, we'll show a bar plot of the outcome.
+
+```{r plot of outcome}
+ggplot(data=df, aes(x=Intelligence, y = ..count..)) +
+  geom_histogram(stat="bin", fill="steelblue", binwidth = 0.5)+
+  stat_bin(geom="text", colour="white", size=3.5, bins = 7,
+           aes(label=..count..), position=position_stack(vjust=0.5))+
+  ggtitle("Distribution of outcome variable (Intelligence)")+
+  ylab("Count of Intelligence Ratings")+
+  xlab("Intelligence")+
+  scale_x_continuous("Intelligence", labels = as.character(1:7), breaks = 1:7)+
+  theme_minimal()
+
+```
+\pagebreak
+
+**Covariate balance check**
+
+To perform the covariate check, we regress the treatment group against the covariates, and hope that the model is not predictive (check with F-test).
+
+```{r covariate balance check}
+treatment_group <- ifelse(df$Type == 'C', 0,
+                          ifelse(df$Type == 'P', 1, 2))
+mod_covariates <- lm (treatment_group ~ 1 + Age + Gender + Degree + Read + Make + q_num, data = df)
+
+mod_mean <- lm(treatment_group ~ 1)
+
+anova(mod_covariates, mod_mean, test = "F")
+```
+We see that for this small sample, the covariates are not balanced. The F-test shows that the fit for the model with covariates is highly statistically significant.
+
+\pagebreak
+**Initial regression analysis**
+
+First, we try just the outcome variable with respect to treatment type and see the variable is highly statistically significant from just the pilot data.
+```{r basic_regression}
+mod_baseline <- lm (Intelligence ~ Type , data = df)
+coeftest(mod_baseline, vcov = vcovHC)
+```
+
+We then add in the question number.
+```{r question_number}
+mod_qnum <- lm (Intelligence ~ Type + factor(q_num), data = df)
+coeftest(mod_qnum, vcov = vcovHC)
+stargazer(mod_qnum, type = 'html')
+```
+
+Including the question results in a better fit on the data.
+```{r significance_qnum}
+anova(mod_baseline, mod_qnum, test = 'F')
+```
+
+Try this again with all regression coefficients. Interestingly, this is no longer significant. 
+```{r regression_all_covariates}
+mod_covariates <- lm (Intelligence ~ Type + Effective + Like + Mistakes + Writing + q_num, data = df)
+coeftest(mod_covariates, vcov = vcovHC)
+```
+
+However, if we remove writing, we see that Phonological errors are still statistically significant.
+```{r regression_some_covariates}
+mod_some_covariates <- lm (Intelligence ~ Type  + Like + Effective + Mistakes + q_num, data = df)
+coeftest(mod_some_covariates, vcov = vcovHC)
+```
