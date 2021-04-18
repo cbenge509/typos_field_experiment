@@ -31,7 +31,11 @@ Based on these previous studies, our experiment seeks to better understand the e
 
 The purpose of this study is to assess the impact, *if any*, on the perceived intelligence of authors’ who make spelling errors in social media posts. If the perception of author intelligence is significantly perturbed by such error, it will be useful to know if particular categories of error are more or less deleterious. We will leave outside the scope of this experiment the concern of whether a correlation between spelling error and measured intelligence exists as we are interested only in the potential causal relationship between written error and perception of intelligence.
 
-Our potential outcomes is stated as follows: We compare the average perceived level of intelligence of writers of social media posts when either typographical or phonological spelling errors are made in the post, to what would have happened had the post contained no errors. Since we can only measure one potential outcome (no error, typographical, or phonological), we adopt a pre-test/post-test control group study design (ROXO). In this design, we first randomize participants at the start of the study by allowing each participant an equal chance of being assigned to Control, Typographical, or Phonological. Next, all participants are measured on one post (details of measurement below) in order to establish a pre-treatment baseline across all individuals. Each group is then subjected to their particular treatment for 5 more posts (Control receives posts with no error, Typographical receives posts with only what's deemed typographical error, and Phonological receives only what's deemed phonological error). We then measure the participants responses after each post.
+Our potential outcomes is stated as follows: We compare the average perceived level of intelligence of writers of social media posts when either typographical or phonological spelling errors are made in the post, to what would have happened had the post contained no errors. Since we can only measure one potential outcome (no error, typographical, or phonological), we adopt a pre-test/post-test control group study design (ROXO). In this design, we first randomize participants at the start of the study by allowing each participant an equal chance of being assigned to Control, Typographical, or Phonological. Next, all participants are measured on one post (identical for all groups, and containing no errors -- more details of measurement below) in order to establish a pre-treatment baseline across all individuals. Each group is then subjected to their particular treatment for 5 more posts (Control receives posts with no error, Typographical receives posts with only what's deemed typographical error, and Phonological receives only what's deemed phonological error). We then measure the participants responses after each post. Our null and alternative hypotheses are stated as follows:
+
+H0: In a comparison of individuals, those who are exposed to either treatment (typographical or phonological errors) will not view its author as less intelligent than those exposed to control (no errors).
+
+H1: In a comparison of individuals, those who are exposed to either treatment (typographical or phonological errors) will view its author as less intelligent than those exposed to control (no errors).
 
 In order to establish that our randomization processed worked correctly, we perform a covariate balance check using the R package "cobalt". We check all covariantes not related to the pretreatment (this will be done later with a placebo test), including demographic information, and how often individuals in each group reads and writes social media posts. This check measures raw differences in proportion for categorical variables across the control and treatment groups. For example, for how often an individual reads social media, we have 5 potential levels ("Weekly", "Less than Weekly", "Daily", "More than once a day", and "Prefer not to say"). The difference in proportion of individuals belonging to these levels is calculated across all three groups. There's indication that this raw difference is a [strong predictor](https://cran.r-project.org/web/packages/cobalt/vignettes/cobalt.html#fn6) of potential bias, and that a threshold of 0.1 to 0.25 have been proposed to be satisfactory. Our check (see our [analysis notebook](https://github.com/cbenge509/typos_field_experiment/blob/main/R-analysis/final_project.Rmd) for more details) indicates that 36 / 39 levels of our covariates pass the balance check at a threshold level of 0.1, while the remaining 3 pass the level of 0.15. Two of these three are levels of how often one reads social media ("Daily" at 0.1575, "More than once a day" at 0.1022), and one is how often one writes social media ("Less than Weekly" at 0.1476). All other levels of these variables pass the 0.1 threshold. Due to such small differences in only a few levels of two variables, and the fact that all are below or signficantly below the acceptable threshold of 0.25, we believe the covariate balance check passes in our case since. Bias in our estimates should not be an issues in terms of including these covariates in our analysis.
 
@@ -178,7 +182,7 @@ Participants were invited to join a short, anonymous survey with the communicate
 
 ## Treatment Experience
 
-For our study, we constructed seven fictive social media posts: one a control question that everyone receives, regardless of branch assignment, and six posts that are identical in content save for deliberate typographical errors (treatment group 1), or deliberate phonological errors (treatment group 2). The control question contains no grammatical or spelling errors, and is presented as the first question for all participants as a mechanism to prime the participants for attention and to elicit more careful reading of the following six posts. While control group postings are meant to avoid grammar and spelling mistakes, some loose language is used to establish credibility as 'genuine' to a normal social media interaction. All posts cover topics that are intended to be banal so as to avoid evocation of excited emotional states [we assume there to be] due to topics such as religion or politics.
+For our study, we constructed seven fictive social media posts: one a control question that everyone receives, regardless of branch assignment, and six posts that are identical in content save for deliberate typographical errors (treatment group 1), or deliberate phonological errors (treatment group 2). The control question contains no grammatical or spelling errors, and is presented as the first question for all participants as a mechanism to prime the participants for attention and to elicit more careful reading of the following five posts. While control group postings are meant to avoid grammar and spelling mistakes, some loose language is used to establish credibility as 'genuine' to a normal social media interaction. All posts cover topics that are intended to be banal so as to avoid evocation of excited emotional states [we assume there to be] due to topics such as religion or politics.
 ### Attention Social Media Post (Post 0) - All Participants
 
 The control post (dubbed Post 0) in our experiment that all assignment groups see first to prime participant focus and attention.
@@ -235,7 +239,7 @@ Below, the six posts seen only by treatment group 2 (phonological errors) partic
 
 # Pre-Survey Power Analysis
 
-Prior to conducting the experiment, we performed a power analysis to estimate the number of compliant study participants we would need to reach our desired Beta = 0.8 and alpha = 0.05.  Below is the code in R we used to perform our pre-experiment power analysis.
+Prior to conducting the experiment, we performed a power analysis to estimate the number of compliant study participants we would need to reach our desired Beta = 0.8 and alpha = 0.05.  Below is the code in R we used to perform our pre-experiment power analysis. For a range of effect sizes, going from 0.2 to 1 (where effect size is the average difference in mean perceived Intelligence between either treatment or control), we calculate the number of participants needed using the R package "pacman" using a standard t-test in order to achieve our desired error rates.
 
 ```r
 if (!require("pacman")) install.packages("pacman")
@@ -254,12 +258,21 @@ results <- data.table(
   participants_needed = participants_needed)
 ```
 
-In our pre-study period, we estimated a fairly conservative effect size of 0.5, which means we would approximately need between 250-300 participants to meet our desired power and significance goals.
+A visual of the results is presented below. We see that for very small effect sizes of <0.25, over 1000 subjects would be needed. For a still conservative effect size of 0.5 (keeping in mind our Intelligence scale ranges from 1-7), we would approximately need between 250-300 participants to meet our desired power and significance goals, which is something XLab is able to provide.
 
 [<img src="img/power_analysis.png" width=750 />](img/power_analysis.png)
 <br>
 
 <hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
+
+#Flow diagram
+
+Below is our CONSORT document showing the flow of our study. With 265 recruited individuals, 209 were included in the final analysis from UCB XLab.
+
+[<img src="img/Study_Participation.png" width=750 />](img/Study_Participation.png)
+
+In the first part of the analysis, we consider compliance as a non-issue as all participants had the opportunity to read their respective posts and thus receive either control or treatment. However, even though treatment was always delivered, whether it made actually made an impression on the reader is a different question. In order to gauge this, our final "Attention Question" gauged whether participants noticed spelling errors when they were supposed to (both treatment groups), and did not notice spelling errors when they were not supposed to (control group). While this measurement is a noisy metric for true compliance, if it were a perfect metric, we potentially have two-sided noncompliance (some Control subjects noticed errors, and some Treatment subjects did not notice errors). The CONSORT document shows our fraction of compliers, and number of prompts that falls within our compliance parameters. We deal this further with an instrumental variables approach in the analysis.
+
 
 # Exploratory Data Analysis
 
@@ -1224,7 +1237,7 @@ Next, we control for demographic variables as well as properties of the post. Ea
 
 ### Model with demographic and pre-treatment covariates
 
-Next, building upon the model with demographics information, we use pre-treatment variables measured on the control post shown to all groups. Previously from the placebo test, we showed that Treatment effect was not statistically significant. However, the estimate for the phonological group was more than 6x lower than the typographical group, which lower than control. This could introduce bias in our estimates if the baseline level of perceived intelligence for individuals in the different groups are on average different. As a result, we add in pre-treatment variables as a covariate. We also include covariates for pretreatment for writing, effectiveness, etc. Despite our treatment being a poor predictor of pre-treatment Intelligence level, pre-treatment Intelligence level is a strong predictor of Intelligence level. The estimates for the two models are not very different, but standard errors are slightly tighter.
+Next, building upon the model with demographics information, we use pre-treatment variables measured on the control post shown to all groups. Previously from the placebo test, we showed that Treatment effect was not statistically significant. However, the estimate for the phonological group was more than 6x lower than the typographical group, which lower than control. This could introduce bias in our estimates if the baseline level of perceived intelligence for individuals in the different groups are on average different. As a result, we add in pre-treatment variables as a covariate. We also include covariates for pretreatment for writing, effectiveness, etc. Despite our treatment being a poor predictor of pre-treatment Intelligence level, pre-treatment Intelligence level is a strong predictor of Intelligence level. The estimates for the two models are not very different, but standard errors are slightly tighter. We treat this as our final model specification.
 
 <table style="text-align:center" width=720><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
 <tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
@@ -1264,13 +1277,13 @@ Next, building upon the model with demographics information, we use pre-treatmen
 
 ### Heterogenous treatment effects
 
-In order to understand whether individuals with different attributes have differences in their treatment effects, we decided to look at the estimated treatment effects and the confidence intervals associated with the estimates for individuals who read different levels of social media. Interestingly, those who read social media posts less often tend to be more critical of phonological errors than those who read social media posts only weekly. In fact, those that read social media "More than once a day", "Daily", or "Less than Weekly", all have statistically signficant treatment effects with 95% CIs overlapping the average phonological treatment effect, but those that only read social media "Weekly" overlaps with 0.
+In order to understand whether individuals with different attributes have differences in their treatment effects, we decided to look at the estimated treatment effects and the confidence intervals associated with the estimates for individuals who read different levels of social media. We found that those who read social media posts at mid-frequency levels (weekly) tend to be more critical of phonological errors than those who read social media posts more frequently or less frequency. Those that read social media "More than once a day", "Daily", or "Less than Weekly", all have statistically signficant treatment effects with 95% CIs overlapping the average phonological treatment effect, but those that only read social media "Weekly" overlaps with 0. This could just be a coincindence though and should not be fully trusted without further studies.
 
-<center>[<img src="img/het_reading_phono.png" width=720 />](img/het_reading_phono.png)</center>
+<center>[<img src="img/het_reading_phono2.png" width=720 />](img/het_reading_phono.png)</center>
 
-However, the same observation is not true for typographical treatment. While those that read social media posts "More than once a day" tend to have the strongest treatment effect, those that read social media posts "Less than Weekly" appears to have the weakest treatment effect, although these estimates have large error bars.
+The same observation is not true for typographical treatment. While those that read social media posts "More than once a day" tend to have the weakest treatment effect, those who read posts more frequently tend to larger effects, although these estimates have large error bars.
 
-<center>[<img src="img/het_reading_typo.png" width=720 />](img/het_reading_typo.png)</center>
+<center>[<img src="img/het_reading_typo2.png" width=720 />](img/het_reading_typo.png)</center>
 
 
 <hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
@@ -1561,6 +1574,42 @@ Finally, in order to see whether an Ordinal Response model makes a difference in
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>1,044</td><td>1,044</td></tr>
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
+
+
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
+
+#### Potential Noncompliance
+
+Treatment was successfully delivered to all individuals, but it is possible that treatment was not always properly received. On the flip side, Control subjects were all delivered posts with no typos, but the presence of typos may have been recognized anyway. As a result, we can make an argument that we have potential Defiers and Never Takers.
+
+We define a subject as a compliers when they have both of the following characteristics:
+
+1. Recognized posts to contains errors when they were supposed to (Typographical or Phonological groups), and recognized posts as free of errors when none were present (Control).
+2. Must have actually read the post carefully. The average reader reads approximately 300 words per minute. We require the wmp to be between 50 (focused, one-session reading) and 500, which we feel are reasonable cutoffs. This in practice made much less of a difference than item 1, as most individuals fell between this region (see EDA).
+
+Given these cutoffs, the complier rates in each group was: 78% Phonological, 76% Typographical, 63% Control.
+
+For analysis of two-sided compliance, we used the 2-stage least squares approach with covariates described in [here](https://www.cambridge.org/core/books/causal-inference-for-statistics-social-and-biomedical-sciences/instrumental-variables-analysis-of-randomized-experiments-with-twosided-noncompliance/3197B9E3323FFBF04930BF1C588E980A). We perform regression analysis with the same final model specification as above. CACE estimates and the standard errors are presented below for each of the treatment groups against the control group (and the Intelligence pretreatment control). Generally, the CACE is higher than the estimate ATE from previous models assuming full compliance, with also larger standard errors. However, the conclusion as usual remains the same: both treatment types are highly statistically sigificant, with the effect of phonological being about double the effect of typographical (although the ratio is slightly less here).
+
+<table style="text-align:center" width=720><tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="2"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="2" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="2"><b>Intelligence</b></td></tr>
+<tr><td style="text-align:left"></td><td><font color="#3B7EA1"><b>Typographical</td><td><font color="#3B7EA1"><b>Phonological</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><font color="#46535E"><b>CACE_estimate</td><td><font color="#EE1F60"><b>-1.526<sup>***</sup></td><td><font color="#EE1F60"><b>-2.734<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.262)</td><td>(0.254)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left"><font color="#46535E"><b>Intelligence.pretreat</td><td><font color="#EE1F60"><b>0.296<sup>***</sup></td><td><font color="#EE1F60"><b>0.172<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.061)</td><td>(0.061)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>719</td><td>689</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.313</td><td>0.377</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.277</td><td>0.349</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>1.203 (df = 683)</td><td>1.219 (df = 658)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>8.871<sup>***</sup> (df = 35; 683)</td><td>13.282<sup>***</sup> (df = 30; 658)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
 <hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
