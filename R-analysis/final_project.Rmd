@@ -209,18 +209,18 @@ pdata$isMechTurk <- ifelse(pdata$StartDate < as.Date("2021-04-06"), 1, 0)
 pdata$isUS <- ifelse(pdata$Country == "United States of America" , 1, 0)
 ```
 
-```{r filter data to subset}
+```{r noncompliers}
 ##add final filtering stages
 #calculate variance of responses to each question and only take responses with var > 0
-#pdata$response_var <- apply(pdata[,.(Interest, Effective, Intelligence, Writing, Meet)], 1, var) 
-#pdata <- pdata[response_var > 0 ]
+pdata$response_var <- apply(pdata[,.(Interest, Effective, Intelligence, Writing, Meet)], 1, var) 
+#pdata <- pdata[response_var > 0]
 
 #wmp
 #pdata <- pdata[wpm > 50  & wpm < 500]
 ```
 
 ```{r output to cleaned dataset}
-write.csv(pdata, '/Users/stonejiang/Desktop/Stone/Berkeley_MIDS/Causal_Inference/final_project/final_data_cleaned.csv')
+#write.csv(pdata, '/Users/stonejiang/Desktop/Stone/Berkeley_MIDS/Causal_Inference/final_project/final_data_cleaned.csv')
 ```
 
 #Analysis starts
@@ -255,7 +255,7 @@ coeftest(model_ucb_treatment, vcov. = vcovHC)
 
 library(stargazer)
 stargazer(model_ucb_treatment,
-          se = list(sqrt(diag(vcovHC(model_ucb_treatment, type = "HC1")))), type="html", column.labels = c("Baseline"))
+          se = list(sqrt(diag(vcovHC(model_ucb_treatment, type = "HC1")))), type="text", column.labels = c("Baseline"))
 ```
 
 Highly statistically significant.
@@ -278,7 +278,7 @@ coeftest(model_ucb_treatment_demo, vcov. = vcovHC)
 
 stargazer(model_ucb_treatment, model_ucb_treatment_demo,
           se = list(sqrt(diag(vcovHC(model_ucb_treatment, type = "HC1"))),
-                    sqrt(diag(vcovHC(model_ucb_treatment_demo, type = "HC1")))), type="html", column.labels = c("Baseline","Demographics"))
+                    sqrt(diag(vcovHC(model_ucb_treatment_demo, type = "HC1")))), type="text", column.labels = c("Baseline","Demographics"))
 ```
 Even including all of these variables there's no change in significance, and estimate of treatment effect improves.
 
@@ -293,7 +293,7 @@ coeftest(model_ucb_treatment_pretreat, vcov. = vcovHC)
 stargazer(model_ucb_treatment, model_ucb_treatment_pretreat,
           se = list(sqrt(diag(vcovHC(model_ucb_treatment, type = "HC1"))),
                     sqrt(diag(vcovHC(model_ucb_treatment_pretreat, type = "HC1")))), 
-          type="html", 
+          type="text", 
           column.labels = c("Baseline","Pretreatment"),
           omit = c("length", "Gender", "English", "Race", "isUS", "Degree", "age_bins", "ReadSocialMedia",  "WriteSocialMedia"))
 ```
@@ -322,7 +322,7 @@ model_ucb_treatment_read_pre <- treatment_ucb[, lm(Intelligence ~ Treatment + le
 #          column.labels = c("Baseline"),
 #          omit = c("length", "Gender", "English", "Race", "isUS", "Degree", "age_bins", "Writing.pretreat",  "WriteSocialMedia", "Interest.pretreat", "Effective.pretreat", "Intelligence.pretreat"))
 
-levels <- c("More than once a day", "Daily", "Less than Weekly", "Weekly")
+levels <- c("More than once a day", "Daily", "Weekly", "Less than Weekly")
 
 p_estimates <- c()
 p_se <- c()
@@ -354,23 +354,24 @@ t_avg <- coef(model_ucb_treatment_read_pre)[3]
 p_data <- data.frame(levels = levels, p_estimate = p_estimates, p_lower = p_lower, p_upper = p_upper, errors = 1.96*p_se)
 
 t_data <- data.frame(levels = levels, t_estimate = t_estimates, t_lower = t_lower, t_upper = t_upper, errors = 1.96*t_se)
-  
-ggplot(p_data, aes(x=levels, y=p_estimate)) + 
+x <- factor(levels, levels = c("More than once a day", "Daily", "Weekly", "Less than Weekly") )
+
+ggplot(p_data, aes(x=x, y=p_estimate,)) + 
     geom_errorbar(aes(ymin=p_estimate - errors, ymax=p_estimate + errors), colour="black", width=.1) +
-    geom_line() +
+    #geom_line() +
     geom_point(size=3)+
     ggtitle("Treatment effect based on how often someone reads social media") +
     geom_hline(yintercept = p_avg, linetype="dashed", color = "red")+
     ylab("Phonological Estimate") +
     geom_hline(yintercept = 0, linetype="dashed", color = "green")+
-    scale_x_discrete(labels= levels) +
+    #scale_x_discrete(labels= levels) +
     theme_classic()
 ```  
 
 ```{r}
-ggplot(t_data, aes(x=levels, y=t_estimate)) + 
+ggplot(t_data, aes(x=x, y=t_estimate)) + 
     geom_errorbar(aes(ymin=t_estimate - errors, ymax=t_estimate + errors), colour="black", width=.1) +
-    geom_line() +
+    #geom_line() +
     geom_point(size=3)+
     ggtitle("Treatment effect based on how often someone reads social media") +
     ylab("Typographical Estimate") +
@@ -502,3 +503,78 @@ coeftest(model_ucb_treatment_effective, vcov. = vcovHC)
 ```
 
 Phonological seems to affect the effectiveness, but typos not necessarily. Interesting as typos don't confuscate meaning as the intended word is often easily recognized.
+
+```{r stargazer_writing_effective}
+stargazer(model_ucb_treatment_writing, model_ucb_treatment_effective,
+          column.labels = c("Writing","Effective"),
+          omit = c("length", "Gender", "English", "Race", "isUS", "Degree", "age_bins", 
+                   "ReadSocialMedia",  "WriteSocialMedia", "Intelligence.pretreat", "Writing.pretreat",
+                   "Interest.pretreat", "Effective.pretreat", "Constant"),
+          type = 'text')
+```
+
+
+### Proportional Odds model
+
+```{r polr}
+library(MASS)
+library(car)
+
+treatment_ucb$intelligence.factor <- factor(treatment_ucb$Intelligence, levels = c(1,2,3,4,5,6,7), ordered = TRUE)
+polr_model_no_controls <- polr(intelligence.factor ~ Treatment, method = "logistic", data = data.frame(treatment_ucb), Hess = TRUE)
+
+polr_model_controls <- polr(intelligence.factor ~ Treatment  + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Interest.pretreat + Writing.pretreat +Effective.pretreat, method = "logistic", data = data.frame(treatment_ucb), Hess = TRUE)
+
+
+stargazer(polr_model_no_controls, polr_model_controls,
+          column.labels = c("No controls","With controls"),
+          omit = c("length", "Gender", "English", "Race", "isUS", "Degree", "age_bins", 
+                   "ReadSocialMedia",  "WriteSocialMedia"),
+          type = 'text')
+```
+
+Define subset of compliers who actually read the post.
+```{r compliance}
+#If subjects noticed errors in control, Defier
+#If subjects did not notice error in either treatment, Never Taker
+
+#Additionally, for treatment, define compliance as having read the post and noticed the mistakes
+#more than 50 words per minute (focused on reading)
+#less than 500 words per minute
+
+#treatment assignment
+treatment_ucb$treat_assigned <- ifelse(treatment_ucb$Treatment == 'Control', 0, 1)
+
+#noticed errors? If so, this indicates they received "treatment"
+treat_received_errors <- ifelse(treatment_ucb$Errors == "None or did not notice any", 0, 1)
+
+
+#add wpm requirement for treatment
+treat_received_wpm <- ifelse(treatment_ucb$wpm > 50 & treatment_ucb$wpm < 500, 1, 0)
+
+#actually received treatment? 
+#If they correctly noticed error (0 for control group, not 0 for treatment group) AND was within reasonable wpm
+treat_received <- as.numeric(treat_received_errors & treat_received_wpm)
+
+treatment_ucb$treat_received <- treat_received
+treatment_ucb[,table(treat_received), by = Treatment]
+```
+A large portion of control received treatment (they said they noticed spelling errors), so actually this is more of a concern. We have two-sided noncompliance.
+
+```{r compliance regression}
+prev.model <- treatment_ucb[, lm(Intelligence ~ Treatment + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Interest.pretreat + Writing.pretreat +Effective.pretreat)]
+#Typographical
+stage1 <- treatment_ucb[Treatment != 'Phonological', lm(treat_received ~ treat_assigned + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Interest.pretreat + Writing.pretreat +Effective.pretreat)]
+cace_estimate <- stage1$fitted.values
+typo.model <- treatment_ucb[Treatment != 'Phonological', lm(Intelligence ~ cace_estimate + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Interest.pretreat + Writing.pretreat +Effective.pretreat)]
+
+#Phonological
+stage1 <- treatment_ucb[Treatment != 'Typographical', lm(treat_received ~ treat_assigned + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Interest.pretreat + Writing.pretreat +Effective.pretreat)]
+cace_estimate <- stage1$fitted.values
+phono.model <- treatment_ucb[Treatment != 'Typographical', lm(Intelligence ~ cace_estimate + length + Gender + English + Race + isUS + Degree +age_bins + ReadSocialMedia + WriteSocialMedia + Intelligence.pretreat + Interest.pretreat + Writing.pretreat +Effective.pretreat)]
+
+stargazer(typo.model, phono.model, type = 'text', column.labels = c("Typographical", "Phonological"),
+          omit = c("length", "Gender", "English", "Race", "isUS", "Degree", "age_bins", 
+                   "ReadSocialMedia",  "WriteSocialMedia", "Intelligence.pre0treat", "Writing.pretreat",
+                   "Interest.pretreat", "Effective.pretreat", "Constant"))
+```
