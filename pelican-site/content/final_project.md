@@ -574,7 +574,7 @@ Findings from response data from the live survey is outlined in this section. An
 
 ### Descriptive Statistics
 
-Below are descriptive statistics for the primary response data of interest.
+Below are descriptive statistics for the response data of interest. We present two tables showing the descriptive statistics associated with our Mechanical Turk and XLab datasets. Numbers in dark blue shading mark the highest values in each column while lighter blue shading marks the next highest values. The takeaway here is that most users processed our survey at times that we expected the survey, judging from the median values for our words per minute calculator and the time spent on our prompts; roughly 13 minutes for our social media posts and 24 minutes for our questions. On the XLab data, responses for all post-treatment (Interest through Meet) questions ranged the entire scale from 1-7, indicating desirable high variability in the responses at least in the extremes. For the measurement of interest (Intelligence), the avereage is right around the middle of the scale at 3.96.
 
 #### Descriptive Statistics : Amazon Mechanical Turk
 
