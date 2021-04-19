@@ -1614,7 +1614,6 @@ For analysis of two-sided noncompliance, we used the 2-stage least squares appro
 <tr><td style="text-align:left">F Statistic</td><td>8.871<sup>***</sup> (df = 35; 683)</td><td>13.282<sup>***</sup> (df = 30; 658)</td></tr>
 <tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
 </table>
-<hr style="height:3px;border:none;color:#EE1F60;background-color:#EE1F60;" />
 
 <hr style="height:5px;border:none;color:#505050;background-color:#505050;" />
 
