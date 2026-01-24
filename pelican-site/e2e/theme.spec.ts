@@ -69,7 +69,9 @@ test.describe('Theme Toggle', () => {
       const html = page.locator('html');
 
       // Get initial state
-      const initialDark = await html.evaluate(el => el.classList.contains('dark'));
+      const initialDark = await html.evaluate(el =>
+        el.classList.contains('dark'),
+      );
 
       // Click twice
       await page.click('#theme-toggle');
@@ -78,7 +80,9 @@ test.describe('Theme Toggle', () => {
       await page.waitForTimeout(100);
 
       // Should be back to initial state
-      const finalDark = await html.evaluate(el => el.classList.contains('dark'));
+      const finalDark = await html.evaluate(el =>
+        el.classList.contains('dark'),
+      );
       expect(finalDark).toBe(initialDark);
     });
   });
@@ -229,8 +233,8 @@ test.describe('Theme Toggle', () => {
       });
 
       // Get light mode background (should be white-ish)
-      const lightBg = await body.evaluate(el =>
-        getComputedStyle(el).backgroundColor,
+      const lightBg = await body.evaluate(
+        el => getComputedStyle(el).backgroundColor,
       );
 
       // Switch to dark mode
@@ -238,8 +242,8 @@ test.describe('Theme Toggle', () => {
       await page.waitForTimeout(100);
 
       // Get dark mode background (should be dark)
-      const darkBg = await body.evaluate(el =>
-        getComputedStyle(el).backgroundColor,
+      const darkBg = await body.evaluate(
+        el => getComputedStyle(el).backgroundColor,
       );
 
       // Backgrounds should be different
@@ -255,17 +259,20 @@ test.describe('Theme Toggle', () => {
       await expect(svgIcons).toHaveCount(2);
 
       // At least one icon should be visible at any time
-      const visibleIcons = await svgIcons.evaluateAll(icons =>
-        icons.filter(icon => {
-          const styles = getComputedStyle(icon);
-          return styles.display !== 'none' && styles.visibility !== 'hidden';
-        }).length
+      const visibleIcons = await svgIcons.evaluateAll(
+        icons =>
+          icons.filter(icon => {
+            const styles = getComputedStyle(icon);
+            return styles.display !== 'none' && styles.visibility !== 'hidden';
+          }).length,
       );
 
       expect(visibleIcons).toBeGreaterThanOrEqual(1);
     });
 
-    test('theme class on html element changes which icon is visible', async ({page}) => {
+    test('theme class on html element changes which icon is visible', async ({
+      page,
+    }) => {
       // The icons use Tailwind CSS classes:
       // Sun icon: "hidden dark:block" (visible in dark mode)
       // Moon icon: "block dark:hidden" (visible in light mode)
