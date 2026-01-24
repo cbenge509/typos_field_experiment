@@ -1,0 +1,215 @@
+{
+  "gender": [
+    {
+      "gender": "Cisgender Woman",
+      "count": 159
+    },
+    {
+      "gender": "Cisgender Man",
+      "count": 84
+    },
+    {
+      "gender": "Non-binary",
+      "count": 11
+    },
+    {
+      "gender": "Prefer not to disclose",
+      "count": 5
+    },
+    {
+      "gender": "Other",
+      "count": 4
+    },
+    {
+      "gender": "Transgender Man",
+      "count": 2
+    }
+  ],
+  "country": [
+    {
+      "country": "United States of America",
+      "count": 239
+    },
+    {
+      "country": "United Kingdom of Great Britain and Northern Ireland",
+      "count": 5
+    },
+    {
+      "country": "Unknown",
+      "count": 5
+    },
+    {
+      "country": "India",
+      "count": 3
+    },
+    {
+      "country": "Canada",
+      "count": 3
+    },
+    {
+      "country": "Italy",
+      "count": 2
+    },
+    {
+      "country": "France",
+      "count": 1
+    },
+    {
+      "country": "Afghanistan",
+      "count": 1
+    },
+    {
+      "country": "Mexico",
+      "count": 1
+    },
+    {
+      "country": "Hong Kong (S.A.R.)",
+      "count": 1
+    },
+    {
+      "country": "Portugal",
+      "count": 1
+    },
+    {
+      "country": "Singapore",
+      "count": 1
+    },
+    {
+      "country": "New Zealand",
+      "count": 1
+    },
+    {
+      "country": "China",
+      "count": 1
+    }
+  ],
+  "state": [
+    {
+      "state": "California",
+      "count": 190
+    },
+    {
+      "state": "New Jersey",
+      "count": 7
+    },
+    {
+      "state": "Texas",
+      "count": 6
+    },
+    {
+      "state": "Arizona",
+      "count": 5
+    },
+    {
+      "state": "Washington",
+      "count": 4
+    },
+    {
+      "state": "Illinois",
+      "count": 4
+    },
+    {
+      "state": "Virginia",
+      "count": 2
+    },
+    {
+      "state": "South Carolina",
+      "count": 2
+    },
+    {
+      "state": "Colorado",
+      "count": 2
+    },
+    {
+      "state": "Massachusetts",
+      "count": 2
+    },
+    {
+      "state": "New York",
+      "count": 1
+    },
+    {
+      "state": "Hawaii",
+      "count": 1
+    },
+    {
+      "state": "Arkansas",
+      "count": 1
+    },
+    {
+      "state": "Nevada",
+      "count": 1
+    },
+    {
+      "state": "Missouri",
+      "count": 1
+    },
+    {
+      "state": "Florida",
+      "count": 1
+    },
+    {
+      "state": "Wisconsin",
+      "count": 1
+    },
+    {
+      "state": "Minnesota",
+      "count": 1
+    },
+    {
+      "state": "District of Columbia",
+      "count": 1
+    },
+    {
+      "state": "Kansas",
+      "count": 1
+    },
+    {
+      "state": "Oregon",
+      "count": 1
+    },
+    {
+      "state": "Delaware",
+      "count": 1
+    },
+    {
+      "state": "Idaho",
+      "count": 1
+    },
+    {
+      "state": "Georgia",
+      "count": 1
+    },
+    {
+      "state": "Maryland",
+      "count": 1
+    }
+  ],
+  "ageBins": [
+    {
+      "ageBin": "unknown",
+      "count": 9
+    },
+    {
+      "ageBin": "18-25",
+      "count": 209
+    },
+    {
+      "ageBin": "26-30",
+      "count": 22
+    },
+    {
+      "ageBin": "31-35",
+      "count": 13
+    },
+    {
+      "ageBin": "36-40",
+      "count": 5
+    },
+    {
+      "ageBin": "41+",
+      "count": 7
+    }
+  ],
+  "totalParticipants": 265
+}

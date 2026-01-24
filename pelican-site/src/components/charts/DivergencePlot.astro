@@ -1,0 +1,278 @@
+---
+// pelican-site/src/components/charts/DivergencePlot.astro
+// Client-side rendered Likert scale divergence chart using Observable Plot
+
+interface Props {
+  question: 'effective' | 'intelligence' | 'writing';
+  title?: string;
+  showByPrompt?: boolean;
+}
+
+const { question, title, showByPrompt = false } = Astro.props;
+
+const defaultTitles: Record<string, string> = {
+  effective: 'Perceived Effectiveness by Treatment',
+  intelligence: 'Perceived Intelligence by Treatment',
+  writing: 'Perceived Writing Quality by Treatment',
+};
+
+const displayTitle = title || defaultTitles[question] || 'Likert Scale Responses';
+---
+
+<div
+  class="divergence-chart-container"
+  data-question={question}
+  data-title={displayTitle}
+  data-by-prompt={showByPrompt ? 'true' : 'false'}
+>
+  <div class="chart-wrapper rounded-lg border border-[var(--color-border)] p-4 bg-[var(--color-bg)]">
+    <h4 class="text-lg font-semibold mb-4 text-[var(--color-text)]">{displayTitle}</h4>
+    <div class="chart-target min-h-[200px] flex items-center justify-center">
+      <span class="text-[var(--color-text-muted)]">Loading chart...</span>
+    </div>
+    <div class="chart-legend flex flex-wrap justify-center gap-3 mt-4 text-xs">
+      <div class="flex items-center gap-1">
+        <span class="w-3 h-3 rounded" style="background-color: #ee1f60;"></span>
+        <span class="text-[var(--color-text-muted)]">1 (Strongly Disagree)</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="w-3 h-3 rounded" style="background-color: #c4820e;"></span>
+        <span class="text-[var(--color-text-muted)]">2</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="w-3 h-3 rounded" style="background-color: #fdb515;"></span>
+        <span class="text-[var(--color-text-muted)]">3</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="w-3 h-3 rounded" style="background-color: #ddd5c7;"></span>
+        <span class="text-[var(--color-text-muted)]">4 (Neutral)</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="w-3 h-3 rounded" style="background-color: #00b0da;"></span>
+        <span class="text-[var(--color-text-muted)]">5</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="w-3 h-3 rounded" style="background-color: #3b7ea1;"></span>
+        <span class="text-[var(--color-text-muted)]">6</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="w-3 h-3 rounded" style="background-color: #003262;"></span>
+        <span class="text-[var(--color-text-muted)]">7 (Strongly Agree)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import * as Plot from '@observablehq/plot';
+  import divergenceData from '../../data/divergence.json';
+
+  // Berkeley color palette - matching plot_utils.py diverge_plot colors
+  const rankColors: Record<number, string> = {
+    1: '#ee1f60', // rose_garden
+    2: '#c4820e', // medalist
+    3: '#fdb515', // california_gold
+    4: '#ddd5c7', // bay_fog
+    5: '#00b0da', // lawrence
+    6: '#3b7ea1', // founders_rock
+    7: '#003262', // berkeley_blue
+  };
+
+  interface DivergenceDataPoint {
+    treatment: string;
+    rank: number;
+    count: number;
+    total: number;
+    pctOfTotal: number;
+    pctStart?: number;
+    pctEnd?: number;
+    prompt?: string;
+  }
+
+  function getData(question: string, byPrompt: boolean): DivergenceDataPoint[] {
+    const data = byPrompt
+      ? (divergenceData.byPrompt as Record<string, DivergenceDataPoint[]>)[question]
+      : (divergenceData.aggregated as Record<string, DivergenceDataPoint[]>)[question];
+    return data || [];
+  }
+
+  function isDarkMode(): boolean {
+    return document.documentElement.classList.contains('dark');
+  }
+
+  function getThemeColors() {
+    const dark = isDarkMode();
+    return {
+      background: dark ? '#0f0f0f' : '#ffffff',
+      text: dark ? '#f5f5f5' : '#1a1a1a',
+      textMuted: dark ? '#9ca3af' : '#6b7280',
+      grid: dark ? '#374151' : '#e5e7eb',
+    };
+  }
+
+  function showError(target: HTMLElement, message: string) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'chart-error';
+    errorDiv.style.cssText = `
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      color: var(--color-text-muted, #6b7280);
+      text-align: center;
+      padding: 1rem;
+    `;
+    errorDiv.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem; opacity: 0.5;">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span style="font-size: 0.875rem;">${message}</span>
+    `;
+    target.appendChild(errorDiv);
+  }
+
+  function renderChart(container: HTMLElement) {
+    const question = container.dataset.question || 'intelligence';
+    const byPrompt = container.dataset.byPrompt === 'true';
+    const target = container.querySelector('.chart-target') as HTMLElement;
+
+    if (!target) return;
+
+    // Clear previous content
+    while (target.firstChild) {
+      target.removeChild(target.firstChild);
+    }
+
+    try {
+      const data = getData(question, byPrompt);
+
+      if (!data || data.length === 0) {
+        showError(target, 'No data available for this chart.');
+        return;
+      }
+
+      const theme = getThemeColors();
+
+      // Create divergence bar chart
+      const chart = Plot.plot({
+        width: 550,
+        height: 200,
+        marginLeft: 100,
+        marginRight: 40,
+        marginBottom: 50,
+        style: {
+          background: 'transparent',
+          color: theme.text,
+          fontSize: '12px',
+        },
+        x: {
+          label: 'Percentage of Responses',
+          domain: [-60, 60],
+          grid: true,
+          tickFormat: (d) => `${Math.abs(d)}%`,
+        },
+        y: {
+          label: null,
+          domain: ['Control', 'Typographical', 'Phonological'],
+        },
+        marks: [
+          // Diverging bars
+          Plot.barX(data, {
+            x1: 'pctStart',
+            x2: 'pctEnd',
+            y: 'treatment',
+            fill: (d: DivergenceDataPoint) => rankColors[d.rank],
+            tip: {
+              format: {
+                x1: false,
+                x2: false,
+                fill: false,
+              },
+            },
+            title: (d: DivergenceDataPoint) =>
+              `${d.treatment}\nRank: ${d.rank}\n${d.pctOfTotal.toFixed(1)}% of responses`,
+          }),
+          // Center line
+          Plot.ruleX([0], {
+            stroke: theme.text,
+            strokeWidth: 2,
+            strokeDasharray: '4,4',
+          }),
+        ],
+      });
+
+      target.appendChild(chart);
+    } catch (error) {
+      console.error('Failed to render divergence chart:', error);
+      showError(target, 'Unable to render chart. Please try refreshing the page.');
+    }
+  }
+
+  function initCharts() {
+    const containers = document.querySelectorAll('.divergence-chart-container');
+    containers.forEach((container) => {
+      renderChart(container as HTMLElement);
+    });
+  }
+
+  let themeObserver: MutationObserver | null = null;
+
+  function observeThemeChanges() {
+    if (themeObserver) {
+      themeObserver.disconnect();
+    }
+
+    themeObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          initCharts();
+        }
+      });
+    });
+
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+  }
+
+  function cleanup() {
+    if (themeObserver) {
+      themeObserver.disconnect();
+      themeObserver = null;
+    }
+  }
+
+  document.addEventListener('astro:before-swap', cleanup);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initCharts();
+      observeThemeChanges();
+    });
+  } else {
+    initCharts();
+    observeThemeChanges();
+  }
+</script>
+
+<style>
+  .chart-wrapper :global(svg) {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .chart-wrapper :global([aria-label="tip"]) {
+    background: var(--color-bg) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 0.375rem !important;
+    padding: 0.5rem !important;
+    color: var(--color-text) !important;
+    font-size: 0.875rem !important;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+    white-space: pre-line !important;
+  }
+</style>

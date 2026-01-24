@@ -1,0 +1,246 @@
+---
+// pelican-site/src/components/charts/LikertVariance.astro
+// Client-side rendered Likert variance distribution chart using Observable Plot
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'Distribution of Likert Scale Response Variance' } = Astro.props;
+---
+
+<div
+  class="likert-variance-container"
+  data-title={title}
+>
+  <div class="chart-wrapper rounded-lg border border-[var(--color-border)] p-4 bg-[var(--color-bg)]">
+    <h4 class="text-lg font-semibold mb-4 text-[var(--color-text)]">{title}</h4>
+    <div class="chart-target min-h-[250px] flex items-center justify-center">
+      <span class="text-[var(--color-text-muted)]">Loading chart...</span>
+    </div>
+    <div class="chart-legend flex justify-center gap-6 mt-4">
+      <div class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded" style="background-color: #003262;"></span>
+        <span class="text-sm text-[var(--color-text-muted)]">Amazon MTurk</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded" style="background-color: #fdb515;"></span>
+        <span class="text-sm text-[var(--color-text-muted)]">XLab</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import * as Plot from '@observablehq/plot';
+  import likertData from '../../data/likert-variance.json';
+
+  // Berkeley color palette
+  const colors = {
+    berkeleyBlue: '#003262',
+    californiaGold: '#fdb515',
+    pacific: '#46535e',
+  };
+
+  // Color mapping for sources
+  const sourceColors: Record<string, string> = {
+    Amazon: colors.berkeleyBlue,
+    XLab: colors.californiaGold,
+  };
+
+  interface DensityData {
+    source: string;
+    variance: number;
+    count: number;
+    density: number;
+  }
+
+  function isDarkMode(): boolean {
+    return document.documentElement.classList.contains('dark');
+  }
+
+  function getThemeColors() {
+    const dark = isDarkMode();
+    return {
+      background: dark ? '#0f0f0f' : '#ffffff',
+      text: dark ? '#f5f5f5' : '#1a1a1a',
+      textMuted: dark ? '#9ca3af' : '#6b7280',
+      grid: dark ? '#374151' : '#e5e7eb',
+    };
+  }
+
+  function showError(target: HTMLElement, message: string) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'chart-error';
+    errorDiv.style.cssText = `
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      color: var(--color-text-muted, #6b7280);
+      text-align: center;
+      padding: 1rem;
+    `;
+    errorDiv.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem; opacity: 0.5;">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span style="font-size: 0.875rem;">${message}</span>
+    `;
+    target.appendChild(errorDiv);
+  }
+
+  function renderChart(container: HTMLElement) {
+    const target = container.querySelector('.chart-target') as HTMLElement;
+
+    if (!target) return;
+
+    // Clear previous content
+    while (target.firstChild) {
+      target.removeChild(target.firstChild);
+    }
+
+    try {
+      const data = likertData.density as DensityData[];
+
+      if (!data || data.length === 0) {
+        showError(target, 'No data available for this chart.');
+        return;
+      }
+
+      const theme = getThemeColors();
+
+      // Create overlapping area charts for density visualization
+      const chart = Plot.plot({
+        width: 500,
+        height: 250,
+        marginLeft: 60,
+        marginBottom: 50,
+        style: {
+          background: 'transparent',
+          color: theme.text,
+          fontSize: '12px',
+        },
+        x: {
+          label: 'Response Variance',
+          grid: true,
+          domain: [0, 7],
+          ticks: 14,
+        },
+        y: {
+          label: 'Density',
+          grid: true,
+        },
+        marks: [
+          // Amazon area
+          Plot.areaY(
+            data.filter((d: DensityData) => d.source === 'Amazon'),
+            {
+              x: 'variance',
+              y: 'density',
+              fill: colors.berkeleyBlue,
+              fillOpacity: 0.5,
+              stroke: colors.berkeleyBlue,
+              strokeWidth: 2,
+              curve: 'catmull-rom',
+            }
+          ),
+          // XLab area
+          Plot.areaY(
+            data.filter((d: DensityData) => d.source === 'XLab'),
+            {
+              x: 'variance',
+              y: 'density',
+              fill: colors.californiaGold,
+              fillOpacity: 0.5,
+              stroke: colors.californiaGold,
+              strokeWidth: 2,
+              curve: 'catmull-rom',
+            }
+          ),
+          // Add dots for data points
+          Plot.dot(data, {
+            x: 'variance',
+            y: 'density',
+            fill: (d: DensityData) => sourceColors[d.source],
+            r: 4,
+            tip: true,
+          }),
+          Plot.ruleY([0]),
+        ],
+      });
+
+      target.appendChild(chart);
+    } catch (error) {
+      console.error('Failed to render Likert variance chart:', error);
+      showError(target, 'Unable to render chart. Please try refreshing the page.');
+    }
+  }
+
+  function initCharts() {
+    const containers = document.querySelectorAll('.likert-variance-container');
+    containers.forEach((container) => {
+      renderChart(container as HTMLElement);
+    });
+  }
+
+  let themeObserver: MutationObserver | null = null;
+
+  function observeThemeChanges() {
+    if (themeObserver) {
+      themeObserver.disconnect();
+    }
+
+    themeObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          initCharts();
+        }
+      });
+    });
+
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+  }
+
+  function cleanup() {
+    if (themeObserver) {
+      themeObserver.disconnect();
+      themeObserver = null;
+    }
+  }
+
+  document.addEventListener('astro:before-swap', cleanup);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initCharts();
+      observeThemeChanges();
+    });
+  } else {
+    initCharts();
+    observeThemeChanges();
+  }
+</script>
+
+<style>
+  .chart-wrapper :global(svg) {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .chart-wrapper :global([aria-label="tip"]) {
+    background: var(--color-bg) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 0.375rem !important;
+    padding: 0.5rem !important;
+    color: var(--color-text) !important;
+    font-size: 0.875rem !important;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+  }
+</style>

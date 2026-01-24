@@ -1,0 +1,487 @@
+{
+  "histogram": [
+    {
+      "source": "Amazon",
+      "wpmBin": 0,
+      "count": 17
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 0,
+      "count": 19
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 50,
+      "count": 43
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 50,
+      "count": 70
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 100,
+      "count": 55
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 100,
+      "count": 162
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 150,
+      "count": 48
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 150,
+      "count": 217
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 200,
+      "count": 48
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 200,
+      "count": 187
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 250,
+      "count": 20
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 250,
+      "count": 158
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 300,
+      "count": 20
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 300,
+      "count": 115
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 350,
+      "count": 7
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 350,
+      "count": 75
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 400,
+      "count": 9
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 400,
+      "count": 52
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 450,
+      "count": 6
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 450,
+      "count": 30
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 500,
+      "count": 6
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 500,
+      "count": 32
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 550,
+      "count": 5
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 550,
+      "count": 15
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 600,
+      "count": 6
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 600,
+      "count": 15
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 650,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 650,
+      "count": 10
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 700,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 700,
+      "count": 9
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 750,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 750,
+      "count": 6
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 800,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 800,
+      "count": 6
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 850,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 850,
+      "count": 5
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 900,
+      "count": 5
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 950,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 950,
+      "count": 8
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1000,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1000,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1050,
+      "count": 3
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1100,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1150,
+      "count": 4
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1200,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1200,
+      "count": 4
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1250,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1250,
+      "count": 3
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1300,
+      "count": 4
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1350,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1350,
+      "count": 2
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1400,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1400,
+      "count": 2
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1450,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1450,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1500,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1500,
+      "count": 2
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1550,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1600,
+      "count": 2
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1650,
+      "count": 3
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1700,
+      "count": 2
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1700,
+      "count": 3
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1750,
+      "count": 5
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1800,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1800,
+      "count": 2
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1850,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1900,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 1950,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 1950,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 2000,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 2100,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 2200,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 2250,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 2300,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 2350,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 2400,
+      "count": 3
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 2450,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 2500,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 2700,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 2750,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 2800,
+      "count": 2
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 2850,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 2900,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 2900,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 3000,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 3150,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 3400,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 3450,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 3700,
+      "count": 1
+    },
+    {
+      "source": "Amazon",
+      "wpmBin": 3900,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 4400,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "wpmBin": 4750,
+      "count": 1
+    }
+  ],
+  "statsByTreatment": {
+    "Control": {
+      "mean": 361.26761508359505,
+      "median": 242.330097087379,
+      "min": 1.83347232921014,
+      "max": 3913.04347826087,
+      "count": 556
+    },
+    "Typographical": {
+      "mean": 341.5237999914397,
+      "median": 226.201696512724,
+      "min": 5.87710963748029,
+      "max": 3490.90909090909,
+      "count": 533
+    },
+    "Phonological": {
+      "mean": 360.53231429068813,
+      "median": 225.246363209761,
+      "min": 3.226089968618,
+      "max": 4768.2119205298,
+      "count": 497
+    }
+  }
+}

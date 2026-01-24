@@ -1,0 +1,182 @@
+{
+  "density": [
+    {
+      "source": "Amazon",
+      "variance": 0,
+      "count": 20,
+      "density": 0.35714285714285715
+    },
+    {
+      "source": "XLab",
+      "variance": 0,
+      "count": 44,
+      "density": 0.21052631578947367
+    },
+    {
+      "source": "Amazon",
+      "variance": 0.5,
+      "count": 8,
+      "density": 0.14285714285714285
+    },
+    {
+      "source": "XLab",
+      "variance": 0.5,
+      "count": 44,
+      "density": 0.21052631578947367
+    },
+    {
+      "source": "Amazon",
+      "variance": 1,
+      "count": 16,
+      "density": 0.2857142857142857
+    },
+    {
+      "source": "XLab",
+      "variance": 1,
+      "count": 36,
+      "density": 0.1722488038277512
+    },
+    {
+      "source": "Amazon",
+      "variance": 1.5,
+      "count": 3,
+      "density": 0.05357142857142857
+    },
+    {
+      "source": "XLab",
+      "variance": 1.5,
+      "count": 15,
+      "density": 0.07177033492822966
+    },
+    {
+      "source": "Amazon",
+      "variance": 2,
+      "count": 3,
+      "density": 0.05357142857142857
+    },
+    {
+      "source": "XLab",
+      "variance": 2,
+      "count": 12,
+      "density": 0.05741626794258373
+    },
+    {
+      "source": "Amazon",
+      "variance": 2.5,
+      "count": 2,
+      "density": 0.03571428571428571
+    },
+    {
+      "source": "XLab",
+      "variance": 2.5,
+      "count": 21,
+      "density": 0.10047846889952153
+    },
+    {
+      "source": "Amazon",
+      "variance": 3,
+      "count": 1,
+      "density": 0.017857142857142856
+    },
+    {
+      "source": "XLab",
+      "variance": 3,
+      "count": 8,
+      "density": 0.03827751196172249
+    },
+    {
+      "source": "Amazon",
+      "variance": 3.5,
+      "count": 2,
+      "density": 0.03571428571428571
+    },
+    {
+      "source": "XLab",
+      "variance": 3.5,
+      "count": 10,
+      "density": 0.04784688995215311
+    },
+    {
+      "source": "XLab",
+      "variance": 4,
+      "count": 10,
+      "density": 0.04784688995215311
+    },
+    {
+      "source": "Amazon",
+      "variance": 4.5,
+      "count": 1,
+      "density": 0.017857142857142856
+    },
+    {
+      "source": "XLab",
+      "variance": 4.5,
+      "count": 2,
+      "density": 0.009569377990430622
+    },
+    {
+      "source": "XLab",
+      "variance": 5,
+      "count": 6,
+      "density": 0.028708133971291867
+    },
+    {
+      "source": "XLab",
+      "variance": 6.5,
+      "count": 1,
+      "density": 0.004784688995215311
+    }
+  ],
+  "uniform": [
+    {
+      "source": "Amazon",
+      "uniformResponses": 0,
+      "count": 48
+    },
+    {
+      "source": "XLab",
+      "uniformResponses": 0,
+      "count": 158
+    },
+    {
+      "source": "Amazon",
+      "uniformResponses": 1,
+      "count": 4
+    },
+    {
+      "source": "XLab",
+      "uniformResponses": 1,
+      "count": 26
+    },
+    {
+      "source": "Amazon",
+      "uniformResponses": 2,
+      "count": 1
+    },
+    {
+      "source": "XLab",
+      "uniformResponses": 2,
+      "count": 11
+    },
+    {
+      "source": "XLab",
+      "uniformResponses": 3,
+      "count": 8
+    },
+    {
+      "source": "XLab",
+      "uniformResponses": 5,
+      "count": 3
+    },
+    {
+      "source": "Amazon",
+      "uniformResponses": 6,
+      "count": 3
+    },
+    {
+      "source": "XLab",
+      "uniformResponses": 6,
+      "count": 3
+    }
+  ]
+}
