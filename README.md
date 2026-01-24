@@ -9,9 +9,10 @@
 ![Significance](https://img.shields.io/badge/p-<0.001-3b7ea1)
 ![R](https://img.shields.io/badge/R-4.0.4-276DC3?logo=r)
 ![Python](https://img.shields.io/badge/Python-3.8-3776AB?logo=python)
+![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?logo=astro)
 ![License](https://img.shields.io/github/license/cbenge509/typos_field_experiment)
 
-[View Live Results](https://w241-final-project.azurewebsites.net/) · [Read the Paper](#abstract) · [Reproduce the Analysis](#reproduction)
+[View Live Results](https://cbenge509.github.io/typos_field_experiment/) · [Read the Paper](#abstract) · [Reproduce the Analysis](#reproduction)
 
 </div>
 
@@ -73,15 +74,18 @@ Linear regression with robust standard errors (HC1), controlling for post charac
 
 ```
 typos_field_experiment/
+├── site/                 # Astro static site (deployed to GitHub Pages)
+│   ├── src/              # Components, pages, layouts
+│   ├── public/           # Static assets
+│   └── e2e/              # Playwright E2E tests
 ├── R-analysis/           # Statistical analysis & causal inference
 │   ├── final_project.Rmd # Main analysis (treatment effects, robustness checks)
 │   ├── pilot_study.Rmd   # Pilot study & power analysis
 │   └── *.csv             # Anonymized experimental data
 ├── visualizations/       # Python visualization layer
 │   └── plot_utils.py     # UC Berkeley color theme for Altair
-├── pelican-site/         # Static site generator
-│   └── content/          # Markdown content for live site
-└── static-site/          # Production build (Azure deployment)
+└── .github/workflows/    # CI/CD pipeline
+    └── deploy.yml        # Build, test, deploy to GitHub Pages
 ```
 
 ### Tech Stack
@@ -90,7 +94,8 @@ typos_field_experiment/
 |-------|-------|
 | **Analysis** | R 4.0.4 · tidyverse · data.table · sandwich · lmtest |
 | **Visualization** | Python 3.8 · Altair · matplotlib · seaborn |
-| **Deployment** | Pelican · Azure App Service |
+| **Site** | Astro 5.x · TypeScript · Tailwind CSS |
+| **Deployment** | GitHub Actions · GitHub Pages |
 
 ---
 
@@ -99,6 +104,7 @@ typos_field_experiment/
 ### Prerequisites
 
 - [R 4.0.4+](https://cran.r-project.org/) with packages: `tidyverse`, `data.table`, `sandwich`, `lmtest`, `cobalt`
+- [Node.js 20+](https://nodejs.org/) (for site development)
 - [Python 3.8+](https://www.anaconda.com/products/individual) (optional, for visualizations)
 
 ### Quick Start
@@ -111,6 +117,11 @@ cd typos_field_experiment
 # Run the main analysis (R)
 cd R-analysis
 Rscript -e "rmarkdown::render('final_project.Rmd')"
+
+# Run the site locally
+cd ../site
+npm install
+npm run dev
 
 # Optional: Set up Python environment for visualizations
 conda create -n typos python=3.8.8
