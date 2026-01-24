@@ -6,11 +6,19 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "gts lint",
+    "fix": "gts fix",
+    "clean": "gts clean"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.15",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "gts": "^7.0.0",
+    "typescript": "^5.6.3",
+    "@types/node": "^22.7.5"
   }
 }

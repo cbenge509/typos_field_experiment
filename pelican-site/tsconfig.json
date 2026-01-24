@@ -1,5 +1,14 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "extends": ["astro/tsconfigs/strict", "./node_modules/gts/tsconfig-google.json"],
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "strictNullChecks": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "verbatimModuleSyntax": true,
+    "noEmit": true
+  },
+  "include": [".astro/types.d.ts", "src/**/*", "e2e/**/*", "*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
