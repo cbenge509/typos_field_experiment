@@ -1,0 +1,244 @@
+---
+// pelican-site/src/components/charts/ParticipantCount.astro
+// Client-side rendered bar chart using Observable Plot
+
+interface Props {
+  dataset: 'pilot' | 'amazon' | 'xlab';
+  title?: string;
+}
+
+const { dataset, title } = Astro.props;
+---
+
+<div
+  class="participant-chart-container"
+  data-dataset={dataset}
+  data-title={title}
+>
+  <div class="chart-wrapper rounded-lg border border-[var(--color-border)] p-4 bg-[var(--color-bg)]">
+    {title && (
+      <h4 class="text-lg font-semibold mb-4 text-[var(--color-text)]">{title}</h4>
+    )}
+    <div class="chart-target min-h-[200px] flex items-center justify-center">
+      <span class="text-[var(--color-text-muted)]">Loading chart...</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  import * as Plot from '@observablehq/plot';
+  import participantData from '../../data/participants.json';
+
+  // Berkeley color palette (matching plot_utils.py berkeley_palette)
+  const colors = {
+    berkeleyBlue: '#003262',
+    californiaGold: '#fdb515',
+    foundersRock: '#3b7ea1',
+    pacific: '#46535e',
+  };
+
+  // Treatment group colors - matches Python plot_utils.py participant_count_plot
+  // Order: ['Control', 'Typographical', 'Phonological'] per line 297/311
+  // Colors: [pacific, berkeley_blue, founders_rock] per line 302/342
+  const treatmentColors: Record<string, string> = {
+    Control: colors.pacific,           // #46535e - berkeley_palette['pacific']
+    Typographical: colors.berkeleyBlue, // #003262 - berkeley_palette['berkeley_blue']
+    Phonological: colors.foundersRock,  // #3b7ea1 - berkeley_palette['founders_rock']
+  };
+
+  // Type definition for participant data
+  interface ParticipantDataPoint {
+    treatment: string;
+    count: number;
+  }
+
+  function getData(dataset: string): ParticipantDataPoint[] {
+    let result: ParticipantDataPoint[];
+
+    if (dataset === 'pilot') {
+      result = participantData.pilot as ParticipantDataPoint[];
+    } else if (dataset === 'amazon') {
+      result = participantData.live.amazon as ParticipantDataPoint[];
+    } else if (dataset === 'xlab') {
+      result = participantData.live.xlab as ParticipantDataPoint[];
+    } else {
+      result = participantData.pilot as ParticipantDataPoint[];
+    }
+
+    // Runtime validation
+    if (!Array.isArray(result)) {
+      console.error(`Invalid data format for dataset: ${dataset}`);
+      return [];
+    }
+
+    return result;
+  }
+
+  function isDarkMode(): boolean {
+    return document.documentElement.classList.contains('dark');
+  }
+
+  function getThemeColors() {
+    const dark = isDarkMode();
+    return {
+      background: dark ? '#0f0f0f' : '#ffffff',
+      text: dark ? '#f5f5f5' : '#1a1a1a',
+      textMuted: dark ? '#9ca3af' : '#6b7280',
+      grid: dark ? '#374151' : '#e5e7eb',
+    };
+  }
+
+  function showError(target: HTMLElement, message: string) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'chart-error';
+    errorDiv.style.cssText = `
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      color: var(--color-text-muted, #6b7280);
+      text-align: center;
+      padding: 1rem;
+    `;
+    errorDiv.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem; opacity: 0.5;">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span style="font-size: 0.875rem;">${message}</span>
+    `;
+    target.appendChild(errorDiv);
+  }
+
+  function renderChart(container: HTMLElement) {
+    const dataset = container.dataset.dataset || 'pilot';
+    const target = container.querySelector('.chart-target') as HTMLElement;
+
+    if (!target) return;
+
+    // Clear previous content safely
+    while (target.firstChild) {
+      target.removeChild(target.firstChild);
+    }
+
+    try {
+      const data = getData(dataset);
+
+      // Handle empty data
+      if (!data || data.length === 0) {
+        showError(target, 'No data available for this chart.');
+        return;
+      }
+
+      const theme = getThemeColors();
+
+      const chart = Plot.plot({
+        width: 400,
+        height: 200,
+        marginLeft: 100,
+        marginBottom: 40,
+        style: {
+          background: 'transparent',
+          color: theme.text,
+          fontSize: '12px',
+        },
+        x: {
+          label: 'Count',
+          grid: true,
+          tickFormat: (d) => String(d),
+        },
+        y: {
+          label: null,
+          domain: ['Control', 'Typographical', 'Phonological'],
+        },
+        marks: [
+          Plot.barX(data, {
+            x: 'count',
+            y: 'treatment',
+            fill: (d: ParticipantDataPoint) => treatmentColors[d.treatment] || colors.pacific,
+            tip: true,
+          }),
+          Plot.ruleX([0]),
+        ],
+      });
+
+      target.appendChild(chart);
+    } catch (error) {
+      console.error('Failed to render chart:', error);
+      showError(target, 'Unable to render chart. Please try refreshing the page.');
+    }
+  }
+
+  function initCharts() {
+    const containers = document.querySelectorAll('.participant-chart-container');
+    containers.forEach((container) => {
+      renderChart(container as HTMLElement);
+    });
+  }
+
+  // Store observer reference for cleanup
+  let themeObserver: MutationObserver | null = null;
+
+  // Re-render on theme change
+  function observeThemeChanges() {
+    // Disconnect existing observer if any
+    if (themeObserver) {
+      themeObserver.disconnect();
+    }
+
+    themeObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          initCharts();
+        }
+      });
+    });
+
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+  }
+
+  // Cleanup function for SPA navigation
+  function cleanup() {
+    if (themeObserver) {
+      themeObserver.disconnect();
+      themeObserver = null;
+    }
+  }
+
+  // Handle Astro view transitions cleanup
+  document.addEventListener('astro:before-swap', cleanup);
+
+  // Initialize
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initCharts();
+      observeThemeChanges();
+    });
+  } else {
+    initCharts();
+    observeThemeChanges();
+  }
+</script>
+
+<style>
+  .chart-wrapper :global(svg) {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Style Observable Plot tooltips */
+  .chart-wrapper :global([aria-label="tip"]) {
+    background: var(--color-bg) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: 0.375rem !important;
+    padding: 0.5rem !important;
+    color: var(--color-text) !important;
+    font-size: 0.875rem !important;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+  }
+</style>

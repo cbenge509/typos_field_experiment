@@ -3,6 +3,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ThemeToggle from '../components/layout/ThemeToggle.astro';
 import TableOfContents from '../components/layout/TableOfContents.astro';
+import ParticipantCount from '../components/charts/ParticipantCount.astro';
 
 const tocItems = [
   { id: 'abstract', title: 'Abstract' },
@@ -47,9 +48,15 @@ const tocItems = [
 
         <section id="methods" class="mb-12">
           <h3 class="text-2xl font-semibold mb-4 text-[var(--color-accent)]">Methods</h3>
-          <p class="text-[var(--color-text-muted)]">
+          <p class="text-[var(--color-text-muted)] mb-6">
             Placeholder content for methods section.
           </p>
+
+          <h4 class="text-xl font-semibold mb-4 text-[var(--color-text)]">Pilot Study Participants</h4>
+          <p class="text-[var(--color-text-muted)] mb-4">
+            The pilot study included 31 participants randomly assigned to three treatment groups.
+          </p>
+          <ParticipantCount dataset="pilot" title="Pilot Study: Participants by Treatment Group" />
         </section>
 
         <section id="results" class="mb-12">

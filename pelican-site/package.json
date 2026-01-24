@@ -17,8 +17,10 @@
     "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
+    "@observablehq/plot": "^0.6.17",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.15",
+    "d3": "^7.9.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
