@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
@@ -7,4 +8,7 @@ export default defineConfig({
   base: '/typos_field_experiment',
   output: 'static',
   trailingSlash: 'never',
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

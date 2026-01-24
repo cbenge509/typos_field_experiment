@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+
+/* Custom theme tokens */
+@theme {
+  /* Light mode colors */
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b7280;
+  --color-accent: #003262;
+  --color-accent-hover: #3b7ea1;
+  --color-highlight: #fdb515;
+  --color-border: #e5e7eb;
+
+  /* Berkeley palette */
+  --color-berkeley-blue: #003262;
+  --color-california-gold: #fdb515;
+  --color-founders-rock: #3b7ea1;
+  --color-medalist: #c4820e;
+  --color-bay-fog: #ddd5c7;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Dark mode overrides */
+.dark {
+  --color-bg: #0f0f0f;
+  --color-text: #f5f5f5;
+  --color-text-muted: #9ca3af;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #93c5fd;
+  --color-highlight: #fbbf24;
+  --color-border: #374151;
+}
+
+/* Base styles */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
