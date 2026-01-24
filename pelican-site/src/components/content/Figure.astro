@@ -1,0 +1,55 @@
+---
+// pelican-site/src/components/content/Figure.astro
+// Reusable figure component for images with captions
+
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  width?: number;
+  className?: string;
+  centered?: boolean;
+}
+
+const { src, alt, caption, width, className = '', centered = true } = Astro.props;
+
+const imgStyle = width ? `max-width: ${width}px` : undefined;
+---
+
+<figure class:list={['my-8', { 'mx-auto text-center': centered }, className]}>
+  <a
+    href={src}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="block cursor-zoom-in"
+    aria-label={`View full size: ${alt} (opens in new tab)`}
+  >
+    <img
+      src={src}
+      alt={alt}
+      style={imgStyle}
+      class="rounded-lg border border-[var(--color-border)] shadow-md hover:shadow-lg transition-shadow duration-200 mx-auto"
+      loading="lazy"
+    />
+  </a>
+  {caption && (
+    <figcaption class="mt-3 text-sm text-[var(--color-text-muted)] italic">
+      {caption}
+    </figcaption>
+  )}
+</figure>
+
+<style>
+  figure img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  figure a {
+    display: inline-block;
+  }
+
+  figure a:hover img {
+    opacity: 0.95;
+  }
+</style>

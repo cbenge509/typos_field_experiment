@@ -278,8 +278,6 @@ function generateLikertVarianceData() {
 
   // Group by source and create histogram bins
   const binSize = 0.5;
-  const maxVariance = Math.max(...participants.map(p => p.variance));
-  const numBins = Math.ceil(maxVariance / binSize) + 1;
 
   const sourceGroups = { Amazon: [], XLab: [] };
 

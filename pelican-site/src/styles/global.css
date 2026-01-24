@@ -18,6 +18,9 @@
   --color-medalist: #c4820e;
   --color-bay-fog: #ddd5c7;
 
+  /* Statistical significance marker */
+  --color-significant: #dc2626;
+
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
