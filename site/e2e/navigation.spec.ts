@@ -101,7 +101,9 @@ test.describe('Navigation and Table of Contents', () => {
 
     test('header contains site title', async ({page}) => {
       const title = page.locator('header h1');
-      await expect(title).toContainText('Study: How Typos Affect Perception of Intelligence');
+      await expect(title).toContainText(
+        'Study: How Typos Affect Perception of Intelligence',
+      );
     });
 
     test('header contains theme toggle', async ({page}) => {
