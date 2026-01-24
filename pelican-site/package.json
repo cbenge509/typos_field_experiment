@@ -9,7 +9,10 @@
     "astro": "astro",
     "lint": "gts lint",
     "fix": "gts fix",
-    "clean": "gts clean"
+    "clean": "gts clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
@@ -17,8 +20,10 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@vitest/coverage-v8": "^4.0.18",
     "gts": "^7.0.0",
     "typescript": "^5.6.3",
-    "@types/node": "^22.7.5"
+    "vitest": "^4.0.18"
   }
 }
