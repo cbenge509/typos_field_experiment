@@ -2,6 +2,16 @@
 // pelican-site/src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ThemeToggle from '../components/layout/ThemeToggle.astro';
+import TableOfContents from '../components/layout/TableOfContents.astro';
+
+const tocItems = [
+  { id: 'abstract', title: 'Abstract' },
+  { id: 'introduction', title: 'Introduction' },
+  { id: 'methods', title: 'Methods' },
+  { id: 'results', title: 'Results' },
+  { id: 'discussion', title: 'Discussion' },
+  { id: 'conclusion', title: 'Conclusion' },
+];
 ---
 
 <BaseLayout title="Do Grammatical Errors Affect Perceived Intelligence?">
@@ -12,12 +22,57 @@ import ThemeToggle from '../components/layout/ThemeToggle.astro';
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-8">
-    <h2 class="text-3xl font-bold mb-4">
-      Do Grammatical Errors in Social Media Posts Affect the Perception of Authors' Intelligence?
-    </h2>
-    <p class="text-[var(--color-text-muted)]">
-      Layout and theme toggle working. Content migration next.
-    </p>
-  </main>
+  <div class="flex">
+    <TableOfContents items={tocItems} />
+
+    <main class="flex-1 lg:ml-60 max-w-4xl mx-auto px-4 py-8">
+      <article>
+        <h2 class="text-3xl font-bold mb-8">
+          Do Grammatical Errors in Social Media Posts Affect the Perception of Authors' Intelligence?
+        </h2>
+
+        <section id="abstract" class="mb-12">
+          <h3 class="text-2xl font-semibold mb-4 text-[var(--color-accent)]">Abstract</h3>
+          <p class="text-[var(--color-text-muted)]">
+            Placeholder content for abstract section.
+          </p>
+        </section>
+
+        <section id="introduction" class="mb-12">
+          <h3 class="text-2xl font-semibold mb-4 text-[var(--color-accent)]">Introduction</h3>
+          <p class="text-[var(--color-text-muted)]">
+            Placeholder content for introduction section.
+          </p>
+        </section>
+
+        <section id="methods" class="mb-12">
+          <h3 class="text-2xl font-semibold mb-4 text-[var(--color-accent)]">Methods</h3>
+          <p class="text-[var(--color-text-muted)]">
+            Placeholder content for methods section.
+          </p>
+        </section>
+
+        <section id="results" class="mb-12">
+          <h3 class="text-2xl font-semibold mb-4 text-[var(--color-accent)]">Results</h3>
+          <p class="text-[var(--color-text-muted)]">
+            Placeholder content for results section.
+          </p>
+        </section>
+
+        <section id="discussion" class="mb-12">
+          <h3 class="text-2xl font-semibold mb-4 text-[var(--color-accent)]">Discussion</h3>
+          <p class="text-[var(--color-text-muted)]">
+            Placeholder content for discussion section.
+          </p>
+        </section>
+
+        <section id="conclusion" class="mb-12">
+          <h3 class="text-2xl font-semibold mb-4 text-[var(--color-accent)]">Conclusion</h3>
+          <p class="text-[var(--color-text-muted)]">
+            Placeholder content for conclusion section.
+          </p>
+        </section>
+      </article>
+    </main>
+  </div>
 </BaseLayout>
