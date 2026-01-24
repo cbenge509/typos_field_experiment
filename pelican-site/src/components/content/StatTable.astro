@@ -1,0 +1,145 @@
+---
+// pelican-site/src/components/content/StatTable.astro
+// Reusable statistical results table component
+//
+// SECURITY NOTE: The `footer` prop uses set:html for rendering.
+// Only pass trusted content (e.g., static strings with simple formatting like <em>).
+// Never pass user-generated content to this prop.
+
+interface Column {
+  header: string;
+  key: string;
+  align?: 'left' | 'center' | 'right';
+  highlight?: boolean;
+}
+
+interface Row {
+  [key: string]: string | number | { value: string | number; significant?: boolean };
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  columns: Column[];
+  rows: Row[];
+  footer?: string;
+  className?: string;
+  compact?: boolean;
+}
+
+const { title, subtitle, columns, rows, footer, className = '', compact = false } = Astro.props;
+
+function getCellValue(cell: string | number | { value: string | number; significant?: boolean }): string | number {
+  if (typeof cell === 'object' && cell !== null) {
+    return cell.value;
+  }
+  return cell;
+}
+
+function isSignificant(cell: string | number | { value: string | number; significant?: boolean }): boolean {
+  if (typeof cell === 'object' && cell !== null) {
+    return cell.significant === true;
+  }
+  // Check for significance markers in string values
+  if (typeof cell === 'string') {
+    return cell.includes('***') || cell.includes('**') || cell.includes('*');
+  }
+  return false;
+}
+---
+
+<div class:list={['stat-table-container my-6 overflow-x-auto', className]}>
+  <table class:list={[
+    'w-full border-collapse text-sm',
+    { 'text-xs': compact }
+  ]}>
+    {title && (
+      <caption class="text-left mb-3">
+        <h5 class="text-base font-semibold text-[var(--color-text)]">{title}</h5>
+        {subtitle && (
+          <p class="text-sm text-[var(--color-text-muted)] mt-1">{subtitle}</p>
+        )}
+      </caption>
+    )}
+    <thead>
+      <tr class="border-b-2 border-[var(--color-border)]">
+        {columns.map((col) => (
+          <th
+            class:list={[
+              'py-3 px-4 font-semibold text-[var(--color-text)]',
+              {
+                'text-left': col.align === 'left' || !col.align,
+                'text-center': col.align === 'center',
+                'text-right': col.align === 'right',
+              }
+            ]}
+          >
+            {col.header}
+          </th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row, rowIndex) => (
+        <tr class:list={[
+          'border-b border-[var(--color-border)]',
+          { 'bg-[var(--color-surface)]': rowIndex % 2 === 1 }
+        ]}>
+          {columns.map((col, colIndex) => {
+            const cellData = row[col.key];
+            const value = getCellValue(cellData);
+            const significant = isSignificant(cellData);
+
+            return (
+              <td
+                class:list={[
+                  'py-2 px-4',
+                  {
+                    'text-left': col.align === 'left' || !col.align,
+                    'text-center': col.align === 'center',
+                    'text-right': col.align === 'right',
+                    'font-semibold text-[var(--color-text)]': colIndex === 0,
+                    'text-[var(--color-text-muted)]': colIndex !== 0 && !significant,
+                    'font-bold text-[var(--color-significant)]': significant,
+                  }
+                ]}
+              >
+                {value}
+              </td>
+            );
+          })}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  {footer && (
+    <div class="table-footer mt-3 text-xs text-[var(--color-text-muted)] italic">
+      <p set:html={footer} />
+    </div>
+  )}
+</div>
+
+<style>
+  .stat-table-container {
+    background: var(--color-bg);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    padding: 1rem;
+  }
+
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Responsive table styling */
+  @media (max-width: 640px) {
+    .stat-table-container {
+      padding: 0.5rem;
+    }
+
+    th, td {
+      padding: 0.5rem 0.25rem;
+    }
+  }
+</style>

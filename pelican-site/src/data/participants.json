@@ -1,0 +1,19 @@
+{
+  "pilot": [
+    { "treatment": "Control", "count": 12 },
+    { "treatment": "Typographical", "count": 13 },
+    { "treatment": "Phonological", "count": 6 }
+  ],
+  "live": {
+    "amazon": [
+      { "treatment": "Control", "count": 20 },
+      { "treatment": "Typographical", "count": 18 },
+      { "treatment": "Phonological", "count": 18 }
+    ],
+    "xlab": [
+      { "treatment": "Control", "count": 73 },
+      { "treatment": "Typographical", "count": 71 },
+      { "treatment": "Phonological", "count": 65 }
+    ]
+  }
+}

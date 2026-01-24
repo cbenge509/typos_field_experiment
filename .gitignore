@@ -48,3 +48,6 @@ coverage/
 
 # Lighthouse reports
 .lighthouseci/
+
+# Git worktrees
+.worktrees/

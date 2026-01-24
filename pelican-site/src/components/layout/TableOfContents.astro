@@ -1,0 +1,79 @@
+---
+// pelican-site/src/components/layout/TableOfContents.astro
+interface TocItem {
+  id: string;
+  title: string;
+  children?: TocItem[];
+}
+
+interface Props {
+  items: TocItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav
+  id="toc"
+  class="hidden lg:block fixed left-4 top-24 w-56 max-h-[calc(100vh-8rem)] overflow-y-auto"
+  aria-label="Table of contents"
+>
+  <h2 class="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-4">
+    Contents
+  </h2>
+  <ul class="space-y-2 text-sm">
+    {items.map((item) => (
+      <li>
+        <a
+          href={`#${item.id}`}
+          class="toc-link block py-1 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+          data-id={item.id}
+        >
+          {item.title}
+        </a>
+        {item.children && (
+          <ul class="ml-4 mt-1 space-y-1">
+            {item.children.map((child) => (
+              <li>
+                <a
+                  href={`#${child.id}`}
+                  class="toc-link block py-1 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors text-xs"
+                  data-id={child.id}
+                >
+                  {child.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<script>
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach((link) => {
+            link.classList.remove('text-[var(--color-accent)]', 'font-medium');
+            link.classList.add('text-[var(--color-text-muted)]');
+          });
+
+          const activeLink = document.querySelector(`.toc-link[data-id="${entry.target.id}"]`);
+          if (activeLink) {
+            activeLink.classList.remove('text-[var(--color-text-muted)]');
+            activeLink.classList.add('text-[var(--color-accent)]', 'font-medium');
+          }
+        }
+      });
+    },
+    { rootMargin: '-20% 0px -70% 0px' }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+</script>

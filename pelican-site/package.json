@@ -1,0 +1,36 @@
+{
+  "name": "pelican-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "gts lint",
+    "fix": "gts fix",
+    "clean": "gts clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "@observablehq/plot": "^0.6.17",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.15",
+    "d3": "^7.9.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@playwright/test": "^1.58.0",
+    "@types/node": "^22.7.5",
+    "@vitest/coverage-v8": "^4.0.18",
+    "gts": "^7.0.0",
+    "papaparse": "^5.5.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}

@@ -1,0 +1,4365 @@
+{
+  "byPrompt": {
+    "effective": [
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 1,
+        "count": 0,
+        "total": 93,
+        "pctOfTotal": 0,
+        "pctEnd": -9.67741935483871,
+        "pctStart": -9.67741935483871
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 2,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctEnd": -9.67741935483871,
+        "pctStart": -11.827956989247312
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 3,
+        "count": 6,
+        "total": 93,
+        "pctOfTotal": 6.451612903225806,
+        "pctEnd": -11.827956989247312,
+        "pctStart": -18.27956989247312
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 4,
+        "count": 18,
+        "total": 93,
+        "pctOfTotal": 19.35483870967742,
+        "pctStart": -9.67741935483871,
+        "pctEnd": 9.67741935483871
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 5,
+        "count": 31,
+        "total": 93,
+        "pctOfTotal": 33.33333333333333,
+        "pctStart": 9.67741935483871,
+        "pctEnd": 43.01075268817204
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 6,
+        "count": 21,
+        "total": 93,
+        "pctOfTotal": 22.58064516129032,
+        "pctStart": 43.01075268817204,
+        "pctEnd": 65.59139784946237
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 7,
+        "count": 15,
+        "total": 93,
+        "pctOfTotal": 16.129032258064516,
+        "pctStart": 65.59139784946237,
+        "pctEnd": 81.72043010752688
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 1,
+        "count": 3,
+        "total": 93,
+        "pctOfTotal": 3.225806451612903,
+        "pctEnd": -8.60215053763441,
+        "pctStart": -11.827956989247312
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 2,
+        "count": 4,
+        "total": 93,
+        "pctOfTotal": 4.301075268817205,
+        "pctEnd": -11.827956989247312,
+        "pctStart": -16.129032258064516
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 3,
+        "count": 14,
+        "total": 93,
+        "pctOfTotal": 15.053763440860216,
+        "pctEnd": -16.129032258064516,
+        "pctStart": -31.182795698924732
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 4,
+        "count": 16,
+        "total": 93,
+        "pctOfTotal": 17.20430107526882,
+        "pctStart": -8.60215053763441,
+        "pctEnd": 8.60215053763441
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 5,
+        "count": 26,
+        "total": 93,
+        "pctOfTotal": 27.956989247311824,
+        "pctStart": 8.60215053763441,
+        "pctEnd": 36.55913978494623
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 6,
+        "count": 23,
+        "total": 93,
+        "pctOfTotal": 24.731182795698924,
+        "pctStart": 36.55913978494623,
+        "pctEnd": 61.29032258064515
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 7,
+        "count": 7,
+        "total": 93,
+        "pctOfTotal": 7.526881720430108,
+        "pctStart": 61.29032258064515,
+        "pctEnd": 68.81720430107526
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 1,
+        "count": 5,
+        "total": 92,
+        "pctOfTotal": 5.434782608695652,
+        "pctEnd": -9.782608695652174,
+        "pctStart": -15.217391304347826
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 2,
+        "count": 1,
+        "total": 92,
+        "pctOfTotal": 1.0869565217391304,
+        "pctEnd": -15.217391304347826,
+        "pctStart": -16.304347826086957
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 3,
+        "count": 9,
+        "total": 92,
+        "pctOfTotal": 9.782608695652174,
+        "pctEnd": -16.304347826086957,
+        "pctStart": -26.086956521739133
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 4,
+        "count": 18,
+        "total": 92,
+        "pctOfTotal": 19.565217391304348,
+        "pctStart": -9.782608695652174,
+        "pctEnd": 9.782608695652174
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 5,
+        "count": 31,
+        "total": 92,
+        "pctOfTotal": 33.69565217391305,
+        "pctStart": 9.782608695652174,
+        "pctEnd": 43.47826086956522
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 6,
+        "count": 20,
+        "total": 92,
+        "pctOfTotal": 21.73913043478261,
+        "pctStart": 43.47826086956522,
+        "pctEnd": 65.21739130434783
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 7,
+        "count": 8,
+        "total": 92,
+        "pctOfTotal": 8.695652173913043,
+        "pctStart": 65.21739130434783,
+        "pctEnd": 73.91304347826087
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 1,
+        "count": 7,
+        "total": 92,
+        "pctOfTotal": 7.608695652173914,
+        "pctEnd": -7.608695652173914,
+        "pctStart": -15.217391304347828
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 2,
+        "count": 13,
+        "total": 92,
+        "pctOfTotal": 14.130434782608695,
+        "pctEnd": -15.217391304347828,
+        "pctStart": -29.347826086956523
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 3,
+        "count": 24,
+        "total": 92,
+        "pctOfTotal": 26.08695652173913,
+        "pctEnd": -29.347826086956523,
+        "pctStart": -55.434782608695656
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 4,
+        "count": 14,
+        "total": 92,
+        "pctOfTotal": 15.217391304347828,
+        "pctStart": -7.608695652173914,
+        "pctEnd": 7.608695652173914
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 5,
+        "count": 20,
+        "total": 92,
+        "pctOfTotal": 21.73913043478261,
+        "pctStart": 7.608695652173914,
+        "pctEnd": 29.347826086956523
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 6,
+        "count": 9,
+        "total": 92,
+        "pctOfTotal": 9.782608695652174,
+        "pctStart": 29.347826086956523,
+        "pctEnd": 39.130434782608695
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 7,
+        "count": 5,
+        "total": 92,
+        "pctOfTotal": 5.434782608695652,
+        "pctStart": 39.130434782608695,
+        "pctEnd": 44.565217391304344
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 1,
+        "count": 1,
+        "total": 93,
+        "pctOfTotal": 1.0752688172043012,
+        "pctEnd": -8.064516129032258,
+        "pctStart": -9.13978494623656
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 2,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctEnd": -9.13978494623656,
+        "pctStart": -11.290322580645162
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 3,
+        "count": 5,
+        "total": 93,
+        "pctOfTotal": 5.376344086021505,
+        "pctEnd": -11.290322580645162,
+        "pctStart": -16.666666666666668
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 4,
+        "count": 15,
+        "total": 93,
+        "pctOfTotal": 16.129032258064516,
+        "pctStart": -8.064516129032258,
+        "pctEnd": 8.064516129032258
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 5,
+        "count": 28,
+        "total": 93,
+        "pctOfTotal": 30.107526881720432,
+        "pctStart": 8.064516129032258,
+        "pctEnd": 38.17204301075269
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 6,
+        "count": 26,
+        "total": 93,
+        "pctOfTotal": 27.956989247311824,
+        "pctStart": 38.17204301075269,
+        "pctEnd": 66.12903225806451
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 7,
+        "count": 16,
+        "total": 93,
+        "pctOfTotal": 17.20430107526882,
+        "pctStart": 66.12903225806451,
+        "pctEnd": 83.33333333333333
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 1,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctEnd": -11.29032258064516,
+        "pctStart": -13.440860215053762
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 2,
+        "count": 5,
+        "total": 93,
+        "pctOfTotal": 5.376344086021505,
+        "pctEnd": -13.440860215053762,
+        "pctStart": -18.817204301075268
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 3,
+        "count": 7,
+        "total": 93,
+        "pctOfTotal": 7.526881720430108,
+        "pctEnd": -18.817204301075268,
+        "pctStart": -26.344086021505376
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 4,
+        "count": 21,
+        "total": 93,
+        "pctOfTotal": 22.58064516129032,
+        "pctStart": -11.29032258064516,
+        "pctEnd": 11.29032258064516
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 5,
+        "count": 26,
+        "total": 93,
+        "pctOfTotal": 27.956989247311824,
+        "pctStart": 11.29032258064516,
+        "pctEnd": 39.247311827956985
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 6,
+        "count": 22,
+        "total": 93,
+        "pctOfTotal": 23.655913978494624,
+        "pctStart": 39.247311827956985,
+        "pctEnd": 62.90322580645161
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 7,
+        "count": 10,
+        "total": 93,
+        "pctOfTotal": 10.75268817204301,
+        "pctStart": 62.90322580645161,
+        "pctEnd": 73.65591397849462
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 1,
+        "count": 3,
+        "total": 89,
+        "pctOfTotal": 3.3707865168539324,
+        "pctEnd": -10.112359550561797,
+        "pctStart": -13.48314606741573
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 2,
+        "count": 5,
+        "total": 89,
+        "pctOfTotal": 5.617977528089887,
+        "pctEnd": -13.48314606741573,
+        "pctStart": -19.101123595505616
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 3,
+        "count": 8,
+        "total": 89,
+        "pctOfTotal": 8.98876404494382,
+        "pctEnd": -19.101123595505616,
+        "pctStart": -28.089887640449437
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 4,
+        "count": 18,
+        "total": 89,
+        "pctOfTotal": 20.224719101123593,
+        "pctStart": -10.112359550561797,
+        "pctEnd": 10.112359550561797
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 5,
+        "count": 24,
+        "total": 89,
+        "pctOfTotal": 26.96629213483146,
+        "pctStart": 10.112359550561797,
+        "pctEnd": 37.078651685393254
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 6,
+        "count": 17,
+        "total": 89,
+        "pctOfTotal": 19.101123595505616,
+        "pctStart": 37.078651685393254,
+        "pctEnd": 56.179775280898866
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 7,
+        "count": 14,
+        "total": 89,
+        "pctOfTotal": 15.730337078651685,
+        "pctStart": 56.179775280898866,
+        "pctEnd": 71.91011235955055
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 1,
+        "count": 3,
+        "total": 89,
+        "pctOfTotal": 3.3707865168539324,
+        "pctEnd": -9.550561797752808,
+        "pctStart": -12.92134831460674
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 2,
+        "count": 8,
+        "total": 89,
+        "pctOfTotal": 8.98876404494382,
+        "pctEnd": -12.92134831460674,
+        "pctStart": -21.91011235955056
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 3,
+        "count": 6,
+        "total": 89,
+        "pctOfTotal": 6.741573033707865,
+        "pctEnd": -21.91011235955056,
+        "pctStart": -28.651685393258425
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 4,
+        "count": 17,
+        "total": 89,
+        "pctOfTotal": 19.101123595505616,
+        "pctStart": -9.550561797752808,
+        "pctEnd": 9.550561797752808
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 5,
+        "count": 21,
+        "total": 89,
+        "pctOfTotal": 23.595505617977526,
+        "pctStart": 9.550561797752808,
+        "pctEnd": 33.146067415730336
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 6,
+        "count": 22,
+        "total": 89,
+        "pctOfTotal": 24.719101123595504,
+        "pctStart": 33.146067415730336,
+        "pctEnd": 57.865168539325836
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 7,
+        "count": 12,
+        "total": 89,
+        "pctOfTotal": 13.48314606741573,
+        "pctStart": 57.865168539325836,
+        "pctEnd": 71.34831460674157
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 1,
+        "count": 5,
+        "total": 89,
+        "pctOfTotal": 5.617977528089887,
+        "pctEnd": -10.112359550561797,
+        "pctStart": -15.730337078651683
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 2,
+        "count": 3,
+        "total": 89,
+        "pctOfTotal": 3.3707865168539324,
+        "pctEnd": -15.730337078651683,
+        "pctStart": -19.101123595505616
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 3,
+        "count": 14,
+        "total": 89,
+        "pctOfTotal": 15.730337078651685,
+        "pctEnd": -19.101123595505616,
+        "pctStart": -34.8314606741573
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 4,
+        "count": 18,
+        "total": 89,
+        "pctOfTotal": 20.224719101123593,
+        "pctStart": -10.112359550561797,
+        "pctEnd": 10.112359550561797
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 5,
+        "count": 22,
+        "total": 89,
+        "pctOfTotal": 24.719101123595504,
+        "pctStart": 10.112359550561797,
+        "pctEnd": 34.8314606741573
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 6,
+        "count": 20,
+        "total": 89,
+        "pctOfTotal": 22.47191011235955,
+        "pctStart": 34.8314606741573,
+        "pctEnd": 57.30337078651685
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 7,
+        "count": 7,
+        "total": 89,
+        "pctOfTotal": 7.865168539325842,
+        "pctStart": 57.30337078651685,
+        "pctEnd": 65.16853932584269
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 1,
+        "count": 4,
+        "total": 89,
+        "pctOfTotal": 4.49438202247191,
+        "pctEnd": -10.674157303370785,
+        "pctStart": -15.168539325842696
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 2,
+        "count": 20,
+        "total": 89,
+        "pctOfTotal": 22.47191011235955,
+        "pctEnd": -15.168539325842696,
+        "pctStart": -37.640449438202246
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 3,
+        "count": 12,
+        "total": 89,
+        "pctOfTotal": 13.48314606741573,
+        "pctEnd": -37.640449438202246,
+        "pctStart": -51.12359550561798
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 4,
+        "count": 19,
+        "total": 89,
+        "pctOfTotal": 21.34831460674157,
+        "pctStart": -10.674157303370785,
+        "pctEnd": 10.674157303370785
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 5,
+        "count": 17,
+        "total": 89,
+        "pctOfTotal": 19.101123595505616,
+        "pctStart": 10.674157303370785,
+        "pctEnd": 29.775280898876403
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 6,
+        "count": 10,
+        "total": 89,
+        "pctOfTotal": 11.235955056179774,
+        "pctStart": 29.775280898876403,
+        "pctEnd": 41.01123595505618
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 7,
+        "count": 7,
+        "total": 89,
+        "pctOfTotal": 7.865168539325842,
+        "pctStart": 41.01123595505618,
+        "pctEnd": 48.87640449438202
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 1,
+        "count": 0,
+        "total": 89,
+        "pctOfTotal": 0,
+        "pctEnd": -5.056179775280898,
+        "pctStart": -5.056179775280898
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 2,
+        "count": 3,
+        "total": 89,
+        "pctOfTotal": 3.3707865168539324,
+        "pctEnd": -5.056179775280898,
+        "pctStart": -8.42696629213483
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 3,
+        "count": 3,
+        "total": 89,
+        "pctOfTotal": 3.3707865168539324,
+        "pctEnd": -8.42696629213483,
+        "pctStart": -11.797752808988763
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 4,
+        "count": 9,
+        "total": 89,
+        "pctOfTotal": 10.112359550561797,
+        "pctStart": -5.056179775280898,
+        "pctEnd": 5.056179775280898
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 5,
+        "count": 30,
+        "total": 89,
+        "pctOfTotal": 33.70786516853933,
+        "pctStart": 5.056179775280898,
+        "pctEnd": 38.764044943820224
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 6,
+        "count": 20,
+        "total": 89,
+        "pctOfTotal": 22.47191011235955,
+        "pctStart": 38.764044943820224,
+        "pctEnd": 61.235955056179776
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 7,
+        "count": 24,
+        "total": 89,
+        "pctOfTotal": 26.96629213483146,
+        "pctStart": 61.235955056179776,
+        "pctEnd": 88.20224719101124
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 1,
+        "count": 2,
+        "total": 88,
+        "pctOfTotal": 2.272727272727273,
+        "pctEnd": -9.090909090909092,
+        "pctStart": -11.363636363636365
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 2,
+        "count": 6,
+        "total": 88,
+        "pctOfTotal": 6.8181818181818175,
+        "pctEnd": -11.363636363636365,
+        "pctStart": -18.181818181818183
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 3,
+        "count": 11,
+        "total": 88,
+        "pctOfTotal": 12.5,
+        "pctEnd": -18.181818181818183,
+        "pctStart": -30.681818181818183
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 4,
+        "count": 16,
+        "total": 88,
+        "pctOfTotal": 18.181818181818183,
+        "pctStart": -9.090909090909092,
+        "pctEnd": 9.090909090909092
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 5,
+        "count": 25,
+        "total": 88,
+        "pctOfTotal": 28.40909090909091,
+        "pctStart": 9.090909090909092,
+        "pctEnd": 37.5
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 6,
+        "count": 15,
+        "total": 88,
+        "pctOfTotal": 17.045454545454543,
+        "pctStart": 37.5,
+        "pctEnd": 54.54545454545455
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 7,
+        "count": 13,
+        "total": 88,
+        "pctOfTotal": 14.772727272727273,
+        "pctStart": 54.54545454545455,
+        "pctEnd": 69.31818181818181
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 1,
+        "count": 0,
+        "total": 83,
+        "pctOfTotal": 0,
+        "pctEnd": -9.036144578313253,
+        "pctStart": -9.036144578313253
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 2,
+        "count": 5,
+        "total": 83,
+        "pctOfTotal": 6.024096385542169,
+        "pctEnd": -9.036144578313253,
+        "pctStart": -15.060240963855422
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 3,
+        "count": 14,
+        "total": 83,
+        "pctOfTotal": 16.867469879518072,
+        "pctEnd": -15.060240963855422,
+        "pctStart": -31.927710843373497
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 4,
+        "count": 15,
+        "total": 83,
+        "pctOfTotal": 18.072289156626507,
+        "pctStart": -9.036144578313253,
+        "pctEnd": 9.036144578313253
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 5,
+        "count": 23,
+        "total": 83,
+        "pctOfTotal": 27.710843373493976,
+        "pctStart": 9.036144578313253,
+        "pctEnd": 36.74698795180723
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 6,
+        "count": 16,
+        "total": 83,
+        "pctOfTotal": 19.27710843373494,
+        "pctStart": 36.74698795180723,
+        "pctEnd": 56.024096385542165
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 7,
+        "count": 10,
+        "total": 83,
+        "pctOfTotal": 12.048192771084338,
+        "pctStart": 56.024096385542165,
+        "pctEnd": 68.07228915662651
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 1,
+        "count": 5,
+        "total": 83,
+        "pctOfTotal": 6.024096385542169,
+        "pctEnd": -8.433734939759036,
+        "pctStart": -14.457831325301205
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 2,
+        "count": 4,
+        "total": 83,
+        "pctOfTotal": 4.819277108433735,
+        "pctEnd": -14.457831325301205,
+        "pctStart": -19.27710843373494
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 3,
+        "count": 6,
+        "total": 83,
+        "pctOfTotal": 7.228915662650602,
+        "pctEnd": -19.27710843373494,
+        "pctStart": -26.506024096385545
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 4,
+        "count": 14,
+        "total": 83,
+        "pctOfTotal": 16.867469879518072,
+        "pctStart": -8.433734939759036,
+        "pctEnd": 8.433734939759036
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 5,
+        "count": 23,
+        "total": 83,
+        "pctOfTotal": 27.710843373493976,
+        "pctStart": 8.433734939759036,
+        "pctEnd": 36.144578313253014
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 6,
+        "count": 17,
+        "total": 83,
+        "pctOfTotal": 20.481927710843372,
+        "pctStart": 36.144578313253014,
+        "pctEnd": 56.626506024096386
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 7,
+        "count": 14,
+        "total": 83,
+        "pctOfTotal": 16.867469879518072,
+        "pctStart": 56.626506024096386,
+        "pctEnd": 73.49397590361446
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 1,
+        "count": 3,
+        "total": 83,
+        "pctOfTotal": 3.614457831325301,
+        "pctEnd": -12.650602409638553,
+        "pctStart": -16.265060240963855
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 2,
+        "count": 6,
+        "total": 83,
+        "pctOfTotal": 7.228915662650602,
+        "pctEnd": -16.265060240963855,
+        "pctStart": -23.493975903614455
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 3,
+        "count": 9,
+        "total": 83,
+        "pctOfTotal": 10.843373493975903,
+        "pctEnd": -23.493975903614455,
+        "pctStart": -34.33734939759036
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 4,
+        "count": 21,
+        "total": 83,
+        "pctOfTotal": 25.301204819277107,
+        "pctStart": -12.650602409638553,
+        "pctEnd": 12.650602409638553
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 5,
+        "count": 22,
+        "total": 83,
+        "pctOfTotal": 26.506024096385545,
+        "pctStart": 12.650602409638553,
+        "pctEnd": 39.1566265060241
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 6,
+        "count": 13,
+        "total": 83,
+        "pctOfTotal": 15.66265060240964,
+        "pctStart": 39.1566265060241,
+        "pctEnd": 54.81927710843374
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 7,
+        "count": 9,
+        "total": 83,
+        "pctOfTotal": 10.843373493975903,
+        "pctStart": 54.81927710843374,
+        "pctEnd": 65.66265060240964
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 1,
+        "count": 21,
+        "total": 83,
+        "pctOfTotal": 25.301204819277107,
+        "pctEnd": -5.421686746987952,
+        "pctStart": -30.72289156626506
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 2,
+        "count": 13,
+        "total": 83,
+        "pctOfTotal": 15.66265060240964,
+        "pctEnd": -30.72289156626506,
+        "pctStart": -46.3855421686747
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 3,
+        "count": 21,
+        "total": 83,
+        "pctOfTotal": 25.301204819277107,
+        "pctEnd": -46.3855421686747,
+        "pctStart": -71.6867469879518
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 4,
+        "count": 9,
+        "total": 83,
+        "pctOfTotal": 10.843373493975903,
+        "pctStart": -5.421686746987952,
+        "pctEnd": 5.421686746987952
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 5,
+        "count": 11,
+        "total": 83,
+        "pctOfTotal": 13.253012048192772,
+        "pctStart": 5.421686746987952,
+        "pctEnd": 18.674698795180724
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 6,
+        "count": 5,
+        "total": 83,
+        "pctOfTotal": 6.024096385542169,
+        "pctStart": 18.674698795180724,
+        "pctEnd": 24.698795180722893
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 7,
+        "count": 3,
+        "total": 83,
+        "pctOfTotal": 3.614457831325301,
+        "pctStart": 24.698795180722893,
+        "pctEnd": 28.313253012048193
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 1,
+        "count": 2,
+        "total": 83,
+        "pctOfTotal": 2.4096385542168677,
+        "pctEnd": -9.036144578313253,
+        "pctStart": -11.44578313253012
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 2,
+        "count": 3,
+        "total": 83,
+        "pctOfTotal": 3.614457831325301,
+        "pctEnd": -11.44578313253012,
+        "pctStart": -15.06024096385542
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 3,
+        "count": 9,
+        "total": 83,
+        "pctOfTotal": 10.843373493975903,
+        "pctEnd": -15.06024096385542,
+        "pctStart": -25.903614457831324
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 4,
+        "count": 15,
+        "total": 83,
+        "pctOfTotal": 18.072289156626507,
+        "pctStart": -9.036144578313253,
+        "pctEnd": 9.036144578313253
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 5,
+        "count": 15,
+        "total": 83,
+        "pctOfTotal": 18.072289156626507,
+        "pctStart": 9.036144578313253,
+        "pctEnd": 27.10843373493976
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 6,
+        "count": 25,
+        "total": 83,
+        "pctOfTotal": 30.120481927710845,
+        "pctStart": 27.10843373493976,
+        "pctEnd": 57.22891566265061
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 7,
+        "count": 14,
+        "total": 83,
+        "pctOfTotal": 16.867469879518072,
+        "pctStart": 57.22891566265061,
+        "pctEnd": 74.09638554216868
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 1,
+        "count": 6,
+        "total": 83,
+        "pctOfTotal": 7.228915662650602,
+        "pctEnd": -12.048192771084338,
+        "pctStart": -19.277108433734938
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 2,
+        "count": 4,
+        "total": 83,
+        "pctOfTotal": 4.819277108433735,
+        "pctEnd": -19.277108433734938,
+        "pctStart": -24.096385542168672
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 3,
+        "count": 12,
+        "total": 83,
+        "pctOfTotal": 14.457831325301203,
+        "pctEnd": -24.096385542168672,
+        "pctStart": -38.554216867469876
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 4,
+        "count": 20,
+        "total": 83,
+        "pctOfTotal": 24.096385542168676,
+        "pctStart": -12.048192771084338,
+        "pctEnd": 12.048192771084338
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 5,
+        "count": 17,
+        "total": 83,
+        "pctOfTotal": 20.481927710843372,
+        "pctStart": 12.048192771084338,
+        "pctEnd": 32.53012048192771
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 6,
+        "count": 14,
+        "total": 83,
+        "pctOfTotal": 16.867469879518072,
+        "pctStart": 32.53012048192771,
+        "pctEnd": 49.39759036144578
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 7,
+        "count": 10,
+        "total": 83,
+        "pctOfTotal": 12.048192771084338,
+        "pctStart": 49.39759036144578,
+        "pctEnd": 61.44578313253012
+      }
+    ],
+    "intelligence": [
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 1,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctEnd": -13.978494623655912,
+        "pctStart": -16.129032258064516
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 2,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctEnd": -16.129032258064516,
+        "pctStart": -18.27956989247312
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 3,
+        "count": 12,
+        "total": 93,
+        "pctOfTotal": 12.903225806451612,
+        "pctEnd": -18.27956989247312,
+        "pctStart": -31.182795698924732
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 4,
+        "count": 26,
+        "total": 93,
+        "pctOfTotal": 27.956989247311824,
+        "pctStart": -13.978494623655912,
+        "pctEnd": 13.978494623655912
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 5,
+        "count": 34,
+        "total": 93,
+        "pctOfTotal": 36.55913978494624,
+        "pctStart": 13.978494623655912,
+        "pctEnd": 50.53763440860215
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 6,
+        "count": 15,
+        "total": 93,
+        "pctOfTotal": 16.129032258064516,
+        "pctStart": 50.53763440860215,
+        "pctEnd": 66.66666666666667
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 7,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctStart": 66.66666666666667,
+        "pctEnd": 68.81720430107528
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 1,
+        "count": 4,
+        "total": 93,
+        "pctOfTotal": 4.301075268817205,
+        "pctEnd": -15.591397849462366,
+        "pctStart": -19.89247311827957
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 2,
+        "count": 10,
+        "total": 93,
+        "pctOfTotal": 10.75268817204301,
+        "pctEnd": -19.89247311827957,
+        "pctStart": -30.645161290322584
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 3,
+        "count": 23,
+        "total": 93,
+        "pctOfTotal": 24.731182795698924,
+        "pctEnd": -30.645161290322584,
+        "pctStart": -55.376344086021504
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 4,
+        "count": 29,
+        "total": 93,
+        "pctOfTotal": 31.182795698924732,
+        "pctStart": -15.591397849462366,
+        "pctEnd": 15.591397849462366
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 5,
+        "count": 15,
+        "total": 93,
+        "pctOfTotal": 16.129032258064516,
+        "pctStart": 15.591397849462366,
+        "pctEnd": 31.72043010752688
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 6,
+        "count": 11,
+        "total": 93,
+        "pctOfTotal": 11.827956989247312,
+        "pctStart": 31.72043010752688,
+        "pctEnd": 43.54838709677419
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 7,
+        "count": 1,
+        "total": 93,
+        "pctOfTotal": 1.0752688172043012,
+        "pctStart": 43.54838709677419,
+        "pctEnd": 44.623655913978496
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 1,
+        "count": 1,
+        "total": 92,
+        "pctOfTotal": 1.0869565217391304,
+        "pctEnd": -11.956521739130435,
+        "pctStart": -13.043478260869566
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 2,
+        "count": 3,
+        "total": 92,
+        "pctOfTotal": 3.260869565217391,
+        "pctEnd": -13.043478260869566,
+        "pctStart": -16.304347826086957
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 3,
+        "count": 11,
+        "total": 92,
+        "pctOfTotal": 11.956521739130435,
+        "pctEnd": -16.304347826086957,
+        "pctStart": -28.26086956521739
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 4,
+        "count": 22,
+        "total": 92,
+        "pctOfTotal": 23.91304347826087,
+        "pctStart": -11.956521739130435,
+        "pctEnd": 11.956521739130435
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 5,
+        "count": 27,
+        "total": 92,
+        "pctOfTotal": 29.347826086956523,
+        "pctStart": 11.956521739130435,
+        "pctEnd": 41.30434782608696
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 6,
+        "count": 16,
+        "total": 92,
+        "pctOfTotal": 17.391304347826086,
+        "pctStart": 41.30434782608696,
+        "pctEnd": 58.69565217391305
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 7,
+        "count": 12,
+        "total": 92,
+        "pctOfTotal": 13.043478260869565,
+        "pctStart": 58.69565217391305,
+        "pctEnd": 71.73913043478261
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 1,
+        "count": 0,
+        "total": 92,
+        "pctOfTotal": 0,
+        "pctEnd": -17.934782608695652,
+        "pctStart": -17.934782608695652
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 2,
+        "count": 7,
+        "total": 92,
+        "pctOfTotal": 7.608695652173914,
+        "pctEnd": -17.934782608695652,
+        "pctStart": -25.543478260869566
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 3,
+        "count": 18,
+        "total": 92,
+        "pctOfTotal": 19.565217391304348,
+        "pctEnd": -25.543478260869566,
+        "pctStart": -45.108695652173914
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 4,
+        "count": 33,
+        "total": 92,
+        "pctOfTotal": 35.869565217391305,
+        "pctStart": -17.934782608695652,
+        "pctEnd": 17.934782608695652
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 5,
+        "count": 19,
+        "total": 92,
+        "pctOfTotal": 20.652173913043477,
+        "pctStart": 17.934782608695652,
+        "pctEnd": 38.586956521739125
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 6,
+        "count": 9,
+        "total": 92,
+        "pctOfTotal": 9.782608695652174,
+        "pctStart": 38.586956521739125,
+        "pctEnd": 48.3695652173913
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 7,
+        "count": 6,
+        "total": 92,
+        "pctOfTotal": 6.521739130434782,
+        "pctStart": 48.3695652173913,
+        "pctEnd": 54.89130434782608
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 1,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctEnd": -18.27956989247312,
+        "pctStart": -20.430107526881724
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 2,
+        "count": 3,
+        "total": 93,
+        "pctOfTotal": 3.225806451612903,
+        "pctEnd": -20.430107526881724,
+        "pctStart": -23.655913978494628
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 3,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctEnd": -23.655913978494628,
+        "pctStart": -25.80645161290323
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 4,
+        "count": 34,
+        "total": 93,
+        "pctOfTotal": 36.55913978494624,
+        "pctStart": -18.27956989247312,
+        "pctEnd": 18.27956989247312
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 5,
+        "count": 31,
+        "total": 93,
+        "pctOfTotal": 33.33333333333333,
+        "pctStart": 18.27956989247312,
+        "pctEnd": 51.61290322580645
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 6,
+        "count": 19,
+        "total": 93,
+        "pctOfTotal": 20.43010752688172,
+        "pctStart": 51.61290322580645,
+        "pctEnd": 72.04301075268816
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 7,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctStart": 72.04301075268816,
+        "pctEnd": 74.19354838709677
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 1,
+        "count": 4,
+        "total": 93,
+        "pctOfTotal": 4.301075268817205,
+        "pctEnd": -13.440860215053762,
+        "pctStart": -17.741935483870968
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 2,
+        "count": 4,
+        "total": 93,
+        "pctOfTotal": 4.301075268817205,
+        "pctEnd": -17.741935483870968,
+        "pctStart": -22.043010752688172
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 3,
+        "count": 8,
+        "total": 93,
+        "pctOfTotal": 8.60215053763441,
+        "pctEnd": -22.043010752688172,
+        "pctStart": -30.645161290322584
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 4,
+        "count": 25,
+        "total": 93,
+        "pctOfTotal": 26.881720430107524,
+        "pctStart": -13.440860215053762,
+        "pctEnd": 13.440860215053762
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 5,
+        "count": 25,
+        "total": 93,
+        "pctOfTotal": 26.881720430107524,
+        "pctStart": 13.440860215053762,
+        "pctEnd": 40.32258064516129
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 6,
+        "count": 18,
+        "total": 93,
+        "pctOfTotal": 19.35483870967742,
+        "pctStart": 40.32258064516129,
+        "pctEnd": 59.677419354838705
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 7,
+        "count": 9,
+        "total": 93,
+        "pctOfTotal": 9.67741935483871,
+        "pctStart": 59.677419354838705,
+        "pctEnd": 69.35483870967741
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 1,
+        "count": 7,
+        "total": 89,
+        "pctOfTotal": 7.865168539325842,
+        "pctEnd": -17.415730337078653,
+        "pctStart": -25.280898876404496
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 2,
+        "count": 9,
+        "total": 89,
+        "pctOfTotal": 10.112359550561797,
+        "pctEnd": -25.280898876404496,
+        "pctStart": -35.39325842696629
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 3,
+        "count": 12,
+        "total": 89,
+        "pctOfTotal": 13.48314606741573,
+        "pctEnd": -35.39325842696629,
+        "pctStart": -48.87640449438202
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 4,
+        "count": 31,
+        "total": 89,
+        "pctOfTotal": 34.831460674157306,
+        "pctStart": -17.415730337078653,
+        "pctEnd": 17.415730337078653
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 5,
+        "count": 21,
+        "total": 89,
+        "pctOfTotal": 23.595505617977526,
+        "pctStart": 17.415730337078653,
+        "pctEnd": 41.01123595505618
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 6,
+        "count": 8,
+        "total": 89,
+        "pctOfTotal": 8.98876404494382,
+        "pctStart": 41.01123595505618,
+        "pctEnd": 50
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 7,
+        "count": 1,
+        "total": 89,
+        "pctOfTotal": 1.1235955056179776,
+        "pctStart": 50,
+        "pctEnd": 51.12359550561798
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 1,
+        "count": 6,
+        "total": 89,
+        "pctOfTotal": 6.741573033707865,
+        "pctEnd": -15.168539325842698,
+        "pctStart": -21.910112359550563
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 2,
+        "count": 13,
+        "total": 89,
+        "pctOfTotal": 14.606741573033707,
+        "pctEnd": -21.910112359550563,
+        "pctStart": -36.51685393258427
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 3,
+        "count": 17,
+        "total": 89,
+        "pctOfTotal": 19.101123595505616,
+        "pctEnd": -36.51685393258427,
+        "pctStart": -55.61797752808988
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 4,
+        "count": 27,
+        "total": 89,
+        "pctOfTotal": 30.337078651685395,
+        "pctStart": -15.168539325842698,
+        "pctEnd": 15.168539325842698
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 5,
+        "count": 17,
+        "total": 89,
+        "pctOfTotal": 19.101123595505616,
+        "pctStart": 15.168539325842698,
+        "pctEnd": 34.26966292134831
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 6,
+        "count": 7,
+        "total": 89,
+        "pctOfTotal": 7.865168539325842,
+        "pctStart": 34.26966292134831,
+        "pctEnd": 42.13483146067416
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 7,
+        "count": 2,
+        "total": 89,
+        "pctOfTotal": 2.247191011235955,
+        "pctStart": 42.13483146067416,
+        "pctEnd": 44.38202247191011
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 1,
+        "count": 7,
+        "total": 89,
+        "pctOfTotal": 7.865168539325842,
+        "pctEnd": -12.921348314606742,
+        "pctStart": -20.786516853932586
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 2,
+        "count": 1,
+        "total": 89,
+        "pctOfTotal": 1.1235955056179776,
+        "pctEnd": -20.786516853932586,
+        "pctStart": -21.910112359550563
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 3,
+        "count": 13,
+        "total": 89,
+        "pctOfTotal": 14.606741573033707,
+        "pctEnd": -21.910112359550563,
+        "pctStart": -36.51685393258427
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 4,
+        "count": 23,
+        "total": 89,
+        "pctOfTotal": 25.842696629213485,
+        "pctStart": -12.921348314606742,
+        "pctEnd": 12.921348314606742
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 5,
+        "count": 23,
+        "total": 89,
+        "pctOfTotal": 25.842696629213485,
+        "pctStart": 12.921348314606742,
+        "pctEnd": 38.764044943820224
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 6,
+        "count": 18,
+        "total": 89,
+        "pctOfTotal": 20.224719101123593,
+        "pctStart": 38.764044943820224,
+        "pctEnd": 58.98876404494382
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 7,
+        "count": 4,
+        "total": 89,
+        "pctOfTotal": 4.49438202247191,
+        "pctStart": 58.98876404494382,
+        "pctEnd": 63.48314606741573
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 1,
+        "count": 6,
+        "total": 89,
+        "pctOfTotal": 6.741573033707865,
+        "pctEnd": -13.48314606741573,
+        "pctStart": -20.224719101123593
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 2,
+        "count": 22,
+        "total": 89,
+        "pctOfTotal": 24.719101123595504,
+        "pctEnd": -20.224719101123593,
+        "pctStart": -44.9438202247191
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 3,
+        "count": 18,
+        "total": 89,
+        "pctOfTotal": 20.224719101123593,
+        "pctEnd": -44.9438202247191,
+        "pctStart": -65.16853932584269
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 4,
+        "count": 24,
+        "total": 89,
+        "pctOfTotal": 26.96629213483146,
+        "pctStart": -13.48314606741573,
+        "pctEnd": 13.48314606741573
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 5,
+        "count": 12,
+        "total": 89,
+        "pctOfTotal": 13.48314606741573,
+        "pctStart": 13.48314606741573,
+        "pctEnd": 26.96629213483146
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 6,
+        "count": 6,
+        "total": 89,
+        "pctOfTotal": 6.741573033707865,
+        "pctStart": 26.96629213483146,
+        "pctEnd": 33.70786516853932
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 7,
+        "count": 1,
+        "total": 89,
+        "pctOfTotal": 1.1235955056179776,
+        "pctStart": 33.70786516853932,
+        "pctEnd": 34.8314606741573
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 1,
+        "count": 0,
+        "total": 89,
+        "pctOfTotal": 0,
+        "pctEnd": -12.921348314606742,
+        "pctStart": -12.921348314606742
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 2,
+        "count": 10,
+        "total": 89,
+        "pctOfTotal": 11.235955056179774,
+        "pctEnd": -12.921348314606742,
+        "pctStart": -24.157303370786515
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 3,
+        "count": 11,
+        "total": 89,
+        "pctOfTotal": 12.359550561797752,
+        "pctEnd": -24.157303370786515,
+        "pctStart": -36.51685393258427
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 4,
+        "count": 23,
+        "total": 89,
+        "pctOfTotal": 25.842696629213485,
+        "pctStart": -12.921348314606742,
+        "pctEnd": 12.921348314606742
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 5,
+        "count": 25,
+        "total": 89,
+        "pctOfTotal": 28.08988764044944,
+        "pctStart": 12.921348314606742,
+        "pctEnd": 41.01123595505618
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 6,
+        "count": 19,
+        "total": 89,
+        "pctOfTotal": 21.34831460674157,
+        "pctStart": 41.01123595505618,
+        "pctEnd": 62.35955056179775
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 7,
+        "count": 1,
+        "total": 89,
+        "pctOfTotal": 1.1235955056179776,
+        "pctStart": 62.35955056179775,
+        "pctEnd": 63.483146067415724
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 1,
+        "count": 2,
+        "total": 88,
+        "pctOfTotal": 2.272727272727273,
+        "pctEnd": -13.068181818181818,
+        "pctStart": -15.340909090909092
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 2,
+        "count": 8,
+        "total": 88,
+        "pctOfTotal": 9.090909090909092,
+        "pctEnd": -15.340909090909092,
+        "pctStart": -24.431818181818183
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 3,
+        "count": 11,
+        "total": 88,
+        "pctOfTotal": 12.5,
+        "pctEnd": -24.431818181818183,
+        "pctStart": -36.93181818181819
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 4,
+        "count": 23,
+        "total": 88,
+        "pctOfTotal": 26.136363636363637,
+        "pctStart": -13.068181818181818,
+        "pctEnd": 13.068181818181818
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 5,
+        "count": 23,
+        "total": 88,
+        "pctOfTotal": 26.136363636363637,
+        "pctStart": 13.068181818181818,
+        "pctEnd": 39.20454545454545
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 6,
+        "count": 11,
+        "total": 88,
+        "pctOfTotal": 12.5,
+        "pctStart": 39.20454545454545,
+        "pctEnd": 51.70454545454545
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 7,
+        "count": 10,
+        "total": 88,
+        "pctOfTotal": 11.363636363636363,
+        "pctStart": 51.70454545454545,
+        "pctEnd": 63.06818181818181
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 1,
+        "count": 8,
+        "total": 83,
+        "pctOfTotal": 9.63855421686747,
+        "pctEnd": -12.650602409638553,
+        "pctStart": -22.289156626506024
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 2,
+        "count": 15,
+        "total": 83,
+        "pctOfTotal": 18.072289156626507,
+        "pctEnd": -22.289156626506024,
+        "pctStart": -40.36144578313253
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 3,
+        "count": 18,
+        "total": 83,
+        "pctOfTotal": 21.686746987951807,
+        "pctEnd": -40.36144578313253,
+        "pctStart": -62.04819277108434
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 4,
+        "count": 21,
+        "total": 83,
+        "pctOfTotal": 25.301204819277107,
+        "pctStart": -12.650602409638553,
+        "pctEnd": 12.650602409638553
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 5,
+        "count": 16,
+        "total": 83,
+        "pctOfTotal": 19.27710843373494,
+        "pctStart": 12.650602409638553,
+        "pctEnd": 31.927710843373497
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 6,
+        "count": 4,
+        "total": 83,
+        "pctOfTotal": 4.819277108433735,
+        "pctStart": 31.927710843373497,
+        "pctEnd": 36.746987951807235
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 7,
+        "count": 1,
+        "total": 83,
+        "pctOfTotal": 1.2048192771084338,
+        "pctStart": 36.746987951807235,
+        "pctEnd": 37.95180722891567
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 1,
+        "count": 0,
+        "total": 83,
+        "pctOfTotal": 0,
+        "pctEnd": -19.27710843373494,
+        "pctStart": -19.27710843373494
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 2,
+        "count": 10,
+        "total": 83,
+        "pctOfTotal": 12.048192771084338,
+        "pctEnd": -19.27710843373494,
+        "pctStart": -31.32530120481928
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 3,
+        "count": 16,
+        "total": 83,
+        "pctOfTotal": 19.27710843373494,
+        "pctEnd": -31.32530120481928,
+        "pctStart": -50.60240963855422
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 4,
+        "count": 32,
+        "total": 83,
+        "pctOfTotal": 38.55421686746988,
+        "pctStart": -19.27710843373494,
+        "pctEnd": 19.27710843373494
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 5,
+        "count": 15,
+        "total": 83,
+        "pctOfTotal": 18.072289156626507,
+        "pctStart": 19.27710843373494,
+        "pctEnd": 37.34939759036145
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 6,
+        "count": 8,
+        "total": 83,
+        "pctOfTotal": 9.63855421686747,
+        "pctStart": 37.34939759036145,
+        "pctEnd": 46.98795180722892
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 7,
+        "count": 2,
+        "total": 83,
+        "pctOfTotal": 2.4096385542168677,
+        "pctStart": 46.98795180722892,
+        "pctEnd": 49.397590361445786
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 1,
+        "count": 3,
+        "total": 83,
+        "pctOfTotal": 3.614457831325301,
+        "pctEnd": -18.072289156626507,
+        "pctStart": -21.686746987951807
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 2,
+        "count": 4,
+        "total": 83,
+        "pctOfTotal": 4.819277108433735,
+        "pctEnd": -21.686746987951807,
+        "pctStart": -26.50602409638554
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 3,
+        "count": 13,
+        "total": 83,
+        "pctOfTotal": 15.66265060240964,
+        "pctEnd": -26.50602409638554,
+        "pctStart": -42.16867469879518
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 4,
+        "count": 30,
+        "total": 83,
+        "pctOfTotal": 36.144578313253014,
+        "pctStart": -18.072289156626507,
+        "pctEnd": 18.072289156626507
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 5,
+        "count": 16,
+        "total": 83,
+        "pctOfTotal": 19.27710843373494,
+        "pctStart": 18.072289156626507,
+        "pctEnd": 37.34939759036145
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 6,
+        "count": 12,
+        "total": 83,
+        "pctOfTotal": 14.457831325301203,
+        "pctStart": 37.34939759036145,
+        "pctEnd": 51.80722891566265
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 7,
+        "count": 5,
+        "total": 83,
+        "pctOfTotal": 6.024096385542169,
+        "pctStart": 51.80722891566265,
+        "pctEnd": 57.831325301204814
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 1,
+        "count": 28,
+        "total": 83,
+        "pctOfTotal": 33.734939759036145,
+        "pctEnd": -11.44578313253012,
+        "pctStart": -45.18072289156626
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 2,
+        "count": 15,
+        "total": 83,
+        "pctOfTotal": 18.072289156626507,
+        "pctEnd": -45.18072289156626,
+        "pctStart": -63.25301204819277
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 3,
+        "count": 14,
+        "total": 83,
+        "pctOfTotal": 16.867469879518072,
+        "pctEnd": -63.25301204819277,
+        "pctStart": -80.12048192771084
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 4,
+        "count": 19,
+        "total": 83,
+        "pctOfTotal": 22.89156626506024,
+        "pctStart": -11.44578313253012,
+        "pctEnd": 11.44578313253012
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 5,
+        "count": 3,
+        "total": 83,
+        "pctOfTotal": 3.614457831325301,
+        "pctStart": 11.44578313253012,
+        "pctEnd": 15.06024096385542
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 6,
+        "count": 1,
+        "total": 83,
+        "pctOfTotal": 1.2048192771084338,
+        "pctStart": 15.06024096385542,
+        "pctEnd": 16.265060240963855
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 7,
+        "count": 3,
+        "total": 83,
+        "pctOfTotal": 3.614457831325301,
+        "pctStart": 16.265060240963855,
+        "pctEnd": 19.879518072289155
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 1,
+        "count": 5,
+        "total": 83,
+        "pctOfTotal": 6.024096385542169,
+        "pctEnd": -9.63855421686747,
+        "pctStart": -15.66265060240964
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 2,
+        "count": 15,
+        "total": 83,
+        "pctOfTotal": 18.072289156626507,
+        "pctEnd": -15.66265060240964,
+        "pctStart": -33.734939759036145
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 3,
+        "count": 18,
+        "total": 83,
+        "pctOfTotal": 21.686746987951807,
+        "pctEnd": -33.734939759036145,
+        "pctStart": -55.42168674698795
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 4,
+        "count": 16,
+        "total": 83,
+        "pctOfTotal": 19.27710843373494,
+        "pctStart": -9.63855421686747,
+        "pctEnd": 9.63855421686747
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 5,
+        "count": 16,
+        "total": 83,
+        "pctOfTotal": 19.27710843373494,
+        "pctStart": 9.63855421686747,
+        "pctEnd": 28.915662650602414
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 6,
+        "count": 11,
+        "total": 83,
+        "pctOfTotal": 13.253012048192772,
+        "pctStart": 28.915662650602414,
+        "pctEnd": 42.168674698795186
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 7,
+        "count": 2,
+        "total": 83,
+        "pctOfTotal": 2.4096385542168677,
+        "pctStart": 42.168674698795186,
+        "pctEnd": 44.578313253012055
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 1,
+        "count": 6,
+        "total": 83,
+        "pctOfTotal": 7.228915662650602,
+        "pctEnd": -17.46987951807229,
+        "pctStart": -24.69879518072289
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 2,
+        "count": 5,
+        "total": 83,
+        "pctOfTotal": 6.024096385542169,
+        "pctEnd": -24.69879518072289,
+        "pctStart": -30.72289156626506
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 3,
+        "count": 12,
+        "total": 83,
+        "pctOfTotal": 14.457831325301203,
+        "pctEnd": -30.72289156626506,
+        "pctStart": -45.18072289156626
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 4,
+        "count": 29,
+        "total": 83,
+        "pctOfTotal": 34.93975903614458,
+        "pctStart": -17.46987951807229,
+        "pctEnd": 17.46987951807229
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 5,
+        "count": 17,
+        "total": 83,
+        "pctOfTotal": 20.481927710843372,
+        "pctStart": 17.46987951807229,
+        "pctEnd": 37.95180722891566
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 6,
+        "count": 9,
+        "total": 83,
+        "pctOfTotal": 10.843373493975903,
+        "pctStart": 37.95180722891566,
+        "pctEnd": 48.795180722891565
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 7,
+        "count": 5,
+        "total": 83,
+        "pctOfTotal": 6.024096385542169,
+        "pctStart": 48.795180722891565,
+        "pctEnd": 54.81927710843374
+      }
+    ],
+    "writing": [
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 1,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctEnd": -22.58064516129032,
+        "pctStart": -24.731182795698924
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 2,
+        "count": 5,
+        "total": 93,
+        "pctOfTotal": 5.376344086021505,
+        "pctEnd": -24.731182795698924,
+        "pctStart": -30.10752688172043
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 3,
+        "count": 10,
+        "total": 93,
+        "pctOfTotal": 10.75268817204301,
+        "pctEnd": -30.10752688172043,
+        "pctStart": -40.86021505376344
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 4,
+        "count": 42,
+        "total": 93,
+        "pctOfTotal": 45.16129032258064,
+        "pctStart": -22.58064516129032,
+        "pctEnd": 22.58064516129032
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 5,
+        "count": 17,
+        "total": 93,
+        "pctOfTotal": 18.27956989247312,
+        "pctStart": 22.58064516129032,
+        "pctEnd": 40.86021505376344
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 6,
+        "count": 16,
+        "total": 93,
+        "pctOfTotal": 17.20430107526882,
+        "pctStart": 40.86021505376344,
+        "pctEnd": 58.064516129032256
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Accident",
+        "rank": 7,
+        "count": 1,
+        "total": 93,
+        "pctOfTotal": 1.0752688172043012,
+        "pctStart": 58.064516129032256,
+        "pctEnd": 59.13978494623656
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 1,
+        "count": 4,
+        "total": 93,
+        "pctOfTotal": 4.301075268817205,
+        "pctEnd": -18.27956989247312,
+        "pctStart": -22.580645161290324
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 2,
+        "count": 11,
+        "total": 93,
+        "pctOfTotal": 11.827956989247312,
+        "pctEnd": -22.580645161290324,
+        "pctStart": -34.40860215053763
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 3,
+        "count": 21,
+        "total": 93,
+        "pctOfTotal": 22.58064516129032,
+        "pctEnd": -34.40860215053763,
+        "pctStart": -56.98924731182795
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 4,
+        "count": 34,
+        "total": 93,
+        "pctOfTotal": 36.55913978494624,
+        "pctStart": -18.27956989247312,
+        "pctEnd": 18.27956989247312
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 5,
+        "count": 16,
+        "total": 93,
+        "pctOfTotal": 17.20430107526882,
+        "pctStart": 18.27956989247312,
+        "pctEnd": 35.483870967741936
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 6,
+        "count": 6,
+        "total": 93,
+        "pctOfTotal": 6.451612903225806,
+        "pctStart": 35.483870967741936,
+        "pctEnd": 41.935483870967744
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Diet",
+        "rank": 7,
+        "count": 1,
+        "total": 93,
+        "pctOfTotal": 1.0752688172043012,
+        "pctStart": 41.935483870967744,
+        "pctEnd": 43.01075268817205
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 1,
+        "count": 2,
+        "total": 92,
+        "pctOfTotal": 2.1739130434782608,
+        "pctEnd": -11.956521739130435,
+        "pctStart": -14.130434782608695
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 2,
+        "count": 3,
+        "total": 92,
+        "pctOfTotal": 3.260869565217391,
+        "pctEnd": -14.130434782608695,
+        "pctStart": -17.391304347826086
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 3,
+        "count": 11,
+        "total": 92,
+        "pctOfTotal": 11.956521739130435,
+        "pctEnd": -17.391304347826086,
+        "pctStart": -29.347826086956523
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 4,
+        "count": 22,
+        "total": 92,
+        "pctOfTotal": 23.91304347826087,
+        "pctStart": -11.956521739130435,
+        "pctEnd": 11.956521739130435
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 5,
+        "count": 31,
+        "total": 92,
+        "pctOfTotal": 33.69565217391305,
+        "pctStart": 11.956521739130435,
+        "pctEnd": 45.652173913043484
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 6,
+        "count": 18,
+        "total": 92,
+        "pctOfTotal": 19.565217391304348,
+        "pctStart": 45.652173913043484,
+        "pctEnd": 65.21739130434783
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Mind",
+        "rank": 7,
+        "count": 5,
+        "total": 92,
+        "pctOfTotal": 5.434782608695652,
+        "pctStart": 65.21739130434783,
+        "pctEnd": 70.65217391304348
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 1,
+        "count": 5,
+        "total": 92,
+        "pctOfTotal": 5.434782608695652,
+        "pctEnd": -13.586956521739129,
+        "pctStart": -19.02173913043478
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 2,
+        "count": 13,
+        "total": 92,
+        "pctOfTotal": 14.130434782608695,
+        "pctEnd": -19.02173913043478,
+        "pctStart": -33.15217391304348
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 3,
+        "count": 14,
+        "total": 92,
+        "pctOfTotal": 15.217391304347828,
+        "pctEnd": -33.15217391304348,
+        "pctStart": -48.369565217391305
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 4,
+        "count": 25,
+        "total": 92,
+        "pctOfTotal": 27.173913043478258,
+        "pctStart": -13.586956521739129,
+        "pctEnd": 13.586956521739129
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 5,
+        "count": 20,
+        "total": 92,
+        "pctOfTotal": 21.73913043478261,
+        "pctStart": 13.586956521739129,
+        "pctEnd": 35.326086956521735
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 6,
+        "count": 10,
+        "total": 92,
+        "pctOfTotal": 10.869565217391305,
+        "pctStart": 35.326086956521735,
+        "pctEnd": 46.19565217391304
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Music",
+        "rank": 7,
+        "count": 5,
+        "total": 92,
+        "pctOfTotal": 5.434782608695652,
+        "pctStart": 46.19565217391304,
+        "pctEnd": 51.63043478260869
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 1,
+        "count": 1,
+        "total": 93,
+        "pctOfTotal": 1.0752688172043012,
+        "pctEnd": -22.043010752688172,
+        "pctStart": -23.118279569892472
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 2,
+        "count": 5,
+        "total": 93,
+        "pctOfTotal": 5.376344086021505,
+        "pctEnd": -23.118279569892472,
+        "pctStart": -28.494623655913976
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 3,
+        "count": 12,
+        "total": 93,
+        "pctOfTotal": 12.903225806451612,
+        "pctEnd": -28.494623655913976,
+        "pctStart": -41.397849462365585
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 4,
+        "count": 41,
+        "total": 93,
+        "pctOfTotal": 44.086021505376344,
+        "pctStart": -22.043010752688172,
+        "pctEnd": 22.043010752688172
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 5,
+        "count": 21,
+        "total": 93,
+        "pctOfTotal": 22.58064516129032,
+        "pctStart": 22.043010752688172,
+        "pctEnd": 44.623655913978496
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 6,
+        "count": 10,
+        "total": 93,
+        "pctOfTotal": 10.75268817204301,
+        "pctStart": 44.623655913978496,
+        "pctEnd": 55.376344086021504
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Sports",
+        "rank": 7,
+        "count": 3,
+        "total": 93,
+        "pctOfTotal": 3.225806451612903,
+        "pctStart": 55.376344086021504,
+        "pctEnd": 58.60215053763441
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 1,
+        "count": 3,
+        "total": 93,
+        "pctOfTotal": 3.225806451612903,
+        "pctEnd": -18.27956989247312,
+        "pctStart": -21.505376344086024
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 2,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctEnd": -21.505376344086024,
+        "pctStart": -23.655913978494628
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 3,
+        "count": 11,
+        "total": 93,
+        "pctOfTotal": 11.827956989247312,
+        "pctEnd": -23.655913978494628,
+        "pctStart": -35.483870967741936
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 4,
+        "count": 34,
+        "total": 93,
+        "pctOfTotal": 36.55913978494624,
+        "pctStart": -18.27956989247312,
+        "pctEnd": 18.27956989247312
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 5,
+        "count": 22,
+        "total": 93,
+        "pctOfTotal": 23.655913978494624,
+        "pctStart": 18.27956989247312,
+        "pctEnd": 41.935483870967744
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 6,
+        "count": 19,
+        "total": 93,
+        "pctOfTotal": 20.43010752688172,
+        "pctStart": 41.935483870967744,
+        "pctEnd": 62.365591397849464
+      },
+      {
+        "treatment": "Control",
+        "prompt": "Science",
+        "rank": 7,
+        "count": 2,
+        "total": 93,
+        "pctOfTotal": 2.1505376344086025,
+        "pctStart": 62.365591397849464,
+        "pctEnd": 64.51612903225806
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 1,
+        "count": 8,
+        "total": 89,
+        "pctOfTotal": 8.98876404494382,
+        "pctEnd": -16.853932584269664,
+        "pctStart": -25.842696629213485
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 2,
+        "count": 17,
+        "total": 89,
+        "pctOfTotal": 19.101123595505616,
+        "pctEnd": -25.842696629213485,
+        "pctStart": -44.943820224719104
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 3,
+        "count": 17,
+        "total": 89,
+        "pctOfTotal": 19.101123595505616,
+        "pctEnd": -44.943820224719104,
+        "pctStart": -64.04494382022472
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 4,
+        "count": 30,
+        "total": 89,
+        "pctOfTotal": 33.70786516853933,
+        "pctStart": -16.853932584269664,
+        "pctEnd": 16.853932584269664
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 5,
+        "count": 10,
+        "total": 89,
+        "pctOfTotal": 11.235955056179774,
+        "pctStart": 16.853932584269664,
+        "pctEnd": 28.08988764044944
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 6,
+        "count": 5,
+        "total": 89,
+        "pctOfTotal": 5.617977528089887,
+        "pctStart": 28.08988764044944,
+        "pctEnd": 33.70786516853933
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Accident",
+        "rank": 7,
+        "count": 2,
+        "total": 89,
+        "pctOfTotal": 2.247191011235955,
+        "pctStart": 33.70786516853933,
+        "pctEnd": 35.95505617977528
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 1,
+        "count": 5,
+        "total": 89,
+        "pctOfTotal": 5.617977528089887,
+        "pctEnd": -12.359550561797752,
+        "pctStart": -17.977528089887638
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 2,
+        "count": 16,
+        "total": 89,
+        "pctOfTotal": 17.97752808988764,
+        "pctEnd": -17.977528089887638,
+        "pctStart": -35.95505617977528
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 3,
+        "count": 22,
+        "total": 89,
+        "pctOfTotal": 24.719101123595504,
+        "pctEnd": -35.95505617977528,
+        "pctStart": -60.67415730337079
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 4,
+        "count": 22,
+        "total": 89,
+        "pctOfTotal": 24.719101123595504,
+        "pctStart": -12.359550561797752,
+        "pctEnd": 12.359550561797752
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 5,
+        "count": 19,
+        "total": 89,
+        "pctOfTotal": 21.34831460674157,
+        "pctStart": 12.359550561797752,
+        "pctEnd": 33.70786516853932
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 6,
+        "count": 4,
+        "total": 89,
+        "pctOfTotal": 4.49438202247191,
+        "pctStart": 33.70786516853932,
+        "pctEnd": 38.20224719101123
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Diet",
+        "rank": 7,
+        "count": 1,
+        "total": 89,
+        "pctOfTotal": 1.1235955056179776,
+        "pctStart": 38.20224719101123,
+        "pctEnd": 39.32584269662921
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 1,
+        "count": 6,
+        "total": 89,
+        "pctOfTotal": 6.741573033707865,
+        "pctEnd": -15.168539325842698,
+        "pctStart": -21.910112359550563
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 2,
+        "count": 4,
+        "total": 89,
+        "pctOfTotal": 4.49438202247191,
+        "pctEnd": -21.910112359550563,
+        "pctStart": -26.404494382022474
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 3,
+        "count": 20,
+        "total": 89,
+        "pctOfTotal": 22.47191011235955,
+        "pctEnd": -26.404494382022474,
+        "pctStart": -48.87640449438202
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 4,
+        "count": 27,
+        "total": 89,
+        "pctOfTotal": 30.337078651685395,
+        "pctStart": -15.168539325842698,
+        "pctEnd": 15.168539325842698
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 5,
+        "count": 17,
+        "total": 89,
+        "pctOfTotal": 19.101123595505616,
+        "pctStart": 15.168539325842698,
+        "pctEnd": 34.26966292134831
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 6,
+        "count": 13,
+        "total": 89,
+        "pctOfTotal": 14.606741573033707,
+        "pctStart": 34.26966292134831,
+        "pctEnd": 48.87640449438202
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Mind",
+        "rank": 7,
+        "count": 2,
+        "total": 89,
+        "pctOfTotal": 2.247191011235955,
+        "pctStart": 48.87640449438202,
+        "pctEnd": 51.12359550561798
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 1,
+        "count": 15,
+        "total": 89,
+        "pctOfTotal": 16.853932584269664,
+        "pctEnd": -10.674157303370785,
+        "pctStart": -27.528089887640448
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 2,
+        "count": 20,
+        "total": 89,
+        "pctOfTotal": 22.47191011235955,
+        "pctEnd": -27.528089887640448,
+        "pctStart": -50
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 3,
+        "count": 21,
+        "total": 89,
+        "pctOfTotal": 23.595505617977526,
+        "pctEnd": -50,
+        "pctStart": -73.59550561797752
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 4,
+        "count": 19,
+        "total": 89,
+        "pctOfTotal": 21.34831460674157,
+        "pctStart": -10.674157303370785,
+        "pctEnd": 10.674157303370785
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 5,
+        "count": 8,
+        "total": 89,
+        "pctOfTotal": 8.98876404494382,
+        "pctStart": 10.674157303370785,
+        "pctEnd": 19.662921348314605
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 6,
+        "count": 5,
+        "total": 89,
+        "pctOfTotal": 5.617977528089887,
+        "pctStart": 19.662921348314605,
+        "pctEnd": 25.280898876404493
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Music",
+        "rank": 7,
+        "count": 1,
+        "total": 89,
+        "pctOfTotal": 1.1235955056179776,
+        "pctStart": 25.280898876404493,
+        "pctEnd": 26.40449438202247
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 1,
+        "count": 7,
+        "total": 89,
+        "pctOfTotal": 7.865168539325842,
+        "pctEnd": -15.168539325842698,
+        "pctStart": -23.03370786516854
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 2,
+        "count": 13,
+        "total": 89,
+        "pctOfTotal": 14.606741573033707,
+        "pctEnd": -23.03370786516854,
+        "pctStart": -37.640449438202246
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 3,
+        "count": 15,
+        "total": 89,
+        "pctOfTotal": 16.853932584269664,
+        "pctEnd": -37.640449438202246,
+        "pctStart": -54.49438202247191
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 4,
+        "count": 27,
+        "total": 89,
+        "pctOfTotal": 30.337078651685395,
+        "pctStart": -15.168539325842698,
+        "pctEnd": 15.168539325842698
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 5,
+        "count": 16,
+        "total": 89,
+        "pctOfTotal": 17.97752808988764,
+        "pctStart": 15.168539325842698,
+        "pctEnd": 33.14606741573034
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 6,
+        "count": 8,
+        "total": 89,
+        "pctOfTotal": 8.98876404494382,
+        "pctStart": 33.14606741573034,
+        "pctEnd": 42.134831460674164
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Sports",
+        "rank": 7,
+        "count": 3,
+        "total": 89,
+        "pctOfTotal": 3.3707865168539324,
+        "pctStart": 42.134831460674164,
+        "pctEnd": 45.5056179775281
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 1,
+        "count": 4,
+        "total": 88,
+        "pctOfTotal": 4.545454545454546,
+        "pctEnd": -11.931818181818182,
+        "pctStart": -16.477272727272727
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 2,
+        "count": 10,
+        "total": 88,
+        "pctOfTotal": 11.363636363636363,
+        "pctEnd": -16.477272727272727,
+        "pctStart": -27.84090909090909
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 3,
+        "count": 16,
+        "total": 88,
+        "pctOfTotal": 18.181818181818183,
+        "pctEnd": -27.84090909090909,
+        "pctStart": -46.02272727272727
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 4,
+        "count": 21,
+        "total": 88,
+        "pctOfTotal": 23.863636363636363,
+        "pctStart": -11.931818181818182,
+        "pctEnd": 11.931818181818182
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 5,
+        "count": 21,
+        "total": 88,
+        "pctOfTotal": 23.863636363636363,
+        "pctStart": 11.931818181818182,
+        "pctEnd": 35.79545454545455
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 6,
+        "count": 8,
+        "total": 88,
+        "pctOfTotal": 9.090909090909092,
+        "pctStart": 35.79545454545455,
+        "pctEnd": 44.88636363636364
+      },
+      {
+        "treatment": "Typographical",
+        "prompt": "Science",
+        "rank": 7,
+        "count": 8,
+        "total": 88,
+        "pctOfTotal": 9.090909090909092,
+        "pctStart": 44.88636363636364,
+        "pctEnd": 53.977272727272734
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 1,
+        "count": 12,
+        "total": 83,
+        "pctOfTotal": 14.457831325301203,
+        "pctEnd": -9.63855421686747,
+        "pctStart": -24.096385542168676
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 2,
+        "count": 18,
+        "total": 83,
+        "pctOfTotal": 21.686746987951807,
+        "pctEnd": -24.096385542168676,
+        "pctStart": -45.78313253012048
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 3,
+        "count": 22,
+        "total": 83,
+        "pctOfTotal": 26.506024096385545,
+        "pctEnd": -45.78313253012048,
+        "pctStart": -72.28915662650603
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 4,
+        "count": 16,
+        "total": 83,
+        "pctOfTotal": 19.27710843373494,
+        "pctStart": -9.63855421686747,
+        "pctEnd": 9.63855421686747
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 5,
+        "count": 6,
+        "total": 83,
+        "pctOfTotal": 7.228915662650602,
+        "pctStart": 9.63855421686747,
+        "pctEnd": 16.867469879518072
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 6,
+        "count": 6,
+        "total": 83,
+        "pctOfTotal": 7.228915662650602,
+        "pctStart": 16.867469879518072,
+        "pctEnd": 24.096385542168676
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Accident",
+        "rank": 7,
+        "count": 3,
+        "total": 83,
+        "pctOfTotal": 3.614457831325301,
+        "pctStart": 24.096385542168676,
+        "pctEnd": 27.710843373493976
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 1,
+        "count": 3,
+        "total": 83,
+        "pctOfTotal": 3.614457831325301,
+        "pctEnd": -16.867469879518072,
+        "pctStart": -20.481927710843372
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 2,
+        "count": 11,
+        "total": 83,
+        "pctOfTotal": 13.253012048192772,
+        "pctEnd": -20.481927710843372,
+        "pctStart": -33.734939759036145
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 3,
+        "count": 18,
+        "total": 83,
+        "pctOfTotal": 21.686746987951807,
+        "pctEnd": -33.734939759036145,
+        "pctStart": -55.42168674698795
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 4,
+        "count": 28,
+        "total": 83,
+        "pctOfTotal": 33.734939759036145,
+        "pctStart": -16.867469879518072,
+        "pctEnd": 16.867469879518072
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 5,
+        "count": 19,
+        "total": 83,
+        "pctOfTotal": 22.89156626506024,
+        "pctStart": 16.867469879518072,
+        "pctEnd": 39.75903614457832
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 6,
+        "count": 4,
+        "total": 83,
+        "pctOfTotal": 4.819277108433735,
+        "pctStart": 39.75903614457832,
+        "pctEnd": 44.578313253012055
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Diet",
+        "rank": 7,
+        "count": 0,
+        "total": 83,
+        "pctOfTotal": 0,
+        "pctStart": 44.578313253012055,
+        "pctEnd": 44.578313253012055
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 1,
+        "count": 4,
+        "total": 83,
+        "pctOfTotal": 4.819277108433735,
+        "pctEnd": -11.44578313253012,
+        "pctStart": -16.265060240963855
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 2,
+        "count": 7,
+        "total": 83,
+        "pctOfTotal": 8.433734939759036,
+        "pctEnd": -16.265060240963855,
+        "pctStart": -24.69879518072289
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 3,
+        "count": 17,
+        "total": 83,
+        "pctOfTotal": 20.481927710843372,
+        "pctEnd": -24.69879518072289,
+        "pctStart": -45.18072289156626
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 4,
+        "count": 19,
+        "total": 83,
+        "pctOfTotal": 22.89156626506024,
+        "pctStart": -11.44578313253012,
+        "pctEnd": 11.44578313253012
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 5,
+        "count": 19,
+        "total": 83,
+        "pctOfTotal": 22.89156626506024,
+        "pctStart": 11.44578313253012,
+        "pctEnd": 34.33734939759036
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 6,
+        "count": 15,
+        "total": 83,
+        "pctOfTotal": 18.072289156626507,
+        "pctStart": 34.33734939759036,
+        "pctEnd": 52.40963855421687
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Mind",
+        "rank": 7,
+        "count": 2,
+        "total": 83,
+        "pctOfTotal": 2.4096385542168677,
+        "pctStart": 52.40963855421687,
+        "pctEnd": 54.81927710843374
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 1,
+        "count": 43,
+        "total": 83,
+        "pctOfTotal": 51.80722891566265,
+        "pctEnd": -5.421686746987952,
+        "pctStart": -57.2289156626506
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 2,
+        "count": 16,
+        "total": 83,
+        "pctOfTotal": 19.27710843373494,
+        "pctEnd": -57.2289156626506,
+        "pctStart": -76.50602409638554
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 3,
+        "count": 7,
+        "total": 83,
+        "pctOfTotal": 8.433734939759036,
+        "pctEnd": -76.50602409638554,
+        "pctStart": -84.93975903614458
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 4,
+        "count": 9,
+        "total": 83,
+        "pctOfTotal": 10.843373493975903,
+        "pctStart": -5.421686746987952,
+        "pctEnd": 5.421686746987952
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 5,
+        "count": 4,
+        "total": 83,
+        "pctOfTotal": 4.819277108433735,
+        "pctStart": 5.421686746987952,
+        "pctEnd": 10.240963855421686
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 6,
+        "count": 3,
+        "total": 83,
+        "pctOfTotal": 3.614457831325301,
+        "pctStart": 10.240963855421686,
+        "pctEnd": 13.855421686746986
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Music",
+        "rank": 7,
+        "count": 1,
+        "total": 83,
+        "pctOfTotal": 1.2048192771084338,
+        "pctStart": 13.855421686746986,
+        "pctEnd": 15.06024096385542
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 1,
+        "count": 14,
+        "total": 83,
+        "pctOfTotal": 16.867469879518072,
+        "pctEnd": -8.433734939759036,
+        "pctStart": -25.30120481927711
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 2,
+        "count": 20,
+        "total": 83,
+        "pctOfTotal": 24.096385542168676,
+        "pctEnd": -25.30120481927711,
+        "pctStart": -49.397590361445786
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 3,
+        "count": 13,
+        "total": 83,
+        "pctOfTotal": 15.66265060240964,
+        "pctEnd": -49.397590361445786,
+        "pctStart": -65.06024096385542
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 4,
+        "count": 14,
+        "total": 83,
+        "pctOfTotal": 16.867469879518072,
+        "pctStart": -8.433734939759036,
+        "pctEnd": 8.433734939759036
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 5,
+        "count": 13,
+        "total": 83,
+        "pctOfTotal": 15.66265060240964,
+        "pctStart": 8.433734939759036,
+        "pctEnd": 24.096385542168676
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 6,
+        "count": 9,
+        "total": 83,
+        "pctOfTotal": 10.843373493975903,
+        "pctStart": 24.096385542168676,
+        "pctEnd": 34.93975903614458
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Sports",
+        "rank": 7,
+        "count": 0,
+        "total": 83,
+        "pctOfTotal": 0,
+        "pctStart": 34.93975903614458,
+        "pctEnd": 34.93975903614458
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 1,
+        "count": 8,
+        "total": 83,
+        "pctOfTotal": 9.63855421686747,
+        "pctEnd": -15.66265060240964,
+        "pctStart": -25.30120481927711
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 2,
+        "count": 9,
+        "total": 83,
+        "pctOfTotal": 10.843373493975903,
+        "pctEnd": -25.30120481927711,
+        "pctStart": -36.144578313253014
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 3,
+        "count": 16,
+        "total": 83,
+        "pctOfTotal": 19.27710843373494,
+        "pctEnd": -36.144578313253014,
+        "pctStart": -55.42168674698796
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 4,
+        "count": 26,
+        "total": 83,
+        "pctOfTotal": 31.32530120481928,
+        "pctStart": -15.66265060240964,
+        "pctEnd": 15.66265060240964
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 5,
+        "count": 10,
+        "total": 83,
+        "pctOfTotal": 12.048192771084338,
+        "pctStart": 15.66265060240964,
+        "pctEnd": 27.71084337349398
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 6,
+        "count": 9,
+        "total": 83,
+        "pctOfTotal": 10.843373493975903,
+        "pctStart": 27.71084337349398,
+        "pctEnd": 38.55421686746988
+      },
+      {
+        "treatment": "Phonological",
+        "prompt": "Science",
+        "rank": 7,
+        "count": 5,
+        "total": 83,
+        "pctOfTotal": 6.024096385542169,
+        "pctStart": 38.55421686746988,
+        "pctEnd": 44.578313253012055
+      }
+    ]
+  },
+  "aggregated": {
+    "effective": [
+      {
+        "treatment": "Control",
+        "rank": 1,
+        "count": 18,
+        "total": 556,
+        "pctOfTotal": 3.237410071942446,
+        "pctEnd": -25.719424460431657,
+        "pctStart": -28.956834532374103
+      },
+      {
+        "treatment": "Control",
+        "rank": 2,
+        "count": 27,
+        "total": 556,
+        "pctOfTotal": 4.856115107913669,
+        "pctEnd": -20.863309352517987,
+        "pctStart": -25.719424460431657
+      },
+      {
+        "treatment": "Control",
+        "rank": 3,
+        "count": 65,
+        "total": 556,
+        "pctOfTotal": 11.690647482014388,
+        "pctEnd": -9.172661870503598,
+        "pctStart": -20.863309352517987
+      },
+      {
+        "treatment": "Control",
+        "rank": 4,
+        "count": 102,
+        "total": 556,
+        "pctOfTotal": 18.345323741007196,
+        "pctStart": -9.172661870503598,
+        "pctEnd": 9.172661870503598
+      },
+      {
+        "treatment": "Control",
+        "rank": 5,
+        "count": 162,
+        "total": 556,
+        "pctOfTotal": 29.136690647482016,
+        "pctStart": 9.172661870503598,
+        "pctEnd": 38.309352517985616
+      },
+      {
+        "treatment": "Control",
+        "rank": 6,
+        "count": 121,
+        "total": 556,
+        "pctOfTotal": 21.762589928057555,
+        "pctStart": 38.309352517985616,
+        "pctEnd": 60.07194244604317
+      },
+      {
+        "treatment": "Control",
+        "rank": 7,
+        "count": 61,
+        "total": 556,
+        "pctOfTotal": 10.971223021582734,
+        "pctStart": 60.07194244604317,
+        "pctEnd": 71.0431654676259
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 1,
+        "count": 17,
+        "total": 533,
+        "pctOfTotal": 3.189493433395872,
+        "pctEnd": -27.673545966228893,
+        "pctStart": -30.863039399624764
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 2,
+        "count": 45,
+        "total": 533,
+        "pctOfTotal": 8.442776735459661,
+        "pctEnd": -19.23076923076923,
+        "pctStart": -27.673545966228893
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 3,
+        "count": 54,
+        "total": 533,
+        "pctOfTotal": 10.131332082551594,
+        "pctEnd": -9.099437148217635,
+        "pctStart": -19.23076923076923
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 4,
+        "count": 97,
+        "total": 533,
+        "pctOfTotal": 18.19887429643527,
+        "pctStart": -9.099437148217635,
+        "pctEnd": 9.099437148217635
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 5,
+        "count": 139,
+        "total": 533,
+        "pctOfTotal": 26.07879924953096,
+        "pctStart": 9.099437148217635,
+        "pctEnd": 35.17823639774859
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 6,
+        "count": 104,
+        "total": 533,
+        "pctOfTotal": 19.51219512195122,
+        "pctStart": 35.17823639774859,
+        "pctEnd": 54.690431519699814
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 7,
+        "count": 77,
+        "total": 533,
+        "pctOfTotal": 14.446529080675422,
+        "pctStart": 54.690431519699814,
+        "pctEnd": 69.13696060037523
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 1,
+        "count": 37,
+        "total": 498,
+        "pctOfTotal": 7.429718875502007,
+        "pctEnd": -30.722891566265062,
+        "pctStart": -38.15261044176707
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 2,
+        "count": 35,
+        "total": 498,
+        "pctOfTotal": 7.028112449799197,
+        "pctEnd": -23.694779116465863,
+        "pctStart": -30.722891566265062
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 3,
+        "count": 71,
+        "total": 498,
+        "pctOfTotal": 14.257028112449799,
+        "pctEnd": -9.437751004016064,
+        "pctStart": -23.694779116465863
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 4,
+        "count": 94,
+        "total": 498,
+        "pctOfTotal": 18.87550200803213,
+        "pctStart": -9.437751004016064,
+        "pctEnd": 9.437751004016064
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 5,
+        "count": 111,
+        "total": 498,
+        "pctOfTotal": 22.289156626506024,
+        "pctStart": 9.437751004016064,
+        "pctEnd": 31.72690763052209
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 6,
+        "count": 90,
+        "total": 498,
+        "pctOfTotal": 18.072289156626507,
+        "pctStart": 31.72690763052209,
+        "pctEnd": 49.799196787148595
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 7,
+        "count": 60,
+        "total": 498,
+        "pctOfTotal": 12.048192771084338,
+        "pctStart": 49.799196787148595,
+        "pctEnd": 61.84738955823293
+      }
+    ],
+    "intelligence": [
+      {
+        "treatment": "Control",
+        "rank": 1,
+        "count": 13,
+        "total": 556,
+        "pctOfTotal": 2.338129496402878,
+        "pctEnd": -33.723021582733814,
+        "pctStart": -36.06115107913669
+      },
+      {
+        "treatment": "Control",
+        "rank": 2,
+        "count": 29,
+        "total": 556,
+        "pctOfTotal": 5.215827338129497,
+        "pctEnd": -28.507194244604317,
+        "pctStart": -33.723021582733814
+      },
+      {
+        "treatment": "Control",
+        "rank": 3,
+        "count": 74,
+        "total": 556,
+        "pctOfTotal": 13.309352517985612,
+        "pctEnd": -15.197841726618705,
+        "pctStart": -28.507194244604317
+      },
+      {
+        "treatment": "Control",
+        "rank": 4,
+        "count": 169,
+        "total": 556,
+        "pctOfTotal": 30.39568345323741,
+        "pctStart": -15.197841726618705,
+        "pctEnd": 15.197841726618705
+      },
+      {
+        "treatment": "Control",
+        "rank": 5,
+        "count": 151,
+        "total": 556,
+        "pctOfTotal": 27.15827338129496,
+        "pctStart": 15.197841726618705,
+        "pctEnd": 42.356115107913666
+      },
+      {
+        "treatment": "Control",
+        "rank": 6,
+        "count": 88,
+        "total": 556,
+        "pctOfTotal": 15.827338129496402,
+        "pctStart": 42.356115107913666,
+        "pctEnd": 58.18345323741007
+      },
+      {
+        "treatment": "Control",
+        "rank": 7,
+        "count": 32,
+        "total": 556,
+        "pctOfTotal": 5.755395683453238,
+        "pctStart": 58.18345323741007,
+        "pctEnd": 63.93884892086331
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 1,
+        "count": 28,
+        "total": 533,
+        "pctOfTotal": 5.253283302063791,
+        "pctEnd": -41.369606003752345,
+        "pctStart": -46.62288930581614
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 2,
+        "count": 63,
+        "total": 533,
+        "pctOfTotal": 11.819887429643527,
+        "pctEnd": -29.549718574108816,
+        "pctStart": -41.369606003752345
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 3,
+        "count": 82,
+        "total": 533,
+        "pctOfTotal": 15.384615384615385,
+        "pctEnd": -14.165103189493433,
+        "pctStart": -29.549718574108816
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 4,
+        "count": 151,
+        "total": 533,
+        "pctOfTotal": 28.330206378986865,
+        "pctStart": -14.165103189493433,
+        "pctEnd": 14.165103189493433
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 5,
+        "count": 121,
+        "total": 533,
+        "pctOfTotal": 22.70168855534709,
+        "pctStart": 14.165103189493433,
+        "pctEnd": 36.866791744840526
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 6,
+        "count": 69,
+        "total": 533,
+        "pctOfTotal": 12.94559099437148,
+        "pctStart": 36.866791744840526,
+        "pctEnd": 49.812382739212005
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 7,
+        "count": 19,
+        "total": 533,
+        "pctOfTotal": 3.564727954971857,
+        "pctStart": 49.812382739212005,
+        "pctEnd": 53.37711069418386
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 1,
+        "count": 50,
+        "total": 498,
+        "pctOfTotal": 10.040160642570282,
+        "pctEnd": -45.88353413654618,
+        "pctStart": -55.92369477911646
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 2,
+        "count": 64,
+        "total": 498,
+        "pctOfTotal": 12.851405622489958,
+        "pctEnd": -33.032128514056225,
+        "pctStart": -45.88353413654618
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 3,
+        "count": 91,
+        "total": 498,
+        "pctOfTotal": 18.27309236947791,
+        "pctEnd": -14.759036144578314,
+        "pctStart": -33.032128514056225
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 4,
+        "count": 147,
+        "total": 498,
+        "pctOfTotal": 29.518072289156628,
+        "pctStart": -14.759036144578314,
+        "pctEnd": 14.759036144578314
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 5,
+        "count": 83,
+        "total": 498,
+        "pctOfTotal": 16.666666666666664,
+        "pctStart": 14.759036144578314,
+        "pctEnd": 31.425702811244978
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 6,
+        "count": 45,
+        "total": 498,
+        "pctOfTotal": 9.036144578313253,
+        "pctStart": 31.425702811244978,
+        "pctEnd": 40.46184738955823
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 7,
+        "count": 18,
+        "total": 498,
+        "pctOfTotal": 3.614457831325301,
+        "pctStart": 40.46184738955823,
+        "pctEnd": 44.07630522088353
+      }
+    ],
+    "writing": [
+      {
+        "treatment": "Control",
+        "rank": 1,
+        "count": 17,
+        "total": 556,
+        "pctOfTotal": 3.0575539568345325,
+        "pctEnd": -39.02877697841727,
+        "pctStart": -42.0863309352518
+      },
+      {
+        "treatment": "Control",
+        "rank": 2,
+        "count": 39,
+        "total": 556,
+        "pctOfTotal": 7.014388489208632,
+        "pctEnd": -32.014388489208635,
+        "pctStart": -39.02877697841727
+      },
+      {
+        "treatment": "Control",
+        "rank": 3,
+        "count": 79,
+        "total": 556,
+        "pctOfTotal": 14.20863309352518,
+        "pctEnd": -17.805755395683455,
+        "pctStart": -32.014388489208635
+      },
+      {
+        "treatment": "Control",
+        "rank": 4,
+        "count": 198,
+        "total": 556,
+        "pctOfTotal": 35.61151079136691,
+        "pctStart": -17.805755395683455,
+        "pctEnd": 17.805755395683455
+      },
+      {
+        "treatment": "Control",
+        "rank": 5,
+        "count": 127,
+        "total": 556,
+        "pctOfTotal": 22.841726618705035,
+        "pctStart": 17.805755395683455,
+        "pctEnd": 40.64748201438849
+      },
+      {
+        "treatment": "Control",
+        "rank": 6,
+        "count": 79,
+        "total": 556,
+        "pctOfTotal": 14.20863309352518,
+        "pctStart": 40.64748201438849,
+        "pctEnd": 54.856115107913666
+      },
+      {
+        "treatment": "Control",
+        "rank": 7,
+        "count": 17,
+        "total": 556,
+        "pctOfTotal": 3.0575539568345325,
+        "pctStart": 54.856115107913666,
+        "pctEnd": 57.9136690647482
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 1,
+        "count": 45,
+        "total": 533,
+        "pctOfTotal": 8.442776735459661,
+        "pctEnd": -49.530956848030016,
+        "pctStart": -57.973733583489675
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 2,
+        "count": 80,
+        "total": 533,
+        "pctOfTotal": 15.0093808630394,
+        "pctEnd": -34.52157598499062,
+        "pctStart": -49.530956848030016
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 3,
+        "count": 111,
+        "total": 533,
+        "pctOfTotal": 20.825515947467167,
+        "pctEnd": -13.696060037523452,
+        "pctStart": -34.52157598499062
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 4,
+        "count": 146,
+        "total": 533,
+        "pctOfTotal": 27.392120075046904,
+        "pctStart": -13.696060037523452,
+        "pctEnd": 13.696060037523452
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 5,
+        "count": 91,
+        "total": 533,
+        "pctOfTotal": 17.073170731707318,
+        "pctStart": 13.696060037523452,
+        "pctEnd": 30.76923076923077
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 6,
+        "count": 43,
+        "total": 533,
+        "pctOfTotal": 8.067542213883677,
+        "pctStart": 30.76923076923077,
+        "pctEnd": 38.83677298311444
+      },
+      {
+        "treatment": "Typographical",
+        "rank": 7,
+        "count": 17,
+        "total": 533,
+        "pctOfTotal": 3.189493433395872,
+        "pctStart": 38.83677298311444,
+        "pctEnd": 42.02626641651032
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 1,
+        "count": 84,
+        "total": 498,
+        "pctOfTotal": 16.867469879518072,
+        "pctEnd": -46.18473895582329,
+        "pctStart": -63.05220883534136
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 2,
+        "count": 81,
+        "total": 498,
+        "pctOfTotal": 16.265060240963855,
+        "pctEnd": -29.919678714859437,
+        "pctStart": -46.18473895582329
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 3,
+        "count": 93,
+        "total": 498,
+        "pctOfTotal": 18.67469879518072,
+        "pctEnd": -11.244979919678714,
+        "pctStart": -29.919678714859437
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 4,
+        "count": 112,
+        "total": 498,
+        "pctOfTotal": 22.48995983935743,
+        "pctStart": -11.244979919678714,
+        "pctEnd": 11.244979919678714
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 5,
+        "count": 71,
+        "total": 498,
+        "pctOfTotal": 14.257028112449799,
+        "pctStart": 11.244979919678714,
+        "pctEnd": 25.502008032128515
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 6,
+        "count": 46,
+        "total": 498,
+        "pctOfTotal": 9.236947791164658,
+        "pctStart": 25.502008032128515,
+        "pctEnd": 34.738955823293175
+      },
+      {
+        "treatment": "Phonological",
+        "rank": 7,
+        "count": 11,
+        "total": 498,
+        "pctOfTotal": 2.208835341365462,
+        "pctStart": 34.738955823293175,
+        "pctEnd": 36.94779116465864
+      }
+    ]
+  }
+}

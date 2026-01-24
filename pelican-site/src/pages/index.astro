@@ -1,0 +1,427 @@
+---
+// pelican-site/src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ThemeToggle from '../components/layout/ThemeToggle.astro';
+import TableOfContents from '../components/layout/TableOfContents.astro';
+import Footer from '../components/layout/Footer.astro';
+import Section from '../components/content/Section.astro';
+import Figure from '../components/content/Figure.astro';
+import StatTable from '../components/content/StatTable.astro';
+import ParticipantCount from '../components/charts/ParticipantCount.astro';
+import DemographicChart from '../components/charts/DemographicChart.astro';
+import DivergencePlot from '../components/charts/DivergencePlot.astro';
+import LikertVariance from '../components/charts/LikertVariance.astro';
+import WpmByGroup from '../components/charts/WpmByGroup.astro';
+
+const tocItems = [
+  { id: 'abstract', title: 'Abstract' },
+  { id: 'introduction', title: 'Introduction' },
+  { id: 'related-work', title: 'Related Work' },
+  { id: 'methods', title: 'Methods' },
+  { id: 'results', title: 'Results' },
+  { id: 'discussion', title: 'Discussion' },
+  { id: 'conclusion', title: 'Conclusion' },
+  { id: 'references', title: 'References' },
+];
+
+// Statistical results data for tables
+const baselineResults = {
+  columns: [
+    { header: 'Variable', key: 'variable', align: 'left' as const },
+    { header: 'Estimate', key: 'estimate', align: 'right' as const },
+    { header: 'Std. Error', key: 'stderr', align: 'right' as const },
+  ],
+  rows: [
+    { variable: 'Treatment: Phonological', estimate: { value: '-1.142***', significant: true }, stderr: '(0.108)' },
+    { variable: 'Treatment: Typographical', estimate: { value: '-0.558***', significant: true }, stderr: '(0.104)' },
+    { variable: 'Constant', estimate: '4.563***', stderr: '(0.067)' },
+  ],
+};
+
+const demographicsResults = {
+  columns: [
+    { header: 'Variable', key: 'variable', align: 'left' as const },
+    { header: 'Baseline', key: 'baseline', align: 'right' as const },
+    { header: 'With Demographics', key: 'demographics', align: 'right' as const },
+  ],
+  rows: [
+    { variable: 'Treatment: Phonological', baseline: { value: '-1.142***', significant: true }, demographics: { value: '-1.260***', significant: true } },
+    { variable: 'Treatment: Typographical', baseline: { value: '-0.558***', significant: true }, demographics: { value: '-0.637***', significant: true } },
+    { variable: 'Post Length', baseline: '-', demographics: { value: '-0.028***', significant: true } },
+  ],
+};
+
+const caceResults = {
+  columns: [
+    { header: 'Variable', key: 'variable', align: 'left' as const },
+    { header: 'Typographical', key: 'typo', align: 'right' as const },
+    { header: 'Phonological', key: 'phono', align: 'right' as const },
+  ],
+  rows: [
+    { variable: 'CACE Estimate', typo: { value: '-1.526***', significant: true }, phono: { value: '-2.734***', significant: true } },
+    { variable: 'Intelligence (pretreat)', typo: { value: '0.296***', significant: true }, phono: { value: '0.172***', significant: true } },
+    { variable: 'Observations', typo: '719', phono: '689' },
+    { variable: 'R-squared', typo: '0.313', phono: '0.377' },
+  ],
+};
+---
+
+<BaseLayout title="Do Grammatical Errors Affect Perceived Intelligence?">
+  <header class="sticky top-0 z-50 bg-[var(--color-bg)]/80 backdrop-blur-sm border-b border-[var(--color-border)]">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-lg font-semibold text-[var(--color-accent)]">Typos Study</h1>
+      <ThemeToggle />
+    </div>
+  </header>
+
+  <div class="flex">
+    <TableOfContents items={tocItems} />
+
+    <main class="flex-1 lg:ml-60 max-w-4xl mx-auto px-4 py-8">
+      <article>
+        <!-- Title Block -->
+        <header class="mb-12 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[var(--color-text)]">
+            Do Grammatical Errors in Social Media Posts Affect the Perception of Authors' Intelligence?
+          </h2>
+          <p class="text-lg text-[var(--color-text-muted)] mb-2">
+            A Randomized Controlled Experiment
+          </p>
+          <p class="text-[var(--color-text-muted)]">
+            <strong class="text-[var(--color-text)]">Authors:</strong> Cris Benge, Stone Jiang, Andrew Fogarty
+          </p>
+          <p class="text-sm text-[var(--color-text-muted)] mt-2">
+            UC Berkeley School of Information | W241: Experiments and Causal Inference | Spring 2021
+          </p>
+          <div class="mt-4">
+            <a
+              href="https://github.com/cbenge509/typos_field_experiment"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-accent)] text-white rounded-lg hover:opacity-90 transition-opacity"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              View on GitHub
+            </a>
+          </div>
+        </header>
+
+        <!-- Abstract -->
+        <Section id="abstract" title="Abstract">
+          <p>
+            This study investigates whether grammatical errors in social media posts affect perceptions of authors' intelligence.
+            Using a randomized controlled experiment with <strong>265 participants</strong> from Amazon Mechanical Turk and
+            UC Berkeley XLab, we examined the impact of two types of spelling errors: <em>typographical errors</em>
+            (accidental keystroke mistakes) and <em>phonological errors</em> (spelling based on word sounds).
+          </p>
+          <p>
+            Our findings reveal statistically significant negative effects for both error types on perceived intelligence.
+            Phonological errors resulted in a <strong>1.14-point decrease</strong> on a 7-point Likert scale (p &lt; 0.01),
+            while typographical errors caused a <strong>0.56-point decrease</strong> (p &lt; 0.01). These results suggest
+            that readers make unconscious judgments about authors' cognitive abilities based on spelling accuracy,
+            with sound-based spelling errors being particularly damaging to perceived intelligence.
+          </p>
+        </Section>
+
+        <!-- Introduction -->
+        <Section id="introduction" title="Introduction">
+          <p>
+            Command of language is one of the most significant cognitive abilities we possess and is often the most
+            pervasive signal we encounter in a social media setting. When we notice overt and unintentional grammatical
+            errors in social media posts, do we make unconscious assumptions about the authors' general intelligence?
+            Do we attribute difficulty with written language with other indicators such as lower-performing verbal
+            acuity or overall intelligence? Further, are some categories of grammatical errors more injurious than
+            others -- or do we take in stride all these trespasses?
+          </p>
+          <p>
+            General intelligence, sometimes referred to as cognitive ability, includes our capacity to "reason, plan,
+            solve problems, think abstractly, comprehend complex ideas, learn quickly, and learn from experience"
+            (<a href="https://www.nature.com/articles/35011520" target="_blank" rel="noopener">Plomin, 1999</a>).
+            Assessment of our cognitive abilities often informs critical judgments in others that affect our educational,
+            occupational, and relationship opportunities.
+          </p>
+          <p>
+            Though social media channels are often used to identify potentially qualified job candidates, their use in
+            screening candidates for suitability and background investigation is also on the rise. In a CareerBuilder
+            survey, <strong>57% of employers</strong> reported rejecting candidates based on negative findings in
+            applicant social media posts. Of those rejected, <strong>27%</strong> specified "poor communication skills"
+            as the primary factor for the rejection.
+          </p>
+          <blockquote>
+            Our hypothesis is that both typographical and phonological spelling errors, compared to no spelling errors
+            at all, will lead to a decreased level of perceived intelligence, irrespective of the nature, content,
+            and platform of the social media post.
+          </blockquote>
+        </Section>
+
+        <!-- Related Work -->
+        <Section id="related-work" title="Related Work">
+          <p>
+            There is evidence that we ought to take this question seriously. In
+            <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-6494.1993.tb00779.x" target="_blank" rel="noopener">Borkenau & Liebler (1993)</a>,
+            college students rated their perceived intelligence of strangers after watching them read aloud a pre-written
+            weather report. The study found a significant correlation between perceived and measured IQ scores of the
+            strangers, suggesting that some information about individual intelligence is provided through verbal communication.
+          </p>
+          <p>
+            <a href="https://www.tandfonline.com/doi/abs/10.1080/00221300209602029" target="_blank" rel="noopener">Kreiner et al. (2002)</a>
+            showed that, while experiments with only a small percentage of typographical errors didn't result in
+            significant perceived intelligence ratings, the presence of a larger number of typographical errors or
+            phonological errors did significantly influence the perception of cognitive writing abilities.
+          </p>
+          <p>
+            The distinction between error types is crucial. <strong>Typographical errors</strong> (typos) are spelling
+            mistakes that occur due to slip of the hand when typing, including artifacts such as swapping letters,
+            typing a letter close to the intended letter on the keyboard, or leaving out a letter. Usually the misspelled
+            word is still easy to recognize (e.g., "somethimg", "hwo", "thrd").
+          </p>
+          <p>
+            <strong>Phonological errors</strong>, on the other hand, arise out of ignorance, or spellings based on
+            sounds of the word. These usually demonstrate that the author truly does not know the proper spelling of
+            the word (e.g., "sumthing", "Kansus", "razing").
+          </p>
+        </Section>
+
+        <!-- Methods -->
+        <Section id="methods" title="Methods">
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Experimental Design</h3>
+          <p>
+            We adopted a pre-test/post-test control group study design. Participants were randomized at the start of
+            the study with equal probability of assignment to Control, Typographical, or Phonological groups. All
+            participants first viewed one identical post containing no errors to establish a pretreatment baseline.
+            Each group then viewed 5 additional posts specific to their treatment condition.
+          </p>
+          <p>
+            Our null hypothesis states that individuals exposed to either treatment will not view its author as less
+            intelligent than those exposed to control. Our alternative hypothesis proposes that treatment exposure
+            leads to decreased perceived intelligence ratings.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Measurement</h3>
+          <p>
+            Participants were invited to join a short, anonymous survey with the stated intent of assessing their
+            opinion on the appropriateness in length of social media posts. <em>Deception was employed</em> to avoid
+            anticipated response bias. For each social media post, participants answered:
+          </p>
+          <ul>
+            <li><strong>Attention Question:</strong> Recall question about the post content</li>
+            <li><strong>Decoy Questions:</strong> 5-point Likert on post length, 7-point Likert on attitude toward content</li>
+            <li><strong>Outcome Questions:</strong> 7-point Likert scales for perceived effectiveness, intelligence, and writing skills</li>
+            <li><strong>Error Detection:</strong> Question asking how many spelling/grammar mistakes were noticed</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Pilot Study</h3>
+          <p>
+            Our pilot was conducted March 10-11, 2021, with open solicitations posted on Facebook and UC Berkeley's
+            Slack. We received participation from <strong>31 volunteers</strong>.
+          </p>
+          <ParticipantCount dataset="pilot" title="Pilot Study: Participants by Treatment Group" />
+
+          <p class="mt-6">
+            Despite the small pilot dataset, we observed highly significant results: phonological errors had more than
+            double the effect of typographical errors on perceived intelligence.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Live Study</h3>
+          <p>
+            The live study was conducted March 31 - April 9, 2021, with participants recruited through Amazon Mechanical
+            Turk (March 31 - April 1) and UC Berkeley XLab (April 6-9). We collected data from <strong>265 participants</strong>.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+            <ParticipantCount dataset="amazon" title="Amazon MTurk Participants" />
+            <ParticipantCount dataset="xlab" title="XLab Participants" />
+          </div>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Participant Demographics</h3>
+          <p>
+            Our study drew participants primarily from the United States, with a diverse distribution across gender and age groups.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+            <DemographicChart type="gender" />
+            <DemographicChart type="ageBins" />
+          </div>
+          <div class="my-6">
+            <DemographicChart type="state" title="U.S. State Distribution (Top 15)" />
+          </div>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Response Quality Analysis</h3>
+          <p>
+            We analyzed response quality by examining reading speed (words per minute) and Likert scale response
+            variance to identify potential low-effort respondents.
+          </p>
+          <div class="space-y-6 my-6">
+            <WpmByGroup maxWpm={800} />
+            <LikertVariance />
+          </div>
+        </Section>
+
+        <!-- Results -->
+        <Section id="results" title="Results">
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Placebo Test</h3>
+          <p>
+            To assess data quality, we performed placebo tests measuring treatment effect on the pretreatment control
+            question. The Amazon MTurk data showed suspicious significance, suggesting potential randomization issues.
+            The XLab data passed the placebo test, so we used only XLab participants (N=209) for our primary analysis.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Baseline Model</h3>
+          <p>
+            Our baseline model examines only the effect of treatment on perceived intelligence using robust standard
+            errors. Both treatment effects are negative and highly statistically significant.
+          </p>
+
+          <StatTable
+            title="Baseline Regression Results"
+            subtitle="Dependent Variable: Perceived Intelligence (1-7 scale)"
+            columns={baselineResults.columns}
+            rows={baselineResults.rows}
+            footer="<em>Note:</em> *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01 | N=1,044 observations | R&sup2;=0.095"
+          />
+
+          <p class="mt-6">
+            The phonological treatment shows a <strong>1.142-point decrease</strong> in perceived intelligence,
+            while typographical errors show a <strong>0.558-point decrease</strong>. Phonological errors have
+            approximately <strong>twice the negative impact</strong> of typographical errors.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Model with Demographic Controls</h3>
+          <p>
+            Adding demographic covariates (gender, age, education, native language, social media usage) slightly
+            increases the magnitude of treatment effects while maintaining statistical significance.
+          </p>
+
+          <StatTable
+            title="Regression with Demographic Controls"
+            subtitle="Dependent Variable: Perceived Intelligence (1-7 scale)"
+            columns={demographicsResults.columns}
+            rows={demographicsResults.rows}
+            footer="<em>Note:</em> *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01 | Additional controls: Gender, English proficiency, Race, US location, Degree, Age bins, Social media reading/writing frequency"
+          />
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Treatment Effect Visualization</h3>
+          <p>
+            The divergence plots below show the distribution of Likert scale responses by treatment group. Bars
+            extending left represent lower ratings (1-3), while bars extending right represent higher ratings (5-7).
+          </p>
+
+          <div class="space-y-6 my-6">
+            <DivergencePlot question="intelligence" title="Perceived Intelligence by Treatment Group" />
+            <DivergencePlot question="writing" title="Perceived Writing Quality by Treatment Group" />
+            <DivergencePlot question="effective" title="Perceived Effectiveness by Treatment Group" />
+          </div>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Compliance Analysis</h3>
+          <p>
+            We analyzed potential noncompliance using an instrumental variables approach. Compliers were defined as
+            participants who: (1) correctly identified error presence/absence in posts, and (2) had reading speeds
+            between 50-500 words per minute, suggesting careful reading.
+          </p>
+          <p>
+            Complier rates: <strong>78% Phonological</strong>, <strong>76% Typographical</strong>, <strong>63% Control</strong>.
+          </p>
+
+          <StatTable
+            title="CACE Estimates (Complier Average Causal Effect)"
+            subtitle="2-Stage Least Squares with Covariates"
+            columns={caceResults.columns}
+            rows={caceResults.rows}
+            footer="<em>Note:</em> *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01 | CACE estimates are larger than ITT estimates, consistent with presence of noncompliers"
+          />
+        </Section>
+
+        <!-- Discussion -->
+        <Section id="discussion" title="Discussion">
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Interpretation</h3>
+          <p>
+            Our results strongly support the hypothesis that grammatical errors in social media posts negatively
+            affect perceptions of author intelligence. The effect is robust across multiple model specifications
+            and analytical approaches.
+          </p>
+          <p>
+            The finding that phonological errors have approximately <strong>twice the impact</strong> of typographical
+            errors is particularly noteworthy. This may reflect that phonological errors signal a fundamental lack of
+            word knowledge, while typographical errors can be attributed to carelessness or typing speed.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Implications</h3>
+          <p>
+            These findings have practical implications for social media users, particularly in professional contexts:
+          </p>
+          <ul>
+            <li>Careful proofreading before posting may help maintain positive impressions</li>
+            <li>Phonological errors should be particularly avoided as they carry greater reputational cost</li>
+            <li>Employers using social media screening should be aware of potential biases in intelligence attribution</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold mt-8 mb-4 text-[var(--color-text)]">Limitations</h3>
+          <ul>
+            <li><strong>Sample composition:</strong> Primarily UC Berkeley students, limiting generalizability</li>
+            <li><strong>Artificial setting:</strong> Participants knew they were being studied, potentially affecting behavior</li>
+            <li><strong>Post content:</strong> We used neutral topics; effects may differ for emotionally charged content</li>
+            <li><strong>Platform specificity:</strong> Results may not generalize to all social media platforms</li>
+            <li><strong>MTurk data quality:</strong> Failed placebo tests required excluding MTurk participants</li>
+          </ul>
+        </Section>
+
+        <!-- Conclusion -->
+        <Section id="conclusion" title="Conclusion">
+          <p>
+            This randomized controlled experiment provides strong evidence that grammatical errors in social media
+            posts causally affect perceptions of author intelligence. Both typographical and phonological errors
+            result in statistically significant decreases in perceived intelligence, with phonological errors having
+            approximately twice the negative impact.
+          </p>
+          <p>
+            Our findings extend previous research by confirming these effects in a contemporary social media context
+            using rigorous experimental methodology. The results suggest that language errors serve as powerful
+            signals that readers use to make inferences about cognitive ability, even in informal online communication.
+          </p>
+          <p>
+            Future research should examine whether these effects persist across different demographic groups,
+            cultural contexts, and social media platforms. Additionally, investigating potential interventions to
+            reduce bias in intelligence perception based on writing errors would be valuable.
+          </p>
+        </Section>
+
+        <!-- References -->
+        <Section id="references" title="References">
+          <ol class="list-decimal list-inside space-y-3 text-sm">
+            <li>
+              Borkenau, P., & Liebler, A. (1993). Convergence of stranger ratings of personality and intelligence
+              with self-ratings, partner ratings, and measured intelligence.
+              <em>Journal of Personality and Social Psychology</em>, 65(3), 546-553.
+            </li>
+            <li>
+              Driver, S. (2020). Keep It Clean: Social Media Screenings Gain in Popularity.
+              <em>Business News Daily</em>.
+              <a href="https://www.businessnewsdaily.com/2377-social-media-hiring.html" target="_blank" rel="noopener">Link</a>
+            </li>
+            <li>
+              Kreiner, D. S., Schnakenberg, S. D., Green, A. G., Costello, M. J., & McClin, A. F. (2002).
+              Effects of spelling errors on the perception of writers.
+              <em>The Journal of General Psychology</em>, 129(1), 5-17.
+            </li>
+            <li>
+              Newman, B. M., & Newman, P. R. (2020). <em>Theories of Adolescent Development</em>.
+              Academic Press.
+            </li>
+            <li>
+              Plomin, R. (1999). Genetics and general cognitive ability.
+              <em>Nature</em>, 402(6761), C25-C29.
+            </li>
+            <li>
+              Silverman, F. H. (1990). Are professors overrating students who stutter?
+              <em>Journal of Fluency Disorders</em>, 15(2), 81-85.
+            </li>
+          </ol>
+        </Section>
+
+      </article>
+    </main>
+  </div>
+
+  <Footer />
+</BaseLayout>
