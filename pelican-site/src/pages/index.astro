@@ -1,22 +1,23 @@
 ---
 // pelican-site/src/pages/index.astro
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ThemeToggle from '../components/layout/ThemeToggle.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Typos Field Experiment</title>
-  </head>
-  <body class="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
-    <main class="max-w-4xl mx-auto px-4 py-8">
-      <h1 class="text-4xl font-bold text-[var(--color-accent)]">
-        Tailwind v4 Working
-      </h1>
-      <p class="mt-4 text-[var(--color-text-muted)]">
-        If you see this styled, Tailwind is configured correctly.
-      </p>
-    </main>
-  </body>
-</html>
+<BaseLayout title="Do Grammatical Errors Affect Perceived Intelligence?">
+  <header class="sticky top-0 z-50 bg-[var(--color-bg)]/80 backdrop-blur-sm border-b border-[var(--color-border)]">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-lg font-semibold text-[var(--color-accent)]">Typos Study</h1>
+      <ThemeToggle />
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <h2 class="text-3xl font-bold mb-4">
+      Do Grammatical Errors in Social Media Posts Affect the Perception of Authors' Intelligence?
+    </h2>
+    <p class="text-[var(--color-text-muted)]">
+      Layout and theme toggle working. Content migration next.
+    </p>
+  </main>
+</BaseLayout>
